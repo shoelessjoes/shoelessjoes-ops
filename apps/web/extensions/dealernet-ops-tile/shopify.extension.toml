@@ -1,0 +1,11 @@
+api_version = "2025-01"
+
+[[extensions]]
+uid = "c1d2e3f4-a5b6-7890-cdef-123456789abc"
+type = "ui_extension"
+name = "Dealernet Ops"
+handle = "dealernet-ops-tile"
+
+[[extensions.targeting]]
+module = "./src/Tile.jsx"
+target = "pos.home.tile.render"

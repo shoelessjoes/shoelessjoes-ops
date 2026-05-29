@@ -1,0 +1,22 @@
+# Local Postgres for shoelessjoes-ops dev. Production Railway is optional (see docs/RAILWAY_FRESH_START.md).
+services:
+  postgres:
+    image: postgres:16
+    container_name: shoelessjoes-ops-pg
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dealernet_ops
+    volumes:
+      - shoelessjoes_ops_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d dealernet_ops"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  shoelessjoes_ops_pg_data:

@@ -1,0 +1,25 @@
+{
+  "name": "@dealernet-ops/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "job:ingest-offers": "tsx src/jobs/ingest-offers.ts",
+    "job:sync-offers": "tsx src/jobs/sync-offers.ts",
+    "job:poll-messages": "tsx src/jobs/poll-messages.ts",
+    "job:auto-sync-accepted": "tsx src/jobs/auto-sync-accepted.ts"
+  },
+  "dependencies": {
+    "@dealernet-ops/core": "*",
+    "@dealernet-ops/db": "*",
+    "dotenv": "^16.4.7",
+    "tsx": "^4.19.2"
+  },
+  "devDependencies": {
+    
+    "typescript": "^5.7.2"
+  }
+}

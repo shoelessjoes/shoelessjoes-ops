@@ -1,0 +1,219 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Shop {
+  id            String   @id @default(cuid())
+  shopifyDomain String   @unique
+  accessToken   String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  syncRuns           ShopifySyncRun[]
+  offerLines         DealernetOfferLine[]
+  messages           DealernetMessage[]
+  mappingOverrides   ProductMappingOverride[]
+  notifications      NotificationEvent[]
+  jobRuns            JobRun[]
+  priceAlerts        PriceAlert[]
+  priceRecommendations PriceRecommendation[]
+}
+
+model DealernetOffer {
+  id               String   @id @default(cuid())
+  offerId          String
+  offerFilter      String
+  dealer           String?
+  status           String
+  createdAtDn      String?
+  offerTotal       Decimal? @db.Decimal(12, 2)
+  capturedAt       DateTime @default(now())
+  offerDetailUrl   String?
+
+  lines            DealernetOfferLine[]
+
+  @@unique([offerId, offerFilter])
+  @@index([status])
+}
+
+model DealernetOfferLine {
+  id                 String   @id @default(cuid())
+  dealernetOfferId   String
+  dealernetOffer     DealernetOffer @relation(fields: [dealernetOfferId], references: [id], onDelete: Cascade)
+
+  offerId            String
+  offerFilter        String
+  title              String
+  upc                String?
+  qty                Int
+  unitPrice          Decimal? @db.Decimal(12, 2)
+  subtotal           Decimal? @db.Decimal(12, 2)
+  perBoxUnitPrice    Decimal? @db.Decimal(12, 2)
+  unitOfMeasure      String?
+  caseQtyBoxes       Int?
+  trackingNumber     String?
+  listingUrl         String?
+  capturedAt         DateTime @default(now())
+
+  shopId             String?
+  shop               Shop?    @relation(fields: [shopId], references: [id])
+
+  mappingStatus      String   @default("pending")
+  matchedVariantId   String?
+  mappingScore       Float?
+  shopifySyncEventId String?
+
+  @@index([dealernetOfferId])
+  @@index([offerId, offerFilter])
+  @@index([mappingStatus])
+}
+
+model DealernetMessage {
+  id                String   @id @default(cuid())
+  shopId            String
+  shop              Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  messageId         String
+  subject           String?
+  sender            String?
+  sentAt            String?
+  messageUrl        String?
+  offerId           String?
+  referenceOfferId  String?
+  dealerCode        String?
+  messageType       String?
+  body              String?  @db.Text
+  isUnread          Boolean  @default(false)
+  notifiedAt        DateTime?
+  capturedAt        DateTime @default(now())
+
+  @@unique([shopId, messageId])
+  @@index([capturedAt])
+  @@index([messageType])
+  @@index([referenceOfferId])
+}
+
+model ShopifySyncRun {
+  id          String   @id @default(cuid())
+  shopId      String
+  shop        Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  mode        String
+  dryRun      Boolean  @default(true)
+  status      String   @default("running")
+  statsJson   Json?
+  error       String?  @db.Text
+  startedAt   DateTime @default(now())
+  finishedAt  DateTime?
+
+  events      ShopifySyncEvent[]
+}
+
+model ShopifySyncEvent {
+  id                  String   @id @default(cuid())
+  syncRunId           String
+  syncRun             ShopifySyncRun @relation(fields: [syncRunId], references: [id], onDelete: Cascade)
+  offerId             String
+  mode                String
+  idempotencyKey      String   @unique
+  shopifyDraftOrderId String?
+  shopifyOrderId      String?
+  status              String
+  payloadJson         Json?
+  error               String?  @db.Text
+  createdAt           DateTime @default(now())
+}
+
+model ProductMappingOverride {
+  id                  String   @id @default(cuid())
+  shopId              String
+  shop                Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  upc                 String?
+  dealernetTitleNorm  String
+  variantId           String
+  note                String?
+  createdAt           DateTime @default(now())
+
+  @@unique([shopId, dealernetTitleNorm])
+  @@index([shopId, upc])
+}
+
+model PriceRecommendation {
+  id              String   @id @default(cuid())
+  shopId          String
+  shop            Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  variantId       String
+  barcode         String?
+  title           String
+  shopifyPrice    Decimal? @db.Decimal(12, 2)
+  highBuy         Decimal? @db.Decimal(12, 2)
+  lowSell         Decimal? @db.Decimal(12, 2)
+  sold30d         Int      @default(0)
+  action          String
+  suggestedPrice  Decimal? @db.Decimal(12, 2)
+  rationale       String?  @db.Text
+  computedAt      DateTime @default(now())
+
+  @@index([shopId, computedAt])
+  @@index([shopId, action])
+}
+
+model PriceAlert {
+  id          String   @id @default(cuid())
+  shopId      String
+  shop        Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  upc         String?
+  alertType   String
+  price       Decimal  @db.Decimal(12, 2)
+  externalKey String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([shopId, upc])
+}
+
+model NotificationEvent {
+  id          String   @id @default(cuid())
+  shopId      String
+  shop        Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  channel     String
+  subject     String?
+  bodyPreview String?  @db.Text
+  createdAt   DateTime @default(now())
+}
+
+model JobRun {
+  id          String   @id @default(cuid())
+  shopId      String?
+  shop        Shop?    @relation(fields: [shopId], references: [id], onDelete: SetNull)
+  jobName     String
+  status      String   @default("running")
+  metaJson    Json?
+  error       String?  @db.Text
+  startedAt   DateTime @default(now())
+  finishedAt  DateTime?
+}
+
+/// OAuth sessions for the embedded app (`@shopify/shopify-app-session-storage-prisma`).
+model Session {
+  id                  String    @id
+  shop                String
+  state               String    @db.Text
+  isOnline            Boolean   @default(false)
+  scope               String?   @db.Text
+  expires             DateTime?
+  accessToken         String    @db.Text
+  userId              BigInt?
+  firstName           String?
+  lastName            String?
+  email               String?
+  accountOwner        Boolean?
+  locale              String?
+  collaborator        Boolean?
+  emailVerified       Boolean?
+  refreshToken        String?   @db.Text
+  refreshTokenExpires DateTime?
+}

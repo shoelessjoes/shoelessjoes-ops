@@ -1,0 +1,33 @@
+{
+  "name": "dealernet-shopify-ops",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build:packages": "npm run build -w @dealernet-ops/core && npm run build -w @dealernet-ops/db",
+    "build": "npm run build -ws --if-present",
+    "dev:web": "npm run dev -w @dealernet-ops/web",
+    "dev:worker": "npm run dev -w @dealernet-ops/worker",
+    "db:generate": "npm run db:generate -w @dealernet-ops/db",
+    "db:migrate": "npm run db:migrate -w @dealernet-ops/db",
+    "db:migrate:deploy": "npm run db:migrate:deploy -w @dealernet-ops/db",
+    "db:test-connection": "python packages/db/scripts/test-db-connection.py",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:up:wait": "npm run db:up && powershell -NoProfile -ExecutionPolicy Bypass -File scripts/wait-for-postgres.ps1",
+    "job:ingest-offers": "npm run build:packages && npm run job:ingest-offers -w @dealernet-ops/worker",
+    "job:poll-messages": "npm run build:packages && npm run job:poll-messages -w @dealernet-ops/worker",
+    "job:sync-offers": "npm run build:packages && npm run job:sync-offers -w @dealernet-ops/worker",
+    "job:sync-offers:purchase": "npm run job:sync-offers -- purchase",
+    "job:sync-offers:sale": "npm run job:sync-offers -- sale",
+    "job:auto-sync-accepted": "npm run build:packages && npm run job:auto-sync-accepted -w @dealernet-ops/worker",
+    "job:dealernet-cycle": "npm run job:ingest-offers && npm run job:poll-messages && npm run job:auto-sync-accepted",
+    "lint": "npm run lint -ws --if-present",
+    "smoke:orders": "npx tsx packages/core/scripts/smoke-order-creation.ts"
+  },
+  "engines": {
+    "node": ">=20.10.0"
+  }
+}

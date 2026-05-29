@@ -32,7 +32,7 @@ Key folders:
 
 ## Status
 
-- [ ] Copy monorepo scaffold from `dealernet-shopify-ops`
+- [x] Copy monorepo scaffold from `dealernet-shopify-ops` (also verified identical to `dealernet-shopify-ops.zip` @ `5f95a8d`)
 - [ ] Update package names / README if renaming from `@dealernet-ops/*`
-- [ ] Wire Railway / env examples
-- [ ] Smoke-test worker jobs against Postgres
+- [ ] Wire Railway / env examples (optional — see `docs/RAILWAY_FRESH_START.md`; local Docker first)
+- [ ] Smoke-test worker jobs against Postgres (see `docs/DATABASE_SETUP.md`)
