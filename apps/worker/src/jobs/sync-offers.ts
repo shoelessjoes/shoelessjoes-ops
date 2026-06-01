@@ -117,6 +117,38 @@ async function main() {
       },
     });
 
+    const dbOfferIds = new Set(dbLines.map((l) => l.offerId));
+    const pendingOfferIds = new Set(inputs.map((l) => l.offerId));
+    const alreadySyncedOfferIds = [...dbOfferIds].filter((id) => alreadySynced.has(id));
+    const outcomeByStatus: Record<string, number> = {};
+    for (const ev of result.events) {
+      outcomeByStatus[ev.status] = (outcomeByStatus[ev.status] ?? 0) + 1;
+    }
+
+    const output = {
+      summary: {
+        mode,
+        offerFilter,
+        label: mode === "purchase" ? "purchases (Wanted / buy-side)" : "sales (For Sale / sell-side)",
+        dryRun,
+        createMissingProducts: createMissing,
+        acceptedInDb: {
+          offers: dbOfferIds.size,
+          lines: dbLines.length,
+        },
+        alreadySyncedOffers: alreadySyncedOfferIds.length,
+        pendingSync: {
+          offers: pendingOfferIds.size,
+          lines: inputs.length,
+        },
+        outcomeByStatus,
+        linesMapped: result.linesMapped,
+        linesSkippedMissingProduct: result.linesSkippedMissingProduct,
+        linesSkippedUncertainCaseQty: result.linesSkippedUncertainCaseQty,
+      },
+      result,
+    };
+
     for (const ev of result.events) {
       const existing = await prisma.shopifySyncEvent.findUnique({ where: { idempotencyKey: ev.idempotencyKey } });
       if (existing) continue;
@@ -139,11 +171,22 @@ async function main() {
       data: {
         status: "completed",
         finishedAt: new Date(),
-        statsJson: result as unknown as object,
+        statsJson: output as unknown as object,
       },
     });
 
-    console.log(JSON.stringify(result, null, 2));
+    const s = output.summary;
+    console.log(
+      `\n=== sync-offers ${s.mode} (${s.offerFilter}) ${s.dryRun ? "DRY-RUN" : "EXECUTE"} ===\n` +
+        `${s.label}\n` +
+        `DB accepted: ${s.acceptedInDb.offers} offers, ${s.acceptedInDb.lines} lines\n` +
+        `Already synced (skipped): ${s.alreadySyncedOffers} offers\n` +
+        `This run: ${s.pendingSync.offers} offers, ${s.pendingSync.lines} lines → ` +
+        `${s.linesMapped} lines mapped, ${s.linesSkippedMissingProduct} missing product, ` +
+        `${s.linesSkippedUncertainCaseQty} uncertain case qty\n` +
+        `Offer outcomes: ${JSON.stringify(s.outcomeByStatus)}\n`,
+    );
+    console.log(JSON.stringify(output, null, 2));
   } catch (e) {
     await prisma.shopifySyncRun.update({
       where: { id: run.id },
