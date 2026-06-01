@@ -23,6 +23,7 @@ cp apps/web/.env.example apps/web/.env
 cp packages/db/.env.example packages/db/.env
 cp apps/worker/.env.example apps/worker/.env
 npm install
+npm run playwright:install
 npm run db:generate
 npm run db:migrate
 npm run dev:web

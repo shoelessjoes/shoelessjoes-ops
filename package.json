@@ -17,6 +17,7 @@
     "db:up": "docker compose up -d",
     "db:down": "docker compose down",
     "db:up:wait": "npm run db:up && powershell -NoProfile -ExecutionPolicy Bypass -File scripts/wait-for-postgres.ps1",
+    "playwright:install": "npm exec --workspace=@dealernet-ops/core playwright install chromium",
     "job:ingest-offers": "npm run build:packages && npm run job:ingest-offers -w @dealernet-ops/worker",
     "job:poll-messages": "npm run build:packages && npm run job:poll-messages -w @dealernet-ops/worker",
     "job:sync-offers": "npm run build:packages && npm run job:sync-offers -w @dealernet-ops/worker",
