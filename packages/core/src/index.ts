@@ -22,3 +22,10 @@ export {
   type FormattedMessageEmail,
   type DigestMeta,
 } from "./dealernet/digest.js";
+export { parseTrackingFromText, resolveTrackingOfferId } from "./dealernet/tracking.js";
+export {
+  buildPurchaseDraftTags,
+  findDraftOrderIdByOfferTag,
+  updateDraftOrderMetadata,
+} from "./shopify-draft-orders.js";
+export type { ShopifySession } from "./shopify-session.js";

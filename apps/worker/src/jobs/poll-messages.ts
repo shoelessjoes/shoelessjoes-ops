@@ -1,6 +1,7 @@
 import {
   collectDealernetMessages,
   formatMessageDigest,
+  resolveTrackingOfferId,
   sendSmtpAlert,
   type AlertSmtpConfig,
 } from "@dealernet-ops/core";
@@ -72,6 +73,19 @@ async function main() {
       },
     });
     newCount += 1;
+
+    const trackingOfferId = resolveTrackingOfferId(digest.meta);
+    if (digest.meta.tracking && trackingOfferId) {
+      const applied = await prisma.dealernetOfferLine.updateMany({
+        where: { shopId: shop.id, offerId: trackingOfferId },
+        data: { trackingNumber: digest.meta.tracking },
+      });
+      if (applied.count > 0) {
+        console.log(
+          `Applied tracking ${digest.meta.tracking} to offer #${trackingOfferId} (${applied.count} lines)`,
+        );
+      }
+    }
 
     if (isBootstrap) continue;
 

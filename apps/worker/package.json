@@ -10,6 +10,8 @@
     "job:ingest-offers": "tsx src/jobs/ingest-offers.ts",
     "job:sync-offers": "tsx src/jobs/sync-offers.ts",
     "job:poll-messages": "tsx src/jobs/poll-messages.ts",
+    "job:report-purchases": "tsx src/jobs/report-purchases.ts",
+    "job:update-purchase-tracking": "tsx src/jobs/update-purchase-tracking.ts",
     "job:auto-sync-accepted": "tsx src/jobs/auto-sync-accepted.ts"
   },
   "dependencies": {

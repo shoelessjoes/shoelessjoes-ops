@@ -1,10 +1,7 @@
 import type { DealernetMessageRow } from "./messages.js";
 import { classifyMessage, type ClassifiedMessage } from "./classify.js";
-
+import { parseTrackingFromText } from "./tracking.js";
 const BASE = "https://www.dealernetx.com/";
-const TRACKING_RE = /tracking\s*(?:number|#)?\s*[:#]?\s*([A-Z0-9][A-Z0-9-]{6,})/i;
-const ETA_RE =
-  /(?:estimated|expected|eta|arriv\w+|delivery)\s*(?:by|on|date)?\s*[:#]?\s*([A-Za-z0-9 ,/.-]{4,40})/i;
 
 export type DigestMeta = ClassifiedMessage & {
   messageId: string;
@@ -43,9 +40,9 @@ export function formatMessageDigest(row: DealernetMessageRow): FormattedMessageE
     subject = `Dealernet Message - ${classified.prettyType}`;
   }
 
-  const trackingMatch = TRACKING_RE.exec(body);
-  const tracking = trackingMatch ? trackingMatch[1] : null;
-  const etaMatch = ETA_RE.exec(body);
+  const tracking = parseTrackingFromText(body);
+  const etaMatch =
+    /(?:estimated|expected|eta|arriv\w+|delivery)\s*(?:by|on|date)?\s*[:#]?\s*([A-Za-z0-9 ,/.-]{4,40})/i.exec(body);
   const eta = etaMatch ? etaMatch[1].trim() : null;
 
   const lines: string[] = [];

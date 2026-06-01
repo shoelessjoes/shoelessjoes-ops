@@ -202,6 +202,21 @@ Paste at start of session:
 
 ---
 
+## Cursor parallel work (2026-05-28, while Claude does Shopify export)
+
+Implemented in `shoelessjoes-ops` without waiting on shared catalog:
+
+| Feature | Job / file |
+|---------|------------|
+| Inbox tracking → Postgres offer lines | `poll-messages` + `packages/core/src/dealernet/tracking.ts` |
+| Purchase readiness report (UPC match preview) | `npm run job:report-purchases` |
+| Push tracking to existing Shopify draft orders | `npm run job:update-purchase-tracking` (`--execute`) |
+| Purchase flow doc | `docs/PURCHASE_FLOW.md` |
+
+See `docs/PURCHASE_FLOW.md` for recommended job order.
+
+---
+
 ## Related docs in this repo
 
 - `docs/DATABASE_SETUP.md` — local Docker Postgres

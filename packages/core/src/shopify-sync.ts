@@ -1,6 +1,8 @@
 import { normalizeUpc } from "./normalize.js";
 import type { VariantIndexEntry } from "./mapping.js";
+import type { ShopifySession } from "./shopify-session.js";
 
+export type { ShopifySession };
 export type SyncMode = "purchase" | "sale";
 
 export type SyncOfferLineInput = {
@@ -37,12 +39,6 @@ export type SyncResult = {
     shopifyOrderId?: string;
     error?: string;
   }>;
-};
-
-type ShopifySession = {
-  shopDomain: string;
-  accessToken: string;
-  apiVersion: string;
 };
 
 async function shopifyPost<T>(session: ShopifySession, path: string, body: unknown): Promise<T> {
