@@ -25,8 +25,13 @@ function parseArgs() {
   return { mode, dryRun, createMissing };
 }
 
+function offerFilterForMode(mode: SyncMode): string {
+  return mode === "purchase" ? "PURCHASESUNRATED" : "SALESUNRATED";
+}
+
 async function main() {
   const { mode, dryRun, createMissing } = parseArgs();
+  const offerFilter = offerFilterForMode(mode);
   const shop = await getOrCreateShopFromEnv();
   const apiVersion = optionalEnv("SHOPIFY_API_VERSION") ?? "2024-10";
   const accessToken = (shop.accessToken && shop.accessToken.trim()) || requireEnv("SHOPIFY_ACCESS_TOKEN");
@@ -51,6 +56,7 @@ async function main() {
     const dbLines = await prisma.dealernetOfferLine.findMany({
       where: {
         shopId: shop.id,
+        offerFilter,
         dealernetOffer: { status: { equals: "ACCEPTED", mode: "insensitive" } },
       },
       include: { dealernetOffer: true },

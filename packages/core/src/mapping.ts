@@ -1,5 +1,5 @@
 import { extract, token_set_ratio } from "fuzzball";
-import { normalizeDealernetTitle, normalizeUpc } from "./normalize.js";
+import { normalizeDealernetTitle, normalizeUpc, normalizeUpcCandidates } from "./normalize.js";
 
 export type VariantIndexEntry = {
   variantId: string;
@@ -18,8 +18,12 @@ export function matchOfferLineToVariant(
   index: VariantIndexEntry[],
   overrides: Map<string, string>,
 ): MatchResult {
-  const upc = normalizeUpc(line.upc);
-  if (upc) {
+  const upcCandidates = normalizeUpcCandidates(line.upc);
+  if (!upcCandidates.length && line.upc) {
+    const single = normalizeUpc(line.upc);
+    if (single) upcCandidates.push(single);
+  }
+  for (const upc of upcCandidates) {
     const o = overrides.get(`upc:${upc}`);
     if (o) return { variantId: o, score: null, method: "override" };
     const byBarcode = index.find((e) => normalizeUpc(e.barcode) === upc);
@@ -27,6 +31,7 @@ export function matchOfferLineToVariant(
   }
 
   const normTitle = normalizeDealernetTitle(line.title);
+  if (!normTitle) return { variantId: null, score: null, method: "none" };
   const oTitle = overrides.get(`title:${normTitle}`);
   if (oTitle) return { variantId: oTitle, score: null, method: "override" };
 

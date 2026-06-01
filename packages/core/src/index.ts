@@ -1,4 +1,4 @@
-export { normalizeUpc, normalizeDealernetTitle } from "./normalize.js";
+export { normalizeUpc, normalizeUpcCandidates, normalizeDealernetTitle } from "./normalize.js";
 export { matchOfferLineToVariant, type VariantIndexEntry } from "./mapping.js";
 export type { DealernetLoginConfig } from "./dealernet/types.js";
 export { recommendPriceAction, type PriceInputs, type PriceAction } from "./pricing.js";
