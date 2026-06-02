@@ -1,6 +1,7 @@
 # Handoff to Claude Code — Dealernet / Shopify Ops
 
-**Last updated:** 2026-05-28  
+**Last updated:** 2026-05-29  
+**Master handoff (all agents, all streams):** [`AGENT_HANDOFF.md`](AGENT_HANDOFF.md)  
 **From:** Cursor session (local setup + migration)  
 **Read with:** `../shoelessjoes-supplier-py/docs/HANDOFF_CLAUDE.md` (Python pricer) and `../../shoelessjoes-storefront/docs/HANDOFF.md` (storefront)
 
@@ -38,7 +39,7 @@ The owner believes **Claude’s fuller Shopify integration** may be the better h
 | `npm run db:migrate` | ✅ Against localhost |
 | `npm run playwright:install` | ✅ Required once for worker jobs |
 | `npm run job:ingest-offers` | ✅ 23 lines / 17 offers → Postgres |
-| `npm run job:sync-offers` | ⏸ Not run to execute (dry-run only if attempted) |
+| `npm run job:sync-offers` | ⏸ Dry-run validated; owner ran **live purchase execute** ~2026-05-29 — verify Admin tomorrow |
 | Railway production DB | ❌ Intentionally abandoned for now |
 
 ---
