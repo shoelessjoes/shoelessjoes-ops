@@ -217,3 +217,24 @@ model Session {
   refreshToken        String?   @db.Text
   refreshTokenExpires DateTime?
 }
+
+model ProductCatalog {
+  id                String   @id @default(cuid())
+  barcode           String?              // UPC — primary match key
+  variantId         String   @unique     // gid://shopify/ProductVariant/...
+  productId         String
+  productTitle      String
+  variantTitle      String?
+  sku               String?
+  productType       String?
+  vendor            String?
+  tags              String?
+  price             Decimal? @db.Decimal(12, 2)
+  unitCost          Decimal? @db.Decimal(12, 2)
+  inventoryQuantity Int?
+  status            String?
+  syncedAt          DateTime @default(now())
+
+  @@index([barcode])
+  @@index([productType])
+}

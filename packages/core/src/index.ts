@@ -2,6 +2,8 @@ export { normalizeUpc, normalizeUpcCandidates, normalizeDealernetTitle } from ".
 export { matchOfferLineToVariant, type VariantIndexEntry } from "./mapping.js";
 export type { DealernetLoginConfig } from "./dealernet/types.js";
 export { recommendPriceAction, type PriceInputs, type PriceAction } from "./pricing.js";
+export { exportSealedCatalog } from "./shopify/catalog-export.js";
+export type { CatalogRow } from "./shopify/catalog-export.js";
 export {
   syncAcceptedOffersToShopify,
   fetchVariantIndex,
