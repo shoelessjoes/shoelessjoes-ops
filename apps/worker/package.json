@@ -12,7 +12,10 @@
     "job:poll-messages": "tsx src/jobs/poll-messages.ts",
     "job:report-purchases": "tsx src/jobs/report-purchases.ts",
     "job:update-purchase-tracking": "tsx src/jobs/update-purchase-tracking.ts",
-    "job:auto-sync-accepted": "tsx src/jobs/auto-sync-accepted.ts"
+    "job:auto-sync-accepted": "tsx src/jobs/auto-sync-accepted.ts",
+    "job:vending-probe-login": "tsx src/jobs/vending-probe-login.ts",
+    "job:vending-diagnose-import": "tsx src/jobs/vending-diagnose-import.ts",
+    "job:vending-sync-shopify-mirror": "tsx src/jobs/vending-sync-shopify-mirror.ts"
   },
   "dependencies": {
     "@dealernet-ops/core": "*",

@@ -22,6 +22,7 @@ model Shop {
   jobRuns            JobRun[]
   priceAlerts        PriceAlert[]
   priceRecommendations PriceRecommendation[]
+  vendingMirrors     VendingProductMirror[]
 }
 
 model DealernetOffer {
@@ -237,4 +238,30 @@ model ProductCatalog {
 
   @@index([barcode])
   @@index([productType])
+}
+
+/// Shopify variant mirrored for Zhongda vending machines (price/qty sync — Phase 2+).
+model VendingProductMirror {
+  id              String   @id @default(cuid())
+  shopId          String
+  shop            Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  variantId       String
+  barcode         String?
+  sku             String?
+  productTitle    String
+  variantTitle    String?
+  shopifyPrice    Decimal? @db.Decimal(12, 2)
+  shopifyQty      Int?
+  zhongdaSku      String?
+  zhongdaPrice    Decimal? @db.Decimal(12, 2)
+  zhongdaQty      Int?
+  syncStatus      String   @default("shopify_only")
+  lastError       String?  @db.Text
+  syncedAt        DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([shopId, variantId])
+  @@index([shopId, barcode])
+  @@index([shopId, syncStatus])
 }

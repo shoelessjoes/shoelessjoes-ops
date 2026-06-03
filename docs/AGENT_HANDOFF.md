@@ -290,6 +290,7 @@ Do not use old Railway DATABASE_URL. Shop domain: qebynk-b0.myshopify.com
 | UPC match | `packages/core/src/mapping.ts` |
 | Shopify sync | `packages/core/src/shopify-sync.ts` |
 | Email invoice seed | `../shoelessjoes-supplier-py/integrations/google_apps_script/` |
+| Vending (Zhongda Cloud) | `docs/VENDING_ZHONGDA.md`, `configs/zhongda.vending.json` |
 
 ---
 

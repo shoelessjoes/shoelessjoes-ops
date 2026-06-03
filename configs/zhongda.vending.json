@@ -1,0 +1,23 @@
+{
+  "name": "Zhongda Cloud (US vending backend)",
+  "loginUrl": "https://us.zhongdacloud.com/web/#/login",
+  "usernameSelector": "#normal_login_username",
+  "passwordSelector": "#normal_login_password",
+  "submitSelectors": [
+    "form button.ant-btn-primary",
+    "button.ant-btn-primary",
+    "form button[type='submit']",
+    "button[type='submit']"
+  ],
+  "successUrlExcludes": ["#/login"],
+  "successSelectors": [
+    ".ant-layout-sider",
+    ".ant-layout",
+    "[class*='layout']"
+  ],
+  "notes": [
+    "Credentials live in apps/worker/.env (ZHONGDA_USERNAME, ZHONGDA_PASSWORD) — never commit them.",
+    "The element <div class=\"ant-message\"> is Ant Design's toast area, NOT the login button.",
+    "If login fails, run: npm run job:vending-probe-login -- --headed and note the real submit button selector."
+  ]
+}

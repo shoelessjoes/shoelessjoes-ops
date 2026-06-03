@@ -31,3 +31,10 @@ export {
   updateDraftOrderMetadata,
 } from "./shopify-draft-orders.js";
 export type { ShopifySession } from "./shopify-session.js";
+export type {
+  ZhongdaVendingConfig,
+  ZhongdaProbeResult,
+  ZhongdaNetworkLogEntry,
+} from "./zhongda/types.js";
+export { zhongdaLogin, zhongdaLoginLooksSuccessful } from "./zhongda/login.js";
+export { probeZhongdaLogin, diagnoseZhongdaSession } from "./zhongda/probe.js";

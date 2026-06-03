@@ -10,3 +10,4 @@ build/
 .turbo
 apps/web/public/build/
 apps/web/.shopify/
+data/vending-probes/

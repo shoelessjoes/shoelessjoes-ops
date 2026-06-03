@@ -28,6 +28,9 @@
     "job:sync-offers:sale": "npm run job:sync-offers -- sale",
     "job:auto-sync-accepted": "npm run build:packages && npm run job:auto-sync-accepted -w @dealernet-ops/worker",
     "job:dealernet-cycle": "npm run job:ingest-offers && npm run job:poll-messages && npm run job:auto-sync-accepted",
+    "job:vending-probe-login": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/vending-probe-login.ts",
+    "job:vending-diagnose-import": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/vending-diagnose-import.ts",
+    "job:vending-sync-shopify-mirror": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/vending-sync-shopify-mirror.ts",
     "lint": "npm run lint -ws --if-present",
     "smoke:orders": "npx tsx packages/core/scripts/smoke-order-creation.ts"
   },
