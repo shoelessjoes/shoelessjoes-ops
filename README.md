@@ -1,6 +1,12 @@
 # Dealernet Shopify Ops
 
-Embedded Shopify app + workers for Dealernet offer sync, inbox relay, pricing ops, and POS launcher.
+Embedded Shopify app + workers for Dealernet offer sync, inbox relay, pricing ops, POS launcher, and Zhongda vending.
+
+## Where we left off (2026-06-03)
+
+**Dealernet / Shopify ops** — Local Docker Postgres + worker jobs validated; first **live purchase sync** was run after clearing old offers — **verify draft orders in Shopify Admin** before trusting automation. Railway redeploy is planned (inbox poll on a cron, not full `dealernet-cycle` with auto-sale sync yet). Price-table scrape + Dealernet **price alerts** live in sibling repo `shoelessjoes-supplier-py`; shared sealed catalog export (`job:export-catalog`) still wiring up. Master handoff: `docs/AGENT_HANDOFF.md`.
+
+**Zhongda vending** (`docs/VENDING_ZHONGDA.md`) — Login probe works (`npm run job:vending-probe-login -- --headed`). CSV import API responds; failure seen was **fewer than 3 data columns** — fix CSV using **Goods list → Export** as template, then re-import. `VendingProductMirror` table + `job:vending-sync-shopify-mirror` ready after `job:export-catalog`. **Next:** capture price-edit API (diagnose run while editing one product), map Shopify UPCs → Zhongda goods, optional TCGplayer bridge for Pokémon.
 
 ## Monorepo layout
 
@@ -85,3 +91,14 @@ If you are using Railway cron, point the cron command at the root scripts above 
 `npm run job:dealernet-cycle` for a one-shot ingest+notify+sync, or `npm run job:auto-sync-accepted`
 on its own). These root scripts ensure `@dealernet-ops/core` and `@dealernet-ops/db` are built
 before the job runs, avoiding runtime `ERR_MODULE_NOT_FOUND` for `@dealernet-ops/core/dist/index.js`.
+
+### Worker jobs (Zhongda vending)
+
+```bash
+npm run job:vending-probe-login -- --headed
+npm run job:vending-diagnose-import -- --headed --observe-ms 300000
+npm run job:export-catalog
+npm run job:vending-sync-shopify-mirror
+```
+
+Set `ZHONGDA_USERNAME` / `ZHONGDA_PASSWORD` in `apps/worker/.env`. See `configs/zhongda.vending.json` for selectors.
