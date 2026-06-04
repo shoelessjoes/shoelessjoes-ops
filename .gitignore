@@ -11,3 +11,4 @@ build/
 apps/web/public/build/
 apps/web/.shopify/
 data/vending-probes/
+data/zhongda-goods-snapshot.json

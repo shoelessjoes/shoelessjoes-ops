@@ -6,7 +6,17 @@ Embedded Shopify app + workers for Dealernet offer sync, inbox relay, pricing op
 
 **Dealernet / Shopify ops** — Local Docker Postgres + worker jobs validated; first **live purchase sync** was run after clearing old offers — **verify draft orders in Shopify Admin** before trusting automation. Railway redeploy is planned (inbox poll on a cron, not full `dealernet-cycle` with auto-sale sync yet). Price-table scrape + Dealernet **price alerts** live in sibling repo `shoelessjoes-supplier-py`; shared sealed catalog export (`job:export-catalog`) still wiring up. Master handoff: `docs/AGENT_HANDOFF.md`.
 
-**Zhongda vending** (`docs/VENDING_ZHONGDA.md`) — Login probe works (`npm run job:vending-probe-login -- --headed`). CSV import API responds; failure seen was **fewer than 3 data columns** — fix CSV using **Goods list → Export** as template, then re-import. `VendingProductMirror` table + `job:vending-sync-shopify-mirror` ready after `job:export-catalog`. **Next:** capture price-edit API (diagnose run while editing one product), map Shopify UPCs → Zhongda goods, optional TCGplayer bridge for Pokémon.
+**Zhongda vending** (`docs/VENDING_ZHONGDA.md`) — Login probe OK. CSV import needs **≥3 columns** per row (use Goods list → Export as template). **REST API works:** `job:vending-fetch-zhongda-snapshot` pulled **196 goods** without Playwright. Full pipeline (needs valid `DATABASE_URL` in `apps/worker/.env` matching Docker):
+
+```bash
+npm run job:export-catalog
+npm run job:vending-sync-shopify-mirror
+npm run job:vending-fetch-zhongda-goods
+npm run job:vending-reconcile
+npm run job:vending-report-prices -- --diff-only
+```
+
+**Next:** capture price-edit API in Zhongda UI; push Shopify → Zhongda price updates; Remix view for stock/price diffs.
 
 ## Monorepo layout
 
@@ -96,9 +106,15 @@ before the job runs, avoiding runtime `ERR_MODULE_NOT_FOUND` for `@dealernet-ops
 
 ```bash
 npm run job:vending-probe-login -- --headed
-npm run job:vending-diagnose-import -- --headed --observe-ms 300000
+npm run job:vending-fetch-zhongda-snapshot
 npm run job:export-catalog
 npm run job:vending-sync-shopify-mirror
+npm run job:vending-fetch-zhongda-goods
+npm run job:vending-reconcile
+npm run job:vending-report-prices -- --diff-only
+npm run job:vending-price-check
 ```
 
-Set `ZHONGDA_USERNAME` / `ZHONGDA_PASSWORD` in `apps/worker/.env`. See `configs/zhongda.vending.json` for selectors.
+**Scheduled:** `.\scripts\vending\register-scheduled-tasks.ps1` (2×/day price check). See `docs/VENDING_ZHONGDA.md`.
+
+Set `ZHONGDA_*`, `SHOPIFY_*`, `CATALOG_PRODUCT_TYPES`, and `DATABASE_URL` in `apps/worker/.env`.

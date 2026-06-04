@@ -23,6 +23,7 @@ model Shop {
   priceAlerts        PriceAlert[]
   priceRecommendations PriceRecommendation[]
   vendingMirrors     VendingProductMirror[]
+  zhongdaGoods       ZhongdaGoods[]
 }
 
 model DealernetOffer {
@@ -252,8 +253,11 @@ model VendingProductMirror {
   variantTitle    String?
   shopifyPrice    Decimal? @db.Decimal(12, 2)
   shopifyQty      Int?
+  zhongdaGoodsId  Int?
   zhongdaSku      String?
+  zhongdaGoodsName String?
   zhongdaPrice    Decimal? @db.Decimal(12, 2)
+  zhongdaCost     Decimal? @db.Decimal(12, 2)
   zhongdaQty      Int?
   syncStatus      String   @default("shopify_only")
   lastError       String?  @db.Text
@@ -264,4 +268,27 @@ model VendingProductMirror {
   @@unique([shopId, variantId])
   @@index([shopId, barcode])
   @@index([shopId, syncStatus])
+  @@index([shopId, zhongdaGoodsId])
+}
+
+/// Cached Zhongda goods list (refreshed via REST API).
+model ZhongdaGoods {
+  id            String   @id @default(cuid())
+  shopId        String
+  shop          Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  zhongdaId     Int
+  goodsNo       String?
+  goodsName     String
+  costPrice     Decimal? @db.Decimal(12, 2)
+  sellPrice     Decimal? @db.Decimal(12, 2)
+  marketPrice   Decimal? @db.Decimal(12, 2)
+  categoryName  String?
+  brandName     String?
+  unitName      String?
+  imageUrl      String?
+  syncedAt      DateTime @default(now())
+
+  @@unique([shopId, zhongdaId])
+  @@index([shopId, goodsName])
+  @@index([shopId, goodsNo])
 }

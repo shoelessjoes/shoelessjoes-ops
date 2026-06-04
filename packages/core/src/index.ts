@@ -38,3 +38,17 @@ export type {
 } from "./zhongda/types.js";
 export { zhongdaLogin, zhongdaLoginLooksSuccessful } from "./zhongda/login.js";
 export { probeZhongdaLogin, diagnoseZhongdaSession } from "./zhongda/probe.js";
+export type { ZhongdaApiConfig, ZhongdaGoodsRow } from "./zhongda/api-types.js";
+export { ZhongdaApiError } from "./zhongda/api-types.js";
+export {
+  zhongdaApiLogin,
+  fetchAllZhongdaGoods,
+  fetchZhongdaGoodsPage,
+  fetchZhongdaGoodsDetail,
+  updateZhongdaGoodsPrice,
+} from "./zhongda/api.js";
+export {
+  matchShopifyToZhongdaGoods,
+  parseMoney as parseZhongdaMoney,
+  type ZhongdaMatchResult,
+} from "./zhongda/match.js";

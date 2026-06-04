@@ -24,6 +24,62 @@
 | `npm run job:vending-diagnose-import -- --headed --observe-ms 180000` | Capture API traffic while you try CSV import |
 | `npm run job:vending-sync-shopify-mirror` | Copy `ProductCatalog` → `VendingProductMirror` in Postgres |
 
+| `npm run job:vending-fetch-zhongda-snapshot` | Pull all Zhongda goods via REST → `data/zhongda-goods-snapshot.json` (no DB) |
+| `npm run job:vending-fetch-zhongda-goods` | Same catalog → `ZhongdaGoods` table |
+| `npm run job:vending-reconcile` | Title-match Shopify mirror rows to Zhongda goods |
+| `npm run job:vending-report-prices` | Print Shopify vs Zhongda prices (`--diff-only` for mismatches) |
+| `npm run job:vending-price-check` | **Scheduled job:** export Shopify → mirror → Zhongda → reconcile → diff report |
+
+## Scheduled runs (recommended)
+
+**One command** refreshes Shopify inventory/prices and compares to Zhongda:
+
+```powershell
+npm run job:vending-price-check
+```
+
+Exit code `2` = mismatches found (useful for Task Scheduler / monitoring). Exit `0` = all linked prices match.
+
+### Windows Task Scheduler (shop PC)
+
+```powershell
+cd C:\Users\burke\Git2\shoelessjoes-ops
+.\scripts\vending\register-scheduled-tasks.ps1 -MorningTime "06:30" -AfternoonTime "14:00"
+```
+
+Default: **6:30 AM** and **2:00 PM** daily. Add `-EveningTime "20:00"` for a third run.
+
+Requires `apps/worker/.env` with `DATABASE_URL`, `SHOPIFY_*`, `ZHONGDA_*`, and `CATALOG_PRODUCT_TYPES`.
+
+Optional email when mismatches exist:
+
+```env
+VENDING_PRICE_CHECK_EMAIL=1
+VENDING_REPORT_IN_STOCK_ONLY=1
+ALERT_SMTP_HOST=...
+ALERT_FROM_EMAIL=...
+ALERT_TO_EMAILS=you@example.com
+```
+
+### Railway (optional cloud cron)
+
+Separate cron service (not `dealernet-cycle`):
+
+```bash
+npm run job:vending-price-check
+```
+
+Suggested: **2×/day** (e.g. `0 11,23 * * *` UTC) or match shop hours in `America/Detroit`.
+
+### vs Dealernet pricing (`shoelessjoes-supplier-py`)
+
+| Job | Compares |
+|-----|----------|
+| `job:vending-price-check` | **Shopify** sell price + **inventory qty** vs **Zhongda** machine sell price |
+| supplier-py `run-profile` | Dealernet **pricing table** vs Shopify (margin, alerts) |
+
+Run both on different schedules; they do not replace each other.
+
 **Login selectors (confirmed):**
 
 - Username: `#normal_login_username`
@@ -87,8 +143,8 @@ flowchart LR
 | Phase | Work |
 |-------|------|
 | **1** (now) | Login probe, import network diagnose, Shopify mirror table |
-| **2** | Discover product list + create/update APIs or form automation after login |
-| **3** | Push price/qty from mirror when Shopify or Dealernet suggests change |
+| **2** (now) | REST fetch goods (`/sapi/goods`), reconcile to Shopify mirror, price diff report |
+| **3** | Push price/qty from mirror when Shopify changes (capture edit API first) |
 | **4** | Remix admin: machine stock vs `shopifyQty`, restock queue |
 | **5** | TCGplayer bridge for Pokémon machine SKUs |
 

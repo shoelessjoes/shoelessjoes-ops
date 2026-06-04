@@ -15,7 +15,11 @@
     "job:auto-sync-accepted": "tsx src/jobs/auto-sync-accepted.ts",
     "job:vending-probe-login": "tsx src/jobs/vending-probe-login.ts",
     "job:vending-diagnose-import": "tsx src/jobs/vending-diagnose-import.ts",
-    "job:vending-sync-shopify-mirror": "tsx src/jobs/vending-sync-shopify-mirror.ts"
+    "job:vending-sync-shopify-mirror": "tsx src/jobs/vending-sync-shopify-mirror.ts",
+    "job:vending-fetch-zhongda-goods": "tsx src/jobs/vending-fetch-zhongda-goods.ts",
+    "job:vending-reconcile": "tsx src/jobs/vending-reconcile.ts",
+    "job:vending-report-prices": "tsx src/jobs/vending-report-prices.ts",
+    "job:vending-price-check": "tsx src/jobs/vending-price-check.ts"
   },
   "dependencies": {
     "@dealernet-ops/core": "*",

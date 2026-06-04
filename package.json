@@ -31,6 +31,11 @@
     "job:vending-probe-login": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/vending-probe-login.ts",
     "job:vending-diagnose-import": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/vending-diagnose-import.ts",
     "job:vending-sync-shopify-mirror": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/vending-sync-shopify-mirror.ts",
+    "job:vending-fetch-zhongda-goods": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/vending-fetch-zhongda-goods.ts",
+    "job:vending-reconcile": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/vending-reconcile.ts",
+    "job:vending-report-prices": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/vending-report-prices.ts",
+    "job:vending-fetch-zhongda-snapshot": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/vending-fetch-zhongda-snapshot.ts",
+    "job:vending-price-check": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/vending-price-check.ts",
     "lint": "npm run lint -ws --if-present",
     "smoke:orders": "npx tsx packages/core/scripts/smoke-order-creation.ts"
   },
