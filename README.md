@@ -4,19 +4,15 @@ Embedded Shopify app + workers for Dealernet offer sync, inbox relay, pricing op
 
 ## Where we left off (2026-06-03)
 
-**Dealernet / Shopify ops** — Local Docker Postgres + worker jobs validated; first **live purchase sync** was run after clearing old offers — **verify draft orders in Shopify Admin** before trusting automation. Railway redeploy is planned (inbox poll on a cron, not full `dealernet-cycle` with auto-sale sync yet). Price-table scrape + Dealernet **price alerts** live in sibling repo `shoelessjoes-supplier-py`; shared sealed catalog export (`job:export-catalog`) still wiring up. Master handoff: `docs/AGENT_HANDOFF.md`.
+**Focus:** Dealernet **active stock** + **pricing table vs Shopify UPCs** — not bulk Zhongda catalog diffing. See `docs/PRIORITIES.md`.
 
-**Zhongda vending** (`docs/VENDING_ZHONGDA.md`) — Login probe OK. CSV import needs **≥3 columns** per row (use Goods list → Export as template). **REST API works:** `job:vending-fetch-zhongda-snapshot` pulled **196 goods** without Playwright. Full pipeline (needs valid `DATABASE_URL` in `apps/worker/.env` matching Docker):
+**Active stock** (3×/day): `.\scripts\ops\run-active-stock.ps1` — ingest, poll, export catalog, UPC tiers, purchase dry-run. Register: `.\scripts\ops\register-scheduled-tasks.ps1`.
 
-```bash
-npm run job:export-catalog
-npm run job:vending-sync-shopify-mirror
-npm run job:vending-fetch-zhongda-goods
-npm run job:vending-reconcile
-npm run job:vending-report-prices -- --diff-only
-```
+**Dealernet price checks:** `.\scripts\ops\run-dealernet-pricing.ps1 -Profile daily -IncludeReview` — ops exports sealed Shopify catalog → supplier-py scrapes Dealernet pricing table → match on UPC → review pack / alerts (weekly).
 
-**Next:** capture price-edit API in Zhongda UI; push Shopify → Zhongda price updates; Remix view for stock/price diffs.
+**Purchases:** First live purchase sync done — verify Shopify drafts. Automate execute when trusted.
+
+**Zhongda (deferred narrow scope):** Only machine-assigned SKUs; Shopify price change → update Zhongda; new purchase → placeholder product with **450×450** thumbnail. Tools in `docs/VENDING_ZHONGDA.md`.
 
 ## Monorepo layout
 
@@ -102,7 +98,15 @@ If you are using Railway cron, point the cron command at the root scripts above 
 on its own). These root scripts ensure `@dealernet-ops/core` and `@dealernet-ops/db` are built
 before the job runs, avoiding runtime `ERR_MODULE_NOT_FOUND` for `@dealernet-ops/core/dist/index.js`.
 
-### Worker jobs (Zhongda vending)
+### Ops schedules (Dealernet + Shopify — primary)
+
+```powershell
+.\scripts\ops\run-active-stock.ps1
+.\scripts\ops\run-dealernet-pricing.ps1 -Profile daily -IncludeReview
+.\scripts\ops\register-scheduled-tasks.ps1
+```
+
+### Worker jobs (Zhongda vending — secondary)
 
 ```bash
 npm run job:vending-probe-login -- --headed
