@@ -2,17 +2,99 @@
 
 Embedded Shopify app + workers for Dealernet offer sync, inbox relay, pricing ops, POS launcher, and Zhongda vending.
 
-## Where we left off (2026-06-03)
+## Where we left off (2026-06-05)
 
-**Focus:** Dealernet **active stock** + **pricing table vs Shopify UPCs** — not bulk Zhongda catalog diffing. See `docs/PRIORITIES.md`.
+**Focus:** Dealernet **active stock** + **pricing table vs Shopify UPCs**. Zhongda vending is secondary (machine-assigned SKUs only). See `docs/PRIORITIES.md`.
 
-**Active stock** (3×/day): `.\scripts\ops\run-active-stock.ps1` — ingest, poll, export catalog, UPC tiers, purchase dry-run. Register: `.\scripts\ops\register-scheduled-tasks.ps1`.
+### Dealernet pricing (validated on shop PC)
 
-**Dealernet price checks:** `.\scripts\ops\run-dealernet-pricing.ps1 -Profile daily -IncludeReview` — ops exports sealed Shopify catalog → supplier-py scrapes Dealernet pricing table → match on UPC → review pack / alerts (weekly).
+End-to-end run succeeded (~15 min; scrape is the slow part):
 
-**Purchases:** First live purchase sync done — verify Shopify drafts. Automate execute when trusted.
+| Step | Result |
+|------|--------|
+| `job:export-catalog` | **509** sealed Shopify variants → `ProductCatalog` + `data/sealed-catalog.csv` |
+| `job:export-upc-tiers` | **238** in-stock UPCs, **264** OOS, **502** total barcodes |
+| supplier-py scrape (daily) | Dealernet pricing table for in-stock UPCs |
+| match + review pack | Ranked opportunities |
 
-**Zhongda (deferred narrow scope):** Only machine-assigned SKUs; Shopify price change → update Zhongda; new purchase → placeholder product with **450×450** thumbnail. Tools in `docs/VENDING_ZHONGDA.md`.
+**Run manually:**
+
+```powershell
+.\scripts\ops\run-dealernet-pricing.ps1 -Profile daily -IncludeReview
+.\scripts\ops\run-dealernet-pricing-debug.ps1   # same + log at data/pricing-run.log
+```
+
+**Review outputs** (open after each run):
+
+| File | Purpose |
+|------|---------|
+| `..\shoelessjoes-supplier-py\out\review\email_summary.html` | Human-readable summary (open in browser) |
+| `..\shoelessjoes-supplier-py\out\review\review_priority.csv` | Top raise/lower/restock/margin rows |
+| `..\shoelessjoes-supplier-py\out\review\shopify_price_update_candidates.csv` | Shopify price change candidates |
+| `..\shoelessjoes-supplier-py\out\matches_daily.csv` | Full UPC match + bid/ask vs Shopify |
+
+**Prerequisites:** `apps/worker/.env` (`DATABASE_URL`, `SHOPIFY_*`, `CATALOG_PRODUCT_TYPES`, `DEALERNET_*`). Script forwards Dealernet creds to supplier-py. One-time in supplier-py venv:
+
+```powershell
+cd ..\shoelessjoes-supplier-py
+.\.venv\Scripts\python.exe -m playwright install chromium
+```
+
+**Schedule:** `.\scripts\ops\register-scheduled-tasks.ps1` — active stock 3×/day, pricing daily + weekly (weekly includes alerts).
+
+### Active stock + purchases
+
+```powershell
+.\scripts\ops\run-active-stock.ps1   # ingest, poll, catalog, UPC tiers, purchase dry-run
+```
+
+First live purchase sync done — verify Shopify drafts before `sync-offers -- purchase --execute`.
+
+### Zhongda (deferred)
+
+Machine-assigned SKUs only; purchase → placeholder with **450×450** thumbnail. `docs/VENDING_ZHONGDA.md`.
+
+---
+
+## Visual dashboard options
+
+| Tier | Option | Best for |
+|------|--------|----------|
+| **Now (zero build)** | `email_summary.html` + CSVs after `run-dealernet-pricing` | Daily review on shop PC |
+| **Near-term** | **Remix app** (`apps/web`) embedded in Shopify Admin — read `ProductCatalog`, `matches_*`, inbound queue | One pane: Shopify context + Dealernet pricing + purchase drafts |
+| **Analytics assist** | Feed `matches_daily.csv` / `review_priority.csv` to Claude (or ingest into Postgres `PriceRecommendation`) | Fuzzy match review, Pokémon/TCGplayer gaps, false positives |
+| **BI** | Metabase or Retool on Docker Postgres | Charts: margin drift, in-stock vs bid, alert hit rate |
+| **Stretch goal** | **Shopify POS UI extension** (smart grid tile) | Scan UPC → show Shopify qty, Dealernet bid, vending slot — no leaving POS |
+
+POS-in-app is realistic via [POS UI extensions](https://shopify.dev/docs/api/pos-ui-extensions) (read-only first: catalog + last match). Full Dealernet scrape inside POS is not practical; show **cached** data from Postgres/API refreshed by scheduled jobs.
+
+---
+
+## Dealernet price alerts — next steps
+
+Alerts = supplier-py submits **Wanted/For Sale** prices on Dealernet (`add-alerts`), so you get notified when the market crosses your price (faster than dealers who only check hourly inbox).
+
+1. **Review matches** — open `email_summary.html`; confirm UPC matches and `raise_price` / `lower_price` / `restock_opportunity` look sane.
+2. **Dry-run alerts** (no writes to Dealernet):
+
+   ```powershell
+   cd ..\shoelessjoes-supplier-py
+   .\.venv\Scripts\python.exe -m src.main add-alerts `
+     --supplier-config configs/dealernetx.weekly.yaml `
+     --matches out/matches_weekly.csv `
+     --price-source suggested --min-priority-bucket high `
+     --max-alerts 25 --dry-run
+   ```
+
+3. **Weekly execute** (already wired in `scripts/ops/scheduled/dealernet-pricing-weekly.cmd`):
+
+   ```powershell
+   .\scripts\ops\run-dealernet-pricing.ps1 -Profile weekly -IncludeReview -IncludeAlerts -AlertMax 25
+   ```
+
+4. **Tune before cranking volume:** `min-priority-bucket urgent` or `high`, `--require-in-stock` for Wanted alerts, cap `--max-alerts` (10–25/day). Separate **daily** = scrape/match only; **weekly** = full barcode pass + alerts.
+5. **After trust:** register schedules with `.\scripts\ops\register-scheduled-tasks.ps1`; optional Railway cron for active stock only (pricing stays on shop PC while Playwright runs locally).
+6. **Later:** persist `matches_*.csv` rows into Postgres `PriceRecommendation` and surface in Remix admin / POS tile instead of CSV-only.
 
 ## Monorepo layout
 
@@ -103,8 +185,11 @@ before the job runs, avoiding runtime `ERR_MODULE_NOT_FOUND` for `@dealernet-ops
 ```powershell
 .\scripts\ops\run-active-stock.ps1
 .\scripts\ops\run-dealernet-pricing.ps1 -Profile daily -IncludeReview
+.\scripts\ops\run-dealernet-pricing.ps1 -Profile weekly -IncludeReview -IncludeAlerts -AlertMax 25
 .\scripts\ops\register-scheduled-tasks.ps1
 ```
+
+Set `CATALOG_PRODUCT_TYPES` in `apps/worker/.env` (exact sealed product types from Shopify Admin).
 
 ### Worker jobs (Zhongda vending — secondary)
 
