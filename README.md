@@ -40,7 +40,7 @@ cd ..\shoelessjoes-supplier-py
 .\.venv\Scripts\python.exe -m playwright install chromium
 ```
 
-**Schedule:** `.\scripts\ops\register-scheduled-tasks.ps1` — active stock 3×/day, pricing daily + weekly (weekly includes alerts).
+**Schedule:** `.\scripts\ops\register-scheduled-tasks.ps1` — active stock 3×/day, **poll-messages every 30 min** (inbox → email), pricing daily + weekly. See **Two different alert systems** below.
 
 ### Active stock + purchases
 
@@ -70,31 +70,30 @@ POS-in-app is realistic via [POS UI extensions](https://shopify.dev/docs/api/pos
 
 ---
 
-## Dealernet price alerts — next steps
+## Two different “alert” systems (do not mix them up)
 
-Alerts = supplier-py submits **Wanted/For Sale** prices on Dealernet (`add-alerts`), so you get notified when the market crosses your price (faster than dealers who only check hourly inbox).
+| | **Inbox activities (your SMS plan)** | **Pricing-table price alerts (optional)** |
+|--|--------------------------------------|-------------------------------------------|
+| **What** | New Offer, Offer Updated, Shipping Updated, Payment Completed | Wanted/For Sale thresholds on `priceguide.php` |
+| **Dealernet notifies you** | Hourly SMS → “log in and click” | Email when **market** hits your set price |
+| **Our automation** | **`job:poll-messages`** (ops) — scrape inbox, classify, **email digest** (`ALERT_*` SMTP), tracking → DB | **`add-alerts`** (supplier-py) — **posts** alert prices to Dealernet |
+| **Status** | Built; needs schedule + SMTP + event reactions (accept → sync) | Optional competitive extra; **not** the inbox/SMS replacement |
 
-1. **Review matches** — open `email_summary.html`; confirm UPC matches and `raise_price` / `lower_price` / `restock_opportunity` look sane.
-2. **Dry-run alerts** (no writes to Dealernet):
+**Inbox / messaging next steps (primary):**
 
-   ```powershell
-   cd ..\shoelessjoes-supplier-py
-   .\.venv\Scripts\python.exe -m src.main add-alerts `
-     --supplier-config configs/dealernetx.weekly.yaml `
-     --matches out/matches_weekly.csv `
-     --price-source suggested --min-priority-bucket high `
-     --max-alerts 25 --dry-run
-   ```
+1. Set `ALERT_SMTP_*`, `ALERT_TO_EMAILS` (and optional `ALERT_SMS_EMAILS`) in `apps/worker/.env`.
+2. Run `npm run job:poll-messages` on a cron (**every 15–30 min**) — replaces checking Dealernet after every SMS.
+3. Turn off `DEALERNET_POLL_BOOTSTRAP` after first import so new messages email you with offer id, type, tracking, links.
+4. **Not built yet:** on `offer_updated` + ACCEPTED → targeted ingest + purchase sync; on `offer_shipping_updated` → `update-purchase-tracking`.
+5. Railway or `register-scheduled-tasks` for **poll-messages** + **ingest-offers**, not `dealernet-cycle` with auto-sale sync.
 
-3. **Weekly execute** (already wired in `scripts/ops/scheduled/dealernet-pricing-weekly.cmd`):
+**Pricing-table alerts (optional, separate):** supplier-py `add-alerts` only if you want Dealernet to ping you when **bid/ask** crosses a price you set — different from inbox SMS. Weekly script `-IncludeAlerts` is **off by default** in daily runs; enable only after you explicitly want posted price alerts:
 
-   ```powershell
-   .\scripts\ops\run-dealernet-pricing.ps1 -Profile weekly -IncludeReview -IncludeAlerts -AlertMax 25
-   ```
+```powershell
+.\scripts\ops\run-dealernet-pricing.ps1 -Profile weekly -IncludeReview -IncludeAlerts -AlertMax 25
+```
 
-4. **Tune before cranking volume:** `min-priority-bucket urgent` or `high`, `--require-in-stock` for Wanted alerts, cap `--max-alerts` (10–25/day). Separate **daily** = scrape/match only; **weekly** = full barcode pass + alerts.
-5. **After trust:** register schedules with `.\scripts\ops\register-scheduled-tasks.ps1`; optional Railway cron for active stock only (pricing stays on shop PC while Playwright runs locally).
-6. **Later:** persist `matches_*.csv` rows into Postgres `PriceRecommendation` and surface in Remix admin / POS tile instead of CSV-only.
+Dry-run first: `add-alerts ... --dry-run` in supplier-py (see `shoelessjoes-supplier-py/docs/PROJECT_STATE.md`).
 
 ## Monorepo layout
 
@@ -185,7 +184,8 @@ before the job runs, avoiding runtime `ERR_MODULE_NOT_FOUND` for `@dealernet-ops
 ```powershell
 .\scripts\ops\run-active-stock.ps1
 .\scripts\ops\run-dealernet-pricing.ps1 -Profile daily -IncludeReview
-.\scripts\ops\run-dealernet-pricing.ps1 -Profile weekly -IncludeReview -IncludeAlerts -AlertMax 25
+.\scripts\ops\run-dealernet-pricing.ps1 -Profile weekly -IncludeReview
+npm run job:poll-messages
 .\scripts\ops\register-scheduled-tasks.ps1
 ```
 

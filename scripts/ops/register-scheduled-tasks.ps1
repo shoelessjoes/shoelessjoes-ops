@@ -4,6 +4,7 @@ param(
     [string]$ActiveStockEvening = "18:00",
     [string]$PricingDaily = "07:00",
     [string]$PricingWeekly = "07:30",
+    [string]$PollMessagesEveryMinutes = 30,
     [string]$SupplierPyRoot = "C:\Users\burke\Git2\shoelessjoes-supplier-py"
 )
 
@@ -12,6 +13,7 @@ $opsRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 $activeCmd = (Resolve-Path (Join-Path $PSScriptRoot "scheduled\active-stock.cmd")).Path
 $pricingDailyCmd = (Resolve-Path (Join-Path $PSScriptRoot "scheduled\dealernet-pricing-daily.cmd")).Path
 $pricingWeeklyCmd = (Resolve-Path (Join-Path $PSScriptRoot "scheduled\dealernet-pricing-weekly.cmd")).Path
+$pollCmd = (Resolve-Path (Join-Path $PSScriptRoot "scheduled\poll-messages.cmd")).Path
 
 function Invoke-Schtasks {
     param([Parameter(Mandatory = $true)][string[]]$Args)
@@ -32,12 +34,14 @@ Register-OrReplaceTask -TaskName "ShoelessJoes-ActiveStock-Afternoon" -Schedule 
 Register-OrReplaceTask -TaskName "ShoelessJoes-ActiveStock-Evening" -Schedule "DAILY" -StartTime $ActiveStockEvening -TaskRun $activeCmd
 Register-OrReplaceTask -TaskName "ShoelessJoes-DealernetPricing-Daily" -Schedule "DAILY" -StartTime $PricingDaily -TaskRun $pricingDailyCmd
 Register-OrReplaceTask -TaskName "ShoelessJoes-DealernetPricing-Weekly" -Schedule "WEEKLY" -StartTime $PricingWeekly -TaskRun $pricingWeeklyCmd
+Register-OrReplaceTask -TaskName "ShoelessJoes-PollMessages" -Schedule "MINUTE" -StartTime "00:00" -TaskRun $pollCmd -Modifier $PollMessagesEveryMinutes
 
 Write-Host ""
 Write-Host "Ops schedules registered (Dealernet + Shopify focus)."
 Write-Host "  Active stock 3x/day: ingest, poll, catalog, purchase dry-run"
+Write-Host "  Poll messages every ${PollMessagesEveryMinutes}m: inbox -> email digest (replaces SMS login)"
 Write-Host "  Pricing daily: Dealernet table vs Shopify UPCs (in-stock profile)"
-Write-Host "  Pricing weekly: full barcode pass + review pack"
+Write-Host "  Pricing weekly: full barcode pass + review pack (no price-alert posts unless you add -IncludeAlerts)"
 Write-Host ""
 Write-Host "Requires apps/worker/.env: DATABASE_URL, SHOPIFY_*, DEALERNET_*, CATALOG_PRODUCT_TYPES"
 Write-Host "Requires supplier-py at: $SupplierPyRoot"
