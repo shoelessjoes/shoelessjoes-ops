@@ -31,7 +31,9 @@ export function formatMessageDigest(row: DealernetMessageRow): FormattedMessageE
   const body = row.message_body || "";
 
   let subject: string;
-  if (classified.isChat) {
+  if (classified.type === "price_alert_triggered") {
+    subject = `🚨 DEALERNET PRICE ALERT - ${classified.prettyType}`;
+  } else if (classified.isChat) {
     subject = `Dealernet Chat - Offer #${classified.offerId ?? "?"}`;
   } else if (classified.type === "direct_message") {
     const code = classified.dealerCode ?? row.subject ?? "Dealer";
@@ -76,7 +78,9 @@ export function formatMessageDigest(row: DealernetMessageRow): FormattedMessageE
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, 200);
-  const smsText = `${classified.prettyType}${classified.offerId ? ` #${classified.offerId}` : ""}${
+  const smsPrefix =
+    classified.type === "price_alert_triggered" ? "PRICE ALERT: " : "";
+  const smsText = `${smsPrefix}${classified.prettyType}${classified.offerId ? ` #${classified.offerId}` : ""}${
     smsBase ? `: ${smsBase}` : ""
   }`;
 

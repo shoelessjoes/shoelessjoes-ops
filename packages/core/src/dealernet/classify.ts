@@ -5,6 +5,7 @@ export type DealernetMessageType =
   | "offer_updated"
   | "offer_shipping_updated"
   | "payment_completed"
+  | "price_alert_triggered"
   | "withdraw_requested"
   | "offer_chat"
   | "assistance_chat"
@@ -26,6 +27,7 @@ const SYSTEM_TYPES: Array<{ re: RegExp; type: DealernetMessageType; pretty: stri
   { re: /^offer\s+shipping\s+updated\b/i, type: "offer_shipping_updated", pretty: "Offer Shipping Updated" },
   { re: /^offer\s+updated\b/i, type: "offer_updated", pretty: "Offer Updated" },
   { re: /^payment\s+completed\b/i, type: "payment_completed", pretty: "Payment Completed" },
+  { re: /^price\s+alert\s+triggered\b/i, type: "price_alert_triggered", pretty: "Price Alert Triggered" },
   { re: /^withdraw\s+requested\b/i, type: "withdraw_requested", pretty: "Withdraw Requested" },
 ];
 
