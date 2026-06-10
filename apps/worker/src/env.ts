@@ -15,7 +15,8 @@ function loadWorkerEnv(): void {
   ];
   for (const path of candidates) {
     if (existsSync(path)) {
-      config({ path, override: false });
+      // Worker .env should win over stale shell/session vars (e.g. BOOTSTRAP=1 left exported).
+      config({ path, override: true });
       return;
     }
   }

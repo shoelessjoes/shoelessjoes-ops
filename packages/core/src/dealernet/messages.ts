@@ -55,15 +55,77 @@ async function extractMessageBody(page: import("playwright").Page): Promise<stri
 
 type MessageDetail = { offerId: string | null; body: string };
 
+async function isInboxRowUnread(row: import("playwright").Locator): Promise<boolean> {
+  const rowClass = ((await row.getAttribute("class")) || "").trim().toLowerCase();
+  if (rowClass.split(/\s+/).some((c) => c === "unread" || c.includes("unread"))) {
+    return true;
+  }
+
+  if ((await row.locator("strong, b, .font-weight-bold, .fw-bold").count()) > 0) {
+    return true;
+  }
+
+  const subjectLink = row
+    .locator("td[data-label='Subject'] a[href*='readmessage.php'], a[href*='readmessage.php']")
+    .first();
+  if ((await subjectLink.count()) === 0) return false;
+
+  return subjectLink.evaluate((el) => {
+    const weight = window.getComputedStyle(el).fontWeight;
+    const w = parseInt(weight, 10);
+    if (weight === "bold" || w >= 600) return true;
+    let node: Element | null = el;
+    for (let i = 0; i < 3 && node; i++) {
+      const tag = node.tagName.toLowerCase();
+      if (tag === "strong" || tag === "b") return true;
+      const cls = (node.getAttribute("class") || "").toLowerCase();
+      if (cls.includes("font-weight-bold") || cls.includes("fw-bold") || cls.includes("unread")) {
+        return true;
+      }
+      node = node.parentElement;
+    }
+    return false;
+  });
+}
+
+async function readInboxUnreadBadgeCount(page: import("playwright").Page): Promise<number | null> {
+  const selectors = [
+    "a[href*='inbox.php'] .badge",
+    "a[href*='inbox.php'] .count",
+    ".fa-envelope ~ .badge",
+    ".fa-envelope + .badge",
+    ".fa-envelope .badge",
+    "[class*='envelope'] .badge",
+    ".message-count",
+    ".unread-count",
+  ];
+  for (const sel of selectors) {
+    try {
+      const el = page.locator(sel).first();
+      if ((await el.count()) === 0) continue;
+      const text = ((await el.innerText()) || "").replace(/\D/g, "");
+      if (!text) continue;
+      const n = parseInt(text, 10);
+      if (!Number.isNaN(n)) return n;
+    } catch {
+      continue;
+    }
+  }
+  return null;
+}
+
 export async function collectDealernetMessages(opts: {
   login: DealernetLoginConfig;
   inboxUrl?: string;
   fetchOfferIds?: boolean;
   fetchMessageBody?: boolean;
+  /** When true, only scrape rows Dealernet marks unread (bold / unread class). */
+  unreadOnly?: boolean;
 }): Promise<DealernetMessageRow[]> {
   const inboxUrl = opts.inboxUrl ?? `${BASE}inbox.php`;
   const fetchOfferIds = opts.fetchOfferIds ?? true;
   const fetchMessageBody = opts.fetchMessageBody ?? true;
+  const unreadOnly = opts.unreadOnly ?? false;
   const now = new Date().toISOString();
   const rows: DealernetMessageRow[] = [];
 
@@ -76,8 +138,11 @@ export async function collectDealernetMessages(opts: {
     await page.goto(inboxUrl);
     await page.waitForSelector("#mymessages", { timeout: 15000 }).catch(() => null);
 
+    const headerUnread = await readInboxUnreadBadgeCount(page);
+
     const msgRows = page.locator("#mymessages table tbody tr, #mymessages div.table-responsive table tbody tr");
     const msgCount = await msgRows.count();
+    let skippedRead = 0;
     for (let i = 0; i < msgCount; i++) {
       const row = msgRows.nth(i);
       const subjectLink = row
@@ -85,8 +150,11 @@ export async function collectDealernetMessages(opts: {
         .first();
       if ((await subjectLink.count()) === 0) continue;
 
-      const rowClass = ((await row.getAttribute("class")) || "").trim();
-      const isUnread = rowClass.toLowerCase().split(/\s+/).includes("unread");
+      const isUnread = await isInboxRowUnread(row);
+      if (unreadOnly && !isUnread) {
+        skippedRead += 1;
+        continue;
+      }
 
       const messageId =
         (await safeCell(row, ["td[data-label='Message ID']", "td.number", "td:first-child"])) || "";
@@ -131,6 +199,15 @@ export async function collectDealernetMessages(opts: {
         offer_id: offerId,
         message_body: body,
       });
+    }
+
+    if (unreadOnly) {
+      console.log(
+        `[inbox] unread-only: ${rows.length} unread row(s) scraped, ${skippedRead} read row(s) skipped` +
+          (headerUnread !== null ? ` (header badge: ${headerUnread})` : ""),
+      );
+    } else if (headerUnread !== null) {
+      console.log(`[inbox] header unread badge: ${headerUnread}`);
     }
   } finally {
     await browser.close();
