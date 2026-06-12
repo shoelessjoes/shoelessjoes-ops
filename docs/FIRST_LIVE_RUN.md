@@ -38,7 +38,7 @@ Confirm summary shows only the offers you expect:
 Creates **Shopify draft orders** (safe to review in Admin before completing).
 
 ```powershell
-npm run job:sync-offers -- purchase --execute --no-create-missing
+npm run job:sync-offers:purchase:execute
 ```
 
 Use **without** `--no-create-missing` only if you want auto-created draft products for unmatched UPCs.
@@ -50,7 +50,7 @@ Spot-check Admin → **Drafts** for tags `dealernet,purchase,offer-{id}`.
 ```powershell
 npm run job:report-purchases   # purchases only; for sales use dry-run:
 npm run job:sync-offers:sale
-npm run job:sync-offers -- sale --execute --no-create-missing
+npm run job:sync-offers:sale:execute
 ```
 
 **Warning:** `sale --execute` creates **paid orders** and **decrements inventory**. Only run when you intend to record completed sales in Shopify.
