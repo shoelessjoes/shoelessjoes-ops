@@ -27,8 +27,12 @@ export {
 export { parseTrackingFromText, resolveTrackingOfferId } from "./dealernet/tracking.js";
 export {
   probeDealernetOfferPages,
+  probeDealernetOfferList,
   parseOfferProbeArgs,
+  DEALERNET_OFFER_FILTERS,
   type OfferProbeResult,
+  type OfferListProbeResult,
+  type OfferListRow,
   type HomeQueueProbe,
 } from "./dealernet/offer-probe.js";
 export {

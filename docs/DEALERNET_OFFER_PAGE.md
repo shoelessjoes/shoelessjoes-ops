@@ -13,6 +13,12 @@ npm run job:probe-offer
 # Specific offers + home pending in/out hints
 npm run job:probe-offer -- --offerid 364263 --offerid 364363 --offerid 361004 --home
 
+# Pending Out list + probe first 3 offer detail pages
+npm run job:probe-offer -- --filter PENDINGOUT --max-details 3
+
+# Pending In (when available)
+npm run job:probe-offer -- --filter PENDINGIN --max-details 3
+
 # Visible browser
 npm run job:probe-offer -- --headed --pause 15000
 ```
@@ -25,8 +31,8 @@ Output: `data/offer-probes/offer-{id}.json` and a timestamped bundle JSON.
 
 | Code | State | Side | Example URL | Notes |
 |------|--------|------|-------------|--------|
-| A | Pending — you Accept/Decline | Sale (buyer sent offer) | *n/a* | Send when **Pending In** counter has a sample |
-| B | Pending — waiting on them | Purchase | *n/a* | Send when **Pending Out** counter has a sample |
+| A | Pending — you Accept/Decline | Sale (buyer sent offer) | *n/a* | Likely **PENDINGIN** list |
+| B | Pending — waiting on them | Purchase | https://www.dealernetx.com/offers.php?offerfilter=PENDINGOUT | **Pending Out** — you sent offer, awaiting counterparty |
 | C | Accepted, no tracking | Purchase | https://www.dealernetx.com/offer.php?offerid=364263 | |
 | D | Accepted + tracking | Purchase | https://www.dealernetx.com/offer.php?offerid=364363 | |
 | E | Accepted sale, ready to ship | Sale | *n/a* | Send when available |
@@ -56,7 +62,9 @@ When you have pending offers, also note **Purchases → Pending In / Pending Out
 
 - **Unrated Only** — default; homepage badge count; what `ingest-offers` uses (`PURCHASESUNRATED` / `SALESUNRATED`).
 - **Last 14 days / All time** — history; offers still exist after rating.
-- **Pending In / Pending Out** — counters when counterparty action is needed (capture when available).
+- **Pending In / Pending Out** — counters when counterparty action is needed:
+  - **Pending Out** — `offers.php?offerfilter=PENDINGOUT` (you're waiting on them)
+  - **Pending In** — `offers.php?offerfilter=PENDINGIN` (they're waiting on you)
 
 Rating (1–5 stars) removes from **Unrated** view only; it does not delete the offer.
 

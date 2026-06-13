@@ -63,6 +63,155 @@ export type HomeQueueProbe = {
   pendingSnippets: string[];
 };
 
+/** Known Dealernet offers.php?offerfilter= values (see docs/DEALERNET_OFFER_PAGE.md). */
+export const DEALERNET_OFFER_FILTERS = [
+  "PURCHASESUNRATED",
+  "SALESUNRATED",
+  "PENDINGIN",
+  "PENDINGOUT",
+  "PURCHASES",
+  "PURCHASESALL",
+  "SALES",
+  "SALESALL",
+] as const;
+
+export type DealernetOfferFilter = (typeof DEALERNET_OFFER_FILTERS)[number];
+
+export type OfferListRow = {
+  offerId: string;
+  dealer: string;
+  status: string;
+  created: string;
+  total: string;
+  offerDetailUrl: string;
+  offerFilter: string;
+};
+
+export type OfferListProbeResult = {
+  offerFilter: string;
+  url: string;
+  capturedAt: string;
+  rowCount: number;
+  rows: OfferListRow[];
+};
+
+function parseOfferFilter(input: string): string {
+  const fromUrl = /offerfilter=([A-Z0-9_]+)/i.exec(input);
+  if (fromUrl) return fromUrl[1].toUpperCase();
+  return input.trim().toUpperCase();
+}
+
+async function scrapeOfferListPage(page: Page, offerFilter: string): Promise<OfferListRow[]> {
+  const rows: OfferListRow[] = [];
+  await page.waitForSelector("tr.offer-row", { timeout: 15000 }).catch(() => null);
+  const offerRows = page.locator("tr.offer-row");
+  const offerCount = await offerRows.count();
+
+  for (let i = 0; i < offerCount; i++) {
+    const offer = offerRows.nth(i);
+    const offerId = ((await offer.locator("span.oid-number").first().innerText()) || "").trim();
+    if (!offerId) continue;
+    const dealer = ((await offer.locator("td[data-label='Dealer']").first().innerText()) || "").trim();
+    const created = ((await offer.locator("td[data-label='Created']").first().innerText()) || "").trim();
+    const offerTotalText =
+      ((await offer.locator("td[data-label='Total'] .amount").first().innerText()) || "").trim();
+    const status = (
+      (await offer.locator("td[data-label='Status'] .status-badge").first().innerText()) || ""
+    ).trim();
+    const offerHref =
+      (await offer.locator("td[data-label='Dealer'] a.dealer-link").first().getAttribute("href")) || "";
+    const offerDetailUrl = offerHref ? new URL(offerHref, BASE).toString() : offerUrlFor(offerId);
+
+    rows.push({
+      offerId,
+      dealer,
+      status,
+      created,
+      total: offerTotalText,
+      offerDetailUrl,
+      offerFilter,
+    });
+  }
+  return rows;
+}
+
+export async function probeDealernetOfferList(opts: {
+  login: DealernetLoginConfig;
+  offerFilter: string;
+  headed?: boolean;
+  maxDetailProbes?: number;
+  probeHome?: boolean;
+  pauseMs?: number;
+}): Promise<{
+  list: OfferListProbeResult;
+  offers: OfferProbeResult[];
+  home: HomeQueueProbe | null;
+}> {
+  const offerFilter = parseOfferFilter(opts.offerFilter);
+  const browser = await chromium.launch({
+    headless: !opts.headed,
+    slowMo: opts.login.slowMoMs ?? 150,
+  });
+  const page = await browser.newPage();
+  const maxDetail = opts.maxDetailProbes ?? 0;
+
+  try {
+    await dealernetLogin(page, opts.login);
+
+    let home: HomeQueueProbe | null = null;
+    if (opts.probeHome) {
+      await page.goto(`${BASE}home.php`);
+      await page.waitForTimeout(opts.login.slowMoMs ?? 300);
+      home = await scrapeHomeQueues(page);
+    }
+
+    const listUrl = `${BASE}offers.php?offerfilter=${encodeURIComponent(offerFilter)}`;
+    await page.goto(listUrl);
+    await page.waitForTimeout(opts.login.slowMoMs ?? 300);
+    const listRows = await scrapeOfferListPage(page, offerFilter);
+    const list: OfferListProbeResult = {
+      offerFilter,
+      url: page.url(),
+      capturedAt: new Date().toISOString(),
+      rowCount: listRows.length,
+      rows: listRows,
+    };
+
+    const offers: OfferProbeResult[] = [];
+    const detailIds = listRows.slice(0, maxDetail).map((r) => r.offerId);
+    for (const offerId of detailIds) {
+      const url = listRows.find((r) => r.offerId === offerId)?.offerDetailUrl ?? offerUrlFor(offerId);
+      await page.goto(url);
+      await page.waitForLoadState("domcontentloaded").catch(() => undefined);
+      await page.waitForTimeout(opts.login.slowMoMs ?? 300);
+
+      let scraped = await scrapeOfferPage(page);
+      const itemsTab = page.locator("button.tablinks", { hasText: "Items" }).first();
+      if ((await itemsTab.count()) > 0) {
+        await itemsTab.click();
+        await page.waitForTimeout(opts.login.slowMoMs ?? 300);
+        const itemsScrape = await scrapeOfferPage(page);
+        scraped = {
+          ...scraped,
+          lineItems: itemsScrape.lineItems.length ? itemsScrape.lineItems : scraped.lineItems,
+          tables: itemsScrape.tables.length > scraped.tables.length ? itemsScrape.tables : scraped.tables,
+        };
+      }
+
+      offers.push({
+        offerId,
+        url: page.url(),
+        capturedAt: new Date().toISOString(),
+        ...scraped,
+      });
+    }
+
+    return { list, offers, home };
+  } finally {
+    await browser.close();
+  }
+}
+
 function offerUrlFor(id: string): string {
   return `${BASE}offer.php?offerid=${encodeURIComponent(id)}`;
 }
@@ -331,14 +480,18 @@ export async function probeDealernetOfferPages(opts: {
 
 export function parseOfferProbeArgs(argv: string[]): {
   offerIds: string[];
+  offerFilters: string[];
   headed: boolean;
   pauseMs: number;
   probeHome: boolean;
+  maxDetailProbes: number;
 } {
   const offerIds: string[] = [];
+  const offerFilters: string[] = [];
   let headed = false;
   let pauseMs = 0;
   let probeHome = false;
+  let maxDetailProbes = 0;
 
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -346,14 +499,20 @@ export function parseOfferProbeArgs(argv: string[]): {
     else if (a === "--home") probeHome = true;
     else if (a === "--pause") pauseMs = Number(argv[++i] ?? "30000");
     else if (a === "--offerid") offerIds.push(argv[++i] ?? "");
+    else if (a === "--filter") offerFilters.push(parseOfferFilter(argv[++i] ?? ""));
+    else if (a === "--max-details") maxDetailProbes = Number(argv[++i] ?? "3");
+    else if (/offerfilter=/i.test(a)) offerFilters.push(parseOfferFilter(a));
     else if (/offerid=\d+/i.test(a) || /^\d{5,}$/.test(a)) offerIds.push(a);
-    else if (a.startsWith("http")) offerIds.push(a);
+    else if (a.startsWith("http") && /offer\.php/i.test(a)) offerIds.push(a);
+    else if (a.startsWith("http") && /offers\.php/i.test(a)) offerFilters.push(parseOfferFilter(a));
   }
 
   return {
     offerIds: offerIds.filter(Boolean),
+    offerFilters: offerFilters.filter(Boolean),
     headed,
     pauseMs,
     probeHome,
+    maxDetailProbes,
   };
 }

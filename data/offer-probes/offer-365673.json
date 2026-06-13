@@ -1,0 +1,187 @@
+{
+  "offerId": "365673",
+  "url": "https://www.dealernetx.com/offer.php?offerid=365673",
+  "capturedAt": "2026-06-13T05:08:53.214Z",
+  "pageTitle": "Offer",
+  "statusBadge": "PENDING",
+  "statusText": null,
+  "tabs": [
+    {
+      "label": "Ship To",
+      "href": "",
+      "active": false
+    },
+    {
+      "label": "Details",
+      "href": "",
+      "active": true
+    },
+    {
+      "label": "Items",
+      "href": "",
+      "active": false
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Ship To",
+      "tag": "button",
+      "type": "submit",
+      "name": "",
+      "id": "",
+      "classes": "tablinks",
+      "visible": true
+    },
+    {
+      "text": "Details",
+      "tag": "button",
+      "type": "submit",
+      "name": "",
+      "id": "",
+      "classes": "tablinks active",
+      "visible": true
+    },
+    {
+      "text": "Items",
+      "tag": "button",
+      "type": "submit",
+      "name": "",
+      "id": "",
+      "classes": "tablinks",
+      "visible": true
+    }
+  ],
+  "tables": [
+    {
+      "caption": "",
+      "headers": [
+        "Offer Id",
+        "Status",
+        "Member Status (current — pre-snapshot offer)",
+        "Last Revised By",
+        "Offer Total",
+        "Payment Timing",
+        "Payment Method",
+        "OH-SHOEJOE's Payment Info(Seller)",
+        "UT-PRP's Payment Info(Buyer)",
+        "Created",
+        "Expires"
+      ],
+      "rowCount": 11,
+      "sampleRows": [
+        [
+          "#365673"
+        ],
+        [
+          "PENDING"
+        ],
+        [
+          "UT-PRP (Buyer): Blue Star OH-SHOEJOE (Seller): Blue Star"
+        ],
+        [
+          "OH-SHOEJOE"
+        ],
+        [
+          "1474.00"
+        ]
+      ]
+    },
+    {
+      "caption": "",
+      "headers": [
+        "Product",
+        "UPC",
+        "Qty",
+        "Unit Price",
+        "Subtotal"
+      ],
+      "rowCount": 4,
+      "sampleRows": [
+        [
+          "2026 ~ Topps UFC Chrome ~ Combat Sports ~ Blaster v1 ~ box",
+          "887521153695",
+          "15",
+          "$13.00",
+          "$195.00"
+        ],
+        [
+          "25/6 ~ Topps NBA Three ~ Basketball ~ Hobby ~ box",
+          "887521153039",
+          "1",
+          "$1,105.00",
+          "$1,105.00"
+        ],
+        [
+          "~ Prismatic Evolutions Scarlet & Violet ~ POKEMON ~ booster (bundle) ~ 6 pack booster ~ box",
+          "196214112544",
+          "2",
+          "$87.00",
+          "$174.00"
+        ],
+        [
+          "",
+          "$1,474.00"
+        ]
+      ]
+    },
+    {
+      "caption": "",
+      "headers": [
+        "Document",
+        "Uploaded By",
+        "Upload Date",
+        "Actions"
+      ],
+      "rowCount": 0,
+      "sampleRows": []
+    }
+  ],
+  "tracking": null,
+  "fields": [
+    {
+      "label": "Offer Id",
+      "value": "#365673"
+    },
+    {
+      "label": "Status",
+      "value": "PENDING"
+    },
+    {
+      "label": "Member Status (current — pre-snapshot offer)",
+      "value": "UT-PRP (Buyer): Blue Star OH-SHOEJOE (Seller): Blue Star"
+    },
+    {
+      "label": "Last Revised By",
+      "value": "OH-SHOEJOE"
+    },
+    {
+      "label": "Offer Total",
+      "value": "1474.00"
+    },
+    {
+      "label": "Payment Timing",
+      "value": "Payment due within 1 business day of offer acceptance (upfront)"
+    },
+    {
+      "label": "Payment Method",
+      "value": "Venmo business buyer covers fees - @John-Bosse"
+    },
+    {
+      "label": "OH-SHOEJOE's Payment Info(Seller)",
+      "value": "shoelessjoescards"
+    },
+    {
+      "label": "UT-PRP's Payment Info(Buyer)",
+      "value": "@John-Bosse"
+    },
+    {
+      "label": "Created",
+      "value": "06/13/2026 01:06:57"
+    },
+    {
+      "label": "Expires",
+      "value": "06/16/2026 23:59:59"
+    }
+  ],
+  "lineItems": []
+}
