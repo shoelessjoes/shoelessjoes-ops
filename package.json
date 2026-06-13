@@ -20,6 +20,7 @@
     "playwright:install": "npm exec --workspace=@dealernet-ops/core playwright install chromium",
     "job:ingest-offers": "npm run build:packages && npm run job:ingest-offers -w @dealernet-ops/worker",
     "job:poll-messages": "npm run build:packages && npm run job:poll-messages -w @dealernet-ops/worker",
+    "job:probe-offer": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/probe-offer.ts",
     "job:export-catalog": "node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/export-catalog.ts",
     "job:export-upc-tiers": "npm run build:packages && node --env-file=apps/worker/.env --import tsx apps/worker/src/jobs/export-upc-tiers.ts",
     "job:report-purchases": "npm run build:packages && npm run job:report-purchases -w @dealernet-ops/worker",

@@ -26,6 +26,12 @@ export {
 } from "./dealernet/digest.js";
 export { parseTrackingFromText, resolveTrackingOfferId } from "./dealernet/tracking.js";
 export {
+  probeDealernetOfferPages,
+  parseOfferProbeArgs,
+  type OfferProbeResult,
+  type HomeQueueProbe,
+} from "./dealernet/offer-probe.js";
+export {
   buildPurchaseDraftTags,
   findDraftOrderIdByOfferTag,
   updateDraftOrderMetadata,

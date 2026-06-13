@@ -1,0 +1,207 @@
+{
+  "offerId": "364263",
+  "url": "https://www.dealernetx.com/offer.php?offerid=364263",
+  "capturedAt": "2026-06-13T04:26:57.878Z",
+  "pageTitle": "Offer",
+  "statusBadge": "ACCEPTED",
+  "statusText": null,
+  "tabs": [],
+  "buttons": [
+    {
+      "text": "Pay To",
+      "tag": "button",
+      "type": "submit",
+      "name": "",
+      "id": "",
+      "classes": "tablinks",
+      "visible": true
+    },
+    {
+      "text": "Details",
+      "tag": "button",
+      "type": "submit",
+      "name": "",
+      "id": "",
+      "classes": "tablinks active",
+      "visible": true
+    },
+    {
+      "text": "Items",
+      "tag": "button",
+      "type": "submit",
+      "name": "",
+      "id": "",
+      "classes": "tablinks",
+      "visible": true
+    },
+    {
+      "text": "Messages",
+      "tag": "button",
+      "type": "submit",
+      "name": "",
+      "id": "",
+      "classes": "tablinks",
+      "visible": true
+    },
+    {
+      "text": "Documents",
+      "tag": "button",
+      "type": "submit",
+      "name": "",
+      "id": "",
+      "classes": "tablinks",
+      "visible": true
+    },
+    {
+      "text": "Update Listings",
+      "tag": "input",
+      "type": "submit",
+      "name": "updatelistings",
+      "id": "updatelistings",
+      "classes": "btn btn-primary",
+      "visible": true
+    }
+  ],
+  "tables": [
+    {
+      "caption": "",
+      "headers": [
+        "Offer Id",
+        "Status",
+        "Member Status (current — pre-snapshot offer)",
+        "Last Revised By",
+        "Offer Total",
+        "Payment Timing",
+        "Payment Method",
+        "Transactions",
+        "Created",
+        "Shipping",
+        "Transaction Rating",
+        "Admin Assistance"
+      ],
+      "rowCount": 12,
+      "sampleRows": [
+        [
+          "#364263"
+        ],
+        [
+          "ACCEPTED Accepted: 06/11/2026"
+        ],
+        [
+          "OH-SHOEJOE (Buyer): Blue Star WI-SSGT (Seller): Blue Star"
+        ],
+        [
+          "WI-SSGT"
+        ],
+        [
+          "1290.00"
+        ]
+      ]
+    },
+    {
+      "caption": "",
+      "headers": [
+        "Product",
+        "UPC",
+        "Qty",
+        "Unit Price",
+        "Subtotal"
+      ],
+      "rowCount": 1,
+      "sampleRows": [
+        [
+          "2025 ~ Topps Chrome Platinum 55 ~ Baseball ~ Hobby ~ box",
+          "887521143405",
+          "6",
+          "$215.00",
+          "$1,290.00"
+        ]
+      ]
+    },
+    {
+      "caption": "Click Listing ID for full editor",
+      "headers": [
+        "ListingID",
+        "Product",
+        "UPC",
+        "Qty",
+        "Price",
+        "Active"
+      ],
+      "rowCount": 1,
+      "sampleRows": [
+        [
+          "2405302",
+          "2025 ~ Topps Chrome Platinum 55 ~ Baseball ~ Hobby ~ box (Expires: 2026-12-03)",
+          "887521143405",
+          "",
+          "",
+          ""
+        ]
+      ]
+    },
+    {
+      "caption": "",
+      "headers": [
+        "Document",
+        "Uploaded By",
+        "Upload Date",
+        "Actions"
+      ],
+      "rowCount": 0,
+      "sampleRows": []
+    }
+  ],
+  "tracking": null,
+  "fields": [
+    {
+      "label": "Offer Id",
+      "value": "#364263"
+    },
+    {
+      "label": "Status",
+      "value": "ACCEPTED Accepted: 06/11/2026"
+    },
+    {
+      "label": "Member Status (current — pre-snapshot offer)",
+      "value": "OH-SHOEJOE (Buyer): Blue Star WI-SSGT (Seller): Blue Star"
+    },
+    {
+      "label": "Last Revised By",
+      "value": "WI-SSGT"
+    },
+    {
+      "label": "Offer Total",
+      "value": "1290.00"
+    },
+    {
+      "label": "Payment Timing",
+      "value": "Payment due within 1 business day of offer acceptance (upfront)"
+    },
+    {
+      "label": "Payment Method",
+      "value": "Bank Wire (no purchase protection)"
+    },
+    {
+      "label": "Transactions",
+      "value": "LISTING FEE DEBIT -$12.90"
+    },
+    {
+      "label": "Created",
+      "value": "06/11/2026 08:54:52"
+    },
+    {
+      "label": "Shipping",
+      "value": "Not Provided"
+    },
+    {
+      "label": "Transaction Rating",
+      "value": "0 1 2 3 4 5 (rate until 08/10/2026)"
+    },
+    {
+      "label": "Admin Assistance",
+      "value": "Request Assistance (available until 06/25/2026)"
+    }
+  ],
+  "lineItems": []
+}
