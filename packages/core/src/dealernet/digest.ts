@@ -33,6 +33,10 @@ export function formatMessageDigest(row: DealernetMessageRow): FormattedMessageE
   let subject: string;
   if (classified.type === "price_alert_triggered") {
     subject = `🚨 DEALERNET PRICE ALERT - ${classified.prettyType}`;
+  } else if (classified.type === "offer_accepted") {
+    subject = `Dealernet Message - ACTION: Offer Accepted (#${classified.offerId ?? "?"})`;
+  } else if (classified.type === "offer_declined") {
+    subject = `Dealernet Message - Offer Declined (#${classified.offerId ?? "?"})`;
   } else if (classified.isChat) {
     subject = `Dealernet Chat - Offer #${classified.offerId ?? "?"}`;
   } else if (classified.type === "direct_message") {

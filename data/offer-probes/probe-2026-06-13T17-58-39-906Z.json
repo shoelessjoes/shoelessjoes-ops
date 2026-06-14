@@ -1,0 +1,193 @@
+{
+  "list_PENDINGIN": {
+    "offerFilter": "PENDINGIN",
+    "url": "https://www.dealernetx.com/offers.php?offerfilter=PENDINGIN",
+    "capturedAt": "2026-06-13T17:58:48.016Z",
+    "rowCount": 2,
+    "rows": [
+      {
+        "offerId": "365842",
+        "dealer": "from CA-DS (For Sale)",
+        "status": "PENDING",
+        "created": "06/13/2026 12:37:05",
+        "total": "$380.00",
+        "offerDetailUrl": "https://www.dealernetx.com/offer.php?offerid=365842",
+        "offerFilter": "PENDINGIN"
+      },
+      {
+        "offerId": "365788",
+        "dealer": "from PA-MIDO (Wanted)",
+        "status": "PENDING",
+        "created": "06/13/2026 09:34:58",
+        "total": "$884.00",
+        "offerDetailUrl": "https://www.dealernetx.com/offer.php?offerid=365788",
+        "offerFilter": "PENDINGIN"
+      }
+    ]
+  },
+  "offers": [
+    {
+      "offerId": "365842",
+      "url": "https://www.dealernetx.com/offer.php?offerid=365842",
+      "capturedAt": "2026-06-13T18:03:26.124Z",
+      "pageTitle": "Offer",
+      "offerHeadline": "Offer #365842: Sell To CA-DS",
+      "pagePhase": "pending",
+      "statusBadge": "PENDING",
+      "statusText": null,
+      "tabs": [
+        {
+          "label": "Ship To",
+          "href": "",
+          "active": false
+        },
+        {
+          "label": "Details",
+          "href": "",
+          "active": true
+        },
+        {
+          "label": "Items",
+          "href": "",
+          "active": false
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Ship To",
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "classes": "tablinks",
+          "visible": true
+        },
+        {
+          "text": "Details",
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "classes": "tablinks active",
+          "visible": true
+        },
+        {
+          "text": "Items",
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "classes": "tablinks",
+          "visible": true
+        }
+      ],
+      "primaryActions": [],
+      "tables": [
+        {
+          "caption": "",
+          "headers": [
+            "Offer Id",
+            "Status",
+            "Member Status (current — pre-snapshot offer)",
+            "Last Revised By",
+            "Offer Total",
+            "Payment Timing",
+            "Payment Method",
+            "Created",
+            "Expires"
+          ],
+          "rowCount": 9,
+          "sampleRows": [
+            [
+              "#365842"
+            ],
+            [
+              "PENDING"
+            ],
+            [
+              "CA-DS (Buyer): Blue Star OH-SHOEJOE (Seller): Blue Star"
+            ],
+            [
+              "CA-DS"
+            ],
+            [
+              "380.00"
+            ]
+          ]
+        },
+        {
+          "caption": "",
+          "headers": [
+            "Product",
+            "UPC",
+            "Qty",
+            "Unit Price",
+            "Subtotal"
+          ],
+          "rowCount": 1,
+          "sampleRows": [
+            [
+              "25/6 ~ Donruss Road to FIFA World Cup ~ Soccer (split year) ~ Hobby ~ box",
+              "746134178665",
+              "1",
+              "$380.00",
+              "$380.00"
+            ]
+          ]
+        },
+        {
+          "caption": "",
+          "headers": [
+            "Document",
+            "Uploaded By",
+            "Upload Date",
+            "Actions"
+          ],
+          "rowCount": 0,
+          "sampleRows": []
+        }
+      ],
+      "tracking": null,
+      "fields": [
+        {
+          "label": "Offer Id",
+          "value": "#365842"
+        },
+        {
+          "label": "Status",
+          "value": "PENDING"
+        },
+        {
+          "label": "Member Status (current — pre-snapshot offer)",
+          "value": "CA-DS (Buyer): Blue Star OH-SHOEJOE (Seller): Blue Star"
+        },
+        {
+          "label": "Last Revised By",
+          "value": "CA-DS"
+        },
+        {
+          "label": "Offer Total",
+          "value": "380.00"
+        },
+        {
+          "label": "Payment Timing",
+          "value": "Payment due within 1 business day of offer acceptance (upfront)"
+        },
+        {
+          "label": "Payment Method",
+          "value": "EFT"
+        },
+        {
+          "label": "Created",
+          "value": "06/13/2026 12:37:05"
+        },
+        {
+          "label": "Expires",
+          "value": "06/16/2026 23:59:59"
+        }
+      ],
+      "shipToText": "Pending In\n(2)\nPurchases\n(18)\nSales\n(22)\nReview recent activity\nOffer #365842: Sell To CA-DS\nPENDING\nAccept\nDecline\nRevise\nRefresh\n  Ship To\n  Details\n  Items\nShip To: Robert Michener (ID VERIFIED)\nRobert Michener (ID VERIFIED) (CA-DS)\nDiamond Sportscards\n1144 Fourth Street\nSan Rafael CA 94901\nUnited States",
+      "lineItems": []
+    }
+  ]
+}

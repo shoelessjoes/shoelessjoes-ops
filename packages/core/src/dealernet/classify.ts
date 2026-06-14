@@ -2,6 +2,8 @@ import type { DealernetMessageRow } from "./messages.js";
 
 export type DealernetMessageType =
   | "new_offer"
+  | "offer_accepted"
+  | "offer_declined"
   | "offer_updated"
   | "offer_shipping_updated"
   | "payment_completed"
@@ -24,6 +26,8 @@ export type ClassifiedMessage = {
 
 const SYSTEM_TYPES: Array<{ re: RegExp; type: DealernetMessageType; pretty: string }> = [
   { re: /^new\s+offer\s+received\b/i, type: "new_offer", pretty: "New Offer Received" },
+  { re: /^offer\s+accepted\b/i, type: "offer_accepted", pretty: "Offer Accepted" },
+  { re: /^offer\s+declined\b/i, type: "offer_declined", pretty: "Offer Declined" },
   { re: /^offer\s+shipping\s+updated\b/i, type: "offer_shipping_updated", pretty: "Offer Shipping Updated" },
   { re: /^offer\s+updated\b/i, type: "offer_updated", pretty: "Offer Updated" },
   { re: /^payment\s+completed\b/i, type: "payment_completed", pretty: "Payment Completed" },
@@ -34,7 +38,16 @@ const SYSTEM_TYPES: Array<{ re: RegExp; type: DealernetMessageType; pretty: stri
 const CHAT_RE =
   /(offer|assistance)\s+chat\s+on\s+(?:for\s+sale|wanted|[^()]+?)\s+by\s+([A-Z]{2,4}-[A-Z0-9]+)\s*\(\s*reference\s*#?\s*:?\s*(\d+)\s*\)/i;
 const REFERENCE_RE = /reference\s*#?\s*:?\s*(\d+)/i;
+const OFFER_ID_RE = /(?:offer|reference)\s*#?\s*:?\s*(\d{5,})/i;
 const DEALER_CODE_RE = /^[A-Z]{2,4}-[A-Z0-9]+$/;
+
+function extractOfferId(row: DealernetMessageRow, body: string): string | null {
+  if (row.offer_id) return row.offer_id;
+  const ref = REFERENCE_RE.exec(body);
+  if (ref) return ref[1];
+  const offer = OFFER_ID_RE.exec(body);
+  return offer ? offer[1] : null;
+}
 
 export function classifyMessage(row: DealernetMessageRow): ClassifiedMessage {
   const subj = String(row.subject || "").trim();
@@ -57,13 +70,14 @@ export function classifyMessage(row: DealernetMessageRow): ClassifiedMessage {
 
   for (const s of SYSTEM_TYPES) {
     if (s.re.test(subj)) {
+      const offerId = extractOfferId(row, body);
       return {
         type: s.type,
         prettyType: s.pretty,
         isChat: false,
         isSystemEvent: true,
-        referenceOfferId: null,
-        offerId: row.offer_id || null,
+        referenceOfferId: offerId,
+        offerId,
         dealerCode: null,
       };
     }

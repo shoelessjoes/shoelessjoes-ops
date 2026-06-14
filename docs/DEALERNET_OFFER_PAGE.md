@@ -16,8 +16,11 @@ npm run job:probe-offer -- --offerid 364263 --offerid 364363 --offerid 361004 --
 # Pending Out list + probe first 3 offer detail pages
 npm run job:probe-offer -- --filter PENDINGOUT --max-details 3
 
-# Pending In (when available)
+# Pending In (counterparty waiting on you)
 npm run job:probe-offer -- --filter PENDINGIN --max-details 3
+
+# Single pending sale offer
+npm run job:probe-offer -- --offerid 365842
 
 # Visible browser
 npm run job:probe-offer -- --headed --pause 15000
@@ -31,14 +34,63 @@ Output: `data/offer-probes/offer-{id}.json` and a timestamped bundle JSON.
 
 | Code | State | Side | Example URL | Notes |
 |------|--------|------|-------------|--------|
-| A | Pending — you Accept/Decline | Sale (buyer sent offer) | *n/a* | Likely **PENDINGIN** list |
+| A | Pending — you Accept/Decline | Sale (buyer sent offer) | https://www.dealernetx.com/offer.php?offerid=365842 | **PENDINGIN** — Sell To CA-DS, $380 EFT |
 | B | Pending — waiting on them | Purchase | https://www.dealernetx.com/offers.php?offerfilter=PENDINGOUT | **Pending Out** — you sent offer, awaiting counterparty |
 | C | Accepted, no tracking | Purchase | https://www.dealernetx.com/offer.php?offerid=364263 | |
 | D | Accepted + tracking | Purchase | https://www.dealernetx.com/offer.php?offerid=364363 | |
 | E | Accepted sale, ready to ship | Sale | *n/a* | Send when available |
 | F | Declined or completed/rated | either | https://www.dealernetx.com/offer.php?offerid=361004 | |
 
+**List URLs:**
+
+- Pending In: `https://www.dealernetx.com/offers.php?offerfilter=PENDINGIN` (floating badge on every page when count > 0)
+- Pending Out: `https://www.dealernetx.com/offers.php?offerfilter=PENDINGOUT`
+
 When you have pending offers, also note **Purchases → Pending In / Pending Out** and **Sales → Pending In / Pending Out** counts on home/account (probe with `--home`).
+
+---
+
+## Pending vs accepted offer page UI
+
+### Pending (A / B) — `pagePhase: pending`
+
+**Header:** `Offer #365842: Sell To CA-DS` with status badge **PENDING**
+
+**Primary actions** (visible buttons above tabs):
+
+| Button | Color | Automation note |
+|--------|-------|-----------------|
+| Accept | Green | **Manual only** — do not auto-click without explicit user request |
+| Decline | Red | Manual only |
+| Revise | Orange | Manual only |
+| Refresh | Gray | Safe to re-fetch |
+
+**Tabs:** **Ship To | Details | Items** (no Pay To, Messages, Documents)
+
+**Default landing tab:** **Details** (not Ship To)
+
+| Tab | Content |
+|-----|---------|
+| Ship To | Buyer ship-to address (e.g. CA-DS / Diamond Sportscards, San Rafael CA) |
+| Details | Offer Id, Status, Member Status, Offer Total, Payment Timing/Method, Created, **Expires** |
+| Items | Product link, UPC, Qty, Unit Price, Subtotal |
+
+**Example #365842 (Pending In sale):**
+
+- Buyer: CA-DS (Robert Michener / Diamond Sportscards, San Rafael CA 94901)
+- Payment: EFT, upfront (1 business day)
+- Total: $380.00
+- Item: 25/6 Donruss Road to FIFA World Cup Soccer Hobby box, UPC `746134178665`, qty 1 @ $380
+- Expires: 06/16/2026 23:59:59
+- Offer notes: `EFT`
+
+**Inbox path:** `New Offer Received` → open offer page → you Accept/Decline/Revise. No Shopify sync until accepted and on unrated list.
+
+### Accepted (C / D / E) — `pagePhase: accepted`
+
+**Tabs:** **Pay To | Details | Items | Messages | Documents** (+ **Update Listings** action)
+
+**Details tab** (default) includes: Offer Id, Status, Member Status, Offer Total, Payment Timing/Method, Created, **Shipping** (carrier + `Tracking: …`), **Transaction Rating** (1–5), Admin Assistance.
 
 ---
 
@@ -47,7 +99,7 @@ When you have pending offers, also note **Purchases → Pending In / Pending Out
 | Inbox subject | Typical next step | Automation (target) |
 |---------------|-------------------|---------------------|
 | New Offer Received | Open offer → Accept / Decline / Revise | Email + offer link; **no auto-accept** |
-| Offer Accepted | Offer page shows ACCEPTED | Ingest offer id → Shopify sync |
+| Offer Accepted | Offer page shows ACCEPTED | Classified → ingest offer id → Shopify sync |
 | Offer Declined | Terminal | Notify only |
 | Offer Shipping Updated | Tracking on offer page | Update DB + purchase draft |
 | Payment Completed | Sale side | Notify; optional fulfillment nudge |
@@ -79,27 +131,33 @@ From `packages/core/src/dealernet/offers.ts`:
 - Tracking (offer detail `#offerdata` table)
 - Case qty (from listing page legend)
 
-**To map via probe:** tabs, Accept/Decline/Revise buttons, payment/shipment sections, rated/declined UI.
+**Probe adds** (`offer-probe.ts`): `offerHeadline`, `pagePhase`, `primaryActions`, `shipToText`, all three pending tabs.
 
 ---
 
-## After probe run
+## Probe notes
 
-1. Open `data/offer-probes/offer-364263.json` (etc.) and fill tab/button notes below.
-2. Add pending A/B/E URLs when available.
-3. Wire `Offer Accepted` classifier + single-offer ingest (separate task).
+**Offer page tabs (accepted)** are `button.tablinks`: **Pay To | Details | Items | Messages | Documents**.
 
-### Probe notes (2026-06-13 run)
+**Offer page tabs (pending)** are `button.tablinks`: **Ship To | Details | Items**.
 
-**Offer page tabs** are `button.tablinks`: **Pay To | Details | Items | Messages | Documents** (+ **Update Listings** action).
+#### Offer #365842 (A — pending in sale)
 
-**Details tab** (default) includes labeled rows: Offer Id, Status, Member Status, Offer Total, Payment Timing/Method, Created, **Shipping** (carrier + `Tracking: …`), **Transaction Rating** (1–5), Admin Assistance.
+- List filter: `PENDINGIN`
+- Headline: `Offer #365842: Sell To CA-DS`
+- Status: PENDING
+- Actions: Accept, Decline, Revise, Refresh
+- Default tab: Details
+- Ship To: CA-DS buyer address (San Rafael)
+- Items: Donruss FIFA WC Hobby, UPC 746134178665, 1× $380
 
-**Home (with `--home`):**
+#### Offer #365788 (A — pending in purchase)
 
-- Purchases (17) → `PURCHASESUNRATED`
-- Sales (22) → `SALESUNRATED`
-- Also: `PURCHASES` / `PURCHASESALL`, `SALES` / `SALESALL`
+- List filter: `PENDINGIN` (2 rows as of 2026-06-13)
+- Dealer: from PA-MIDO (Wanted)
+- Status: PENDING
+- Total: $884.00
+- Likely **Buy From PA-MIDO** — you must Accept/Decline/Revise on their wanted listing offer
 
 #### Offer #364263 (C — accepted purchase, no tracking)
 
@@ -116,7 +174,6 @@ From `packages/core/src/dealernet/offers.ts`:
 
 - Probe still showed **ACCEPTED** on Details; check **Transaction Rating** row and whether rated offers keep ACCEPTED status in Dealernet UI.
 
-#### Still needed from you
+#### Still needed
 
-- **A / B** — pending in/out sample URLs when counters appear
-- **E** — accepted sale ready to ship
+- **E** — accepted sale ready to ship (post-accept Ship To on sale side)

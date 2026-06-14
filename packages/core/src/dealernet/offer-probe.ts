@@ -38,13 +38,17 @@ export type OfferProbeResult = {
   url: string;
   capturedAt: string;
   pageTitle: string;
+  offerHeadline: string | null;
+  pagePhase: "pending" | "accepted" | "other";
   statusBadge: string | null;
   statusText: string | null;
   tabs: OfferProbeTab[];
   buttons: OfferProbeButton[];
+  primaryActions: string[];
   tables: OfferProbeTable[];
   tracking: string | null;
   fields: OfferProbeField[];
+  shipToText: string | null;
   lineItems: Array<{
     title: string;
     upc: string;
@@ -185,18 +189,7 @@ export async function probeDealernetOfferList(opts: {
       await page.waitForLoadState("domcontentloaded").catch(() => undefined);
       await page.waitForTimeout(opts.login.slowMoMs ?? 300);
 
-      let scraped = await scrapeOfferPage(page);
-      const itemsTab = page.locator("button.tablinks", { hasText: "Items" }).first();
-      if ((await itemsTab.count()) > 0) {
-        await itemsTab.click();
-        await page.waitForTimeout(opts.login.slowMoMs ?? 300);
-        const itemsScrape = await scrapeOfferPage(page);
-        scraped = {
-          ...scraped,
-          lineItems: itemsScrape.lineItems.length ? itemsScrape.lineItems : scraped.lineItems,
-          tables: itemsScrape.tables.length > scraped.tables.length ? itemsScrape.tables : scraped.tables,
-        };
-      }
+      const scraped = await scrapeOfferDetailAllTabs(page, opts.login.slowMoMs ?? 300);
 
       offers.push({
         offerId,
@@ -261,18 +254,22 @@ async function scrapeOfferPage(page: Page): Promise<Omit<OfferProbeResult, "offe
     }
 
     const buttons: OfferProbeButton[] = [];
-    for (const el of document.querySelectorAll("main button, main input[type='submit'], main input[type='button']")) {
+    for (const el of document.querySelectorAll(
+      "button, input[type='submit'], input[type='button'], a.btn, .offer-actions a, .offer-actions button",
+    )) {
+      if (el.classList.contains("tablinks")) continue;
       const tag = el.tagName.toLowerCase();
       const input = el as HTMLInputElement;
       const btn = el as HTMLButtonElement;
-      const text = clean(tag === "input" ? input.value : btn.innerText);
-      if (!text && tag !== "input") continue;
+      const anchor = el as HTMLAnchorElement;
+      const text = clean(tag === "input" ? input.value : tag === "a" ? anchor.innerText : btn.innerText);
+      if (!text) continue;
       const style = window.getComputedStyle(el);
       buttons.push({
         text: text || `[${tag}]`,
         tag,
         type: input.type || "",
-        name: input.name || btn.getAttribute("name") || "",
+        name: input.name || btn.getAttribute("name") || anchor.getAttribute("name") || "",
         id: el.id || "",
         classes: el.className || "",
         visible: style.display !== "none" && style.visibility !== "hidden",
@@ -314,7 +311,9 @@ async function scrapeOfferPage(page: Page): Promise<Omit<OfferProbeResult, "offe
 
     const lineItems: OfferProbeResult["lineItems"] = [];
     for (const row of document.querySelectorAll("tr.item-row, #offerdata tr")) {
-      const product = row.querySelector("td[data-label='Product'] .product-link, .product-link");
+      const product = row.querySelector(
+        "td[data-label='Product'] .product-link, td[data-label='Product'] a, .product-link",
+      );
       if (!product) continue;
       const title = clean(product.textContent);
       const productHref = (product as HTMLAnchorElement).href || product.getAttribute("href") || "";
@@ -328,6 +327,30 @@ async function scrapeOfferPage(page: Page): Promise<Omit<OfferProbeResult, "offe
         subtotal: cell("Subtotal"),
         productHref,
       });
+    }
+    if (!lineItems.length) {
+      for (const table of document.querySelectorAll("main table, #offerdata table")) {
+        const headers = Array.from(table.querySelectorAll("thead th, tr th")).map((th) =>
+          clean(th.textContent),
+        );
+        if (!headers.includes("Product") || !headers.includes("UPC")) continue;
+        for (const row of table.querySelectorAll("tbody tr")) {
+          const cells = Array.from(row.querySelectorAll("td")).map((td) => clean(td.textContent));
+          if (cells.length < 5) continue;
+          const productLink = row.querySelector("td a");
+          lineItems.push({
+            title: cells[0] || "",
+            upc: cells[1] || "",
+            qty: cells[2] || "",
+            unitPrice: cells[3] || "",
+            subtotal: cells[4] || "",
+            productHref:
+              (productLink as HTMLAnchorElement | null)?.href ||
+              productLink?.getAttribute("href") ||
+              "",
+          });
+        }
+      }
     }
 
     let tracking: string | null = null;
@@ -353,10 +376,13 @@ async function scrapeOfferPage(page: Page): Promise<Omit<OfferProbeResult, "offe
       }
     }
 
+    const offerHeadline = clean(
+      document.querySelector("h1, h2, .offer-title, .page-title, main header")?.textContent,
+    );
+
     return {
       pageTitle: document.title,
-      statusBadge: null,
-      statusText: null,
+      offerHeadline: offerHeadline || null,
       tabs,
       buttons,
       tables,
@@ -366,17 +392,88 @@ async function scrapeOfferPage(page: Page): Promise<Omit<OfferProbeResult, "offe
     };
   });
 
+  const primaryActions = dom.buttons
+    .filter((b) => b.visible && /^(Accept|Decline|Revise|Refresh)/i.test(b.text))
+    .map((b) => b.text.replace(/\s+/g, " ").trim());
+
+  let pagePhase: OfferProbeResult["pagePhase"] = "other";
+  if ((statusBadge || "").toUpperCase() === "PENDING" || primaryActions.some((a) => /^Accept/i.test(a))) {
+    pagePhase = "pending";
+  } else if ((statusBadge || "").toUpperCase() === "ACCEPTED") {
+    pagePhase = "accepted";
+  }
+
   return {
     pageTitle: dom.pageTitle,
+    offerHeadline: dom.offerHeadline,
+    pagePhase,
     statusBadge,
     statusText,
     tabs: dom.tabs,
     buttons: dom.buttons,
+    primaryActions,
     tables: dom.tables,
     tracking: dom.tracking,
     fields: dom.fields,
+    shipToText: null,
     lineItems: dom.lineItems,
   };
+}
+
+async function scrapeOfferDetailAllTabs(
+  page: Page,
+  slowMoMs: number,
+): Promise<Omit<OfferProbeResult, "offerId" | "url" | "capturedAt">> {
+  let result = await scrapeOfferPage(page);
+
+  const shipTab = page.locator("button.tablinks", { hasText: "Ship To" }).first();
+  if ((await shipTab.count()) > 0) {
+    await shipTab.click();
+    await page.waitForTimeout(slowMoMs);
+    const shipToText = await page.evaluate(() => {
+      const clean = (s: string | null | undefined) => (s || "").replace(/\s+/g, " ").trim();
+      for (const el of document.querySelectorAll(".tabcontent, main div, #offerdata")) {
+        const t = clean(el.textContent);
+        if (/^Ship To:/i.test(t) && t.length < 600) return t;
+      }
+      for (const el of document.querySelectorAll("h2, h3, h4, strong, p")) {
+        const t = clean(el.textContent);
+        if (/^Ship To:/i.test(t)) {
+          const block = el.closest(".tabcontent, .card, section") || el.parentElement;
+          const blockText = clean(block?.textContent);
+          if (blockText.length < 600) return blockText;
+        }
+      }
+      return null;
+    });
+    result = { ...result, shipToText };
+  }
+
+  const itemsTab = page.locator("button.tablinks", { hasText: "Items" }).first();
+  if ((await itemsTab.count()) > 0) {
+    await itemsTab.click();
+    await page.waitForTimeout(slowMoMs);
+    const itemsScrape = await scrapeOfferPage(page);
+    result = {
+      ...result,
+      lineItems: itemsScrape.lineItems.length ? itemsScrape.lineItems : result.lineItems,
+      tables: itemsScrape.tables.length > result.tables.length ? itemsScrape.tables : result.tables,
+    };
+  }
+
+  const detailsTab = page.locator("button.tablinks", { hasText: "Details" }).first();
+  if ((await detailsTab.count()) > 0) {
+    await detailsTab.click();
+    await page.waitForTimeout(slowMoMs);
+    const detailsScrape = await scrapeOfferPage(page);
+    result = {
+      ...result,
+      fields: detailsScrape.fields.length ? detailsScrape.fields : result.fields,
+      tracking: detailsScrape.tracking ?? result.tracking,
+    };
+  }
+
+  return result;
 }
 
 async function scrapeHomeQueues(page: Page): Promise<HomeQueueProbe> {
@@ -446,19 +543,7 @@ export async function probeDealernetOfferPages(opts: {
       await page.waitForLoadState("domcontentloaded").catch(() => undefined);
       await page.waitForTimeout(opts.login.slowMoMs ?? 300);
 
-      let scraped = await scrapeOfferPage(page);
-
-      const itemsTab = page.locator("button.tablinks", { hasText: "Items" }).first();
-      if ((await itemsTab.count()) > 0) {
-        await itemsTab.click();
-        await page.waitForTimeout(opts.login.slowMoMs ?? 300);
-        const itemsScrape = await scrapeOfferPage(page);
-        scraped = {
-          ...scraped,
-          lineItems: itemsScrape.lineItems.length ? itemsScrape.lineItems : scraped.lineItems,
-          tables: itemsScrape.tables.length > scraped.tables.length ? itemsScrape.tables : scraped.tables,
-        };
-      }
+      const scraped = await scrapeOfferDetailAllTabs(page, opts.login.slowMoMs ?? 300);
 
       offers.push({
         offerId,

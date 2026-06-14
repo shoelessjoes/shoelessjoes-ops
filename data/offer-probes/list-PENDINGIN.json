@@ -1,0 +1,26 @@
+{
+  "offerFilter": "PENDINGIN",
+  "url": "https://www.dealernetx.com/offers.php?offerfilter=PENDINGIN",
+  "capturedAt": "2026-06-13T17:58:48.016Z",
+  "rowCount": 2,
+  "rows": [
+    {
+      "offerId": "365842",
+      "dealer": "from CA-DS (For Sale)",
+      "status": "PENDING",
+      "created": "06/13/2026 12:37:05",
+      "total": "$380.00",
+      "offerDetailUrl": "https://www.dealernetx.com/offer.php?offerid=365842",
+      "offerFilter": "PENDINGIN"
+    },
+    {
+      "offerId": "365788",
+      "dealer": "from PA-MIDO (Wanted)",
+      "status": "PENDING",
+      "created": "06/13/2026 09:34:58",
+      "total": "$884.00",
+      "offerDetailUrl": "https://www.dealernetx.com/offer.php?offerid=365788",
+      "offerFilter": "PENDINGIN"
+    }
+  ]
+}

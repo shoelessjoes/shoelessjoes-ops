@@ -50,7 +50,7 @@ async function main() {
       for (const o of result.offers) {
         const path = join(outDir, `offer-${o.offerId}.json`);
         writeFileSync(path, JSON.stringify(o, null, 2), "utf8");
-        console.log(`  detail probe: #${o.offerId} status=${o.statusBadge} tracking=${o.tracking ?? "—"}`);
+        console.log(`  detail probe: #${o.offerId} phase=${o.pagePhase} status=${o.statusBadge} actions=[${o.primaryActions.join(", ")}]`);
       }
 
       if (result.home) bundle.home = result.home;
@@ -75,7 +75,9 @@ async function main() {
       const path = join(outDir, `offer-${o.offerId}.json`);
       writeFileSync(path, JSON.stringify(o, null, 2), "utf8");
       console.log(`\n--- Offer #${o.offerId} ---`);
-      console.log(`  status: ${o.statusBadge ?? "(none)"} | tracking: ${o.tracking ?? "(none)"}`);
+      console.log(`  status: ${o.statusBadge ?? "(none)"} | phase: ${o.pagePhase} | tracking: ${o.tracking ?? "(none)"}`);
+      console.log(`  headline: ${o.offerHeadline ?? "(none)"}`);
+      console.log(`  actions: ${o.primaryActions.join(", ") || "(none)"}`);
       console.log(`  tabs: ${o.tabs.map((t) => t.label).join(" | ") || "(none)"}`);
       console.log(`  saved: ${path}`);
     }

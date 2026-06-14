@@ -1,0 +1,163 @@
+{
+  "offerId": "365788",
+  "url": "https://www.dealernetx.com/offer.php?offerid=365788",
+  "capturedAt": "2026-06-13T18:01:50.933Z",
+  "pageTitle": "Offer",
+  "offerHeadline": "Offer #365788: Purchase From PA-MIDO",
+  "pagePhase": "pending",
+  "statusBadge": "PENDING",
+  "statusText": null,
+  "tabs": [
+    {
+      "label": "Pay To",
+      "href": "",
+      "active": false
+    },
+    {
+      "label": "Details",
+      "href": "",
+      "active": true
+    },
+    {
+      "label": "Items",
+      "href": "",
+      "active": false
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Pay To",
+      "tag": "button",
+      "type": "submit",
+      "name": "",
+      "id": "",
+      "classes": "tablinks",
+      "visible": true
+    },
+    {
+      "text": "Details",
+      "tag": "button",
+      "type": "submit",
+      "name": "",
+      "id": "",
+      "classes": "tablinks active",
+      "visible": true
+    },
+    {
+      "text": "Items",
+      "tag": "button",
+      "type": "submit",
+      "name": "",
+      "id": "",
+      "classes": "tablinks",
+      "visible": true
+    }
+  ],
+  "primaryActions": [],
+  "tables": [
+    {
+      "caption": "",
+      "headers": [
+        "Offer Id",
+        "Status",
+        "Member Status (current — pre-snapshot offer)",
+        "Last Revised By",
+        "Offer Total",
+        "Payment Timing",
+        "Payment Method",
+        "Created",
+        "Expires"
+      ],
+      "rowCount": 9,
+      "sampleRows": [
+        [
+          "#365788"
+        ],
+        [
+          "PENDING"
+        ],
+        [
+          "OH-SHOEJOE (Buyer): Blue Star PA-MIDO (Seller): Blue Star"
+        ],
+        [
+          "PA-MIDO"
+        ],
+        [
+          "884.00"
+        ]
+      ]
+    },
+    {
+      "caption": "",
+      "headers": [
+        "Product",
+        "UPC",
+        "Qty",
+        "Unit Price",
+        "Subtotal"
+      ],
+      "rowCount": 1,
+      "sampleRows": [
+        [
+          "~ Destined Rivals Scarlet & Violet ~ POKEMON ~ booster (bundle) ~ 6 pack booster ~ box",
+          "196214111387",
+          "13",
+          "$68.00",
+          "$884.00"
+        ]
+      ]
+    },
+    {
+      "caption": "",
+      "headers": [
+        "Document",
+        "Uploaded By",
+        "Upload Date",
+        "Actions"
+      ],
+      "rowCount": 0,
+      "sampleRows": []
+    }
+  ],
+  "tracking": null,
+  "fields": [
+    {
+      "label": "Offer Id",
+      "value": "#365788"
+    },
+    {
+      "label": "Status",
+      "value": "PENDING"
+    },
+    {
+      "label": "Member Status (current — pre-snapshot offer)",
+      "value": "OH-SHOEJOE (Buyer): Blue Star PA-MIDO (Seller): Blue Star"
+    },
+    {
+      "label": "Last Revised By",
+      "value": "PA-MIDO"
+    },
+    {
+      "label": "Offer Total",
+      "value": "884.00"
+    },
+    {
+      "label": "Payment Timing",
+      "value": "Payment due within 1 business day of offer acceptance (upfront)"
+    },
+    {
+      "label": "Payment Method",
+      "value": "CashApp (no purchase protection)"
+    },
+    {
+      "label": "Created",
+      "value": "06/13/2026 09:34:58"
+    },
+    {
+      "label": "Expires",
+      "value": "06/16/2026 23:59:59"
+    }
+  ],
+  "shipToText": null,
+  "lineItems": []
+}
