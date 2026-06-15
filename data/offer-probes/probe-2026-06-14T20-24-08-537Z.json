@@ -1,0 +1,289 @@
+{
+  "offers": [
+    {
+      "offerId": "365842",
+      "url": "https://www.dealernetx.com/offer.php?offerid=365842",
+      "capturedAt": "2026-06-14T20:25:46.224Z",
+      "pageTitle": "Offer",
+      "offerHeadline": "Offer #365842: Sell To CA-DS",
+      "pagePhase": "accepted",
+      "statusBadge": "ACCEPTED",
+      "statusText": null,
+      "tabs": [
+        {
+          "label": "Ship To",
+          "href": "",
+          "active": false
+        },
+        {
+          "label": "Details",
+          "href": "",
+          "active": true
+        },
+        {
+          "label": "Items",
+          "href": "",
+          "active": false
+        },
+        {
+          "label": "Documents",
+          "href": "",
+          "active": false
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Offers ▼",
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "classes": "header-dropdown-toggle",
+          "visible": true
+        },
+        {
+          "text": "O OH-SHOEJOE ▼",
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "classes": "user-menu-toggle",
+          "visible": true
+        },
+        {
+          "text": "Marketplace ▸",
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "classes": "mobile-nav-toggle active",
+          "visible": true
+        },
+        {
+          "text": "Offers ▸",
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "classes": "mobile-nav-toggle",
+          "visible": true
+        },
+        {
+          "text": "Invoice",
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "classes": "btn btn-secondary",
+          "visible": true
+        },
+        {
+          "text": "Edit Listings",
+          "tag": "a",
+          "type": "",
+          "name": "showiedit",
+          "id": "showiedit",
+          "classes": "btn btn-secondary btn-sm",
+          "visible": false
+        },
+        {
+          "text": "Close Editor",
+          "tag": "a",
+          "type": "",
+          "name": "hideiedit",
+          "id": "hideiedit",
+          "classes": "btn btn-secondary btn-sm",
+          "visible": true
+        },
+        {
+          "text": "Update Listings",
+          "tag": "input",
+          "type": "submit",
+          "name": "updatelistings",
+          "id": "updatelistings",
+          "classes": "btn btn-primary",
+          "visible": true
+        },
+        {
+          "text": "Upload Document",
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "classes": "btn btn-primary btn-sm",
+          "visible": true
+        }
+      ],
+      "primaryActions": [],
+      "tables": [
+        {
+          "caption": "",
+          "headers": [
+            "Offer Id",
+            "Status",
+            "Member Status (current — pre-snapshot offer)",
+            "Last Revised By",
+            "Offer Total",
+            "Payment Timing",
+            "Payment Method",
+            "Transactions",
+            "Created",
+            "Shipping",
+            "Transaction Rating",
+            "Messages",
+            "Admin Assistance"
+          ],
+          "rowCount": 13,
+          "sampleRows": [
+            [
+              "#365842"
+            ],
+            [
+              "ACCEPTED Accepted: 06/13/2026"
+            ],
+            [
+              "CA-DS (Buyer): Blue Star OH-SHOEJOE (Seller): Blue Star"
+            ],
+            [
+              "CA-DS"
+            ],
+            [
+              "380.00"
+            ]
+          ]
+        },
+        {
+          "caption": "",
+          "headers": [
+            "Product",
+            "UPC",
+            "Qty",
+            "Unit Price",
+            "Subtotal"
+          ],
+          "rowCount": 1,
+          "sampleRows": [
+            [
+              "25/6 ~ Donruss Road to FIFA World Cup ~ Soccer (split year) ~ Hobby ~ box",
+              "746134178665",
+              "1",
+              "$380.00",
+              "$380.00"
+            ]
+          ]
+        },
+        {
+          "caption": "Click Listing ID for full editor",
+          "headers": [
+            "ListingID",
+            "Product",
+            "UPC",
+            "Qty",
+            "Price",
+            "Active"
+          ],
+          "rowCount": 1,
+          "sampleRows": [
+            [
+              "2408463",
+              "25/6 ~ Donruss Road to FIFA World Cup ~ Soccer (split year) ~ Hobby ~ box",
+              "746134178665",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "caption": "",
+          "headers": [
+            "Document",
+            "Uploaded By",
+            "Upload Date",
+            "Actions"
+          ],
+          "rowCount": 0,
+          "sampleRows": []
+        }
+      ],
+      "tracking": "1Z064B620326221323Edit",
+      "fields": [
+        {
+          "label": "Offer Id",
+          "value": "#365842"
+        },
+        {
+          "label": "Status",
+          "value": "ACCEPTED Accepted: 06/13/2026"
+        },
+        {
+          "label": "Member Status (current — pre-snapshot offer)",
+          "value": "CA-DS (Buyer): Blue Star OH-SHOEJOE (Seller): Blue Star"
+        },
+        {
+          "label": "Last Revised By",
+          "value": "CA-DS"
+        },
+        {
+          "label": "Offer Total",
+          "value": "380.00"
+        },
+        {
+          "label": "Payment Timing",
+          "value": "Payment due within 1 business day of offer acceptance (upfront)"
+        },
+        {
+          "label": "Payment Method",
+          "value": "EFT"
+        },
+        {
+          "label": "Transactions",
+          "value": "LISTING FEE DEBIT -$3.80 Receipt for offer 365842 $380.00"
+        },
+        {
+          "label": "Created",
+          "value": "06/13/2026 12:37:05"
+        },
+        {
+          "label": "Shipping",
+          "value": "UPS on 06/13/2026 Tracking: 1Z064B620326221323Edit"
+        },
+        {
+          "label": "Transaction Rating",
+          "value": "0 1 2 3 4 5 (rate until 08/12/2026)"
+        },
+        {
+          "label": "Messages",
+          "value": "Message Dealer (chat until 07/13/2026)"
+        },
+        {
+          "label": "Admin Assistance",
+          "value": "Request Assistance (available until 06/27/2026)"
+        }
+      ],
+      "shipToText": "Ship To: Robert Michener (ID VERIFIED) Robert Michener (ID VERIFIED) (CA-DS)Diamond Sportscards1144 Fourth StreetSan Rafael CA 94901United States925-876-9961michdiamond@yahoo.com",
+      "payToText": null,
+      "listingAdjustments": [
+        {
+          "listingId": "2408463",
+          "listingHref": "https://www.dealernetx.com/mylistingcats.php?displaymode=sc&categoryid=29&subcategoryid=47242&boxtypeid=2&listingtype=For%20Sale&year=25%2F6&inactive=1",
+          "product": "",
+          "upc": "746134178665",
+          "qty": "",
+          "price": "380.00",
+          "active": false
+        }
+      ],
+      "lineItems": [
+        {
+          "title": "25/6 ~ Donruss Road to FIFA World Cup ~ Soccer (split year) ~ Hobby ~ box",
+          "upc": "746134178665",
+          "qty": "1",
+          "unitPrice": "$380.00",
+          "subtotal": "$380.00",
+          "productHref": "https://www.dealernetx.com/listing.php?subcategoryid=47242&boxtypeid=2&categoryid=29&listingtypeid=1&year=25/6"
+        }
+      ]
+    }
+  ]
+}

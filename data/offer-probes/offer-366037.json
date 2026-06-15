@@ -1,15 +1,15 @@
 {
-  "offerId": "365842",
-  "url": "https://www.dealernetx.com/offer.php?offerid=365842",
-  "capturedAt": "2026-06-14T20:25:46.224Z",
+  "offerId": "366037",
+  "url": "https://www.dealernetx.com/offer.php?offerid=366037",
+  "capturedAt": "2026-06-14T19:51:25.062Z",
   "pageTitle": "Offer",
-  "offerHeadline": "Offer #365842: Sell To CA-DS",
+  "offerHeadline": "Offer #366037: Purchase From FL-MNPCOLL",
   "pagePhase": "accepted",
   "statusBadge": "ACCEPTED",
   "statusText": null,
   "tabs": [
     {
-      "label": "Ship To",
+      "label": "Pay To",
       "href": "",
       "active": false
     },
@@ -124,6 +124,7 @@
         "Offer Total",
         "Payment Timing",
         "Payment Method",
+        "OH-SHOEJOE's Payment Info(Buyer)",
         "Transactions",
         "Created",
         "Shipping",
@@ -131,22 +132,22 @@
         "Messages",
         "Admin Assistance"
       ],
-      "rowCount": 13,
+      "rowCount": 14,
       "sampleRows": [
         [
-          "#365842"
+          "#366037"
         ],
         [
           "ACCEPTED Accepted: 06/13/2026"
         ],
         [
-          "CA-DS (Buyer): Blue Star OH-SHOEJOE (Seller): Blue Star"
+          "OH-SHOEJOE (Buyer): Blue Star FL-MNPCOLL (Seller): Standard"
         ],
         [
-          "CA-DS"
+          "FL-MNPCOLL"
         ],
         [
-          "380.00"
+          "590.00"
         ]
       ]
     },
@@ -162,11 +163,11 @@
       "rowCount": 1,
       "sampleRows": [
         [
-          "25/6 ~ Donruss Road to FIFA World Cup ~ Soccer (split year) ~ Hobby ~ box",
-          "746134178665",
-          "1",
-          "$380.00",
-          "$380.00"
+          "2026 ~ Topps Series 2 ~ Baseball ~ Hobby Jumbo v1 ~ box",
+          "887521164509",
+          "2",
+          "$295.00(Listed Price: 292.00/box)",
+          "$590.00"
         ]
       ]
     },
@@ -183,9 +184,9 @@
       "rowCount": 1,
       "sampleRows": [
         [
-          "2408463",
-          "25/6 ~ Donruss Road to FIFA World Cup ~ Soccer (split year) ~ Hobby ~ box",
-          "746134178665",
+          "2407552",
+          "2026 ~ Topps Series 2 ~ Baseball ~ Hobby Jumbo v1 ~ box (Expires: 2026-12-07)",
+          "887521164509",
           "",
           "",
           ""
@@ -204,11 +205,11 @@
       "sampleRows": []
     }
   ],
-  "tracking": "1Z064B620326221323Edit",
+  "tracking": "Not Provided",
   "fields": [
     {
       "label": "Offer Id",
-      "value": "#365842"
+      "value": "#366037"
     },
     {
       "label": "Status",
@@ -216,15 +217,15 @@
     },
     {
       "label": "Member Status (current — pre-snapshot offer)",
-      "value": "CA-DS (Buyer): Blue Star OH-SHOEJOE (Seller): Blue Star"
+      "value": "OH-SHOEJOE (Buyer): Blue Star FL-MNPCOLL (Seller): Standard"
     },
     {
       "label": "Last Revised By",
-      "value": "CA-DS"
+      "value": "FL-MNPCOLL"
     },
     {
       "label": "Offer Total",
-      "value": "380.00"
+      "value": "590.00"
     },
     {
       "label": "Payment Timing",
@@ -232,19 +233,23 @@
     },
     {
       "label": "Payment Method",
-      "value": "EFT"
+      "value": "Paypal GS seller covers fees - contact@shoelessjoescards.com"
+    },
+    {
+      "label": "OH-SHOEJOE's Payment Info(Buyer)",
+      "value": "contact@shoelessjoescards.com"
     },
     {
       "label": "Transactions",
-      "value": "LISTING FEE DEBIT -$3.80 Receipt for offer 365842 $380.00"
+      "value": "LISTING FEE DEBIT -$5.90"
     },
     {
       "label": "Created",
-      "value": "06/13/2026 12:37:05"
+      "value": "06/13/2026 20:17:14"
     },
     {
       "label": "Shipping",
-      "value": "UPS on 06/13/2026 Tracking: 1Z064B620326221323Edit"
+      "value": "Not Provided"
     },
     {
       "label": "Transaction Rating",
@@ -259,27 +264,24 @@
       "value": "Request Assistance (available until 06/27/2026)"
     }
   ],
-  "shipToText": "Ship To: Robert Michener (ID VERIFIED) Robert Michener (ID VERIFIED) (CA-DS)Diamond Sportscards1144 Fourth StreetSan Rafael CA 94901United States925-876-9961michdiamond@yahoo.com",
-  "payToText": null,
-  "listingAdjustments": [
-    {
-      "listingId": "2408463",
-      "listingHref": "https://www.dealernetx.com/mylistingcats.php?displaymode=sc&categoryid=29&subcategoryid=47242&boxtypeid=2&listingtype=For%20Sale&year=25%2F6&inactive=1",
-      "product": "",
-      "upc": "746134178665",
-      "qty": "",
-      "price": "380.00",
-      "active": false
-    }
-  ],
+  "shipToText": null,
+  "payToText": "Pay To: Nikil Patel Nikil Patel (FL-MNPCOLL)MNP collectibles LLCLutz FL 33559United States5103784638nikilpatel2503@gmail.com OH-SHOEJOE's Paypal GS seller covers fees Info: contact@shoelessjoescards.com",
   "lineItems": [
     {
-      "title": "25/6 ~ Donruss Road to FIFA World Cup ~ Soccer (split year) ~ Hobby ~ box",
-      "upc": "746134178665",
-      "qty": "1",
-      "unitPrice": "$380.00",
-      "subtotal": "$380.00",
-      "productHref": "https://www.dealernetx.com/listing.php?subcategoryid=47242&boxtypeid=2&categoryid=29&listingtypeid=1&year=25/6"
+      "title": "2026 ~ Topps Series 2 ~ Baseball ~ Hobby Jumbo v1 ~ box",
+      "upc": "887521164509",
+      "qty": "2",
+      "unitPrice": "$295.00(Listed Price: 292.00/box)",
+      "subtotal": "$590.00",
+      "productHref": "https://www.dealernetx.com/listing.php?subcategoryid=1442&boxtypeid=4&categoryid=21&listingtypeid=1&year=2026"
+    },
+    {
+      "title": "2407552",
+      "upc": "2026 ~ Topps Series 2 ~ Baseball ~ Hobby Jumbo v1 ~ box (Expires: 2026-12-07)",
+      "qty": "887521164509",
+      "unitPrice": "",
+      "subtotal": "",
+      "productHref": "https://www.dealernetx.com/mylistingcats.php?displaymode=sc&categoryid=21&subcategoryid=1442&boxtypeid=4&listingtype=Wanted&year=2026"
     }
   ]
 }

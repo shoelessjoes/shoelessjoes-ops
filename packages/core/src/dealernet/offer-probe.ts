@@ -49,6 +49,16 @@ export type OfferProbeResult = {
   tracking: string | null;
   fields: OfferProbeField[];
   shipToText: string | null;
+  payToText: string | null;
+  listingAdjustments: Array<{
+    listingId: string;
+    listingHref: string;
+    product: string;
+    upc: string;
+    qty: string;
+    price: string;
+    active: boolean;
+  }>;
   lineItems: Array<{
     title: string;
     upc: string;
@@ -333,6 +343,7 @@ async function scrapeOfferPage(page: Page): Promise<Omit<OfferProbeResult, "offe
         const headers = Array.from(table.querySelectorAll("thead th, tr th")).map((th) =>
           clean(th.textContent),
         );
+        if (headers.includes("ListingID")) continue;
         if (!headers.includes("Product") || !headers.includes("UPC")) continue;
         for (const row of table.querySelectorAll("tbody tr")) {
           const cells = Array.from(row.querySelectorAll("td")).map((td) => clean(td.textContent));
@@ -353,12 +364,50 @@ async function scrapeOfferPage(page: Page): Promise<Omit<OfferProbeResult, "offe
       }
     }
 
+    const listingAdjustments: OfferProbeResult["listingAdjustments"] = [];
+    for (const table of document.querySelectorAll("main table, #offerdata table")) {
+      const headers = Array.from(table.querySelectorAll("thead th, tr th")).map((th) =>
+        clean(th.textContent),
+      );
+      if (!headers.includes("ListingID")) continue;
+      for (const row of table.querySelectorAll("tbody tr")) {
+        const listingLink = row.querySelector(
+          'td[data-label="ListingID"] a, td a[href*="mylisting"], td a[href*="listing"]',
+        );
+        const listingId = clean(listingLink?.textContent);
+        if (!listingId || !/^\d+$/.test(listingId)) continue;
+        const cellText = (label: string) =>
+          clean(row.querySelector(`td[data-label='${label}']`)?.textContent);
+        const qtyInput = row.querySelector(
+          'td[data-label="Qty"] input, input[name*="qty"], input[name*="Qty"]',
+        ) as HTMLInputElement | null;
+        const priceInput = row.querySelector(
+          'td[data-label="Price"] input, input[name*="price"], input[name*="Price"]',
+        ) as HTMLInputElement | null;
+        const activeCheck = row.querySelector(
+          'td[data-label="Active"] input[type="checkbox"], input[type="checkbox"]',
+        ) as HTMLInputElement | null;
+        listingAdjustments.push({
+          listingId,
+          listingHref:
+            (listingLink as HTMLAnchorElement | null)?.href ||
+            listingLink?.getAttribute("href") ||
+            "",
+          product: cellText("Product"),
+          upc: cellText("UPC"),
+          qty: qtyInput?.value ?? cellText("Qty"),
+          price: priceInput?.value ?? cellText("Price"),
+          active: activeCheck?.checked ?? false,
+        });
+      }
+    }
+
     let tracking: string | null = null;
     for (const a of document.querySelectorAll("td a, #offerdata a")) {
       const row = a.closest("tr");
       const label = clean(row?.querySelector("td:first-child, th")?.textContent);
       if (label && /tracking/i.test(label)) {
-        tracking = clean(a.textContent) || clean(row?.textContent);
+        tracking = (clean(a.textContent) || clean(row?.textContent)).replace(/\bEdit$/i, "").trim();
         break;
       }
     }
@@ -370,7 +419,7 @@ async function scrapeOfferPage(page: Page): Promise<Omit<OfferProbeResult, "offe
         const value = clean(cells[1].textContent);
         if (label === "Shipping" && value) {
           const m = /Tracking:\s*(\S+)/i.exec(value);
-          tracking = m ? m[1] : value;
+          tracking = m ? m[1] : value.replace(/\bEdit$/i, "").trim();
           break;
         }
       }
@@ -389,6 +438,7 @@ async function scrapeOfferPage(page: Page): Promise<Omit<OfferProbeResult, "offe
       tracking,
       fields: fields.slice(0, 40),
       lineItems: lineItems.slice(0, 20),
+      listingAdjustments,
     };
   });
 
@@ -416,8 +466,30 @@ async function scrapeOfferPage(page: Page): Promise<Omit<OfferProbeResult, "offe
     tracking: dom.tracking,
     fields: dom.fields,
     shipToText: null,
+    payToText: null,
+    listingAdjustments: dom.listingAdjustments,
     lineItems: dom.lineItems,
   };
+}
+
+async function scrapeTabText(page: Page, label: string): Promise<string | null> {
+  return page.evaluate((tabLabel) => {
+    const clean = (s: string | null | undefined) => (s || "").replace(/\s+/g, " ").trim();
+    const prefix = new RegExp(`^${tabLabel}:`, "i");
+    for (const el of document.querySelectorAll(".tabcontent, main div, #offerdata")) {
+      const t = clean(el.textContent);
+      if (prefix.test(t) && t.length < 600) return t;
+    }
+    for (const el of document.querySelectorAll("h2, h3, h4, strong, p")) {
+      const t = clean(el.textContent);
+      if (prefix.test(t)) {
+        const block = el.closest(".tabcontent, .card, section") || el.parentElement;
+        const blockText = clean(block?.textContent);
+        if (blockText.length < 600) return blockText;
+      }
+    }
+    return null;
+  }, label);
 }
 
 async function scrapeOfferDetailAllTabs(
@@ -426,27 +498,18 @@ async function scrapeOfferDetailAllTabs(
 ): Promise<Omit<OfferProbeResult, "offerId" | "url" | "capturedAt">> {
   let result = await scrapeOfferPage(page);
 
+  const payTab = page.locator("button.tablinks", { hasText: "Pay To" }).first();
+  if ((await payTab.count()) > 0) {
+    await payTab.click();
+    await page.waitForTimeout(slowMoMs);
+    result = { ...result, payToText: await scrapeTabText(page, "Pay To") };
+  }
+
   const shipTab = page.locator("button.tablinks", { hasText: "Ship To" }).first();
   if ((await shipTab.count()) > 0) {
     await shipTab.click();
     await page.waitForTimeout(slowMoMs);
-    const shipToText = await page.evaluate(() => {
-      const clean = (s: string | null | undefined) => (s || "").replace(/\s+/g, " ").trim();
-      for (const el of document.querySelectorAll(".tabcontent, main div, #offerdata")) {
-        const t = clean(el.textContent);
-        if (/^Ship To:/i.test(t) && t.length < 600) return t;
-      }
-      for (const el of document.querySelectorAll("h2, h3, h4, strong, p")) {
-        const t = clean(el.textContent);
-        if (/^Ship To:/i.test(t)) {
-          const block = el.closest(".tabcontent, .card, section") || el.parentElement;
-          const blockText = clean(block?.textContent);
-          if (blockText.length < 600) return blockText;
-        }
-      }
-      return null;
-    });
-    result = { ...result, shipToText };
+    result = { ...result, shipToText: await scrapeTabText(page, "Ship To") };
   }
 
   const itemsTab = page.locator("button.tablinks", { hasText: "Items" }).first();

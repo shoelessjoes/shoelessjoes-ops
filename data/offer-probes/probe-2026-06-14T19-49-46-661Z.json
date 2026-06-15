@@ -1,0 +1,291 @@
+{
+  "offers": [
+    {
+      "offerId": "366037",
+      "url": "https://www.dealernetx.com/offer.php?offerid=366037",
+      "capturedAt": "2026-06-14T19:51:25.062Z",
+      "pageTitle": "Offer",
+      "offerHeadline": "Offer #366037: Purchase From FL-MNPCOLL",
+      "pagePhase": "accepted",
+      "statusBadge": "ACCEPTED",
+      "statusText": null,
+      "tabs": [
+        {
+          "label": "Pay To",
+          "href": "",
+          "active": false
+        },
+        {
+          "label": "Details",
+          "href": "",
+          "active": true
+        },
+        {
+          "label": "Items",
+          "href": "",
+          "active": false
+        },
+        {
+          "label": "Documents",
+          "href": "",
+          "active": false
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Offers ▼",
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "classes": "header-dropdown-toggle",
+          "visible": true
+        },
+        {
+          "text": "O OH-SHOEJOE ▼",
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "classes": "user-menu-toggle",
+          "visible": true
+        },
+        {
+          "text": "Marketplace ▸",
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "classes": "mobile-nav-toggle active",
+          "visible": true
+        },
+        {
+          "text": "Offers ▸",
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "classes": "mobile-nav-toggle",
+          "visible": true
+        },
+        {
+          "text": "Invoice",
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "classes": "btn btn-secondary",
+          "visible": true
+        },
+        {
+          "text": "Edit Listings",
+          "tag": "a",
+          "type": "",
+          "name": "showiedit",
+          "id": "showiedit",
+          "classes": "btn btn-secondary btn-sm",
+          "visible": false
+        },
+        {
+          "text": "Close Editor",
+          "tag": "a",
+          "type": "",
+          "name": "hideiedit",
+          "id": "hideiedit",
+          "classes": "btn btn-secondary btn-sm",
+          "visible": true
+        },
+        {
+          "text": "Update Listings",
+          "tag": "input",
+          "type": "submit",
+          "name": "updatelistings",
+          "id": "updatelistings",
+          "classes": "btn btn-primary",
+          "visible": true
+        },
+        {
+          "text": "Upload Document",
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "classes": "btn btn-primary btn-sm",
+          "visible": true
+        }
+      ],
+      "primaryActions": [],
+      "tables": [
+        {
+          "caption": "",
+          "headers": [
+            "Offer Id",
+            "Status",
+            "Member Status (current — pre-snapshot offer)",
+            "Last Revised By",
+            "Offer Total",
+            "Payment Timing",
+            "Payment Method",
+            "OH-SHOEJOE's Payment Info(Buyer)",
+            "Transactions",
+            "Created",
+            "Shipping",
+            "Transaction Rating",
+            "Messages",
+            "Admin Assistance"
+          ],
+          "rowCount": 14,
+          "sampleRows": [
+            [
+              "#366037"
+            ],
+            [
+              "ACCEPTED Accepted: 06/13/2026"
+            ],
+            [
+              "OH-SHOEJOE (Buyer): Blue Star FL-MNPCOLL (Seller): Standard"
+            ],
+            [
+              "FL-MNPCOLL"
+            ],
+            [
+              "590.00"
+            ]
+          ]
+        },
+        {
+          "caption": "",
+          "headers": [
+            "Product",
+            "UPC",
+            "Qty",
+            "Unit Price",
+            "Subtotal"
+          ],
+          "rowCount": 1,
+          "sampleRows": [
+            [
+              "2026 ~ Topps Series 2 ~ Baseball ~ Hobby Jumbo v1 ~ box",
+              "887521164509",
+              "2",
+              "$295.00(Listed Price: 292.00/box)",
+              "$590.00"
+            ]
+          ]
+        },
+        {
+          "caption": "Click Listing ID for full editor",
+          "headers": [
+            "ListingID",
+            "Product",
+            "UPC",
+            "Qty",
+            "Price",
+            "Active"
+          ],
+          "rowCount": 1,
+          "sampleRows": [
+            [
+              "2407552",
+              "2026 ~ Topps Series 2 ~ Baseball ~ Hobby Jumbo v1 ~ box (Expires: 2026-12-07)",
+              "887521164509",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "caption": "",
+          "headers": [
+            "Document",
+            "Uploaded By",
+            "Upload Date",
+            "Actions"
+          ],
+          "rowCount": 0,
+          "sampleRows": []
+        }
+      ],
+      "tracking": "Not Provided",
+      "fields": [
+        {
+          "label": "Offer Id",
+          "value": "#366037"
+        },
+        {
+          "label": "Status",
+          "value": "ACCEPTED Accepted: 06/13/2026"
+        },
+        {
+          "label": "Member Status (current — pre-snapshot offer)",
+          "value": "OH-SHOEJOE (Buyer): Blue Star FL-MNPCOLL (Seller): Standard"
+        },
+        {
+          "label": "Last Revised By",
+          "value": "FL-MNPCOLL"
+        },
+        {
+          "label": "Offer Total",
+          "value": "590.00"
+        },
+        {
+          "label": "Payment Timing",
+          "value": "Payment due within 1 business day of offer acceptance (upfront)"
+        },
+        {
+          "label": "Payment Method",
+          "value": "Paypal GS seller covers fees - contact@shoelessjoescards.com"
+        },
+        {
+          "label": "OH-SHOEJOE's Payment Info(Buyer)",
+          "value": "contact@shoelessjoescards.com"
+        },
+        {
+          "label": "Transactions",
+          "value": "LISTING FEE DEBIT -$5.90"
+        },
+        {
+          "label": "Created",
+          "value": "06/13/2026 20:17:14"
+        },
+        {
+          "label": "Shipping",
+          "value": "Not Provided"
+        },
+        {
+          "label": "Transaction Rating",
+          "value": "0 1 2 3 4 5 (rate until 08/12/2026)"
+        },
+        {
+          "label": "Messages",
+          "value": "Message Dealer (chat until 07/13/2026)"
+        },
+        {
+          "label": "Admin Assistance",
+          "value": "Request Assistance (available until 06/27/2026)"
+        }
+      ],
+      "shipToText": null,
+      "payToText": "Pay To: Nikil Patel Nikil Patel (FL-MNPCOLL)MNP collectibles LLCLutz FL 33559United States5103784638nikilpatel2503@gmail.com OH-SHOEJOE's Paypal GS seller covers fees Info: contact@shoelessjoescards.com",
+      "lineItems": [
+        {
+          "title": "2026 ~ Topps Series 2 ~ Baseball ~ Hobby Jumbo v1 ~ box",
+          "upc": "887521164509",
+          "qty": "2",
+          "unitPrice": "$295.00(Listed Price: 292.00/box)",
+          "subtotal": "$590.00",
+          "productHref": "https://www.dealernetx.com/listing.php?subcategoryid=1442&boxtypeid=4&categoryid=21&listingtypeid=1&year=2026"
+        },
+        {
+          "title": "2407552",
+          "upc": "2026 ~ Topps Series 2 ~ Baseball ~ Hobby Jumbo v1 ~ box (Expires: 2026-12-07)",
+          "qty": "887521164509",
+          "unitPrice": "",
+          "subtotal": "",
+          "productHref": "https://www.dealernetx.com/mylistingcats.php?displaymode=sc&categoryid=21&subcategoryid=1442&boxtypeid=4&listingtype=Wanted&year=2026"
+        }
+      ]
+    }
+  ]
+}

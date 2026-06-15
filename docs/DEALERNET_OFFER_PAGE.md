@@ -36,9 +36,9 @@ Output: `data/offer-probes/offer-{id}.json` and a timestamped bundle JSON.
 |------|--------|------|-------------|--------|
 | A | Pending — you Accept/Decline | Sale (buyer sent offer) | https://www.dealernetx.com/offer.php?offerid=365842 | **PENDINGIN** — Sell To CA-DS, $380 EFT |
 | B | Pending — waiting on them | Purchase | https://www.dealernetx.com/offers.php?offerfilter=PENDINGOUT | **Pending Out** — you sent offer, awaiting counterparty |
-| C | Accepted, no tracking | Purchase | https://www.dealernetx.com/offer.php?offerid=364263 | |
+| C | Accepted, no tracking | Purchase | https://www.dealernetx.com/offer.php?offerid=366037 | Pay To tab — FL-MNPCOLL, $590 PayPal GS |
 | D | Accepted + tracking | Purchase | https://www.dealernetx.com/offer.php?offerid=364363 | |
-| E | Accepted sale, ready to ship | Sale | *n/a* | Send when available |
+| E | Accepted sale, ready to ship | Sale | https://www.dealernetx.com/offer.php?offerid=365842 | Ship To tab (not Pay To); EFT $380 to CA-DS |
 | F | Declined or completed/rated | either | https://www.dealernetx.com/offer.php?offerid=361004 | |
 
 **List URLs:**
@@ -86,11 +86,46 @@ When you have pending offers, also note **Purchases → Pending In / Pending Out
 
 **Inbox path:** `New Offer Received` → open offer page → you Accept/Decline/Revise. No Shopify sync until accepted and on unrated list.
 
-### Accepted (C / D / E) — `pagePhase: accepted`
+### Accepted — `pagePhase: accepted`
 
-**Tabs:** **Pay To | Details | Items | Messages | Documents** (+ **Update Listings** action)
+Tabs depend on **side**:
 
-**Details tab** (default) includes: Offer Id, Status, Member Status, Offer Total, Payment Timing/Method, Created, **Shipping** (carrier + `Tracking: …`), **Transaction Rating** (1–5), Admin Assistance.
+| Side | Tabs | First tab content |
+|------|------|-------------------|
+| **Purchase** (you buy) | Pay To \| Details \| Items \| Documents | **Pay To** — seller name, address, phone, email, payment notes |
+| **Sale** (you sell) | Ship To \| Details \| Items \| Documents | **Ship To** — buyer ship-to address; **Items** includes offer line + **Update Listings** editor |
+
+**Header action:** Invoice button (top right). No Accept/Decline.
+
+**Details tab** includes: Offer Id, Status (Accepted date), Member Status, Offer Total, Payment Timing/Method, Transactions (listing fee debit), Created, **Shipping** (or "Not Provided" + Edit link), **Transaction Rating**, Message Dealer.
+
+**Items tab (accepted sale only)** has two sections:
+
+1. **Offer line item** — what sold on this offer (Product, UPC, Qty, Unit Price, Subtotal).
+2. **Update Listings** — inline editor for your existing For Sale listing on the same product. Use when the offer qty is less than your listing qty (e.g. sold 1 of 2). Fields: ListingID (link to full editor), Product, UPC, editable **Qty**, editable **Price**, **Active** checkbox, then **Update Listings** button. Uncheck Active or lower Qty to reflect remaining inventory.
+
+**Automation note:** Do not auto-click Update Listings — manual inventory adjustment on Dealernet after partial sale.
+
+#### Offer #366037 (C — accepted purchase, no tracking)
+
+- Headline: `Offer #366037: Purchase From FL-MNPCOLL`
+- Pay To: Nikil Patel / MNP collectibles LLC, Lutz FL, phone, email
+- Payment: PayPal GS seller covers fees — `contact@shoelessjoescards.com`
+- Offer notes: `fnf please`
+- Total: $590.00
+- Listing fee debit: -$5.90
+- Shipping: Not Provided
+- Rating: unrated (until 08/12/2026)
+
+#### Offer #365842 (E — accepted sale)
+
+- Headline: `Offer #365842: Sell To CA-DS`
+- **Ship To:** Robert Michener (ID VERIFIED) / Diamond Sportscards, 1144 Fourth St, San Rafael CA 94901, 925-876-9961, michdiamond@yahoo.com
+- Payment: EFT upfront
+- Total: $380.00; listing fee debit -$3.80
+- **Offer item:** Donruss FIFA WC Hobby, UPC `746134178665`, 1× $380
+- **Update Listings:** ListingID `2408463`, listing had Qty 2 @ $380, Active unchecked (1 sold on offer, 1 remaining)
+- Shipping: Not Provided (awaiting your shipment + tracking)
 
 ---
 
@@ -131,49 +166,13 @@ From `packages/core/src/dealernet/offers.ts`:
 - Tracking (offer detail `#offerdata` table)
 - Case qty (from listing page legend)
 
-**Probe adds** (`offer-probe.ts`): `offerHeadline`, `pagePhase`, `primaryActions`, `shipToText`, all three pending tabs.
+**Probe adds** (`offer-probe.ts`): `offerHeadline`, `pagePhase`, `primaryActions`, `payToText`, `shipToText`, `listingAdjustments`, tab crawl.
 
 ---
 
-## Probe notes
+## Probe notes (legacy ids)
 
-**Offer page tabs (accepted)** are `button.tablinks`: **Pay To | Details | Items | Messages | Documents**.
+See matrix above for current samples. Additional probes:
 
-**Offer page tabs (pending)** are `button.tablinks`: **Ship To | Details | Items**.
-
-#### Offer #365842 (A — pending in sale)
-
-- List filter: `PENDINGIN`
-- Headline: `Offer #365842: Sell To CA-DS`
-- Status: PENDING
-- Actions: Accept, Decline, Revise, Refresh
-- Default tab: Details
-- Ship To: CA-DS buyer address (San Rafael)
-- Items: Donruss FIFA WC Hobby, UPC 746134178665, 1× $380
-
-#### Offer #365788 (A — pending in purchase)
-
-- List filter: `PENDINGIN` (2 rows as of 2026-06-13)
-- Dealer: from PA-MIDO (Wanted)
-- Status: PENDING
-- Total: $884.00
-- Likely **Buy From PA-MIDO** — you must Accept/Decline/Revise on their wanted listing offer
-
-#### Offer #364263 (C — accepted purchase, no tracking)
-
-- Status: ACCEPTED
-- Shipping: (empty on Details at probe time)
-
-#### Offer #364363 (D — accepted purchase + tracking)
-
-- Status: ACCEPTED
-- Shipping field: `UPS on 06/11/2026 Tracking: 1ZV15H760335239776`
-- Items: 15× blaster @ $48.50, UPC 887521143436
-
-#### Offer #361004 (F — you labeled declined/rated)
-
-- Probe still showed **ACCEPTED** on Details; check **Transaction Rating** row and whether rated offers keep ACCEPTED status in Dealernet UI.
-
-#### Still needed
-
-- **E** — accepted sale ready to ship (post-accept Ship To on sale side)
+- **#364363** — purchase + tracking: `UPS … 1ZV15H760335239776`
+- **#361004** — rated offer may still show ACCEPTED status in UI
