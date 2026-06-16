@@ -28,6 +28,7 @@ function loadSmtp(): AlertSmtpConfig {
       .split(/[,;]/)
       .map((s) => s.trim())
       .filter(Boolean),
+    smsEnabled: (optionalEnv("ALERT_SMS_ENABLED") ?? "1") !== "0",
   };
 }
 
@@ -86,21 +87,39 @@ async function main() {
     }
 
     const digest = formatMessageDigest(row);
-    await sendSmtpAlert(smtp, {
+    const sent = await sendSmtpAlert(smtp, {
       subject: digest.subject,
       textBody: digest.text,
       smsText: digest.smsText,
     });
+
+    const delivered = sent.email > 0 || sent.sms > 0;
+    if (!delivered) {
+      console.warn(`[poll-messages] notify failed for message ${mid}: no channel delivered`);
+      return;
+    }
+    if (sent.smsError) {
+      console.warn(`[poll-messages] SMS skipped/failed for ${mid}: ${sent.smsError}`);
+    }
 
     await prisma.dealernetMessage.update({
       where: { shopId_messageId: { shopId: shop.id, messageId: mid } },
       data: { notifiedAt: new Date() },
     });
 
+    const channel =
+      sent.email > 0 && sent.sms > 0
+        ? sent.smsError
+          ? "email"
+          : "email+sms"
+        : sent.email > 0
+          ? "email"
+          : "sms";
+
     await prisma.notificationEvent.create({
       data: {
         shopId: shop.id,
-        channel: "email+sms",
+        channel,
         subject: digest.subject,
         bodyPreview: digest.text.slice(0, 500),
       },

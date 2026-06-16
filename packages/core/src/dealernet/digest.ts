@@ -79,14 +79,15 @@ export function formatMessageDigest(row: DealernetMessageRow): FormattedMessageE
   lines.push(JSON.stringify(meta, null, 2));
 
   const smsBase = body
+    .replace(/https?:\/\S+/gi, "")
     .replace(/\s+/g, " ")
     .trim()
-    .slice(0, 200);
+    .slice(0, 120);
   const smsPrefix =
     classified.type === "price_alert_triggered" ? "PRICE ALERT: " : "";
   const smsText = `${smsPrefix}${classified.prettyType}${classified.offerId ? ` #${classified.offerId}` : ""}${
     smsBase ? `: ${smsBase}` : ""
-  }`;
+  }`.slice(0, 160);
 
   return {
     subject,
