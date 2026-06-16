@@ -56,14 +56,13 @@ async function main() {
     !isBootstrap && (optionalEnv("DEALERNET_POLL_BACKFILL_PENDING") ?? "1") !== "0";
   // Default: only unread rows (bold / envelope count). Bootstrap imports full inbox once.
   const unreadOnly = optionalEnv("DEALERNET_POLL_UNREAD_ONLY") !== "0" && !isBootstrap;
-  const smsGatewayCount = smtp.smsEnabled === false ? 0 : smtp.smsEmails.length;
 
   console.log(
     `[poll-messages] DEALERNET_POLL_BOOTSTRAP=${bootstrapRaw} → notifications ${
       isBootstrap ? "OFF (bootstrap)" : "ON"
     }; unread-only=${unreadOnly}; backfill-pending=${backfillPending}; email recipients=${
       smtp.toEmails.length
-    }; sms gateways=${smsGatewayCount}`,
+    }; sms gateways=${smtp.smsEmails.length}`,
   );
 
   const rows = await collectDealernetMessages({
