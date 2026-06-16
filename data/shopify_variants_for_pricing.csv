@@ -1,5 +1,4 @@
 product_id,variant_id,product_title,product_created_at,product_status,product_type,variant_title,sku,barcode,price,compare_at_price,cost,inventory_quantity,sold_7d,sold_30d,sold_60d
-gid://shopify/Product/7581874356289,gid://shopify/ProductVariant/42224130981953,2025 Panini USA Stars & Stripes Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134181399,69.99,,76,0,0,0,0
 gid://shopify/Product/7581874389057,gid://shopify/ProductVariant/42224131014721,2024 Topps Signature Class Football Hobby Box,,ARCHIVED,Sealed Wax,Default Title,,887521138357,369.99,,341.67,0,0,0,0
 gid://shopify/Product/7581874421825,gid://shopify/ProductVariant/42224131047489,2024 Topps Signature Class Football 6-Pack Blaster Box,,ARCHIVED,Sealed Wax,Default Title,,887521138388,24.95,,20,0,0,0,0
 gid://shopify/Product/7581874454593,gid://shopify/ProductVariant/42224131080257,2024 Topps Resurgence Football 8-Pack Blaster Box,,ARCHIVED,Sealed Wax,Default Title,,887521135073,29.99,,,0,0,0,0
@@ -22,14 +21,14 @@ gid://shopify/Product/7581874126913,gid://shopify/ProductVariant/42224130752577,
 gid://shopify/Product/7581874159681,gid://shopify/ProductVariant/42224130785345,2024 Panini Prizm Baseball Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134174070,17.49,,15,1,0,0,0
 gid://shopify/Product/7581874192449,gid://shopify/ProductVariant/42224130818113,2024 Panini Prospect Edition Baseball Trading Card Hobby Box,,ARCHIVED,Sealed Wax,Default Title,,746134166686,95.99,,,0,0,0,0
 gid://shopify/Product/7581874257985,gid://shopify/ProductVariant/42224130883649,2024 Panini Select Baseball Hobby Box,,ARCHIVED,Sealed Wax,Default Title,,746134166587,169.99,,,0,0,0,0
-gid://shopify/Product/7585562165313,gid://shopify/ProductVariant/42237398581313,2024 Topps Heritage Baseball Monster Box,,ARCHIVED,Sealed Wax,Default Title,,887521124015,39.99,,,-2,0,0,0
+gid://shopify/Product/7581874356289,gid://shopify/ProductVariant/42224130981953,2025 Panini USA Stars & Stripes Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134181399,69.99,,76,0,0,0,0
 gid://shopify/Product/7585562198081,gid://shopify/ProductVariant/42237398614081,2020 Topps Heritage High Number Baseball Hobby Box,,ARCHIVED,Sealed Wax,Default Title,,887521092727,49.99,,,-1,0,0,0
 gid://shopify/Product/7585562263617,gid://shopify/ProductVariant/42237398679617,2024 Panini Select Baseball Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134174391,27.99,,21,-10,0,0,0
 gid://shopify/Product/7585562296385,gid://shopify/ProductVariant/42237398712385,2024 Topps Heritage High Number Baseball Blaster Box,,ARCHIVED,Sealed Wax,Default Title,,887521133307,34.99,,,0,0,0,0
 gid://shopify/Product/7585562361921,gid://shopify/ProductVariant/42237398777921,2022 Topps Chrome Update Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521114818,114.99,,,3,0,0,0
 gid://shopify/Product/7585562394689,gid://shopify/ProductVariant/42237398810689,2025 Leaf Metal Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,819110015961,139.99,,125,9,0,0,0
 gid://shopify/Product/7585562427457,gid://shopify/ProductVariant/42237398843457,2025 Leaf Metal Football Jumbo Box,,ACTIVE,Sealed Wax,Default Title,,819110015978,264.99,,250,2,0,0,0
-gid://shopify/Product/7586839593025,gid://shopify/ProductVariant/42241802436673,2025 Topps Series 2 Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521141166,189.99,,158,-1,0,0,0
+gid://shopify/Product/7586839593025,gid://shopify/ProductVariant/42241802436673,2025 Topps Series 2 Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521141166,189.99,,158,-2,0,0,0
 gid://shopify/Product/7586839625793,gid://shopify/ProductVariant/42241802469441,2024 Panini Contenders Football Hobby Box,,ARCHIVED,Sealed Wax,Default Title,,746134169861,229.99,,182.5,0,0,0,0
 gid://shopify/Product/7586839756865,gid://shopify/ProductVariant/42241802534977,2025 Panini Donruss Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134181603,134.99,,117,3,0,0,0
 gid://shopify/Product/7588617846849,gid://shopify/ProductVariant/42247237599297,2024-25 Panini Select Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134180484,399.99,,375,0,0,0,0
@@ -47,7 +46,7 @@ gid://shopify/Product/7585561870401,gid://shopify/ProductVariant/42237398122561,
 gid://shopify/Product/7585561903169,gid://shopify/ProductVariant/42237398155329,2023 Topps Chrome Baseball (Jumbo),,ARCHIVED,Sealed Wax,Default Title,,887521117703,499.99,,,0,0,0,0
 gid://shopify/Product/7585561968705,gid://shopify/ProductVariant/42237398220865,2024 Topps Resurgence Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521135028,289.99,,275,0,0,0,0
 gid://shopify/Product/7585562132545,gid://shopify/ProductVariant/42237398548545,2024 Bowman University Best Football Hobby Box,,ARCHIVED,Sealed Wax,Default Title,,887521132249,194.99,,,-1,0,0,0
-gid://shopify/Product/7594715152449,gid://shopify/ProductVariant/42267628109889,2025 Topps Series 2 Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521141364,34.99,,24.5,1,0,0,0
+gid://shopify/Product/7585562165313,gid://shopify/ProductVariant/42237398581313,2024 Topps Heritage Baseball Monster Box,,ARCHIVED,Sealed Wax,Default Title,,887521124015,39.99,,,-2,0,0,0
 gid://shopify/Product/7595081859137,gid://shopify/ProductVariant/42268718334017,2025 Panini Score Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134184420,299.99,,289,2,0,0,0
 gid://shopify/Product/7596143738945,gid://shopify/ProductVariant/42271647694913,Pokemon Prismatic Evolutions Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,196214105133,184.99,,165,8,0,0,0
 gid://shopify/Product/7597785350209,gid://shopify/ProductVariant/42277539741761,2025 Panini Donruss Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,16716,746134181849,29.99,,,1,0,0,0
@@ -55,12 +54,12 @@ gid://shopify/Product/7598312030273,gid://shopify/ProductVariant/42278821953601,
 gid://shopify/Product/7599706472513,gid://shopify/ProductVariant/42283747737665,2025 Topps Chrome UFC Blaster Box,,ACTIVE,Sealed Wax,Default Title,16671,887521137329,39.99,,36,-3,0,0,0
 gid://shopify/Product/7605063680065,gid://shopify/ProductVariant/42301012213825,2025 Panini Donruss Racing Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134182822,74.99,,68.5,1,0,0,0
 gid://shopify/Product/7605063712833,gid://shopify/ProductVariant/42301012246593,2025 Panini Score Football Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134184697,39.99,,36,0,0,0,0
-gid://shopify/Product/7605063745601,gid://shopify/ProductVariant/42301012279361,Pokemon White Flare Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,196214113619,124.99,,110,3,0,0,0
+gid://shopify/Product/7605063745601,gid://shopify/ProductVariant/42301012279361,Pokemon White Flare Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,196214113619,134.99,,110,3,0,0,0
 gid://shopify/Product/7605063778369,gid://shopify/ProductVariant/42301012312129,Pokemon Black Bolt Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,196214113664,139.99,,98.94,0,0,0,0
 gid://shopify/Product/7605063811137,gid://shopify/ProductVariant/42301012344897,2025 UD Fleer Brilliants Superman Mega Box,,ACTIVE,Sealed Wax,Default Title,,053334446716,34.99,,,3,0,0,0
 gid://shopify/Product/7609854230593,gid://shopify/ProductVariant/42311534706753,2025 Topps Chrome Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,16731,887521140756,34.99,,25.5,0,0,0,0
 gid://shopify/Product/7609945194561,gid://shopify/ProductVariant/42311883784257,2024 Panini Prizm Football Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134169168,39.99,,35,0,0,0,0
-gid://shopify/Product/7610856276033,gid://shopify/ProductVariant/42314080223297,2025 Panini Luminance Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134184819,269.99,,137,1,0,0,0
+gid://shopify/Product/7610856276033,gid://shopify/ProductVariant/42314080223297,2025 Panini Luminance Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134184819,269.99,,137,0,0,0,0
 gid://shopify/Product/7610860634177,gid://shopify/ProductVariant/42314088939585,2024 Panini Select Football Hobby Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134179174,74.99,,37,0,0,0,0
 gid://shopify/Product/7612655861825,gid://shopify/ProductVariant/42320391700545,2025 Topps Chrome Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,TOPPS_2025_CHROME_BSB_HOBBY,887521140640,199.99,,282,0,0,0,0
 gid://shopify/Product/7612655894593,gid://shopify/ProductVariant/42320391733313,2024-25 Panini Obsidian Soccer Hobby Box,,ACTIVE,Sealed Wax,Default Title,PAN_24/25_OBSI_SCR_HOBBY,746134177866,369.99,,209,0,0,0,0
@@ -69,24 +68,24 @@ gid://shopify/Product/7589478662209,gid://shopify/ProductVariant/42248415150145,
 gid://shopify/Product/7590027395137,gid://shopify/ProductVariant/42249468280897,2024-25 Panini Select Premier League Soccer Hobby Box,,ACTIVE,Sealed Wax,Default Title,17746,746134177453,249.99,,228,0,0,0,0
 gid://shopify/Product/7590068748353,gid://shopify/ProductVariant/42249576382529,2024 Panini Prestige Football H2 Box,,ARCHIVED,Sealed Wax,Default Title,SH-DYNPO24FBPRGH2-H2B,746134159985,119.95,,,-2,0,0,0
 gid://shopify/Product/7590068781121,gid://shopify/ProductVariant/42249576415297,2024 Panini Prestige Football Blaster Box,,ARCHIVED,Sealed Wax,Default Title,PAN_2024_PRESTIGE_FB_BLASTER,746134160011,29.99,,,-2,0,0,0
-gid://shopify/Product/7591682867265,gid://shopify/ProductVariant/42255637905473,Pokemon Journey Together Booster Pack,,ACTIVE,Booster Pack,Default Title,,0196214119031,7.99,,6.67,-88,0,0,0
+gid://shopify/Product/7591682867265,gid://shopify/ProductVariant/42255637905473,Pokemon Journey Together Booster Pack,,ACTIVE,Booster Pack,Default Title,,0196214119031,7.99,,6.67,-95,0,0,0
 gid://shopify/Product/7594714988609,gid://shopify/ProductVariant/42267627946049,2024/25 Topps UEFA Club Competitions Finest Soccer Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521138623,324.99,,,1,0,0,0
 gid://shopify/Product/7594715021377,gid://shopify/ProductVariant/42267628011585,2024 Topps Inception Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521133567,299.99,,250,4,0,0,0
-gid://shopify/Product/7629305610305,gid://shopify/ProductVariant/42365802610753,2024 Panini Zenith Football Mega Box,,ARCHIVED,Sealed Wax,Default Title,,746134170263,49.99,,40,-10,0,0,0
+gid://shopify/Product/7594715152449,gid://shopify/ProductVariant/42267628109889,2025 Topps Series 2 Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521141364,34.99,,24.5,1,0,0,0
 gid://shopify/Product/7630146043969,gid://shopify/ProductVariant/42369500905537,2025 Topps Heritage Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521135493,134.99,,126.5,7,0,0,0
-gid://shopify/Product/7630154694721,gid://shopify/ProductVariant/42369513095233,Pokemon 151 Booster Bundle,,ACTIVE,Booster Box,Default Title,,0820650853210,219.99,,185,9,0,0,0
+gid://shopify/Product/7630154694721,gid://shopify/ProductVariant/42369513095233,Pokemon 151 Booster Bundle,,ACTIVE,Booster Box,Default Title,,0820650853210,219.99,,185,7,0,0,0
 gid://shopify/Product/7630731280449,gid://shopify/ProductVariant/42373216862273,2025 Topps Archives Signature Series Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521136346,124.99,,117,0,0,0,0
 gid://shopify/Product/7631140225089,gid://shopify/ProductVariant/42376590655553,2021 Topps Chrome F1 Formula 1 Racing Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521103331,244.99,,214.95,2,0,0,0
 gid://shopify/Product/7631144484929,gid://shopify/ProductVariant/42376621916225,One Piece TCG: Royal Blood [OP-10] Booster Box,,ACTIVE,Booster Box,Default Title,,810059789258,259.99,,225,2,0,0,0
-gid://shopify/Product/7632897441857,gid://shopify/ProductVariant/42387936477249,Pokemon Prismatic Evolutions Booster Pack,,ACTIVE,Booster Pack,Default Title,,48636817,15.99,,13.83,-90,0,0,0
-gid://shopify/Product/7633673715777,gid://shopify/ProductVariant/42391768596545,Pokemon 151 Booster Pack,,ACTIVE,Booster Pack,Default Title,,45076935,36.99,,30.84,-159,0,0,0
+gid://shopify/Product/7632897441857,gid://shopify/ProductVariant/42387936477249,Pokemon Prismatic Evolutions Booster Pack,,ACTIVE,Booster Pack,Default Title,,48636817,15.99,,13.83,-97,0,0,0
+gid://shopify/Product/7633673715777,gid://shopify/ProductVariant/42391768596545,Pokemon 151 Booster Pack,,ACTIVE,Booster Pack,Default Title,,45076935,36.99,,30.84,-160,0,0,0
 gid://shopify/Product/7633674043457,gid://shopify/ProductVariant/42391770497089,2025 Topps MLS Major League Soccer 30th Anniversary Collection Soccer Box,,ACTIVE,Sealed Wax,Default Title,,887521152025,119,,87.5,-1,0,0,0
 gid://shopify/Product/7633674928193,gid://shopify/ProductVariant/42391772168257,2024-25 Donruss Optic Basketball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134180217,34.99,,21,-1,0,0,0
 gid://shopify/Product/7633701306433,gid://shopify/ProductVariant/42391858020417,2024-25 Panini Select Basketball Retail Hobby Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134180668,34.99,,,20,0,0,0
 gid://shopify/Product/7635698810945,gid://shopify/ProductVariant/42401354842177,2020 Update Series MLB Baseball Hobby Box Factory Sealed (24 Packs),,ACTIVE,Sealed Wax,Default Title,,887521093007,59.99,,,0,0,0,0
 gid://shopify/Product/7635709460545,gid://shopify/ProductVariant/42401375322177,Marvel Mint Hobby Box Topps 2025,,ACTIVE,Sealed Wax,Default Title,,887521147380,549.99,,520,0,0,0,0
-gid://shopify/Product/7637121466433,gid://shopify/ProductVariant/42407059521601,Pokemon Black Bolt Booster Bundle,,ACTIVE,Booster Box,Default Title,,196214129290,69.99,,52.98,0,0,0,0
-gid://shopify/Product/7637121794113,gid://shopify/ProductVariant/42407059849281,Pokemon Black Bolt Booster Pack,,ACTIVE,Booster Pack,Default Title,,24596299,11.99,,8.55,-70,0,0,0
+gid://shopify/Product/7637121466433,gid://shopify/ProductVariant/42407059521601,Pokemon Black Bolt Booster Bundle,,ACTIVE,Booster Box,Default Title,,196214129290,92.49,,80,7,0,0,0
+gid://shopify/Product/7637121794113,gid://shopify/ProductVariant/42407059849281,Pokemon Black Bolt Booster Pack,,ACTIVE,Booster Pack,Default Title,,24596299,15.99,,8.55,-70,0,0,0
 gid://shopify/Product/7637122613313,gid://shopify/ProductVariant/42407071121473,2025 Topps Chrome Star Wars Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521136551,249.99,,262,2,0,0,0
 gid://shopify/Product/7637122777153,gid://shopify/ProductVariant/42407073710145,2024 Upper Deck SP Game Used Golf Hobby Box,,ACTIVE,Sealed Wax,Default Title,,22386577,114.99,,89,4,0,0,0
 gid://shopify/Product/7637411102785,gid://shopify/ProductVariant/42408536965185,2024 Panini Select Football Retail Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134173523,49.99,,35,0,0,0,0
@@ -98,9 +97,9 @@ gid://shopify/Product/7624209825857,gid://shopify/ProductVariant/42350661435457,
 gid://shopify/Product/7624217231425,gid://shopify/ProductVariant/42350670020673,2025 Topps Complete Set Hobby,,ACTIVE,Sealed Wax,Default Title,,887521146161,49.99,,40.85,14,0,0,0
 gid://shopify/Product/7625624027201,gid://shopify/ProductVariant/42355573227585,2025 Topps Chrome Marvel Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521138999,499.99,,555,0,0,0,0
 gid://shopify/Product/7629305577537,gid://shopify/ProductVariant/42365802577985,2024-25 Topps Finest Basketball Hobby Box,,ARCHIVED,Sealed Wax,Default Title,,887521143474,104.99,,89.75,0,0,0,0
-gid://shopify/Product/7639646109761,gid://shopify/ProductVariant/42418816909377,2025 Topps Retail Factory Sealed Baseball Cincinnati Reds MLB Team Set,,ACTIVE,Sealed Wax,Default Title,,887521140374,19.99,,15.43,-1,0,0,0
+gid://shopify/Product/7629305610305,gid://shopify/ProductVariant/42365802610753,2024 Panini Zenith Football Mega Box,,ARCHIVED,Sealed Wax,Default Title,,746134170263,49.99,,40,-10,0,0,0
 gid://shopify/Product/7641126699073,gid://shopify/ProductVariant/42423579115585,2025 Topps Chrome Baseball Logofractor Edition,,ARCHIVED,Sealed Wax,Default Title,,887521140855,89.99,,120,0,0,0,0
-gid://shopify/Product/7641127518273,gid://shopify/ProductVariant/42423583768641,2025 Panini Prizm Baseball Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134182242,24.99,,21,-7,0,0,0
+gid://shopify/Product/7641127518273,gid://shopify/ProductVariant/42423583768641,2025 Panini Prizm Baseball Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134182242,24.99,,21,-8,0,0,0
 gid://shopify/Product/7641131089985,gid://shopify/ProductVariant/42423587897409,2024 Topps Chrome Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521134069,364.99,,316.5,0,0,0,0
 gid://shopify/Product/7641630244929,gid://shopify/ProductVariant/42425453740097,2025 Topps x Bob Ross: The Joy of Baseball Collectors Box,,ARCHIVED,Sealed Wax,Default Title,,887521146260,649.99,,350,0,0,0,0
 gid://shopify/Product/7642045055041,gid://shopify/ProductVariant/42427285831745,2024 Panini One Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134173196,419.99,,228,0,0,0,0
@@ -114,19 +113,19 @@ gid://shopify/Product/7649973862465,gid://shopify/ProductVariant/42580017086529,
 gid://shopify/Product/7649992441921,gid://shopify/ProductVariant/42580954513473,2024 Panini Absolute Football NFL Fat Pack,,ACTIVE,Sealed Wax,Default Title,,746134168086,8.99,,6.17,-14,0,0,0
 gid://shopify/Product/7650132590657,gid://shopify/ProductVariant/42585868697665,2024 Panini Absolute Football Jumbo Fat Cello Box,,ACTIVE,Sealed Wax,Default Title,,746134168093,89.99,,80,0,0,0,0
 gid://shopify/Product/7655543668801,gid://shopify/ProductVariant/42762317168705,2025 Panini Prizm Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134182044,139.99,,106,0,0,0,0
-gid://shopify/Product/7655556776001,gid://shopify/ProductVariant/42763056578625,2025 Panini Prizm LIV Golf Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134189074,94.99,,73,3,0,0,0
+gid://shopify/Product/7655556776001,gid://shopify/ProductVariant/42763056578625,2025 Panini Prizm LIV Golf Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134189074,94.99,,73,2,0,0,0
 gid://shopify/Product/7655819214913,gid://shopify/ProductVariant/42780388229185,Pokemon Surging Sparks Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,0820650859526,74.99,,55,0,0,0,0
-gid://shopify/Product/7637577498689,gid://shopify/ProductVariant/42409312944193,2025 Panini Origins Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134185885,349.99,,292.5,1,0,0,0
+gid://shopify/Product/7637577498689,gid://shopify/ProductVariant/42409312944193,2025 Panini Origins Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134185885,349.99,,292.5,0,0,0,0
 gid://shopify/Product/7637578022977,gid://shopify/ProductVariant/42409314058305,2025 Panini Select NASCAR Racing Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134183164,119.99,,91.5,1,0,0,0
 gid://shopify/Product/7637766733889,gid://shopify/ProductVariant/42410254237761,Pokemon Twilight Masquerade Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,820650857980,79.99,,65,0,0,0,0
 gid://shopify/Product/7638067871809,gid://shopify/ProductVariant/42411547426881,2025 Leaf Eclectic PBA Bowling Hobby Box,,ACTIVE,Sealed Wax,Default Title,,819110016104,64.99,,50,2,0,0,0
 gid://shopify/Product/7639416864833,gid://shopify/ProductVariant/42417736056897,2024 Panini Prizm Football Trading Cards Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134169229,64.99,,45,0,0,0,0
 gid://shopify/Product/7639419617345,gid://shopify/ProductVariant/42417752997953,2025 Panini Donruss Elite Football Trading Cards Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134191220,54.99,,42,0,0,0,0
 gid://shopify/Product/7639460151361,gid://shopify/ProductVariant/42417903042625,2024 Panini Prizm WNBA Basketball Trading Cards Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134176784,69.99,,,0,0,0,0
-gid://shopify/Product/7662309113921,gid://shopify/ProductVariant/42833691770945,2025 Bowman Chrome Baseball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521149544,64.99,,56.99,0,0,0,0
+gid://shopify/Product/7639646109761,gid://shopify/ProductVariant/42418816909377,2025 Topps Retail Factory Sealed Baseball Cincinnati Reds MLB Team Set,,ACTIVE,Sealed Wax,Default Title,,887521140374,19.99,,15.43,-1,0,0,0
 gid://shopify/Product/7662470234177,gid://shopify/ProductVariant/42834010112065,2025 Panini Ohio State University NIL Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134197024,89.99,,85,0,0,0,0
 gid://shopify/Product/7662470299713,gid://shopify/ProductVariant/42834010177601,Pokemon Mega Evolution Booster Pack (Sleeved),,ACTIVE,Booster Pack,Default Title,,196214115637,9.99,,5.69,-4,0,0,0
-gid://shopify/Product/7664258515009,gid://shopify/ProductVariant/42844787376193,Pokemon Destined Rivals Booster Pack,,ACTIVE,Booster Pack,Default Title,,0196214123175,12.99,,7.67,-106,0,0,0
+gid://shopify/Product/7664258515009,gid://shopify/ProductVariant/42844787376193,Pokemon Destined Rivals Booster Pack,,ACTIVE,Booster Pack,Default Title,,0196214123175,12.99,,7.67,-114,0,0,0
 gid://shopify/Product/7664589439041,gid://shopify/ProductVariant/42846013227073,Pokemon Mega Evolution Booster Bundle,,ACTIVE,Booster Box,Default Title,,196214115545,49.99,,43.5,0,0,0,0
 gid://shopify/Product/7665400512577,gid://shopify/ProductVariant/42851982213185,2025 Panini NIL Ohio State Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134197055,29.99,,21.25,8,0,0,0
 gid://shopify/Product/7665414832193,gid://shopify/ProductVariant/42852038574145,Pokemon Paldea Evolved Booster Pack,,ACTIVE,Booster Pack,Default Title,,0820650853494,11.99,,13.47,-42,0,0,0
@@ -138,9 +137,9 @@ gid://shopify/Product/7665454678081,gid://shopify/ProductVariant/42852218961985,
 gid://shopify/Product/7665455792193,gid://shopify/ProductVariant/42852223221825,Magic The Gathering: Spiderman Collector Booster,,ARCHIVED,Booster Box,Default Title,,15704416,649.99,,580,0,0,0,0
 gid://shopify/Product/7665455857729,gid://shopify/ProductVariant/42852224303169,Pokemon S&V 151 Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,820650853159,399.99,,360,0,0,0,0
 gid://shopify/Product/7665468997697,gid://shopify/ProductVariant/42852307632193,Pokemon Mega Evolution Booster Unlimited,,ACTIVE,Booster Box,Default Title,,196214136144,324.99,,255,0,0,0,0
-gid://shopify/Product/7665477615681,gid://shopify/ProductVariant/42852350296129,Pokemon Prismatic Evolutions Booster Bundle,,ACTIVE,Booster Box,Default Title,,196214112544,94.99,,83,5,0,0,0
+gid://shopify/Product/7665477615681,gid://shopify/ProductVariant/42852350296129,Pokemon Prismatic Evolutions Booster Bundle,,ACTIVE,Booster Box,Default Title,,196214112544,94.99,,83,1,0,0,0
 gid://shopify/Product/7665607671873,gid://shopify/ProductVariant/42853834817601,2025 Topps Disney Genesis,,ACTIVE,Sealed Wax,Default Title,,14005341,724.99,,665,1,0,0,0
-gid://shopify/Product/7666087526465,gid://shopify/ProductVariant/42858068967489,Pokemon S&V Destined Rivals Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,0196214111523,139.99,,119,0,0,0,0
+gid://shopify/Product/7666087526465,gid://shopify/ProductVariant/42858068967489,Pokemon S&V Destined Rivals Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,0196214111523,224.99,,190,0,0,0,0
 gid://shopify/Product/7666288590913,gid://shopify/ProductVariant/42858848714817,2025 Topps Chrome Disney Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521146345,59.99,,47,-1,0,0,0
 gid://shopify/Product/7660996526145,gid://shopify/ProductVariant/42829494681665,2025-26 Topps Premier League EPL Soccer Hobby Box,,ACTIVE,Sealed Wax,Default Title,,5053307076488,254.99,,238.5,1,0,0,0
 gid://shopify/Product/7661740064833,gid://shopify/ProductVariant/42831897002049,2021 Bowman Draft Baseball Jumbo Hobby Box,,ACTIVE,Sealed Wax,Default Title,,0887521104789,364.99,,,0,0,0,0
@@ -149,23 +148,23 @@ gid://shopify/Product/7662280671297,gid://shopify/ProductVariant/42833640620097,
 gid://shopify/Product/7662309015617,gid://shopify/ProductVariant/42833691672641,2025 Panini Prizm FIFA Club World Cup Soccer Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134178047,379.99,,190,3,0,0,0
 gid://shopify/Product/7662309048385,gid://shopify/ProductVariant/42833691705409,2025 Bowman Chrome Baseball Breaker Delight Box,,ACTIVE,Sealed Wax,Default Title,16860,887521145997,345,,,-12,0,0,0
 gid://shopify/Product/7662309081153,gid://shopify/ProductVariant/42833691738177,2025 Bowman Chrome Baseball Hobby Pack,,ACTIVE,Sealed Wax,Default Title,16859-Pack,887521145959,60,,,0,0,0,0
-gid://shopify/Product/7675880734785,gid://shopify/ProductVariant/42918548439105,2025 Topps Chrome Star Wars Blaster,,ACTIVE,Sealed Wax,Default Title,,887521136605,34.99,,28,5,0,0,0
+gid://shopify/Product/7662309113921,gid://shopify/ProductVariant/42833691770945,2025 Bowman Chrome Baseball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521149544,64.99,,56.99,0,0,0,0
 gid://shopify/Product/7679574966337,gid://shopify/ProductVariant/42950658326593,2025 Topps Shoebox Treasures Hobby Box,,ARCHIVED,Sealed Wax,Default Title,,887521152032,94.99,,90,0,0,0,0
 gid://shopify/Product/7679581880385,gid://shopify/ProductVariant/42950675497025,2025 Topps Chrome Spongebob Hobby Box,,ARCHIVED,Sealed Wax,Default Title,,887521145164,364.99,,344,0,0,0,0
-gid://shopify/Product/7683062464577,gid://shopify/ProductVariant/42967006806081,Pokemon Phantasmal Flames Booster Bundle,,ACTIVE,Booster Box,Default Title,PKU10191,196214143371,74.99,,67,13,0,0,0
+gid://shopify/Product/7683062464577,gid://shopify/ProductVariant/42967006806081,Pokemon Phantasmal Flames Booster Bundle,,ACTIVE,Booster Box,Default Title,PKU10191,196214143371,74.99,,67,7,0,0,0
 gid://shopify/Product/7683062497345,gid://shopify/ProductVariant/42967006838849,2025 Panini Phoenix Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,16997,746134186967,349.99,,281,0,0,0,0
 gid://shopify/Product/7683062530113,gid://shopify/ProductVariant/42967006871617,2025 Panini Select Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,16998,746134182372,149.99,,106.5,0,0,0,0
 gid://shopify/Product/7683062562881,gid://shopify/ProductVariant/42967006904385,2025 Panini Prizm Racing Hobby Box,,ACTIVE,Sealed Wax,Default Title,16992,746134183027,169.99,,142,4,0,0,0
 gid://shopify/Product/7683062595649,gid://shopify/ProductVariant/42967006937153,2025 Panini PFL Combat Anthology Hobby Box,,ACTIVE,Sealed Wax,Default Title,16993,746134183393,129.99,,91.5,0,0,0,0
-gid://shopify/Product/7683062661185,gid://shopify/ProductVariant/42967007002689,2025 Bowman University Chrome Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521147663,144.99,,144,0,0,0,0
-gid://shopify/Product/7683062726721,gid://shopify/ProductVariant/42967007068225,2025 Bowman University Chrome Football Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521147793,24.99,,24.99,15,0,0,0
+gid://shopify/Product/7683062661185,gid://shopify/ProductVariant/42967007002689,2025 Bowman University Chrome Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521147663,224.99,,180,4,0,0,0
+gid://shopify/Product/7683062726721,gid://shopify/ProductVariant/42967007068225,2025 Bowman University Chrome Football Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521147793,24.99,,24.99,14,0,0,0
 gid://shopify/Product/7683062759489,gid://shopify/ProductVariant/42967007100993,2025 Bowman University Chrome Football Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521147755,49.99,,50,-4,0,0,0
 gid://shopify/Product/7683062792257,gid://shopify/ProductVariant/42967007133761,2025 Panini Impeccable Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134186028,1299.99,,1175,1,0,0,0
 gid://shopify/Product/7683062825025,gid://shopify/ProductVariant/42967007166529,2025 Topps Holiday Baseball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521142682,24.99,,23,0,0,0,0
-gid://shopify/Product/7683062857793,gid://shopify/ProductVariant/42967007199297,2025 Panini National Treasures Baseball Hobby Box,,DRAFT,Sealed Wax,Default Title,17050,746134182327,785,,,0,0,0,0
 gid://shopify/Product/7683062890561,gid://shopify/ProductVariant/42967007232065,2025 Topps Disney Wonder Blaster Box,,ACTIVE,Sealed Wax,Default Title,16988,887521147243,29.99,,25,4,0,0,0
+gid://shopify/Product/7683062857793,gid://shopify/ProductVariant/42967007199297,2025 Panini National Treasures Baseball Hobby Box,,DRAFT,Sealed Wax,Default Title,17050,746134182327,785,,,0,0,0,0
 gid://shopify/Product/7683062923329,gid://shopify/ProductVariant/42967007264833,2025-26 Topps Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521149001,449.99,,388,15,0,0,0
-gid://shopify/Product/7683062956097,gid://shopify/ProductVariant/42967007297601,2025-26 Topps Basketball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521149063,64.99,,56,-6,0,0,0
+gid://shopify/Product/7683062956097,gid://shopify/ProductVariant/42967007297601,2025-26 Topps Basketball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521149063,64.99,,56,-7,0,0,0
 gid://shopify/Product/7683081896001,gid://shopify/ProductVariant/42967047471169,2025 Topps Holiday Baseball Tin,,ARCHIVED,Sealed Wax,Default Title,,887521148004,19.99,,12,0,0,0,0
 gid://shopify/Product/7666368577601,gid://shopify/ProductVariant/42858990534721,Pokemon Mega Evolution Elite Trainer Box 1,,ACTIVE,Booster Box,Default Title,,728192561832,104.99,,90,-1,0,0,0
 gid://shopify/Product/7666374213697,gid://shopify/ProductVariant/42859000528961,2025 Panini Three and Two Baseball Hobby Box,,ARCHIVED,Sealed Wax,Default Title,,746134182273,229.99,,171,0,0,0,0
@@ -174,19 +173,19 @@ gid://shopify/Product/7666390302785,gid://shopify/ProductVariant/42859020484673,
 gid://shopify/Product/7668160856129,gid://shopify/ProductVariant/42866250350657,2025 Panini Turn Four NASCAR Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134183270,159.99,,95,3,0,0,0
 gid://shopify/Product/7672850284609,gid://shopify/ProductVariant/42898014404673,2025 Topps Chrome Spongebob Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521145195,174.99,,150,9,0,0,0
 gid://shopify/Product/7673789218881,gid://shopify/ProductVariant/42905149964353,Pokemon S&V Paldean Fates Booster Bundle,,ACTIVE,Booster Box,Default Title,,0820650856174,134.99,,130,0,0,0,0
-gid://shopify/Product/7691550785601,gid://shopify/ProductVariant/43004879896641,2024 Panini Absolute Football Mega,,ACTIVE,Sealed Wax,Default Title,,746134168215,79.99,,73,0,0,0,0
+gid://shopify/Product/7675880734785,gid://shopify/ProductVariant/42918548439105,2025 Topps Chrome Star Wars Blaster,,ACTIVE,Sealed Wax,Default Title,,887521136605,34.99,,28,5,0,0,0
 gid://shopify/Product/7691973558337,gid://shopify/ProductVariant/43006095720513,2025 Donruss Football Blaster,,ACTIVE,Sealed Wax,Default Title,,746134185137,34.99,,38,2,0,0,0
 gid://shopify/Product/7691974279233,gid://shopify/ProductVariant/43006096539713,2025 Donruss Football Downtown Retail Bundle,,ACTIVE,Sealed Wax,Default Title,,746134185465,49.99,,62,0,0,0,0
 gid://shopify/Product/7697985798209,gid://shopify/ProductVariant/43025908695105,2025 Panini Certified Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134184987,239.99,,186.5,0,0,0,0
 gid://shopify/Product/7698055200833,gid://shopify/ProductVariant/43026170904641,Pokemon Paldea Evolved Booster Unlimited,,ACTIVE,Booster Pack,Default Title,,0820650863493,429.99,,484.92,0,0,0,0
-gid://shopify/Product/7698061262913,gid://shopify/ProductVariant/43026179752001,Pokemon Temporal Forces Booster Unlimited,,ACTIVE,Booster Box,Default Title,,0820650866395,299.99,,289,1,0,0,0
-gid://shopify/Product/7698062213185,gid://shopify/ProductVariant/43026180931649,Pokemon Journey Together Booster Bundle,,ACTIVE,Booster Box,Default Title,,0196214108417,44.99,,36.71,7,0,0,0
+gid://shopify/Product/7698061262913,gid://shopify/ProductVariant/43026179752001,Pokemon Temporal Forces Booster Unlimited,,ACTIVE,Booster Box,Default Title,,0820650866395,334.99,,289,1,0,0,0
+gid://shopify/Product/7698062213185,gid://shopify/ProductVariant/43026180931649,Pokemon Journey Together Booster Bundle,,ACTIVE,Booster Box,Default Title,,0196214108417,49.99,,36.71,3,0,0,0
 gid://shopify/Product/7698063622209,gid://shopify/ProductVariant/43026183356481,Pokemon Stellar Crown Booster Bundle,,ACTIVE,Booster Box,Default Title,,0820650858550,54.99,,40,0,0,0,0
 gid://shopify/Product/7702378217537,gid://shopify/ProductVariant/43036860088385,2025 Panini Mosaic Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134186073,459.99,,386,-2,0,0,0
-gid://shopify/Product/7702379462721,gid://shopify/ProductVariant/43036861890625,Pokemon Surging Sparks Booster Pack,,ACTIVE,Booster Pack,Default Title,,0820650413124,10.99,,6.92,-163,0,0,0
+gid://shopify/Product/7702379462721,gid://shopify/ProductVariant/43036861890625,Pokemon Surging Sparks Booster Pack,,ACTIVE,Booster Pack,Default Title,,0820650413124,10.99,,6.92,-166,0,0,0
 gid://shopify/Product/7702380281921,gid://shopify/ProductVariant/43036864643137,2025 Topps Holiday NBA Basketball Advent Calendar,,ACTIVE,Sealed Wax,Default Title,,887521151837,19.99,,32.5,0,0,0,0
 gid://shopify/Product/7702422913089,gid://shopify/ProductVariant/43037009739841,2025-26 Topps Basketball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521149117,49.99,,49.99,0,0,0,0
-gid://shopify/Product/7702470131777,gid://shopify/ProductVariant/43037247569985,Pokemon Surging Sparks Booster Unlimited,,ACTIVE,Booster Pack,Default Title,,0820650423123,264.99,,249.17,2,0,0,0
+gid://shopify/Product/7702470131777,gid://shopify/ProductVariant/43037247569985,Pokemon Surging Sparks Booster Unlimited,,ACTIVE,Booster Pack,Default Title,,0820650423123,279.99,,249.17,1,0,0,0
 gid://shopify/Product/7703029383233,gid://shopify/ProductVariant/43039522586689,2025 Panini Mosaic Football Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134186424,64.99,,42.5,0,0,0,0
 gid://shopify/Product/7703865753665,gid://shopify/ProductVariant/43042863710273,2025 Panini Absolute Football Hobby Blaster,,ACTIVE,Sealed Wax,Default Title,,746134186844,64.99,,17.5,7,0,0,0
 gid://shopify/Product/7703882432577,gid://shopify/ProductVariant/43042934456385,2024 Panini Contenders Football Retail Blaster,,ACTIVE,Sealed Wax,Default Title,,746134170027,29.99,,18.5,6,0,0,0
@@ -200,60 +199,60 @@ gid://shopify/Product/7685753536577,gid://shopify/ProductVariant/42977215447105,
 gid://shopify/Product/7688734376001,gid://shopify/ProductVariant/42990598684737,2025 Topps Holiday Basketball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521151783,24.99,,22.75,0,0,0,0
 gid://shopify/Product/7691414536257,gid://shopify/ProductVariant/43004077015105,2025 Panini Absolute Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134186455,639.99,,600,0,0,0,0
 gid://shopify/Product/7691441995841,gid://shopify/ProductVariant/43004357312577,2025 Panini Mosaic Football Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134186394,64.99,,55,11,0,0,0
-gid://shopify/Product/7705609338945,gid://shopify/ProductVariant/43048782725185,2025 Panini Prizm Draft Picks Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134185649,229.99,,200,0,0,0,0
-gid://shopify/Product/7705609371713,gid://shopify/ProductVariant/43048782757953,2025 Panini Prizm Football Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134187759,39.99,,21,1,0,0,0
+gid://shopify/Product/7691550785601,gid://shopify/ProductVariant/43004879896641,2024 Panini Absolute Football Mega,,ACTIVE,Sealed Wax,Default Title,,746134168215,79.99,,73,0,0,0,0
+gid://shopify/Product/7705609371713,gid://shopify/ProductVariant/43048782757953,2025 Panini Prizm Football Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134187759,39.99,,21,0,0,0,0
 gid://shopify/Product/7705649020993,gid://shopify/ProductVariant/43048968978497,2024 Panini Donruss Football Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134167355,84.99,,71,0,0,0,0
 gid://shopify/Product/7706254835777,gid://shopify/ProductVariant/43054590328897,2025 Panini Mosaic Football Ornament Box,,ARCHIVED,Sealed Wax,Default Title,,746134191435,9.99,,6.25,0,0,0,0
 gid://shopify/Product/7706255720513,gid://shopify/ProductVariant/43054597898305,2025 Topps Finest UFC Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521149902,149.99,,140,0,0,0,0
 gid://shopify/Product/7706795900993,gid://shopify/ProductVariant/43057637556289,2025 Topps Disney Wonder Hobby Pack,,ACTIVE,Sealed Wax,Default Title,,887521147151,6.49,,4.55,5,0,0,0
 gid://shopify/Product/7706797310017,gid://shopify/ProductVariant/43057645551681,2025 Topps Disney Wonder Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521147168,119.99,,115,3,0,0,0
-gid://shopify/Product/7706798882881,gid://shopify/ProductVariant/43133880270913,2025 Panini Absolute Football Hobby Mega Box,,ACTIVE,Sealed Wax,Box,,746134186875,89.99,,73,4,0,0,0
+gid://shopify/Product/7706798882881,gid://shopify/ProductVariant/43133880270913,2025 Panini Absolute Football Hobby Mega Box,,ACTIVE,Sealed Wax,Box,,746134186875,89.99,,73,3,0,0,0
 gid://shopify/Product/7706798882881,gid://shopify/ProductVariant/43133880303681,2025 Panini Absolute Football Hobby Mega Box,,ACTIVE,Sealed Wax,Case,,93088590,1200,,42,0,0,0,0
 gid://shopify/Product/7707427143745,gid://shopify/ProductVariant/43061404368961,2025 Panini Certified Hobby Pack,,ACTIVE,Sealed Wax,Default Title,,746134184970,24.99,,17.1,-4,0,0,0
 gid://shopify/Product/7709267034177,gid://shopify/ProductVariant/43070303567937,2025-26 Upper Deck Series 1 Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334036702,119.99,,95,3,0,0,0
 gid://shopify/Product/7709269262401,gid://shopify/ProductVariant/43070311923777,2025-26 Upper Deck Series 1 Blaster Box,,ACTIVE,Sealed Wax,Default Title,,053334036764,24.99,,17.5,14,0,0,0
-gid://shopify/Product/7709271687233,gid://shopify/ProductVariant/43070320705601,Pokemon Phantasmal Flames Booster Pack,,ACTIVE,Booster Box,Default Title,,196214143357,13.99,,11.17,-128,0,0,0
+gid://shopify/Product/7709271687233,gid://shopify/ProductVariant/43070320705601,Pokemon Phantasmal Flames Booster Pack,,ACTIVE,Booster Box,Default Title,,196214143357,13.99,,11.17,-132,0,0,0
 gid://shopify/Product/7709859151937,gid://shopify/ProductVariant/43075044081729,2025 Donruss Football Factory Set,,ACTIVE,Sealed Wax,Default Title,,746134185526,54.99,,45.65,5,0,0,0
 gid://shopify/Product/7709910106177,gid://shopify/ProductVariant/43075268902977,2025 Topps Update Baseball Blaster,,ACTIVE,Sealed Wax,Default Title,,887521144914,29.99,,24.99,11,0,0,0
 gid://shopify/Product/7710841438273,gid://shopify/ProductVariant/43078541049921,2025-26 Topps Basketball Jumbo Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521149032,389.99,,355,0,0,0,0
-gid://shopify/Product/7713438466113,gid://shopify/ProductVariant/43084978028609,2025/26 Upper Deck Artifacts Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334012553,129.99,,105,4,0,0,0
+gid://shopify/Product/7713438466113,gid://shopify/ProductVariant/43084978028609,2025/26 Upper Deck Artifacts Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334012553,129.99,,105,2,0,0,0
 gid://shopify/Product/7713439842369,gid://shopify/ProductVariant/43084986417217,2025-26 Upper Deck Black Diamond Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334437424,334.99,,279,2,0,0,0
 gid://shopify/Product/7705608912961,gid://shopify/ProductVariant/43048782299201,2025 Panini Minecraft Special Edition Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134194689,99.99,,98.5,4,0,0,0
-gid://shopify/Product/7705608978497,gid://shopify/ProductVariant/43048782364737,2025 Topps Update Series Baseball Hobby Jumbo Box,,ACTIVE,Sealed Wax,Default Title,,887521144747,299.99,,273,0,0,0,0
+gid://shopify/Product/7705608978497,gid://shopify/ProductVariant/43048782364737,2025 Topps Update Series Baseball Hobby Jumbo Box,,ACTIVE,Sealed Wax,Default Title,,887521144747,299.99,,265,3,0,0,0
 gid://shopify/Product/7705609011265,gid://shopify/ProductVariant/43048782397505,2025 Panini Absolute Football Countdown Calendar Box,,ARCHIVED,Sealed Wax,Default Title,PAN_2025_ABSO_FB_CCBOX,746134186905,74.99,,35,-14,0,0,0
 gid://shopify/Product/7705609044033,gid://shopify/ProductVariant/43048782430273,2025 Panini Prizm Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134187247,774.99,,353.5,0,0,0,0
 gid://shopify/Product/7705609076801,gid://shopify/ProductVariant/43048782463041,2025 Panini Impeccable LIV Golf Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134189210,399.99,,380,2,0,0,0
+gid://shopify/Product/7705609240641,gid://shopify/ProductVariant/43048782626881,Pokemon Phantasmal Flames Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,PKM_ME_PHANTASMFLAME_ETB,196214124813,154.99,,131.5,7,0,0,0
 gid://shopify/Product/7705609207873,gid://shopify/ProductVariant/43048782594113,2025 Panini Impeccable WNBA Basketball Hobby Box,,DRAFT,Sealed Wax,Default Title,PAN_2025_IMPECC_WNBA_BSK_HOBBY,03497733,0,,,0,0,0,0
-gid://shopify/Product/7705609240641,gid://shopify/ProductVariant/43048782626881,Pokemon Phantasmal Flames Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,PKM_ME_PHANTASMFLAME_ETB,196214124813,154.99,,131.5,9,0,0,0
-gid://shopify/Product/7714628141121,gid://shopify/ProductVariant/43188007796801,2025 Topps Allen & Ginter Baseball Hobby Box,,ACTIVE,Sealed Wax,Box,,887521144273,239.99,,235,-1,0,0,0
+gid://shopify/Product/7705609338945,gid://shopify/ProductVariant/43048782725185,2025 Panini Prizm Draft Picks Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134185649,229.99,,200,0,0,0,0
 gid://shopify/Product/7714628141121,gid://shopify/ProductVariant/43188007829569,2025 Topps Allen & Ginter Baseball Hobby Box,,ACTIVE,Sealed Wax,Case,,08879680,6.99,,6.25,0,0,0,0
 gid://shopify/Product/7714724446273,gid://shopify/ProductVariant/43090818564161,2024 Panini Totally Certified Football Mega Box,,ARCHIVED,Sealed Wax,Default Title,,746134177118,44.99,,35,-1,0,0,0
 gid://shopify/Product/7716717264961,gid://shopify/ProductVariant/43095896719425,2025 Pokemon Holiday Calendar,,ACTIVE,Sealed Wax,Default Title,,0196214127180,52.49,,60,0,0,0,0
 gid://shopify/Product/7718963675201,gid://shopify/ProductVariant/43101086220353,2025 Panini Prizm LIV Golf Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134189159,17.99,,14.5,0,0,0,0
 gid://shopify/Product/7719006896193,gid://shopify/ProductVariant/43101307174977,2025 Panini Kid's Crate Series 17,,ACTIVE,Sealed Wax,Default Title,,16609506,52.49,,54,0,0,0,0
-gid://shopify/Product/7719008403521,gid://shopify/ProductVariant/43101324017729,2024-25 Donruss Optic Basketball Retail Blaster,,ACTIVE,Sealed Wax,Default Title,,746134180033,29.99,,23,6,0,0,0
+gid://shopify/Product/7719008403521,gid://shopify/ProductVariant/43101324017729,2024-25 Donruss Optic Basketball Retail Blaster,,ACTIVE,Sealed Wax,Default Title,,746134180033,29.99,,23,3,0,0,0
 gid://shopify/Product/7719384612929,gid://shopify/ProductVariant/43103673614401,2025 Topps Chrome Update Series Baseball Jumbo Box,,ACTIVE,Sealed Wax,Default Title,,887521145461,449.99,,472,0,0,0,0
-gid://shopify/Product/7719384645697,gid://shopify/ProductVariant/43103673647169,2025 Topps Chrome Update Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521145546,29.99,,24,1,0,0,0
+gid://shopify/Product/7719384645697,gid://shopify/ProductVariant/43103673647169,2025 Topps Chrome Update Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521145546,29.99,,24,0,0,0,0
 gid://shopify/Product/7719384678465,gid://shopify/ProductVariant/43311413264449,2025 Topps Cosmic Chrome Baseball Hobby,,ACTIVE,Sealed Wax,Pack,,887521142637,29.99,,27.25,-5,0,0,0
 gid://shopify/Product/7719384678465,gid://shopify/ProductVariant/43311417425985,2025 Topps Cosmic Chrome Baseball Hobby,,ACTIVE,Sealed Wax,Box,,887521142644,614.99,,545,0,0,0,0
 gid://shopify/Product/7719384711233,gid://shopify/ProductVariant/43103673712705,2025 Topps Archives Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521143276,299.99,,260,4,0,0,0
 gid://shopify/Product/7719384744001,gid://shopify/ProductVariant/43103673745473,2025 Topps Archives Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521143306,24.99,,25,0,0,0,0
-gid://shopify/Product/7719384776769,gid://shopify/ProductVariant/43103673778241,2025 Topps Chrome Update Series Baseball Breaker's Delight Box,,DRAFT,Sealed Wax,Default Title,,887521145481,609.95,,,0,0,0,0
 gid://shopify/Product/7719384809537,gid://shopify/ProductVariant/43687033077825,2025 Topps Chrome Update Series Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,12754656,269.99,,228,2,0,0,0
+gid://shopify/Product/7719384776769,gid://shopify/ProductVariant/43103673778241,2025 Topps Chrome Update Series Baseball Breaker's Delight Box,,DRAFT,Sealed Wax,Default Title,,887521145481,609.95,,,0,0,0,0
 gid://shopify/Product/7719384875073,gid://shopify/ProductVariant/43103673876545,2025 Bowman's Best University Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521147564,239.99,,213,0,0,0,0
 gid://shopify/Product/7719384907841,gid://shopify/ProductVariant/43103673909313,2025 Topps Star Wars Chrome Galaxy Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521143696,264.99,,230,2,0,0,0
-gid://shopify/Product/7719384940609,gid://shopify/ProductVariant/43103673942081,2025 Topps Allen & Ginter Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521144327,19.99,,16.25,21,0,0,0
+gid://shopify/Product/7719384940609,gid://shopify/ProductVariant/43103673942081,2025 Topps Allen & Ginter Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521144327,19.99,,16.25,16,0,0,0
 gid://shopify/Product/7713442070593,gid://shopify/ProductVariant/43084997492801,2025 Upper Deck Skybox Metal Universe Batman Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334777100,239.99,,209,4,0,0,0
 gid://shopify/Product/7714602582081,gid://shopify/ProductVariant/43090372493377,2026 Bo Jackson Battle Arena Griffey Jr Edition Blaster Box,,ACTIVE,Sealed Wax,Default Title,,850067210559,54.99,,,1,0,0,0
 gid://shopify/Product/7714602778689,gid://shopify/ProductVariant/43090372526145,2026 Bo Jackson Battle Arena Griffey Jr Edition Double Mega Box,,ACTIVE,Sealed Wax,Default Title,,850067210528,109.99,,85,0,0,0,0
 gid://shopify/Product/7714603204673,gid://shopify/ProductVariant/43090378260545,2026 Bo Jackson Battle Arena Griffey Jr Edition Hobby Box,,ACTIVE,Sealed Wax,Default Title,,850067210498,599.99,,385,1,0,0,0
-gid://shopify/Product/7714610610241,gid://shopify/ProductVariant/43090402017345,2025 Panini Prizm Football Hobby Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134187780,49.99,,42.5,-17,0,0,0
+gid://shopify/Product/7714610610241,gid://shopify/ProductVariant/43090402017345,2025 Panini Prizm Football Hobby Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134187780,49.99,,42.5,-18,0,0,0
 gid://shopify/Product/7714613198913,gid://shopify/ProductVariant/43090415288385,2025 Panini Prizm Draft Picks Football Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134185793,49.99,,21,9,0,0,0
 gid://shopify/Product/7714628141121,gid://shopify/ProductVariant/43170106015809,2025 Topps Allen & Ginter Baseball Hobby Box,,ACTIVE,Sealed Wax,Pack,,887521144266,8.49,,7.84,6,0,0,0
-gid://shopify/Product/7743722029121,gid://shopify/ProductVariant/43169051377729,2025 Panini Rookies & Stars Football Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134187865,29.99,,23.5,1,0,0,0
-gid://shopify/Product/7747631153217,gid://shopify/ProductVariant/43182473379905,2024-2025 Topps Marvel Studios Chrome Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521151479,44.99,,25.35,7,0,0,0
+gid://shopify/Product/7714628141121,gid://shopify/ProductVariant/43188007796801,2025 Topps Allen & Ginter Baseball Hobby Box,,ACTIVE,Sealed Wax,Box,,887521144273,239.99,,235,-2,0,0,0
+gid://shopify/Product/7747631153217,gid://shopify/ProductVariant/43182473379905,2024-2025 Topps Marvel Studios Chrome Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521151479,44.99,,25.35,5,0,0,0
 gid://shopify/Product/7747717988417,gid://shopify/ProductVariant/43183000158273,2025-26 Topps Chrome Basketball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521149780,199.99,,168,13,0,0,0
-gid://shopify/Product/7747722379329,gid://shopify/ProductVariant/43183032074305,2025-26 Topps Chrome Basketball Blaster Box,,ACTIVE,Sealed Wax,Default Title,887521149735,887521149735,89.99,,60.25,1,0,0,0
+gid://shopify/Product/7747722379329,gid://shopify/ProductVariant/43183032074305,2025-26 Topps Chrome Basketball Blaster Box,,ACTIVE,Sealed Wax,Default Title,887521149735,887521149735,89.99,,60.25,0,0,0,0
 gid://shopify/Product/7750538100801,gid://shopify/ProductVariant/43188207484993,2026 Sage Low Series Football Blaster Box,,ACTIVE,Sealed Wax,Default Title,,850027306537,14.99,,12.75,-1,0,0,0
 gid://shopify/Product/7750538395713,gid://shopify/ProductVariant/43191227678785,2026 Sage Low Series Football Hobby Box,,ACTIVE,Sealed Wax,Pack,,850027306575,5.99,,3.62,4,0,0,0
 gid://shopify/Product/7750540492865,gid://shopify/ProductVariant/43188210860097,2024 Topps Chrome Formula 1 Racing Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521130061,44.99,,38.95,2,0,0,0
@@ -265,7 +264,7 @@ gid://shopify/Product/7755454644289,gid://shopify/ProductVariant/43203794010177,
 gid://shopify/Product/7755458084929,gid://shopify/ProductVariant/43203807641665,2025 Panini Mosaic NFL Trading Card Box (No Huddle),,ACTIVE,Sealed Wax,Default Title,,746134186158,389.99,,239.95,0,0,0,0
 gid://shopify/Product/7757783564353,gid://shopify/ProductVariant/43215967125569,2024-25 Topps UEFA Merlin Chrome Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521144136,234.99,,247.5,-1,0,0,0
 gid://shopify/Product/7757785792577,gid://shopify/ProductVariant/43215973515329,2025 Panini Absolute NFL Trading Card Fat Pack Box,,ACTIVE,Sealed Wax,Default Title,,746134186639,79.99,,67,0,0,0,0
-gid://shopify/Product/7759325200449,gid://shopify/ProductVariant/43220991017025,Pokemon S&V Shrouded Fable Booster Bundle,,ACTIVE,Booster Box,Default Title,,820650413094,54.99,,49,1,0,0,0
+gid://shopify/Product/7759325200449,gid://shopify/ProductVariant/43220991017025,Pokemon S&V Shrouded Fable Booster Bundle,,ACTIVE,Booster Box,Default Title,,820650413094,59.99,,49,1,0,0,0
 gid://shopify/Product/7759325265985,gid://shopify/ProductVariant/43220991279169,2025 Topps Chrome Update Baseball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521145591,59.99,,52,0,0,0,0
 gid://shopify/Product/7759325298753,gid://shopify/ProductVariant/43220991311937,2025-26 Topps Chrome Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521149599,799.99,,510,0,0,0,0
 gid://shopify/Product/7719811317825,gid://shopify/ProductVariant/43106571321409,2025 Panini Score Football Retail Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134191053,39.99,,30.25,0,0,0,0
@@ -275,7 +274,7 @@ gid://shopify/Product/7724898549825,gid://shopify/ProductVariant/43125448179777,
 gid://shopify/Product/7724898549825,gid://shopify/ProductVariant/43135152652353,2025 Topps Heritage High Number Baseball,,ACTIVE,Sealed Wax,Box,,887521150564,144.99,,126,0,0,0,0
 gid://shopify/Product/7724898549825,gid://shopify/ProductVariant/43188019298369,2025 Topps Heritage High Number Baseball,,ACTIVE,Sealed Wax,Pack,,887521150557,4.99,,3.5,-149,0,0,0
 gid://shopify/Product/7733513617473,gid://shopify/ProductVariant/43154823905345,2025 Topps Allen & Ginter Baseball - Mitchell & Ness Hobby Box,,ARCHIVED,Sealed Wax,Default Title,,887521147533,154.99,,149.99,0,0,0,0
-gid://shopify/Product/7759325757505,gid://shopify/ProductVariant/43220992491585,2025-26 Topps UEFA Club Competitions Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521151530,24.99,,16.25,-32,0,0,0
+gid://shopify/Product/7743722029121,gid://shopify/ProductVariant/43169051377729,2025 Panini Rookies & Stars Football Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134187865,29.99,,23.5,1,0,0,0
 gid://shopify/Product/7759325790273,gid://shopify/ProductVariant/43220992524353,2025-26 Topps UEFA Club Competitions Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521151509,134.99,,90,0,0,0,0
 gid://shopify/Product/7759325823041,gid://shopify/ProductVariant/43220992557121,2025 Bowman Draft Baseball Hobby Jumbo Box,,ACTIVE,Sealed Wax,Default Title,,887521149391,749.99,,685,2,0,0,0
 gid://shopify/Product/7759325888577,gid://shopify/ProductVariant/43220992589889,2025 Bowman Draft Baseball Breaker's Delight Box,,ACTIVE,Sealed Wax,Default Title,,887521149452,774.99,,585,1,0,0,0
@@ -286,21 +285,21 @@ gid://shopify/Product/7759968239681,gid://shopify/ProductVariant/43222551265345,
 gid://shopify/Product/7767418142785,gid://shopify/ProductVariant/43244174573633,2022 Panini Prizm UFC Blaster Box,,ACTIVE,Sealed Wax,Default Title,,613297994275,34.99,,20,0,0,0,0
 gid://shopify/Product/7767418536001,gid://shopify/ProductVariant/43244176310337,2022 Panini WWE Prizm Wrestling Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134134128,29.99,,20,1,0,0,0
 gid://shopify/Product/7767426990145,gid://shopify/ProductVariant/43244187385921,2025 Topps Labubu Chrome® 10th Anniversary Hobby Box,,ACTIVE,Sealed Wax,Default Title,,39797946,59.99,,50,0,0,0,0
-gid://shopify/Product/7767468802113,gid://shopify/ProductVariant/43244235948097,2025 Panini Squishmallows Series 2 Hobby Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134194719,29.99,,20,5,0,0,0
+gid://shopify/Product/7767468802113,gid://shopify/ProductVariant/43244235948097,2025 Panini Squishmallows Series 2 Hobby Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134194719,29.99,,20,4,0,0,0
 gid://shopify/Product/7767547510849,gid://shopify/ProductVariant/43244867911745,2022 Skybox Marvel Metal Universe Blaster Box,,ACTIVE,Sealed Wax,Default Title,,053334983525,24.99,,20,0,0,0,0
 gid://shopify/Product/7768319656001,gid://shopify/ProductVariant/43246945796161,2024-25 Topps UEFA Museum Collection Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521141838,424.99,,360,0,0,0,0
 gid://shopify/Product/7769136332865,gid://shopify/ProductVariant/43250741510209,2025 Parkside Pacific NWSL Soccer 12Ct. Hobby Box,,ACTIVE,Sealed Wax,Default Title,,850049910880,79.99,,69.5,0,0,0,0
 gid://shopify/Product/7771446837313,gid://shopify/ProductVariant/43261088825409,2025 Panini Donruss Football Fat Pack,,ACTIVE,Sealed Wax,Default Title,PAN_2025_DONR_FB_FATPACK,746134185243,7.49,,5.75,-26,0,0,0
 gid://shopify/Product/7771446870081,gid://shopify/ProductVariant/43261088858177,2025 Panini Donruss Football Fat Pack Box,,ACTIVE,Sealed Wax,Default Title,25PnDrFB FPB 18525,746134185250,79.99,,69,1,0,0,0
 gid://shopify/Product/7771446902849,gid://shopify/ProductVariant/43261088890945,2025 Panini Donruss WNBA Basketball Blaster Box,,ACTIVE,Sealed Wax,Default Title,PAN_2025_DONR_WNBA_BSK_BLASTER,746134190193,24.99,,16.5,1,0,0,0
+gid://shopify/Product/7759325462593,gid://shopify/ProductVariant/43220991770689,2024-25 Topps Chrome Merlin Soccer Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521144198,29.99,,30,9,0,0,0
 gid://shopify/Product/7759325397057,gid://shopify/ProductVariant/43220991541313,2025 Topps Chrome Formula 1 Blaster Box,,DRAFT,Sealed Wax,Default Title,,41637277,49.99,,,1,0,0,0
-gid://shopify/Product/7759325462593,gid://shopify/ProductVariant/43220991770689,2024-25 Topps Chrome Merlin Soccer Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521144198,29.99,,30,12,0,0,0
 gid://shopify/Product/7759325495361,gid://shopify/ProductVariant/43220991803457,2025 Panini Immaculate Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134188107,1149.99,,1044,1,0,0,0
 gid://shopify/Product/7759325560897,gid://shopify/ProductVariant/43220992032833,2025 Topps Pixar Gold Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521145690,399.99,,389.99,1,0,0,0
-gid://shopify/Product/7759325593665,gid://shopify/ProductVariant/43220992065601,2024-25 Topps Chrome UEFA Women's Champions League Soccer Hobby Box,,DRAFT,Sealed Wax,Default Title,,20986335,109.99,,,1,0,0,0
 gid://shopify/Product/7759325659201,gid://shopify/ProductVariant/43220992131137,2024-25 Topps Chrome UEFA Women's Soccer Blaster Box,,ACTIVE,Sealed Wax,Default Title,,31735214,29.99,,26,3,0,0,0
+gid://shopify/Product/7759325593665,gid://shopify/ProductVariant/43220992065601,2024-25 Topps Chrome UEFA Women's Champions League Soccer Hobby Box,,DRAFT,Sealed Wax,Default Title,,20986335,109.99,,,1,0,0,0
+gid://shopify/Product/7759325757505,gid://shopify/ProductVariant/43220992491585,2025-26 Topps UEFA Club Competitions Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521151530,24.99,,16.25,-32,0,0,0
 gid://shopify/Product/7759325724737,gid://shopify/ProductVariant/43220992163905,2026 Topps Chrome U.S. Winter Olympics & Paralympic  Blaster Box,,DRAFT,Sealed Wax,Default Title,,34235205,29.99,,,1,0,0,0
-gid://shopify/Product/7774182670401,gid://shopify/ProductVariant/43269643632705,2025 Panini Squishmallows Series 2 Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134183942,24.99,,15,4,0,0,0
 gid://shopify/Product/7774378983489,gid://shopify/ProductVariant/43270465847361,2025 Panini Mosaic Football Mega Pack,,ACTIVE,Sealed Wax,Default Title,,64914402,10.99,,7.08,3,0,0,0
 gid://shopify/Product/7774382915649,gid://shopify/ProductVariant/43270474498113,2025 Panini Squishmallows Series 2 Blaster Pack,,ACTIVE,Sealed Wax,Default Title,,95921556,2.99,,1.5,19,0,0,0
 gid://shopify/Product/7774891278401,gid://shopify/ProductVariant/43271811596353,2025-26 Topps Chrome Basketball Hobby Pack,,ACTIVE,Sealed Wax,Default Title,,887521149582,24.99,,25.5,-2,0,0,0
@@ -313,27 +312,27 @@ gid://shopify/Product/7775752126529,gid://shopify/ProductVariant/43275739430977,
 gid://shopify/Product/7776033374273,gid://shopify/ProductVariant/43277202587713,2025 Topps Marvel Studios Chrome Sapphire Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521153206,649.99,,379,0,0,0,0
 gid://shopify/Product/7776315473985,gid://shopify/ProductVariant/43278200438849,One Piece TCG: The Azure Sea's Seven [OP-14] Booster Box,,ACTIVE,Booster Box,Pack,,67249641,11.99,,9.58,-24,0,0,0
 gid://shopify/Product/7776315473985,gid://shopify/ProductVariant/43278200471617,One Piece TCG: The Azure Sea's Seven [OP-14] Booster Box,,ACTIVE,Booster Box,Box,,810158836396,279.99,,215,3,0,0,0
-gid://shopify/Product/7776317308993,gid://shopify/ProductVariant/43279091957825,Pokemon S&S Astral Radiance,,ACTIVE,Booster Box,Pack,,0820650850233,11.99,,10.56,-13,0,0,0
+gid://shopify/Product/7776317308993,gid://shopify/ProductVariant/43279091957825,Pokemon S&S Astral Radiance,,ACTIVE,Booster Box,Pack,,0820650850233,11.99,,10.56,-25,0,0,0
 gid://shopify/Product/7776317308993,gid://shopify/ProductVariant/43279091990593,Pokemon S&S Astral Radiance,,ACTIVE,Booster Box,Box,,820650860232,424.99,,388,2,0,0,0
-gid://shopify/Product/7776524337217,gid://shopify/ProductVariant/43279082356801,One Piece - Carrying on His Will [OP-13] Booster Box,,ACTIVE,Booster Box,Pack,,61777087,27.99,,20.83,16,0,0,0
+gid://shopify/Product/7776524337217,gid://shopify/ProductVariant/43279082356801,One Piece - Carrying on His Will [OP-13] Booster Box,,ACTIVE,Booster Box,Pack,,61777087,27.99,,20.83,13,0,0,0
 gid://shopify/Product/7776524337217,gid://shopify/ProductVariant/43279082389569,One Piece - Carrying on His Will [OP-13] Booster Box,,ACTIVE,Booster Box,Box,,810158833524,674.99,,605,4,0,0,0
-gid://shopify/Product/7777558790209,gid://shopify/ProductVariant/43282926796865,2025 Panini Rookies and Stars Football Hobby Pack,,ACTIVE,Sealed Wax,Default Title,,746134187803,29.99,,28.5,-10,0,0,0
+gid://shopify/Product/7777558790209,gid://shopify/ProductVariant/43282926796865,2025 Panini Rookies and Stars Football Hobby Pack,,ACTIVE,Sealed Wax,Default Title,,746134187803,29.99,,28.5,-11,0,0,0
 gid://shopify/Product/7771821310017,gid://shopify/ProductVariant/43262604247105,2026 Topps Chrome U.S. Winter Olympics & Paralympic Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521153121,119.99,,100,0,0,0,0
 gid://shopify/Product/7772089614401,gid://shopify/ProductVariant/43263405129793,2025 Panini Prizm NASCAR Racing Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134183133,29.99,,19.5,18,0,0,0
-gid://shopify/Product/7772091220033,gid://shopify/ProductVariant/43263412535361,2025 Donruss Optic Football Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134188510,79.99,,77.75,11,0,0,0
+gid://shopify/Product/7772091220033,gid://shopify/ProductVariant/43263412535361,2025 Donruss Optic Football Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134188510,79.99,,77.75,8,0,0,0
 gid://shopify/Product/7772322234433,gid://shopify/ProductVariant/43264379125825,2025 Panini Select Baseball Hobby Pack,,ACTIVE,Sealed Wax,Default Title,,746134182365,11.99,,8.88,0,0,0,0
 gid://shopify/Product/7772844785729,gid://shopify/ProductVariant/43266081259585,2025 Bowman Draft Baseball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521149513,64.99,,60,7,0,0,0
 gid://shopify/Product/7772845146177,gid://shopify/ProductVariant/43266082865217,2025 Bowman Draft Baseball Super Jumbo Box,,ACTIVE,Sealed Wax,Default Title,,887521149421,849.99,,764,-2,0,0,0
 gid://shopify/Product/7774181392449,gid://shopify/ProductVariant/43269639340097,2025 Panini Squishmallows Series 2 Blaster,,ACTIVE,Sealed Wax,Default Title,,746134183812,14.99,,9,0,0,0,0
-gid://shopify/Product/7780041261121,gid://shopify/ProductVariant/43315401785409,2025-26 Upper Deck O-Pee-Chee Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,53334591195,53334591195,89.99,,51.5,2,0,0,0
-gid://shopify/Product/7781231722561,gid://shopify/ProductVariant/43320735662145,2025 Panini Select Baseball Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134182570,34.99,,21,-5,0,0,0
-gid://shopify/Product/7785508110401,gid://shopify/ProductVariant/43512455987265,2025 Donruss Optic Football Hobby Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134188541,109.99,,21,0,0,0,0
+gid://shopify/Product/7774182670401,gid://shopify/ProductVariant/43269643632705,2025 Panini Squishmallows Series 2 Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134183942,24.99,,15,4,0,0,0
+gid://shopify/Product/7781231722561,gid://shopify/ProductVariant/43320735662145,2025 Panini Select Baseball Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134182570,34.99,,21,-7,0,0,0
+gid://shopify/Product/7785508110401,gid://shopify/ProductVariant/43512455987265,2025 Donruss Optic Football Hobby Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134188541,109.99,,21,-5,0,0,0
 gid://shopify/Product/7785645211713,gid://shopify/ProductVariant/43512983420993,2026 Topps Premier League Chrome Blaster Box,,ACTIVE,Sealed Wax,Default Title,,5053307078673,29.99,,19.5,10,0,0,0
 gid://shopify/Product/7786355687489,gid://shopify/ProductVariant/43536160686145,2024 Topps Chrome Tennis Blaster,,ACTIVE,Sealed Wax,Default Title,,887521130825,14.99,,,0,0,0,0
 gid://shopify/Product/7787927896129,gid://shopify/ProductVariant/43544769003585,2025 Panini Select Football Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134189012,49.99,,22.5,7,0,0,0
 gid://shopify/Product/7789163806785,gid://shopify/ProductVariant/43547765014593,2025 Topps Star Wars Chrome Sapphire Edition Box,,ACTIVE,Sealed Wax,Default Title,,887521136650,224.99,,200,1,0,0,0
 gid://shopify/Product/7791376924737,gid://shopify/ProductVariant/43553053114433,2025 Topps Triumphant Tennis Hobby Box,,ACTIVE,Sealed Wax,Default Title,,91783840,144.99,,107,0,0,0,0
-gid://shopify/Product/7791974940737,gid://shopify/ProductVariant/43556700192833,Pokemon S&V Shrouded Fable Booster Pack,,ACTIVE,Booster Pack,Default Title,,48826547,9.99,,8.33,-18,0,0,0
+gid://shopify/Product/7791974940737,gid://shopify/ProductVariant/43556700192833,Pokemon S&V Shrouded Fable Booster Pack,,ACTIVE,Booster Pack,Default Title,,48826547,11.99,,8.33,-18,0,0,0
 gid://shopify/Product/7792299540545,gid://shopify/ProductVariant/43558089883713,2026 Topps Series 1 Baseball Tin,,ACTIVE,Sealed Wax,Default Title,,887521151356,11.99,,18.88,-1,0,0,0
 gid://shopify/Product/7792331948097,gid://shopify/ProductVariant/43558292258881,2025 Topps Chrome Formula 1 Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521146062,319.99,,286,0,0,0,0
 gid://shopify/Product/7793276026945,gid://shopify/ProductVariant/43561390473281,2025 Panini Donruss Optic Football H2 Box,,ACTIVE,Sealed Wax,Default Title,,746134188220,274.99,,275,0,0,0,0
@@ -345,22 +344,22 @@ gid://shopify/Product/7794131107905,gid://shopify/ProductVariant/43563956109377,
 gid://shopify/Product/7779091611713,gid://shopify/ProductVariant/43290833944641,2025 Donruss Optic Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134188152,614.99,,565,0,0,0,0
 gid://shopify/Product/7780040966209,gid://shopify/ProductVariant/43315401457729,2025 Topps Museum Collection Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,887521143863,887521143863,459.99,,399,0,0,0,0
 gid://shopify/Product/7780041031745,gid://shopify/ProductVariant/43315401556033,2025-26 Upper Deck SP Game Used Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,055334434591,164.99,,139,0,0,0,0
-gid://shopify/Product/7780041064513,gid://shopify/ProductVariant/43315401588801,2025 Topps Stadium Club Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,887521148783,887521148783,19.99,,16.25,26,0,0,0
-gid://shopify/Product/7780041097281,gid://shopify/ProductVariant/43315401621569,2025 Topps Stadium Club Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,887521148752,887521148752,184.99,,152,7,0,0,0
+gid://shopify/Product/7780041064513,gid://shopify/ProductVariant/43315401588801,2025 Topps Stadium Club Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,887521148783,887521148783,19.99,,16.25,24,0,0,0
+gid://shopify/Product/7780041097281,gid://shopify/ProductVariant/43315401621569,2025 Topps Stadium Club Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,887521148752,887521148752,184.99,,152,6,0,0,0
 gid://shopify/Product/7780041162817,gid://shopify/ProductVariant/43315401687105,2025-26 Topps Midnight Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,887521152261,887521152261,799.99,,646,0,0,0,0
 gid://shopify/Product/7780041195585,gid://shopify/ProductVariant/43315401719873,2025 Panini Select Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,746134188602,746134188602,644.99,,552,1,0,0,0
-gid://shopify/Product/7802544160833,gid://shopify/ProductVariant/43581380853825,2021-22 Upper Deck Marvel Annual Hobby Box,,ACTIVE,Sealed Wax,Default Title,,05333498179,79.99,,60,6,0,0,0
-gid://shopify/Product/7802545373249,gid://shopify/ProductVariant/43581390094401,Pokemon Ascended Heroes Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,0196214132474,189.99,,164,2,0,0,0
+gid://shopify/Product/7780041261121,gid://shopify/ProductVariant/43315401785409,2025-26 Upper Deck O-Pee-Chee Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,53334591195,53334591195,89.99,,51.5,2,0,0,0
+gid://shopify/Product/7802545373249,gid://shopify/ProductVariant/43581390094401,Pokemon Ascended Heroes Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,0196214132474,189.99,,164,0,0,0,0
 gid://shopify/Product/7802807877697,gid://shopify/ProductVariant/43582331977793,2025 Topps Complete Set Retail,,ACTIVE,Sealed Wax,Default Title,,887521146185,39.99,,25,6,0,0,0
-gid://shopify/Product/7813239210049,gid://shopify/ProductVariant/43605033353281,2025 Panini Select Football Hobby Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134189043,64.99,,37.5,0,0,0,0
-gid://shopify/Product/7813250252865,gid://shopify/ProductVariant/43605046984769,2026 Topps Series 1 Baseball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521154807,74.99,,64,-7,0,0,0
+gid://shopify/Product/7813239210049,gid://shopify/ProductVariant/43605033353281,2025 Panini Select Football Hobby Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134189043,64.99,,37.5,-5,0,0,0
+gid://shopify/Product/7813250252865,gid://shopify/ProductVariant/43605046984769,2026 Topps Series 1 Baseball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521154807,74.99,,64,-8,0,0,0
 gid://shopify/Product/7815537360961,gid://shopify/ProductVariant/43611435008065,2025 Topps Pristine Baseball Hobby Box,,ACTIVE,Sealed Wax,Pack,,887521144587,94.99,,85,-3,0,0,0
 gid://shopify/Product/7815537360961,gid://shopify/ProductVariant/43631481192513,2025 Topps Pristine Baseball Hobby Box,,ACTIVE,Sealed Wax,Box,,887521144594,579.99,,510,1,0,0,0
 gid://shopify/Product/7820441092161,gid://shopify/ProductVariant/43615685705793,2025 Panini Select Football H2 Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134188657,249.99,,180,12,0,0,0
 gid://shopify/Product/7820470648897,gid://shopify/ProductVariant/43615810945089,2018 Panini Prizm FIFA World Cup Soccer Fat Pack,,ACTIVE,Sealed Wax,Default Title,,613297915614,74.99,,66.59,9,0,0,0
 gid://shopify/Product/7831068835905,gid://shopify/ProductVariant/43630109655105,2025-26 Topps Finest Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521153336,864.99,,781,1,0,0,0
-gid://shopify/Product/7840604651585,gid://shopify/ProductVariant/43644362096705,Pokemon ME Ascended Heroes Booster Pack,,ACTIVE,Booster Pack,Default Title,,074427168230,14.99,,9.7,-37,0,0,0
-gid://shopify/Product/7840606289985,gid://shopify/ProductVariant/43644366028865,Pokemon Obsidian Flames Booster Bundle,,ACTIVE,Booster Box,Default Title,,0820650853876,99.99,,66,3,0,0,0
+gid://shopify/Product/7840604651585,gid://shopify/ProductVariant/43644362096705,Pokemon ME Ascended Heroes Booster Pack,,ACTIVE,Booster Pack,Default Title,,074427168230,16.99,,9.7,-47,0,0,0
+gid://shopify/Product/7840606289985,gid://shopify/ProductVariant/43644366028865,Pokemon Obsidian Flames Booster Bundle,,ACTIVE,Booster Box,Default Title,,0820650853876,109.99,,66,0,0,0,0
 gid://shopify/Product/7840619495489,gid://shopify/ProductVariant/43644423372865,2025 Topps Chrome MLS Hobby Box,,ACTIVE,Sealed Wax,Default Title,,08181072,214.99,,180,3,0,0,0
 gid://shopify/Product/7841297498177,gid://shopify/ProductVariant/43646938808385,2019-20 Topps Finest UEFA Champions League Soccer Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134164156,699.99,,675,1,0,0,0
 gid://shopify/Product/7841298776129,gid://shopify/ProductVariant/43646941954113,2021 Panini Select Football H2 Hobby Box,,ACTIVE,Sealed Wax,Default Title,,613297982487,224.99,,199.99,0,0,0,0
@@ -373,40 +372,40 @@ gid://shopify/Product/7801946603585,gid://shopify/ProductVariant/43577921601601,
 gid://shopify/Product/7801948962881,gid://shopify/ProductVariant/43577928548417,2025 Panini National Treasures Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134189470,2199.99,,950,2,0,0,0
 gid://shopify/Product/7801949257793,gid://shopify/ProductVariant/43577929334849,2025 Topps Star Wars Hyperspace Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521144419,264.99,,250,3,0,0,0
 gid://shopify/Product/7802009649217,gid://shopify/ProductVariant/43578118144065,2018 Panini Prizm FIFA World Cup Soccer Fat Pack Box,,ACTIVE,Sealed Wax,Default Title,,75780479,899.99,,799,0,0,0,0
-gid://shopify/Product/7852327534657,gid://shopify/ProductVariant/43674771390529,2024-25 Upper Deck ICE Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334786904,139.99,,125,24,0,0,0
+gid://shopify/Product/7802544160833,gid://shopify/ProductVariant/43581380853825,2021-22 Upper Deck Marvel Annual Hobby Box,,ACTIVE,Sealed Wax,Default Title,,05333498179,79.99,,60,6,0,0,0
 gid://shopify/Product/7852333301825,gid://shopify/ProductVariant/43674792951873,Pokemon Destined Rivals Booster Unlimited,,ACTIVE,Booster Box,Default Title,,0196214123182,649.99,,618,0,0,0,0
 gid://shopify/Product/7853732986945,gid://shopify/ProductVariant/43686971080769,2025 Topps Chrome McDonald's All-American Basketball Hobby Box Pack,,ACTIVE,Sealed Wax,Default Title,25TOBKMCD,887521148646,49.99,,47.5,3,0,0,0
 gid://shopify/Product/7855423946817,gid://shopify/ProductVariant/43692528926785,2025 Topps Gilded Collection Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521144044,1249.99,,1045,1,0,0,0
-gid://shopify/Product/7856335159361,gid://shopify/ProductVariant/43695434563649,Pokemon Silver Tempest Booster Bundle,,ACTIVE,Booster Box,Default Title,,820650851544,114.99,,74,3,0,0,0
+gid://shopify/Product/7856335159361,gid://shopify/ProductVariant/43695434563649,Pokemon Silver Tempest Booster Bundle,,ACTIVE,Booster Box,Default Title,,820650851544,119.99,,74,2,0,0,0
 gid://shopify/Product/7856335552577,gid://shopify/ProductVariant/43695436890177,2025 Topps Stranger Things Hobby Box,,ACTIVE,Sealed Wax,Default Title,,45631936,424.99,,375,2,0,0,0
 gid://shopify/Product/7856731193409,gid://shopify/ProductVariant/43696619814977,Pokemon Paldea Evolved Booster Bundle,,ACTIVE,Booster Box,Default Title,,0820650853623,99.99,,90,0,0,0,0
 gid://shopify/Product/7856733913153,gid://shopify/ProductVariant/43696629678145,2026 Topps Marvel Brooklyn Collection Captain America Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521154654,264.99,,235,1,0,0,0
 gid://shopify/Product/7856734896193,gid://shopify/ProductVariant/43696633479233,2025 Topps Knockout UFC Hobby Box,,ACTIVE,Sealed Wax,Default Title,,80503349,274.99,,250,2,0,0,0
 gid://shopify/Product/7856767205441,gid://shopify/ProductVariant/43696754786369,2025-26 Upper Deck Series 2 Blaster Box,,ACTIVE,Sealed Wax,Default Title,,053334438285,29.99,,17.5,0,0,0,0
 gid://shopify/Product/7856773890113,gid://shopify/ProductVariant/43696778870849,2026 Upper Deck Batman The Animated Series Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334841429,204.99,,168,2,0,0,0
-gid://shopify/Product/7856781819969,gid://shopify/ProductVariant/43696802988097,2025 Bowman's Best Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521152414,719.99,,499.5,3,0,0,0
+gid://shopify/Product/7856781819969,gid://shopify/ProductVariant/43696802988097,2025 Bowman's Best Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521152414,674.99,,499.5,3,0,0,0
 gid://shopify/Product/7859533840449,gid://shopify/ProductVariant/43704582733889,2025 Panini Prizm Football Retail Mega Box,,ACTIVE,Sealed Wax,Default Title,,746134187421,49.99,,25,0,0,0,0
 gid://shopify/Product/7860154564673,gid://shopify/ProductVariant/43706136625217,2025-26 Panini Donruss Road to FIFA World Cup Soccer Hobby Box,,ACTIVE,Sealed Wax,Default Title,PAN_25/26_DONR_RTWC_SCR_HOBBY,746134178665,429.99,,365,4,0,0,0
-gid://shopify/Product/7860154728513,gid://shopify/ProductVariant/43706136789057,Pokemon Perfect Order Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,PKM_ME_PERFORDER_ETB,196214152038,74.99,,32.25,3,0,0,0
-gid://shopify/Product/7860154761281,gid://shopify/ProductVariant/43706136821825,Pokemon Perfect Order Booster Bundle,,ACTIVE,Booster Box,Default Title,PKM_ME_PERFORDER_BUNDLE,196214150478,49.99,,52,3,0,0,0
-gid://shopify/Product/7841912717377,gid://shopify/ProductVariant/43648304349249,2026 Topps Heritage Baseball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521155385,74.99,,59.5,-2,0,0,0
+gid://shopify/Product/7860154728513,gid://shopify/ProductVariant/43706136789057,Pokemon Perfect Order Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,PKM_ME_PERFORDER_ETB,196214152038,74.99,,32.25,2,0,0,0
+gid://shopify/Product/7860154761281,gid://shopify/ProductVariant/43706136821825,Pokemon Perfect Order Booster Bundle,,ACTIVE,Booster Box,Default Title,PKM_ME_PERFORDER_BUNDLE,196214150478,49.99,,52,1,0,0,0
+gid://shopify/Product/7841912717377,gid://shopify/ProductVariant/43648304349249,2026 Topps Heritage Baseball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521155385,74.99,,59.5,-6,0,0,0
 gid://shopify/Product/7842475081793,gid://shopify/ProductVariant/43650215706689,One Piece TCG: Wings of the Captain [OP-06] Booster Box,,ACTIVE,Booster Box,Default Title,,810059781139,349.99,,305,1,0,0,0
 gid://shopify/Product/7842588131393,gid://shopify/ProductVariant/43650537062465,2025 Topps Chrome MLS Major League Soccer Hobby Box Pack,,ACTIVE,Sealed Wax,Default Title,,887521148301,8.99,,8.65,1,0,0,0
 gid://shopify/Product/7846873825345,gid://shopify/ProductVariant/43660335218753,2025 Disney Wonder Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521147199,39.99,,36,-4,0,0,0
 gid://shopify/Product/7852322783297,gid://shopify/ProductVariant/43674761265217,2025 Parkside USWNT Thermal Soccer,,ACTIVE,Sealed Wax,Default Title,,850049910873,119.99,,92.5,1,0,0,0
 gid://shopify/Product/7852323209281,gid://shopify/ProductVariant/43674762248257,2022-23 Upper Deck SP Authentic Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,05333412175,134.99,,129,-21,0,0,0
 gid://shopify/Product/7852326355009,gid://shopify/ProductVariant/43674769522753,2022-23 Upper Deck Series 2 Hockey,,ACTIVE,Sealed Wax,Default Title,,053334131117,69.99,,42.5,20,0,0,0
-gid://shopify/Product/7863777263681,gid://shopify/ProductVariant/43713197113409,2025-26 Topps Chrome Bundesliga Hobby Box,,ACTIVE,Sealed Wax,Default Title,,88752115380,274.99,,190,1,0,0,0
+gid://shopify/Product/7852327534657,gid://shopify/ProductVariant/43674771390529,2024-25 Upper Deck ICE Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334786904,139.99,,125,0,0,0,0
 gid://shopify/Product/7863783063617,gid://shopify/ProductVariant/43713208254529,2025 Topps Star Wars Smugglers Outpost Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521144501,574.99,,530,2,0,0,0
 gid://shopify/Product/7867699003457,gid://shopify/ProductVariant/43726894202945,2026 Topps Series 1 Baseball Celebration Pack,,ACTIVE,Sealed Wax,Default Title,,887521155064,5.99,,4.28,-7,0,0,0
-gid://shopify/Product/7869991026753,gid://shopify/ProductVariant/43736401018945,2025 Topps Marvel Studios Chrome Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521151394,449.99,,375,1,0,0,0
-gid://shopify/Product/7869994500161,gid://shopify/ProductVariant/43736431132737,Pokemon Surging Sparks Booster Bundle,,ACTIVE,Booster Pack,Default Title,,0820650859502,64.99,,53,5,0,0,0
+gid://shopify/Product/7869991026753,gid://shopify/ProductVariant/43736401018945,2025 Topps Marvel Studios Chrome Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521151394,429.99,,375,2,0,0,0
+gid://shopify/Product/7869994500161,gid://shopify/ProductVariant/43736431132737,Pokemon Surging Sparks Booster Bundle,,ACTIVE,Booster Pack,Default Title,,0820650859502,64.99,,53,2,0,0,0
 gid://shopify/Product/7872977797185,gid://shopify/ProductVariant/43743852331073,2026 Panini USA Stars & Stripes Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134196133,124.99,,91.5,6,0,0,0
 gid://shopify/Product/7873002831937,gid://shopify/ProductVariant/43744016564289,2026 Panini USA Stars & Stripes Baseball Hobby Pack,,ACTIVE,Sealed Wax,Default Title,,53455360,10.49,,7.63,3,0,0,0
 gid://shopify/Product/7875903389761,gid://shopify/ProductVariant/43752890564673,2025 Panini Photogenic Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134189456,274.99,,220,0,0,0,0
 gid://shopify/Product/7878079447105,gid://shopify/ProductVariant/43760186294337,2025 Topps MLS Chrome Sapphire Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521148479,399.99,,370,2,0,0,0
 gid://shopify/Product/7879871561793,gid://shopify/ProductVariant/43765056405569,Rawlings Official MLB Game Baseball,,ACTIVE,Sealed Wax,Default Title,,30833550,19.99,,,0,0,0,0
-gid://shopify/Product/7881631236161,gid://shopify/ProductVariant/43772826517569,2025 Topps Chrome Football Hobby Blaster,,ACTIVE,Sealed Wax,Default Title,,887521156788,49.99,,37.5,20,0,0,0
+gid://shopify/Product/7881631236161,gid://shopify/ProductVariant/43772826517569,2025 Topps Chrome Football Hobby Blaster,,ACTIVE,Sealed Wax,Default Title,,887521156788,49.99,,37.5,0,0,0,0
 gid://shopify/Product/7882165747777,gid://shopify/ProductVariant/43773668589633,2025-26 Topps Three Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521153039,1499.99,,1300,1,0,0,0
 gid://shopify/Product/7883143413825,gid://shopify/ProductVariant/43776851083329,2025 Topps Chrome Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521156658,769.99,,740,3,0,0,0
 gid://shopify/Product/7883147116609,gid://shopify/ProductVariant/43776860913729,2025 Topps Chrome Football Hobby Jumbo Box,,ACTIVE,Sealed Wax,Default Title,,887521156702,1699.99,,2499.99,1,0,0,0
@@ -415,17 +414,17 @@ gid://shopify/Product/7884999163969,gid://shopify/ProductVariant/43783411040321,
 gid://shopify/Product/7887597666369,gid://shopify/ProductVariant/43789587284033,2026 Topps Finest Fantastic Four Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521154258,274.99,,229,2,0,0,0
 gid://shopify/Product/7860154925121,gid://shopify/ProductVariant/43706136985665,2026 Topps MLB x NBA Official Collector Kit Box,,ACTIVE,Sealed Wax,Default Title,TOPPS_2026_COL_MLB_NBA_KIT,887521163427,59.99,,49.88,-3,0,0,0
 gid://shopify/Product/7860167999553,gid://shopify/ProductVariant/43706152255553,2025 Topps Disneyland 70th Anniversary Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521151677,154.99,,126,0,0,0,0
-gid://shopify/Product/7860674363457,gid://shopify/ProductVariant/43707118682177,Pokemon Silver Tempest Booster Pack,,ACTIVE,Booster Pack,Default Title,,0820650850912,18.99,,12.3,-53,0,0,0
-gid://shopify/Product/7860677279809,gid://shopify/ProductVariant/43707129593921,2026 Topps Series 1 Baseball Celebration Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521155071,59.99,,56,-20,0,0,0
-gid://shopify/Product/7863695474753,gid://shopify/ProductVariant/43713089077313,Pokemon Perfect Order Booster Pack,,ACTIVE,Booster Box,Default Title,,0196214150454,8.99,,8.66,-49,0,0,0
+gid://shopify/Product/7860674363457,gid://shopify/ProductVariant/43707118682177,Pokemon Silver Tempest Booster Pack,,ACTIVE,Booster Pack,Default Title,,0820650850912,18.99,,12.3,-56,0,0,0
+gid://shopify/Product/7860677279809,gid://shopify/ProductVariant/43707129593921,2026 Topps Series 1 Baseball Celebration Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521155071,59.99,,56,-25,0,0,0
+gid://shopify/Product/7863695474753,gid://shopify/ProductVariant/43713089077313,Pokemon Perfect Order Booster Pack,,ACTIVE,Booster Box,Default Title,,0196214150454,8.99,,8.66,-54,0,0,0
 gid://shopify/Product/7863755440193,gid://shopify/ProductVariant/43713172897857,2025 Topps Universe WWE Blaster,,ACTIVE,Sealed Wax,Default Title,,887521143832,39.99,,29,-9,0,0,0
 gid://shopify/Product/7863768481857,gid://shopify/ProductVariant/43713188102209,2026 Leaf Metal Pop Century Hobby Box,,ACTIVE,Sealed Wax,Default Title,,819110016524,319.99,,275,9,0,0,0
+gid://shopify/Product/7863777263681,gid://shopify/ProductVariant/43713197113409,2025-26 Topps Chrome Bundesliga Hobby Box,,ACTIVE,Sealed Wax,Default Title,,88752115380,274.99,,190,1,0,0,0
 gid://shopify/Product/7888081485889,gid://shopify/ProductVariant/43791493201985,2025 Panini Select WNBA Basketball Hobby Box,,DRAFT,Sealed Wax,Default Title,746134190582,746134190582,774.95,,,1,0,0,0
-gid://shopify/Product/7888081518657,gid://shopify/ProductVariant/43791493234753,2026 Panini Ring Royalty MLW Major League Wrestling Hobby Box,,DRAFT,Sealed Wax,Default Title,746134195617,746134195617,79.95,,,1,0,0,0
 gid://shopify/Product/7888082108481,gid://shopify/ProductVariant/43791496380481,2026 Topps Chrome WWE Hobby Box,,ACTIVE,Sealed Wax,Default Title,15208,887521152087,374.99,,335,4,0,0,0
-gid://shopify/Product/7888082829377,gid://shopify/ProductVariant/43791499919425,Pokemon Ascended Heroes Booster Bundle,,ACTIVE,Booster Pack,Default Title,,196214141506,89.99,,66.45,5,0,0,0
+gid://shopify/Product/7888082829377,gid://shopify/ProductVariant/43791499919425,Pokemon Ascended Heroes Booster Bundle,,ACTIVE,Booster Pack,Default Title,,196214141506,97.49,,78.5,28,0,0,0
 gid://shopify/Product/7888083550273,gid://shopify/ProductVariant/43791502508097,2025 Upper Deck Fleer Ultra Superman Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334044240,179.99,,145,2,0,0,0
-gid://shopify/Product/7888089186369,gid://shopify/ProductVariant/43791524134977,2025-26 Upper Deck Skybox Metal Universe Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334200196,164.99,,95.75,13,0,0,0
+gid://shopify/Product/7888089186369,gid://shopify/ProductVariant/43791524134977,2025-26 Upper Deck Skybox Metal Universe Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334200196,164.99,,95.75,3,0,0,0
 gid://shopify/Product/7888092758081,gid://shopify/ProductVariant/43791538683969,Pokemon Rebel Clash Booster Unlimited,,ACTIVE,Booster Box,Default Title,,820650816819,599.99,,495,1,0,0,0
 gid://shopify/Product/7889976918081,gid://shopify/ProductVariant/43801006899265,2025 Topps Chrome Football Hobby Hanger,,ACTIVE,Sealed Wax,Default Title,,887521156894,39.99,,39,0,0,0,0
 gid://shopify/Product/7895467753537,gid://shopify/ProductVariant/43886787952705,2026 Panini Donruss Racing Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134195792,84.99,,68.5,17,0,0,0
@@ -435,76 +434,88 @@ gid://shopify/Product/7896538611777,gid://shopify/ProductVariant/43910745751617,
 gid://shopify/Product/7897478758465,gid://shopify/ProductVariant/43915870830657,2026 Topps Chrome UFC Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521153695,29.99,,19.5,38,0,0,0
 gid://shopify/Product/7897970802753,gid://shopify/ProductVariant/43917773242433,2026 Topps Chrome UFC Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521153749,79.99,,60,20,0,0,0
 gid://shopify/Product/7897970999361,gid://shopify/ProductVariant/43917774815297,2026 Topps Chrome UFC Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521153596,209.99,,177,7,0,0,0
-gid://shopify/Product/7898764476481,gid://shopify/ProductVariant/43923000328257,2025 Topps Chrome Football Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521156832,84.99,,75,0,0,0,0
+gid://shopify/Product/7898764476481,gid://shopify/ProductVariant/43923000328257,2025 Topps Chrome Football Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521156832,89.99,,75,-5,0,0,0
 gid://shopify/Product/7898765983809,gid://shopify/ProductVariant/43923051053121,2025 Upper Deck Fleer Ultra Superman Blaster,,ACTIVE,Sealed Wax,Default Title,,053334044271,29.99,,22.25,5,0,0,0
-gid://shopify/Product/7888081256513,gid://shopify/ProductVariant/43791492972609,2025-26 Bowman Basketball Jumbo Box,,DRAFT,Sealed Wax,Default Title,887521155446,887521155446,1188.95,,,0,0,0,0
 gid://shopify/Product/7888081289281,gid://shopify/ProductVariant/43791493005377,2025-26 Topps Finest English Premier League EPL Hobby Box,,DRAFT,Sealed Wax,Default Title,5053307076488,5053307076488,569.95,,,1,0,0,0
+gid://shopify/Product/7888081256513,gid://shopify/ProductVariant/43791492972609,2025-26 Bowman Basketball Jumbo Box,,DRAFT,Sealed Wax,Default Title,887521155446,887521155446,1188.95,,,0,0,0,0
 gid://shopify/Product/7888081322049,gid://shopify/ProductVariant/43791493038145,2026 Topps Graphite Tennis Hobby Box,,ACTIVE,Sealed Wax,Default Title,887521153916,887521153916,349.99,,260,12,0,0,0
 gid://shopify/Product/7888081354817,gid://shopify/ProductVariant/43791493070913,2025-26 Panini Select Serie A Soccer Hobby Box,,ACTIVE,Sealed Wax,Default Title,746134193477,746134193477,274.99,,218,1,0,0,0
-gid://shopify/Product/7888081387585,gid://shopify/ProductVariant/43791493103681,2026 Panini Donruss Racing Hobby Box,,DRAFT,Sealed Wax,Default Title,746134195792,746134195792,89.95,,,0,0,0,0
 gid://shopify/Product/7888081420353,gid://shopify/ProductVariant/43791493136449,2025-26 Panini Prizm FIFA Soccer Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134178849,499.99,,190,12,0,0,0
-gid://shopify/Product/7888081453121,gid://shopify/ProductVariant/43791493169217,2025-26 Bowman Basketball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521155538,44.99,,19.5,1,0,0,0
-gid://shopify/Product/7901492576321,gid://shopify/ProductVariant/43938299904065,2025-26 Bowman Basketball Mega Box,,ACTIVE,Sealed Wax,Default Title,9623067962,887521155583,74.99,,,15,0,0,0
-gid://shopify/Product/7901528457281,gid://shopify/ProductVariant/43991356506177,2026 Bowman Baseball Hobby Box,,ACTIVE,Sealed Wax,Box,6244311665,887521158119,374.99,,239.99,8,0,0,0
+gid://shopify/Product/7888081387585,gid://shopify/ProductVariant/43791493103681,2026 Panini Donruss Racing Hobby Box,,DRAFT,Sealed Wax,Default Title,746134195792,746134195792,89.95,,,0,0,0,0
+gid://shopify/Product/7888081453121,gid://shopify/ProductVariant/43791493169217,2025-26 Bowman Basketball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521155538,44.99,,19.5,-13,0,0,0
+gid://shopify/Product/7888081518657,gid://shopify/ProductVariant/43791493234753,2026 Panini Ring Royalty MLW Major League Wrestling Hobby Box,,DRAFT,Sealed Wax,Default Title,746134195617,746134195617,79.95,,,1,0,0,0
+gid://shopify/Product/7901528457281,gid://shopify/ProductVariant/43991356506177,2026 Bowman Baseball Hobby Box,,ACTIVE,Sealed Wax,Box,6244311665,887521158119,374.99,,239.99,6,0,0,0
 gid://shopify/Product/7901528457281,gid://shopify/ProductVariant/43991356538945,2026 Bowman Baseball Hobby Box,,ACTIVE,Sealed Wax,Pack,,887521158102,18.99,,12,0,0,0,0
 gid://shopify/Product/7901546381377,gid://shopify/ProductVariant/43938419343425,2026 Bowman Baseball Jumbo Box,,ACTIVE,Sealed Wax,Default Title,5783029027,887521158140,639.99,,580,0,0,0,0
-gid://shopify/Product/7901572431937,gid://shopify/ProductVariant/43938573680705,2026 Bowman Baseball Hobby Pack,,ACTIVE,Sealed Wax,Default Title,,887521158102,17.5,,12,-12,0,0,0
-gid://shopify/Product/7901592617025,gid://shopify/ProductVariant/43938730934337,Pokemon Prismatic Evolutions Super-Premium Collection,,ACTIVE,Booster Box,Default Title,2970766390,0196214112568,279.99,,212.5,4,0,0,0
+gid://shopify/Product/7901572431937,gid://shopify/ProductVariant/43938573680705,2026 Bowman Baseball Hobby Pack,,ACTIVE,Sealed Wax,Default Title,,887521158102,17.5,,12,-14,0,0,0
+gid://shopify/Product/7901592617025,gid://shopify/ProductVariant/43938730934337,Pokemon Prismatic Evolutions Super-Premium Collection,,ACTIVE,Booster Box,Default Title,2970766390,0196214112568,284.99,,212.5,3,0,0,0
 gid://shopify/Product/7901994418241,gid://shopify/ProductVariant/43940549918785,2025-26 Topps Hoops Basketball Hanger Box,,ACTIVE,Sealed Wax,Default Title,,887521171040,24.99,,17.99,7,0,0,0
-gid://shopify/Product/7901998841921,gid://shopify/ProductVariant/43940553195585,2025-26 Topps Hoops Basketball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521157204,39.99,,34.99,-4,0,0,0
+gid://shopify/Product/7901998841921,gid://shopify/ProductVariant/43940553195585,2025-26 Topps Hoops Basketball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521157204,39.99,,34.99,-7,0,0,0
 gid://shopify/Product/7902658723905,gid://shopify/ProductVariant/43943574044737,2025-26 Bowman University Best Basketball Hobby,,ACTIVE,Sealed Wax,Default Title,,887521155637,274.99,,269.99,19,0,0,0
-gid://shopify/Product/7902729044033,gid://shopify/ProductVariant/43943811940417,2026 Panini FIFA World Cup Soccer 25-Pack Sticker Box,,ACTIVE,Sealed Wax,Default Title,,746134204913,44.99,,32.5,19,0,0,0
+gid://shopify/Product/7902729044033,gid://shopify/ProductVariant/43943811940417,2026 Panini FIFA World Cup Soccer 25-Pack Sticker Box,,ACTIVE,Sealed Wax,Default Title,,746134204913,44.99,,32.5,8,0,0,0
 gid://shopify/Product/7902811881537,gid://shopify/ProductVariant/43944098955329,Pokemon Silver Tempest Booster Unlimited,,ACTIVE,Booster Box,Default Title,,0820650860911,474.99,,,1,0,0,0
-gid://shopify/Product/7903723192385,gid://shopify/ProductVariant/43950089470017,2026 Panini FIFA World Cup Soccer Sticker Hard Cover Album,,ACTIVE,Sealed Wax,Default Title,,746134204517,9.99,,9.75,4,0,0,0
+gid://shopify/Product/7903723192385,gid://shopify/ProductVariant/43950089470017,2026 Panini FIFA World Cup Soccer Sticker Hard Cover Album,,ACTIVE,Sealed Wax,Default Title,,746134204517,9.99,,9.75,1,0,0,0
 gid://shopify/Product/7905203880001,gid://shopify/ProductVariant/43958799695937,2025 Panini Select WNBA Basketball Hobby Blaster,,ACTIVE,Sealed Wax,Default Title,,746134190704,39.99,,24.5,20,0,0,0
-gid://shopify/Product/7905893056577,gid://shopify/ProductVariant/43961000722497,2026 Ball Star Fusion Baseball Pack,,ACTIVE,Sealed Wax,Default Title,,33262262,19.99,,11.25,9,0,0,0
-gid://shopify/Product/7906680930369,gid://shopify/ProductVariant/43963204468801,2025-26 Topps Hoops Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521157112,279.99,,225,9,0,0,0
+gid://shopify/Product/7905893056577,gid://shopify/ProductVariant/43961000722497,2026 Ball Star Fusion Baseball Pack,,ACTIVE,Sealed Wax,Default Title,,33262262,19.99,,11.25,8,0,0,0
+gid://shopify/Product/7906680930369,gid://shopify/ProductVariant/43963204468801,2025-26 Topps Hoops Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521157112,279.99,,225,6,0,0,0
 gid://shopify/Product/7908129636417,gid://shopify/ProductVariant/43967531647041,2025 Topps Finest Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521156443,774.99,,715,2,0,0,0
-gid://shopify/Product/7909576769601,gid://shopify/ProductVariant/43972200366145,2025 Panini Phoenix Football Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134187124,29.99,,20,1,0,0,0
+gid://shopify/Product/7909576769601,gid://shopify/ProductVariant/43972200366145,2025 Panini Phoenix Football Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134187124,29.99,,20,0,0,0,0
 gid://shopify/Product/7898772897857,gid://shopify/ProductVariant/43923098402881,2026 Sage High Series Football Hobby Box,,ACTIVE,Sealed Wax,Pack,,81100239,5.99,,3.62,0,0,0,0
 gid://shopify/Product/7900416966721,gid://shopify/ProductVariant/43931964538945,2025-26 Panini Donruss Road to FIFA World Cup Hobby Blaster,,ACTIVE,Sealed Wax,Default Title,,746134178818,44.99,,17.5,16,0,0,0
-gid://shopify/Product/7900426895425,gid://shopify/ProductVariant/43931985150017,2025 Panini Mosaic Football Fat Pack,,ACTIVE,Sealed Wax,Default Title,,746134186264,9.99,,6.66,-4,0,0,0
+gid://shopify/Product/7900426895425,gid://shopify/ProductVariant/43931985150017,2025 Panini Mosaic Football Fat Pack,,ACTIVE,Sealed Wax,Default Title,,746134186264,9.99,,6.66,-9,0,0,0
 gid://shopify/Product/7901024550977,gid://shopify/ProductVariant/43936372392001,2025-26 Topps Chrome UEFA Club Competitions Soccer Mega Box,,ACTIVE,Sealed Wax,Default Title,6166094459,5527584050,69.99,,60,17,0,0,0
-gid://shopify/Product/7901024583745,gid://shopify/ProductVariant/43936372457537,2025-26 Topps Chrome UEFA Club Competitions Soccer Hobby Box,,ACTIVE,Sealed Wax,Default Title,6609027042,3883459622,274.99,,250,3,0,0,0
+gid://shopify/Product/7901024583745,gid://shopify/ProductVariant/43936372457537,2025-26 Topps Chrome UEFA Club Competitions Soccer Hobby Box,,ACTIVE,Sealed Wax,Default Title,6609027042,3883459622,274.99,,250,2,0,0,0
 gid://shopify/Product/7901024682049,gid://shopify/ProductVariant/43936372555841,2025-26 Topps Chrome UEFA Club Competitions Soccer Blaster Box,,ACTIVE,Sealed Wax,Default Title,8224901046,4928024315,44.99,,40,20,0,0,0
-gid://shopify/Product/7901056204865,gid://shopify/ProductVariant/43936523223105,2026 Bowman Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521158300,49.99,,29.99,-27,0,0,0
-gid://shopify/Product/7916846252097,gid://shopify/ProductVariant/44002621063233,2025-26 Topps Signature Class Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521154418,499.99,,549.99,5,0,0,0
+gid://shopify/Product/7901056204865,gid://shopify/ProductVariant/43936523223105,2026 Bowman Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521158300,54.99,,40.25,20,0,0,0
+gid://shopify/Product/7901492576321,gid://shopify/ProductVariant/43938299904065,2025-26 Bowman Basketball Mega Box,,ACTIVE,Sealed Wax,Default Title,9623067962,887521155583,74.99,,,0,0,0,0
 gid://shopify/Product/7579566669889,gid://shopify/ProductVariant/42218515628097,2024-25 Panini Prizm Premier League Hobby Blaster,,ACTIVE,Sealed Wax,Default Title,2-17699-20,746134163401,9.99,,21,3,0,0,0
 gid://shopify/Product/7581873995841,gid://shopify/ProductVariant/42224130293825,2024-25 Panini Prizm Premier League EPL Soccer 6-Pack Blaster Box (Pink Mosaic Prizms),,ACTIVE,Sealed Wax,Default Title,,746134163340,14.99,,17.5,-2,0,0,0
 gid://shopify/Product/7583204278337,gid://shopify/ProductVariant/42230077849665,2024 Panini Select NASCAR Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134164880,24.99,,,-1,0,0,0
 gid://shopify/Product/7589478596673,gid://shopify/ProductVariant/42248415084609,2023 Topps Update Series Baseball Hobby Jumbo Box,,ACTIVE,Sealed Wax,Default Title,23TPUBBJ,887521122486,129.99,,,0,0,0,0
 gid://shopify/Product/7613273833537,gid://shopify/ProductVariant/42322125324353,2025 Panini Donruss Elite Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134184840,319.99,,171,0,0,0,0
 gid://shopify/Product/7637576941633,gid://shopify/ProductVariant/42409311764545,2025 Panini Boys of Summer Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134181870,199.99,,228,0,0,0,0
-gid://shopify/Product/7656974614593,gid://shopify/ProductVariant/42813452451905,2025 Panini Score Football Retail Blaster,,ACTIVE,Sealed Wax,Default Title,,746134184451,29.99,,25,-11,0,0,0
+gid://shopify/Product/7656974614593,gid://shopify/ProductVariant/42813452451905,2025 Panini Score Football Retail Blaster,,ACTIVE,Sealed Wax,Default Title,,746134184451,29.99,,25,-12,0,0,0
 gid://shopify/Product/7666350817345,gid://shopify/ProductVariant/42858969366593,Pokemon Mega Evolution Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,,728192561849,104.99,,90,-3,0,0,0
 gid://shopify/Product/7683663626305,gid://shopify/ProductVariant/42968953847873,2025 Topps Series 1 Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521132379,154.99,,146,0,0,0,0
 gid://shopify/Product/7705608880193,gid://shopify/ProductVariant/43048782266433,2025 Panini Rookies and Stars Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,PAN_2025_ROOKSTAR_FB_HOBBY,746134187810,164.99,,171,2,0,0,0
 gid://shopify/Product/7713441677377,gid://shopify/ProductVariant/43084994478145,2025/26 Upper Deck MVP Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334012966,59.99,,47,2,0,0,0
 gid://shopify/Product/7719384973377,gid://shopify/ProductVariant/43103673974849,2025 Panini Phoenix Football Hobby Blaster,,ACTIVE,Sealed Wax,Default Title,,746134187049,49.99,,21,0,0,0,0
-gid://shopify/Product/7759325364289,gid://shopify/ProductVariant/43220991508545,2025-26 Topps Chrome Basketball Jumbo Box,,DRAFT,Sealed Wax,Default Title,,887521149643,1399.99,,,0,0,0,0
 gid://shopify/Product/7771446935617,gid://shopify/ProductVariant/43261088923713,2025 Topps Five Star Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,TOPPS_2025_FIVESTAR_BSB_HOBBY,887521148288,1499.99,,1375,1,0,0,0
+gid://shopify/Product/7759325364289,gid://shopify/ProductVariant/43220991508545,2025-26 Topps Chrome Basketball Jumbo Box,,DRAFT,Sealed Wax,Default Title,,887521149643,1399.99,,,0,0,0,0
 gid://shopify/Product/7777591230529,gid://shopify/ProductVariant/43283159875649,Greninja ex Special Illustration Collection - SV: Shrouded Fable (SFA),,ACTIVE,Booster Box,Default Title,,0820650412431,124.99,,,0,0,0,0
 gid://shopify/Product/7791987818561,gid://shopify/ProductVariant/43556785520705,2026 Topps Premier League Chrome Hobby Box,,ACTIVE,Sealed Wax,Default Title,,76301629,299.99,,199.99,1,0,0,0
-gid://shopify/Product/7912846819393,gid://shopify/ProductVariant/43986304663617,Pokemon Chaos Rising Booster Bundle Box,,ACTIVE,Booster Box,Default Title,PKM_ME_CHAOSRISING_BUNDLE,0196214154162,49.99,,16.5,0,0,0,0
-gid://shopify/Product/7912846950465,gid://shopify/ProductVariant/43986305089601,Pokemon Chaos Rising Booster Box,,ACTIVE,Booster Box,Default Title,PKM_ME_CHAOSRISING_BOOSTER,0196214154186,254.99,,99.75,1,0,0,0
-gid://shopify/Product/7912847048769,gid://shopify/ProductVariant/43986305122369,Pokemon Chaos Rising Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,PKM_ME_CHAOSRISING_ETB,0196214154117,84.99,,32.25,7,0,0,0
-gid://shopify/Product/7912896266305,gid://shopify/ProductVariant/43986595020865,Pokemon Chaos Rising Booster Pack,,ACTIVE,Booster Pack,Default Title,,0196214154179,6.99,,2.77,-59,0,0,0
+gid://shopify/Product/7912846819393,gid://shopify/ProductVariant/43986304663617,Pokemon Chaos Rising Booster Bundle Box,,ACTIVE,Booster Box,Default Title,PKM_ME_CHAOSRISING_BUNDLE,0196214154162,49.99,,38,2,0,0,0
+gid://shopify/Product/7912846950465,gid://shopify/ProductVariant/43986305089601,Pokemon Chaos Rising Booster Box,,ACTIVE,Booster Box,Default Title,PKM_ME_CHAOSRISING_BOOSTER,0196214154186,254.99,,99.75,0,0,0,0
+gid://shopify/Product/7912847048769,gid://shopify/ProductVariant/43986305122369,Pokemon Chaos Rising Elite Trainer Box,,ACTIVE,Elite Trainer Box,Default Title,PKM_ME_CHAOSRISING_ETB,0196214154117,84.99,,32.25,8,0,0,0
+gid://shopify/Product/7912896266305,gid://shopify/ProductVariant/43986595020865,Pokemon Chaos Rising Booster Pack,,ACTIVE,Booster Pack,Default Title,,0196214154179,7.99,,2.77,-90,0,0,0
 gid://shopify/Product/7913849913409,gid://shopify/ProductVariant/43990577479745,2024-25 Upper Deck DC Annual Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334837293,89.99,,72,4,0,0,0
-gid://shopify/Product/7914393665601,gid://shopify/ProductVariant/43993428688961,2025 Topps 30 Years Of Toy Story Hobby Box,,ACTIVE,Sealed Wax,Default Title,TOPPS_2026_30YEARS_TS_HOBBY,887521152384,649.99,,550,4,0,0,0
+gid://shopify/Product/7914393665601,gid://shopify/ProductVariant/43993428688961,2025 Topps 30 Years Of Toy Story Hobby Box,,ACTIVE,Sealed Wax,Default Title,TOPPS_2026_30YEARS_TS_HOBBY,887521152384,649.99,,550,0,0,0,0
 gid://shopify/Product/7914654433345,gid://shopify/ProductVariant/43994188939329,2023 Panini Select Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,15515,746134155383,699.99,,580,0,0,0,0
-gid://shopify/Product/7650810986561,gid://shopify/ProductVariant/42630970572865,2024 Panini Phoenix Football Hobby Blaster Box,,ARCHIVED,Sealed Wax,Default Title,,746134176166,59.99,,50,0,0,0,0
-gid://shopify/Product/7666378506305,gid://shopify/ProductVariant/42859005182017,2024 Panini Trading Card Games Minecraft 15th Anniversary Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134171246,24.99,,18,1,0,0,0
-gid://shopify/Product/7860154826817,gid://shopify/ProductVariant/43706136887361,Pokemon Perfect Order Booster Unlimited,,ACTIVE,Booster Box,Default Title,PKM_ME_PERFORDER_BOOSTER,196214150461,224.99,,200,7,0,0,0
-gid://shopify/Product/7866019086401,gid://shopify/ProductVariant/43721702211649,2025 Topps Marvel The Collector Entertainment,,ACTIVE,Sealed Wax,Default Title,,887521138968,599.99,,570,1,0,0,0
-gid://shopify/Product/7918747877441,gid://shopify/ProductVariant/44009861808193,2026 Upper Deck Fleer Ultra Golf Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334001090,134.99,,90.25,4,0,0,0
-gid://shopify/Product/7919057567809,gid://shopify/ProductVariant/44011063148609,2025-26 Upper Deck AHL Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334234184,79.99,,60,2,0,0,0
+gid://shopify/Product/7916846252097,gid://shopify/ProductVariant/44002621063233,2025-26 Topps Signature Class Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521154418,424.99,,549.99,1,0,0,0
 gid://shopify/Product/7794133860417,gid://shopify/ProductVariant/43563959746625,2025 Donruss Optic Football Retail Blaster,,ACTIVE,Sealed Wax,Default Title,,746134188428,44.99,,42,0,0,0,0
 gid://shopify/Product/7841835679809,gid://shopify/ProductVariant/43648060096577,2025 Topps Chrome McDonald's All-American Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,25TOBKMCD,887521148684,234.99,,190,5,0,0,0
 gid://shopify/Product/7888081223745,gid://shopify/ProductVariant/43791492939841,2025-26 Bowman Basketball Hobby Box,,ACTIVE,Sealed Wax,Default Title,887521155415,887521155415,499.99,,575,0,0,0,0
 gid://shopify/Product/7898766901313,gid://shopify/ProductVariant/43923076939841,2025-26 Upper Deck SPx Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334185752,149.99,,125,4,0,0,0
-gid://shopify/Product/7912518680641,gid://shopify/ProductVariant/43985479008321,2026 Bowman Baseball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521158218,64.99,,49.99,2,0,0,0
-gid://shopify/Product/7918726873153,gid://shopify/ProductVariant/44009762979905,2025-26 Topps Signature Class Basketball Hobby Jumbo Box,,ACTIVE,Sealed Wax,Default Title,,887521154470,899.99,,899.99,2,0,0,0
-gid://shopify/Product/7919091875905,gid://shopify/ProductVariant/44011153555521,2025-26 Upper Deck Extended Series Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334095365,164.99,,84.75,12,0,0,0
+gid://shopify/Product/7841909276737,gid://shopify/ProductVariant/43648296288321,2026 Topps Heritage Baseball Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521155248,29.99,,25,-36,0,0,0
+gid://shopify/Product/7912518680641,gid://shopify/ProductVariant/43985479008321,2026 Bowman Baseball Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521158218,64.99,,49.99,-18,0,0,0
+gid://shopify/Product/7918726873153,gid://shopify/ProductVariant/44009762979905,2025-26 Topps Signature Class Basketball Hobby Jumbo Box,,ACTIVE,Sealed Wax,Default Title,,887521154470,899.99,,899.99,1,0,0,0
 gid://shopify/Product/7586839691329,gid://shopify/ProductVariant/42241802502209,2024 Panini Contenders Optic Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,,746134173233,269.99,,285,1,0,0,0
-gid://shopify/Product/7841909276737,gid://shopify/ProductVariant/43648296288321,2026 Topps Heritage Baseball Hobby Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521155248,29.99,,25,-24,0,0,0
-gid://shopify/Product/7852341067841,gid://shopify/ProductVariant/43674810122305,2025 Topps Disneyland 70th Anniversary Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521151738,24.99,,16.25,29,0,0,0
+gid://shopify/Product/7650810986561,gid://shopify/ProductVariant/42630970572865,2024 Panini Phoenix Football Hobby Blaster Box,,ARCHIVED,Sealed Wax,Default Title,,746134176166,59.99,,50,0,0,0,0
+gid://shopify/Product/7666378506305,gid://shopify/ProductVariant/42859005182017,2024 Panini Trading Card Games Minecraft 15th Anniversary Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134171246,24.99,,18,0,0,0,0
+gid://shopify/Product/7852341067841,gid://shopify/ProductVariant/43674810122305,2025 Topps Disneyland 70th Anniversary Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521151738,24.99,,16.25,26,0,0,0
+gid://shopify/Product/7860154826817,gid://shopify/ProductVariant/43706136887361,Pokemon Perfect Order Booster Unlimited,,ACTIVE,Booster Box,Default Title,PKM_ME_PERFORDER_BOOSTER,196214150461,224.99,,200,7,0,0,0
+gid://shopify/Product/7866019086401,gid://shopify/ProductVariant/43721702211649,2025 Topps Marvel The Collector Entertainment,,ACTIVE,Sealed Wax,Default Title,,887521138968,599.99,,570,1,0,0,0
+gid://shopify/Product/7918747877441,gid://shopify/ProductVariant/44009861808193,2026 Upper Deck Fleer Ultra Golf Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334001090,134.99,,90.25,2,0,0,0
+gid://shopify/Product/7919057567809,gid://shopify/ProductVariant/44011063148609,2025-26 Upper Deck AHL Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334234184,79.99,,60,2,0,0,0
+gid://shopify/Product/7919091875905,gid://shopify/ProductVariant/44011153555521,2025-26 Upper Deck Extended Series Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334095365,164.99,,84.75,3,0,0,0
+gid://shopify/Product/7920604250177,gid://shopify/ProductVariant/44017536008257,2025 Topps Signature Class Football Blaster Box,,ACTIVE,Sealed Wax,Default Title,,887521153480,39.99,,29.99,15,0,0,0
+gid://shopify/Product/7921776820289,gid://shopify/ProductVariant/44019978240065,2025 Panini Select Football Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134188718,24.99,,10,0,0,0,0
+gid://shopify/Product/7923849592897,gid://shopify/ProductVariant/44028114665537,Pokemon Lost Origin Booster Unlimited,,ACTIVE,Booster Box,Default Title,,0820650860553,864.99,,,0,0,0,0
+gid://shopify/Product/7924712931393,gid://shopify/ProductVariant/44033596653633,2026 Topps Series 2 Baseball Hobby Box,,ACTIVE,Sealed Wax,Default Title,,887521164479,164.99,,93.75,1,0,0,0
+gid://shopify/Product/7924712964161,gid://shopify/ProductVariant/44033596850241,2026 Topps Series 2 Baseball Blaster,,ACTIVE,Sealed Wax,Default Title,,887521164554,34.99,,16.25,23,0,0,0
+gid://shopify/Product/7924775419969,gid://shopify/ProductVariant/44033951236161,2025 Topps Signature Class Football Hobby Box,,ACTIVE,Sealed Wax,Default Title,17577,887521153404,429.99,,351,0,0,0,0
+gid://shopify/Product/7925239611457,gid://shopify/ProductVariant/44038555107393,2026 Topps Series 2 Baseball Hobby Pack,,ACTIVE,Sealed Wax,Default Title,,887521164462,7.99,,4.69,-2,0,0,0
+gid://shopify/Product/7925242527809,gid://shopify/ProductVariant/44038615793729,2025-26 Upper Deck CHL SP Game Used Hockey Hobby Box,,ACTIVE,Sealed Wax,Default Title,,053334155960,134.99,,105,5,0,0,0
+gid://shopify/Product/7925243838529,gid://shopify/ProductVariant/44038653050945,2026 Upper Deck DC Platinum Blaster Box,,ACTIVE,Sealed Wax,Default Title,,053334004428,24.99,,16,10,0,0,0
+gid://shopify/Product/7927748788289,gid://shopify/ProductVariant/44047389392961,2025 Topps Signature Class Football Mega Box,,ACTIVE,Sealed Wax,Default Title,,887521153534,74.99,,60,17,0,0,0
+gid://shopify/Product/7931132510273,gid://shopify/ProductVariant/44056399347777,2026 Panini Donruss Baseball Blaster Box,,ACTIVE,Sealed Wax,Default Title,,746134196607,27.95,,17.5,19,0,0,0

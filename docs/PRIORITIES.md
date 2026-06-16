@@ -16,8 +16,10 @@ Zhongda vending is **supporting**, not the center of the stack.
 
 | Job / script | Cadence | What it does |
 |--------------|---------|--------------|
-| `scripts/ops/run-active-stock.ps1` | **3×/day** | `ingest-offers` → `poll-messages` → `export-catalog` → `export-upc-tiers` → purchase dry-run |
-| `job:sync-offers -- purchase --execute` | After review | Create Shopify draft orders (manual gate until trusted) |
+| `scripts/ops/run-active-stock.ps1` | **3×/day** | `ingest-offers` → `poll-messages` → purchase dry-run |
+| `scripts/ops/run-catalog-export.ps1` | **Weekly** | Shopify sealed catalog + UPC tiers (pricing + sync input) |
+| `scripts/ops/run-dealernet-pricing.ps1 -Profile daily` | **Daily** | Dealernet pricing scrape + match (uses cached catalog CSV) |
+| `-Profile weekly -IncludeCatalogExport` | **Weekly** | Full barcode pass + fresh Shopify export + review |
 
 Register: `.\scripts\ops\register-scheduled-tasks.ps1`
 

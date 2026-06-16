@@ -4,6 +4,7 @@ param(
     [string]$SupplierPyRoot = "C:\Users\burke\Git2\shoelessjoes-supplier-py",
     [switch]$IncludeReview,
     [switch]$IncludeAlerts,
+    [switch]$IncludeCatalogExport,
     [int]$AlertMax = 25,
     [string]$LogFile = ""
 )
@@ -57,11 +58,18 @@ function Invoke-Logged {
 
 Set-Location $opsRoot
 
-Write-Host "[$(Get-Date -Format s)] pricing: export-catalog"
-Invoke-Logged { npm run job:export-catalog }
-
-Write-Host "[$(Get-Date -Format s)] pricing: export-upc-tiers"
-Invoke-Logged { npm run job:export-upc-tiers }
+if ($IncludeCatalogExport) {
+    Write-Host "[$(Get-Date -Format s)] pricing: Shopify catalog export (weekly/full)"
+    & (Join-Path $PSScriptRoot "run-catalog-export.ps1")
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+} else {
+    Write-Host "[$(Get-Date -Format s)] pricing: using existing data/*.csv (run run-catalog-export.ps1 weekly)"
+    if (-not (Test-Path (Join-Path $opsRoot "data\shopify_variants_for_pricing.csv"))) {
+        Write-Host "  catalog CSV missing - running export once"
+        & (Join-Path $PSScriptRoot "run-catalog-export.ps1")
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    }
+}
 
 if (-not (Test-Path $SupplierPyRoot)) {
     throw "supplier-py not found at $SupplierPyRoot - set -SupplierPyRoot"

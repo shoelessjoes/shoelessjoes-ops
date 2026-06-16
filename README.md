@@ -2,9 +2,74 @@
 
 Embedded Shopify app + workers for Dealernet offer sync, inbox relay, pricing ops, POS launcher, and Zhongda vending.
 
-## Where we left off (2026-06-05)
+**North star:** One work queue — pending offers, inbound purchases, outbound sales, vendor email (incoming), eBay ship — then **scan to receive** in Shopify. See `docs/WORK_QUEUE.md`.
 
-**Focus:** Dealernet **active stock** + **pricing table vs Shopify UPCs**. Zhongda vending is secondary (machine-assigned SKUs only). See `docs/PRIORITIES.md`.
+## Where we left off (2026-06-14)
+
+### This session (offer pages + queue model)
+
+- **Pending In/Out** documented and probeable (`PENDINGIN`, `PENDINGOUT`)
+- **Offer page matrix** — pending vs accepted UI, purchase Pay To vs sale Ship To (`docs/DEALERNET_OFFER_PAGE.md`)
+- **Samples:** pending sale #365842, accepted sale + tracking, purchase #366037 (Pay To)
+- **Inbox classify:** `Offer Accepted`, `Offer Declined` + offer id from body
+- **Work queue rules:** purchases stay until **received**; sales drop after **shipped + paid** (`docs/WORK_QUEUE.md`)
+- **Coming:** Gmail invoice ingest (Claude), eBay to-ship, receive scan UI in `apps/web`
+
+### Run everything (one command)
+
+```powershell
+cd C:\Users\burke\Git2\shoelessjoes-ops
+
+# Core pass (~5–15 min): DB, ingest, inbox, catalog, purchase dry-run, reports
+.\scripts\ops\run-full-ops.ps1
+
+# Above + Dealernet pricing scrape vs Shopify UPCs (~15–30 min more)
+.\scripts\ops\run-full-ops.ps1 -IncludePricing
+
+# Weekly pricing + post price alerts to Dealernet (optional)
+.\scripts\ops\run-full-ops.ps1 -IncludePricing -PricingProfile weekly -IncludePricingAlerts
+```
+
+**What each step does:**
+
+| Step | Command | Purpose |
+|------|---------|---------|
+| 1 | `db:up:wait` | Docker Postgres |
+| 2 | `run-active-stock.ps1` | ingest-offers → poll-messages → purchase **dry-run** (no Shopify export) |
+| 3 | `job:report-purchases` | UPC match report for ACCEPTED purchases |
+| 4 | `job:update-purchase-tracking` | Push inbox tracking to draft orders (dry-run) |
+| 5 | `run-dealernet-pricing.ps1` | Dealernet pricing scrape + match (optional `-IncludePricing`) |
+
+**Shopify catalog export** (~weekly, or when products change):
+
+```powershell
+.\scripts\ops\run-catalog-export.ps1
+# or weekly pricing pass:
+.\scripts\ops\run-dealernet-pricing.ps1 -Profile weekly -IncludeReview -IncludeCatalogExport
+```
+
+**Live Shopify writes (manual gate):**
+
+```powershell
+npm run job:sync-offers:purchase:execute   # draft POs for accepted purchases
+npm run job:sync-offers:sale:execute         # paid orders + inventory (use with care)
+npm run job:update-purchase-tracking:execute
+```
+
+**Offer probes / debugging:**
+
+```powershell
+npm run job:probe-offer -- --filter PENDINGIN --max-details 3
+npm run job:probe-offer -- --offerid 365842
+```
+
+Output: `data/offer-probes/`. Schedule everything: `.\scripts\ops\register-scheduled-tasks.ps1`.
+
+---
+
+## Focus (ongoing)
+
+Dealernet **active stock** + **pricing table vs Shopify UPCs**. Zhongda vending is secondary. See `docs/PRIORITIES.md`.
 
 ### Dealernet pricing (validated on shop PC)
 

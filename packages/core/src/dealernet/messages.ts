@@ -6,6 +6,14 @@ const BASE = "https://www.dealernetx.com/";
 const OFFER_ID_RE = /offerid=(\d+)/i;
 const OFFER_ID_TEXT_RE = /\boffer(?:\s*id)?\s*[:#]?\s*(\d{4,})\b/i;
 
+function normalizeDealernetUrl(url: string | undefined, fallback: string): string {
+  const raw = (url || "").trim();
+  if (!raw) return fallback;
+  if (/^https?:\/\//i.test(raw)) return raw;
+  const host = raw.replace(/^\/+/, "");
+  return `https://www.${host.replace(/^www\./i, "")}`;
+}
+
 export type DealernetMessageRow = {
   captured_at: string;
   message_id: string;
@@ -122,7 +130,7 @@ export async function collectDealernetMessages(opts: {
   /** When true, only scrape rows Dealernet marks unread (bold / unread class). */
   unreadOnly?: boolean;
 }): Promise<DealernetMessageRow[]> {
-  const inboxUrl = opts.inboxUrl ?? `${BASE}inbox.php`;
+  const inboxUrl = normalizeDealernetUrl(opts.inboxUrl, `${BASE}inbox.php`);
   const fetchOfferIds = opts.fetchOfferIds ?? true;
   const fetchMessageBody = opts.fetchMessageBody ?? true;
   const unreadOnly = opts.unreadOnly ?? false;

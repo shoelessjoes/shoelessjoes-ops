@@ -9,6 +9,7 @@ async function main() {
 
   for (const filter of ["PURCHASESUNRATED", "SALESUNRATED"] as const) {
     const rows = await collectDealernetOffers({ login, offerFilter: filter });
+    const seenOfferIds = new Set<string>();
 
     const byOffer = new Map<string, typeof rows>();
     for (const r of rows) {
@@ -20,6 +21,7 @@ async function main() {
 
     for (const [, group] of byOffer) {
       const head = group[0];
+      seenOfferIds.add(head.offer_id);
       const offer = await prisma.dealernetOffer.upsert({
         where: {
           offerId_offerFilter: { offerId: head.offer_id, offerFilter: head.offerfilter },
@@ -67,6 +69,17 @@ async function main() {
           },
         });
       }
+    }
+
+    // Offers rated or cleared on Dealernet disappear from PURCHASESUNRATED/SALESUNRATED — drop stale DB rows.
+    const pruned = await prisma.dealernetOffer.deleteMany({
+      where: {
+        offerFilter: filter,
+        offerId: { notIn: [...seenOfferIds] },
+      },
+    });
+    if (pruned.count > 0) {
+      console.log(`Pruned ${pruned.count} stale offer(s) no longer on ${filter}`);
     }
 
     console.log(`Ingested ${rows.length} raw lines across ${byOffer.size} offers (${filter})`);
