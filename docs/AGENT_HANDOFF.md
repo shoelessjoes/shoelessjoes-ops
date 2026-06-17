@@ -1,71 +1,69 @@
-# Agent handoff — inbound inventory & purchasing
+# Agent handoff — Shoeless Joe's back office (ops)
 
-**Last updated:** 2026-05-29  
-**Audience:** Any agent (Claude Code, Cursor, etc.) picking up back-office work  
-**Shop:** Shoeless Joe's Cards — `qebynk-b0.myshopify.com` (public: shoelessjoescards.com)
+**Last updated:** 2026-06-16
+**Audience:** Any agent (Claude Code, Cursor, etc.) picking up back-office work.
+**Shop:** `qebynk-b0.myshopify.com` (public: shoelessjoescards.com)
+
+> For the cross-repo overview, canonical IDs, and shared gotchas, read **`SHOELESS_JOES_MASTER.md`** first.
+> This file is the single master handoff for the **ops** repo — it absorbs the former `HANDOFF_CLAUDE.md`
+> and `PRIORITIES.md`. Job sequences/runbooks are in `RUNBOOK.md`; the offer-page UI matrix in
+> `DEALERNET_OFFER_PAGE.md`; vending in `VENDING_ZHONGDA.md`; DB setup in `DATABASE_SETUP.md`.
 
 ---
 
 ## North star
 
-**One picture of everything coming in or on order**, so staff can **scan UPC → receive → Shopify inventory** without re-keying.
-
-Today purchases are still partly manual when product hits the shop. Automation goal:
+**One picture of everything coming in or on order**, so staff can **scan UPC → receive → adjust Shopify
+inventory** without re-keying across systems. Zhongda vending is **supporting**, not the center of the stack.
 
 ```
 Sources (Dealernet, vendor email, …)
         ↓
-  Normalized “inbound lines” (UPC, qty, cost, status, tracking, vendor)
+  Normalized "inbound lines" (UPC, qty, cost, status, tracking, vendor)
         ↓
   Match to Shopify catalog (shared sealed-product export — in progress)
         ↓
   Expected inventory / draft PO / on-order queue
         ↓
-  Scan-in at receiving → adjust Shopify inventory
+  Scan-in at receiving → adjust Shopify inventory @ location 72115847233
 ```
+
+**The linchpin (top cross-repo priority): a shared sealed-product catalog export** (UPC, variant ID,
+price, cost, inventory, sealed-only filter), consumed by both ops purchase-sync and supplier-py pricing —
+not duplicate live full-catalog fetches.
 
 ---
 
-## Repo map
+## Repo map (back office)
 
-| Repo | Path | Role |
-|------|------|------|
-| **shoelessjoes-ops** | `C:\Users\burke\Git2\shoelessjoes-ops` | Dealernet ingest, inbox, Shopify draft orders/orders, Postgres, Remix admin (future) |
+| Repo | Local path | Role |
+|------|------------|------|
+| **shoelessjoes-ops** (this) | `C:\Users\burke\Git2\shoelessjoes-ops` | Dealernet ingest, inbox, Shopify draft orders/orders, Postgres, Remix admin, vending |
 | **shoelessjoes-supplier-py** | `C:\Users\burke\Git2\shoelessjoes-supplier-py` | Dealernet **pricing table** scrape, margin ranking, price alerts (Windows scheduled) |
 | **shoelessjoes-storefront** | `C:\Users\burke\Git2\shoelessjoes-storefront` | Customer theme + PSA form + Apps Script |
 
-**Legacy (archive only):** `dealernet-shopify-ops`, `shoeless-joes`, old Railway project (dead DB URL — do not use).
-
-**Related docs in ops:** `HANDOFF_CLAUDE.md`, `PURCHASE_FLOW.md`, `FIRST_LIVE_RUN.md`, `DATABASE_SETUP.md`, `RAILWAY_FRESH_START.md`
+**Legacy (archive only, do not use):** `dealernet-shopify-ops`, `shoeless-joes`, old Railway project
+(dead DB URL). See `RAILWAY_FRESH_START.md`.
 
 ---
 
-## Where we left off (owner session ~2026-05-29)
+## Where we left off (validated locally, owner session ~2026-05-29)
 
-### Validated locally
+| Step | Status |
+|------|--------|
+| Port monorepo from `dealernet-shopify-ops` | ✅ Complete |
+| Docker Postgres + Prisma migrations on shop PC | ✅ |
+| `playwright install` (required once for worker jobs) | ✅ |
+| `ingest-offers` (Dealernet → DB) | ✅ 23 lines / 17 offers |
+| `poll-messages` (inbox, bootstrap mode) | ✅ 25 rows ingested |
+| `report-purchases` (UPC match preview) | ✅ ~21/23 lines matched last batch |
+| `sync-offers purchase` dry-run | ✅ 17 purchase offers; purchase-only filter fix confirmed |
+| `sync-offers purchase --execute` (live) | ⏸ Owner ran ~2026-05-29 — **VERIFY draft orders in Shopify Admin** |
+| Railway production DB | ❌ Intentionally abandoned; local Docker only |
 
-- Docker Postgres + Prisma migrations on shop PC  
-- Playwright + `ingest-offers` (Dealernet → DB)  
-- `poll-messages` (25 inbox rows ingested, bootstrap mode)  
-- `report-purchases` — UPC match preview (~21/23 lines on last full batch)  
-- `sync-offers purchase` dry-run — **17 purchase offers**, filter fix confirmed  
-- Fixes shipped: purchase-only sync filter, multi-UPC cells, sync **summary** header  
-
-### Owner actions (same day)
-
-1. Cleared **completed** Dealernet offers off the board (manual in DealerNet UI)  
-2. Re-ran ingest → preview → **live execute** for current purchase (and possibly sale) batch  
-3. **Will verify in Shopify Admin tomorrow** — draft orders, line items, tags, gaps  
-
-### Parallel work (another agent)
-
-- **Shared Shopify sealed-product export** (UPC, variant ID, cost, price, inventory, sealed-only filter)  
-- Both **ops purchase sync** and **supplier-py pricing match** should consume this when ready — not duplicate live full-catalog fetches  
-
-### Infrastructure
-
-- **Railway:** abandoned for now; local Docker only (`npm run db:up:wait`)  
-- **Credentials:** see `shoelessjoes-storefront/docs/CREDENTIALS.md` — never commit `.env`  
+**Owner actions same day:** cleared completed Dealernet offers off the board (manual UI), re-ran
+ingest → preview → live execute for the current batch. **Open verification:** Admin draft orders, line
+items, tags, gaps.
 
 ---
 
@@ -75,228 +73,171 @@ Sources (Dealernet, vendor email, …)
 
 | Job | Purpose |
 |-----|---------|
-| `job:ingest-offers` | Scrape `PURCHASESUNRATED` + `SALESUNRATED` → Postgres |
+| `job:ingest-offers` | Scrape `PURCHASESUNRATED` + `SALESUNRATED` → Postgres (captures `caseQtyBoxes`, `unitOfMeasure`, tracking-on-row) |
 | `job:poll-messages` | Inbox → classify; **tracking → offer lines** when parsed |
 | `job:report-purchases` | Read-only UPC match report (ACCEPTED purchases) |
 | `job:sync-offers purchase` | ACCEPTED buys → Shopify **draft orders** (dry-run default) |
 | `job:sync-offers sale` | ACCEPTED sales → Shopify **paid orders** + inventory decrement |
 | `job:update-purchase-tracking` | Push tracking onto existing draft orders |
+| `job:probe-offer` | DOM snapshot of offer pages (see `DEALERNET_OFFER_PAGE.md`) |
 
-**Purchase path:** offer accepted → draft order (UPC match) → tracking from inbox → draft note/tags updated.  
-**Sale path:** higher risk — only automate when intentional.
+**Purchase path:** offer accepted → draft order (UPC match) → tracking from inbox → draft note/tags updated.
+**Sale path:** higher risk — only automate intentionally. Job sequences in `RUNBOOK.md`.
 
 ### Still to do (Dealernet)
 
 | Priority | Task |
 |----------|------|
 | P0 | **Verify first live run** — Admin draft orders, partial offers (e.g. missing Pokémon UPCs), case-qty skips |
-| P0 | Plug in **shared sealed catalog export** when Claude delivers (replace per-run `fetchVariantIndex`) |
+| P0 | Plug in **shared sealed catalog export** when delivered (replace per-run `fetchVariantIndex`) |
 | P1 | **Mapping overrides UI** — `apps/web` `app.mapping` for UPC/title mismatches |
 | P1 | **Receiving workflow** — link draft order / inbound line → scan UPC → receive inventory in Shopify (not built) |
-| P2 | **Scheduled jobs** on shop PC (Task Scheduler) or new Railway cron — see cadence below |
+| P2 | **Scheduled jobs** on shop PC (Task Scheduler) or new Railway cron |
 | P2 | **Sale sync policy** — purchases-only automation first; sales manual or separate approval |
-| P3 | **Idempotency review** — `alreadySyncedOffers` in sync summary; ensure re-ingest doesn’t duplicate drafts |
-| P3 | **Case lines** — re-ingest when `caseQtyBoxes` missing; don’t under-order cases |
-
-### Suggested automation cadence (once trusted)
-
-```
-2–4×/day   ingest-offers
-1–2×/day   poll-messages
-after ingest   sync-offers:purchase (dry-run)
-when clean       sync-offers -- purchase --execute --no-create-missing
-when tracking    update-purchase-tracking --execute
-```
-
-Avoid full `dealernet-cycle` with auto-execute on **sales** until purchase path is stable.
-
-### Key commands
-
-```powershell
-cd C:\Users\burke\Git2\shoelessjoes-ops
-npm run db:up:wait          # if Docker not running
-npm run job:ingest-offers
-npm run job:poll-messages
-npm run job:report-purchases
-npm run job:sync-offers:purchase
-npm run job:sync-offers -- purchase --execute --no-create-missing
-npm run job:update-purchase-tracking -- --execute
-```
+| P3 | **Idempotency review** — `alreadySyncedOffers`; ensure re-ingest doesn't duplicate drafts |
+| P3 | **Case lines** — re-ingest when `caseQtyBoxes` missing; don't under-order cases |
 
 ---
 
 ## Stream B — Vendor email invoices (not built yet)
 
-### Vendors
-
 | Vendor | Typical flow | Email signals |
 |--------|----------------|---------------|
 | **Topps.com** | Offer/cart → order confirm → invoice → shipped | Order #, line items, tracking |
-| **Topps Direct** | Same family, may differ templates | PDF invoice, shipping notice |
+| **Topps Direct** | Same family, different templates | PDF invoice, shipping notice |
 | **Panini** | Order → invoice → shipped | PDF + HTML order emails |
 | **GTS Distribution** | Wholesale order → invoice → ship | PDF invoices, SKU/UPC tables |
 
-Owner note: these often start as **offers**, become **orders**, then **invoiced/shipped** — similar lifecycle to Dealernet but sourced from **email**, not DealerNet scrape.
+These start as **offers**, become **orders**, then **invoiced/shipped** — like Dealernet but sourced from
+**email**. Existing seed: `../shoelessjoes-supplier-py/integrations/google_apps_script/log_vendor_invoices.gs`
+(Gmail label → Drive PDF + Sheet row). See `../shared/google-workspace-automation-starter.md` for the
+Gmail→Drive→Sheet→Shopify pattern.
 
-### Existing seed (supplier-py)
+**Phased plan:**
+1. **Email capture (low risk):** Gmail filters/labels (`Invoices/Topps`, `…/ToppsDirect`, `…/Panini`, `…/GTS`); Apps Script → Sheet/webhook → ops DB; store raw (`vendor`, `message_id`, `subject`, `date`, `attachment_urls`, `parse_status`).
+2. **Parse → normalized lines:** per-vendor parsers (PDF/HTML) → `{ order_id, invoice_id, line_items[]{sku,upc,title,qty,unit_cost}, tracking, ship_date, status }`. Start with one vendor (GTS or Topps).
+3. **Unified inbound model (Postgres):** `InboundShipment` + `InboundLine`; reconcile Dealernet offer id ↔ vendor order id by UPC/qty/date.
+4. **Shopify + receiving:** match via shared catalog → draft POs / inventory transfers; scan-to-receive UI.
+5. **"Everything on order" dashboard:** single view across sources.
 
-- `integrations/google_apps_script/log_vendor_invoices.gs` — Gmail label → Drive PDF + Sheet row  
-- Pattern: label per vendor (`Invoices/VendorA`), time-driven trigger, dedupe by `gmail_message_id`  
-- **Not wired to ops Postgres or Shopify yet**
-
-### Recommended approach (phased)
-
-#### Phase 1 — Email capture (low risk)
-
-- Gmail filters + labels: `Invoices/Topps`, `Invoices/ToppsDirect`, `Invoices/Panini`, `Invoices/GTS`  
-- Extend Apps Script (or one script, vendor param) → Sheet or webhook → **ops DB**  
-- Store raw: `vendor`, `message_id`, `subject`, `date`, `attachment_urls`, `parse_status=new`  
-- Deliverable: nothing lost in inbox; ops can see “unparsed invoice” queue  
-
-#### Phase 2 — Parse → normalized lines
-
-Per-vendor parsers (PDF text or HTML body):
-
-- Extract: `order_id`, `invoice_id`, `line_items[]` { sku, upc, title, qty, unit_cost }, `tracking`, `ship_date`, `status`  
-- Start with **one vendor** (simplest PDF — often GTS or Topps)  
-- Output: same shape as Dealernet offer lines where possible:
-
-```
-vendor_source   (dealernet | topps | panini | gts)
-external_id     (order or invoice #)
-status          (ordered | invoiced | shipped | received)
-upc, title, qty, unit_cost, tracking
-```
-
-#### Phase 3 — Unified inbound model (Postgres)
-
-Add tables (names illustrative):
-
-- `InboundShipment` — vendor, external order id, status, tracking, expected date  
-- `InboundLine` — upc, qty, cost, matched_variant_id, receipt_status  
-
-Reconcile:
-
-- Dealernet **offer id** ↔ vendor **order id** when both exist (same UPC/qty/date heuristic)  
-- Deduplicate so one physical shipment = one inbound record  
-
-#### Phase 4 — Shopify + receiving
-
-- Match lines via **shared sealed catalog** (UPC → variant id)  
-- Create/update **draft purchase orders** or **inventory transfers** (policy TBD with owner)  
-- **Scan-in UI or workflow:** scan UPC → find open inbound line → increment Shopify inventory at location `72115847233` → mark line received  
-
-#### Phase 5 — “Everything on order” dashboard
-
-Single view (Remix admin or Sheet):
-
-| Source | Vendor | Status | # lines | Tracking | Shopify draft |
-|--------|--------|--------|---------|----------|---------------|
-| Dealernet | NC-LIVE | accepted | 3 | — | draft #123 |
-| Topps Direct | — | shipped | 12 | 1Z… | — |
-| GTS | — | invoiced | 5 | — | pending parse |
-
-Owner goal: **scan and receive without looking up three systems**.
-
-### Open questions for owner (agent should confirm)
-
-1. Receive into Shopify via **draft order complete**, **inventory adjust**, or **purchase order app**?  
-2. Store **cost** on variant/inventory item metafield when receiving?  
-3. Which vendor email to parse **first** (highest volume)?  
-4. Keep Google Sheet as staging or **Postgres-only** after Phase 1?  
+**Open questions for owner:** receive via draft-order-complete vs inventory-adjust vs PO app? store cost
+on variant/inventory metafield? which vendor email to parse first? keep Sheet staging or Postgres-only?
 
 ---
 
-## Stream C — Pricing / buy-side intelligence (supplier-py)
+## Stream C — Pricing & vending (supporting)
 
-Separate from **fulfillment**:
-
-- Scrapes Dealernet **pricing table** (not offer list)  
-- Ranks margin / restock / raise / lower; submits **price alerts** on Dealernet  
-- Windows Task Scheduler: daily / OOS / weekly profiles  
-
-**Consolidation:** evaluate Claude’s Shopify integration vs maintaining Python REST client — pick one for catalog fetch + match.
-
----
-
-## End-to-end picture (target architecture)
-
-```mermaid
-flowchart TB
-  subgraph sources [Inbound sources]
-    DN[Dealernet offers + inbox]
-    EM[Vendor emails Topps Panini GTS]
-    PR[Pricing table alerts optional]
-  end
-
-  subgraph ops [shoelessjoes-ops]
-    ING[ingest / poll / email parse]
-    DB[(Postgres inbound + offers)]
-    CAT[Shared sealed catalog export]
-    SYNC[sync draft orders + tracking]
-  end
-
-  subgraph shopify [Shopify Admin]
-    DRAFT[Draft orders / on-order]
-    INV[Inventory at shop location]
-  end
-
-  subgraph floor [Shop floor]
-    SCAN[Scan UPC receive]
-  end
-
-  DN --> ING
-  EM --> ING
-  ING --> DB
-  CAT --> SYNC
-  DB --> SYNC
-  SYNC --> DRAFT
-  SCAN --> INV
-  DRAFT --> SCAN
-  PR -.-> CAT
-```
+- **Pricing intelligence** lives in `shoelessjoes-supplier-py` (Dealernet pricing-table scrape, margin
+  ranking, alerts). Owner wants to evaluate consolidating its Shopify fetch with the shared catalog rather
+  than maintaining a duplicate Python REST client. See `../shared/DEALERNET_STACK.md`.
+- **Zhongda vending** — see `VENDING_ZHONGDA.md`. Phase 1–2 working (login probe, REST goods fetch,
+  Shopify-mirror + price-diff report). CSV import diagnosed (needs ≥3 data columns). Narrow scope: track
+  machine slot assignment, push price only for machine-assigned SKUs, placeholder goods on new purchase
+  (450×450 thumbnail required).
 
 ---
 
-## Agent session bootstrap (paste this)
+## Consolidated priorities & cadences
+
+**North star:** automated inbound purchases → Shopify draft POs, with Dealernet pricing intelligence
+against Shopify sealed UPCs + inventory on a schedule.
+
+### Priority A — Active stock (Dealernet + Shopify)
+
+| Job / script | Cadence | What it does |
+|--------------|---------|--------------|
+| `scripts/ops/run-active-stock.ps1` | **3×/day** | `ingest-offers` → `poll-messages` → purchase dry-run |
+| `scripts/ops/run-catalog-export.ps1` | **Weekly** | Shopify sealed catalog + UPC tiers (pricing + sync input) |
+| `scripts/ops/run-dealernet-pricing.ps1 -Profile daily` | **Daily** | Dealernet pricing scrape + match (cached catalog CSV) |
+| `-Profile weekly -IncludeCatalogExport` | **Weekly** | Full barcode pass + fresh export + review |
+
+Register all: `.\scripts\ops\register-scheduled-tasks.ps1`
+
+### Priority B — Dealernet price checks vs Shopify
+
+Scrape Dealernet pricing table for in-stock UPCs, match to Shopify price/cost/qty, rank
+raise/lower/restock, optional alerts. Uses **one** Shopify export from ops (no duplicate live fetch).
+Outputs: `shoelessjoes-supplier-py/out/matches_daily.csv`, `out/review/`.
+
+### Priority C — Zhongda vending (narrow)
+
+Track machine slot assignment (not built); when Shopify price changes for a machine-assigned SKU update
+Zhongda sell price; new purchase → placeholder goods (450×450 thumbnail). Defer bulk vending price-check cron.
+
+---
+
+## Environment & credentials
+
+| Variable | ops worker | supplier-py | Notes |
+|----------|------------|-------------|-------|
+| `DATABASE_URL` | ✅ | — | Local: `postgresql://postgres:postgres@localhost:5432/dealernet_ops?schema=public` |
+| `DEALERNET_USERNAME` / `_PASSWORD` | ✅ | ✅ | Same portal login |
+| `SHOPIFY_SHOP_DOMAIN` | ✅ | ✅ | `qebynk-b0.myshopify.com` |
+| `SHOPIFY_ACCESS_TOKEN` | ✅ | ✅ | Admin API — **separate** token from the storefront form's; rotate independently |
+| `SHOPIFY_API_VERSION` | ✅ | ✅ | Update stale values (e.g. bump to a version the token supports) |
+| `ZHONGDA_USERNAME` / `_PASSWORD` | ✅ | — | Vending portal |
+| `ALERT_*` SMTP | poll-messages | alerts | Same semantics |
+
+Full credential map (no secrets): `../shoelessjoes-storefront/docs/CREDENTIALS.md`. **Never commit `.env`.**
+
+---
+
+## Key commands
+
+```powershell
+cd C:\Users\burke\Git2\shoelessjoes-ops
+npm run db:up:wait                 # if Docker not running
+npm run db:migrate
+npm run playwright:install         # once
+npm run job:ingest-offers
+npm run job:poll-messages
+npm run job:report-purchases
+npm run job:sync-offers:purchase   # dry-run
+npm run job:sync-offers -- purchase --execute --no-create-missing
+npm run job:update-purchase-tracking -- --execute
+npm run job:dealernet-cycle        # full chain (start without auto-execute on sales)
+```
+
+Detailed sequences and the first-live cutover are in `RUNBOOK.md`.
+
+---
+
+## Key code locations
+
+| Area | Path |
+|------|------|
+| Offer scrape | `packages/core/src/dealernet/offers.ts` |
+| Inbox / classify / tracking | `packages/core/src/dealernet/{messages,classify,digest,tracking}.ts` |
+| UPC/title match | `packages/core/src/mapping.ts` |
+| Shopify sync | `packages/core/src/shopify-sync.ts` |
+| Ingest job | `apps/worker/src/jobs/ingest-offers.ts` |
+| Sync job | `apps/worker/src/jobs/sync-offers.ts` |
+| Prisma schema | `packages/db/prisma/schema.prisma` |
+| Mapping UI | `apps/web/app/routes/app.mapping.tsx` |
+
+---
+
+## Session bootstrap (paste this)
 
 ```
-Read C:\Users\burke\Git2\shoelessjoes-ops\docs\AGENT_HANDOFF.md first.
+Read SHOELESS_JOES_MASTER.md then shoelessjoes-ops/docs/AGENT_HANDOFF.md.
 
-Context: Dealernet ops runs locally (Docker Postgres). Owner completed first live
-purchase sync after clearing old offers — VERIFY Shopify draft orders tomorrow.
-Claude is building shared sealed-product Shopify export.
+Context: Dealernet ops runs locally (Docker Postgres). Owner completed first live purchase sync after
+clearing old offers — VERIFY Shopify draft orders. A shared sealed-product Shopify export is the linchpin
+priority.
 
-Dealernet next: verify live run, catalog integration, mapping overrides, receiving workflow, schedules.
-
-New stream: vendor email invoices (Topps.com, Topps Direct, Panini, GTS) — Phase 1 Gmail→DB,
-Phase 2 parse PDFs, Phase 3 unified inbound model, Phase 4 scan-to-receive.
+Next: verify live run, catalog integration, mapping overrides, receiving workflow, schedules.
+New stream: vendor email invoices (Topps/Panini/GTS) — Phase 1 Gmail→DB, Phase 2 parse PDFs.
 
 Do not use old Railway DATABASE_URL. Shop domain: qebynk-b0.myshopify.com
 ```
 
 ---
 
-## File index (ops)
-
-| Topic | Path |
-|-------|------|
-| Dealernet jobs detail | `docs/PURCHASE_FLOW.md` |
-| First live cutover | `docs/FIRST_LIVE_RUN.md` |
-| Claude-specific notes | `docs/HANDOFF_CLAUDE.md` |
-| Local DB | `docs/DATABASE_SETUP.md` |
-| Offer scrape | `packages/core/src/dealernet/offers.ts` |
-| Inbox + tracking | `packages/core/src/dealernet/messages.ts`, `tracking.ts`, `poll-messages` job |
-| UPC match | `packages/core/src/mapping.ts` |
-| Shopify sync | `packages/core/src/shopify-sync.ts` |
-| Email invoice seed | `../shoelessjoes-supplier-py/integrations/google_apps_script/` |
-| Vending (Zhongda Cloud) | `docs/VENDING_ZHONGDA.md`, `configs/zhongda.vending.json` |
-
----
-
 ## What not to do
 
-- Do not point local `.env` at dead Railway Postgres  
-- Do not run `sale --execute` without explicit owner approval (inventory impact)  
-- Do not duplicate catalog export logic in three places once shared export exists  
-- Do not commit secrets or `.env` files  
+- Do not point local `.env` at the dead Railway Postgres.
+- Do not run `sale --execute` without explicit owner approval (creates paid orders, decrements inventory).
+- Do not duplicate catalog-export logic across repos once the shared export exists.
+- Do not auto-click Accept/Decline/Revise or **Update Listings** on Dealernet (manual only — see `DEALERNET_OFFER_PAGE.md`).
+- Do not commit secrets or `.env` files.

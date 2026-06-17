@@ -1,3 +1,8 @@
+> **ARCHIVED 2026-06-16.** The port from the legacy monorepo is complete; this file is kept for
+> history only. Live status lives in `../AGENT_HANDOFF.md`. Do not treat as an active task list.
+
+---
+
 # Migration map — shoelessjoes-ops
 
 Target repo for back-office automation. **Do not restructure** — port from the legacy monorepo as-is, then rename package scopes if needed.
@@ -34,5 +39,5 @@ Key folders:
 
 - [x] Copy monorepo scaffold from `dealernet-shopify-ops` (also verified identical to `dealernet-shopify-ops.zip` @ `5f95a8d`)
 - [ ] Update package names / README if renaming from `@dealernet-ops/*`
-- [ ] Wire Railway / env examples (optional — see `docs/RAILWAY_FRESH_START.md`; local Docker first)
-- [ ] Smoke-test worker jobs against Postgres (see `docs/DATABASE_SETUP.md`)
+- [ ] Wire Railway / env examples (optional — see `RAILWAY_FRESH_START.md`; local Docker first)
+- [ ] Smoke-test worker jobs against Postgres (see `DATABASE_SETUP.md`)
