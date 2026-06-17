@@ -241,6 +241,28 @@ model ProductCatalog {
   @@index([productType])
 }
 
+/// Dealernet market reference — UPC/title lookup with high buy / low sell (global, not per-shop).
+model DealernetMarketProduct {
+  id            String   @id @default(cuid())
+  canonicalKey  String   @unique
+  upc           String?
+  title         String
+  searchQuery   String?
+  supplierYear  String?
+  highBuy       Decimal? @db.Decimal(12, 2)
+  lowSell       Decimal? @db.Decimal(12, 2)
+  productUrl    String?
+  listingUrl    String?
+  source        String   @default("search")
+  matchScore    Float?
+  scrapedAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([upc])
+  @@index([title])
+  @@index([searchQuery])
+}
+
 /// Shopify variant mirrored for Zhongda vending machines (price/qty sync — Phase 2+).
 model VendingProductMirror {
   id              String   @id @default(cuid())

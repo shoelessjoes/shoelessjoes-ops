@@ -27,6 +27,7 @@ export default function AppLayout() {
           <Link to="/app/mapping">Mapping queue</Link>
           <Link to="/app/alerts">Price alerts</Link>
           <Link to="/app/pricing">Pricing</Link>
+          <Link to="/app/market">Market lookup</Link>
         </nav>
       </header>
       <Outlet />
