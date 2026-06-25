@@ -1,0 +1,309 @@
+Delivered-To: contact@shoelessjoescards.com
+Received: by 2002:a05:7022:1404:b0:139:983c:35e6 with SMTP id pd4csp2982653dlb;
+        Mon, 22 Jun 2026 12:42:02 -0700 (PDT)
+X-Received: by 2002:a05:620a:2914:b0:915:f27f:e711 with SMTP id af79cd13be357-9208ef62cadmr2588461385a.19.1782157321738;
+        Mon, 22 Jun 2026 12:42:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782157321; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mq2ihoUghY/BKxfYexBj1hTEB4M/iHw4g/3i4/5GB0F/R8rHVmWdaWvZf8Hjm0pS2r
+         25zMIrjAx9FpFf9fS/cTDHFm9NmPm2Iu+CKa4XtN4tng55Dc5n/rRZcZCgC0ehbVDyVp
+         fMkE3TWwGo1giIGgiWDEIaWK0+WXdDxjsBxmYh5kKkvfp6KphXjXCquyFuW/dejyEqvg
+         jCSy5wDEfnFME5aGi9nh9LO7e0CQsHLVWUZsRS6vQoYVLQanW8hQ2/EziF+lhuLcfkFv
+         hEgdVed6H7NCuZ1fwaqu8O8UIHEY0cXjlBvMF9PAojE2a8iLkRs27xxkCDHLiavICMbm
+         VixQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=mime-version:feedback-id:to:reply-to:message-id:subject:date:from
+         :dkim-signature:dkim-signature;
+        bh=K1rx8wKrVvr6k/lainHAxb1JVc78r7EEzMkYt8jzgk0=;
+        fh=t4MWivyPSzuth6fbAhjfp9CCaxudWKDqenAm1swPRes=;
+        b=IFFsLBQhfMCqMLZdTjYOS2acyIqPLIuwohVgiOugEpUcLWTLmboQongFjAwlJA1/rd
+         UxFgaserpqTbZGsGE1Ymsr42kImo7Qnj0xjRg3yBtKhB9Rd815nwcV5XcxHj2CI6NIIS
+         sei6aEKDcqjR+6w38Q/AVjoYGAZYSzjlZvBNGeUwwMbQSeg/5oMAJ62yJY8U/FqePw7U
+         8jYYdyv6mhaG3wM8EPA2ukYrwy7RJL0bwappR9I2dPHznRyzjFaqcW7m7QE2JC4f2pfX
+         OQJv7ORzt/m/V1V0tT9c1L8UQHnuJmyM56NIcUVKfV6b5z7iFMWi3mdsF8bnTRSLLBRz
+         36qA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@pm.mtasv.net header.s=pm20250806 header.b=tDhr+rK+;
+       dkim=pass header.i=@fanaticscollectpro.com header.s=20240321202134pm header.b=XE9N59Gn;
+       spf=pass (google.com: domain of pm_bounces@pm-bounces.fanaticscollectpro.com designates 104.245.209.203 as permitted sender) smtp.mailfrom=pm_bounces@pm-bounces.fanaticscollectpro.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fanaticscollectpro.com
+Return-Path: <pm_bounces@pm-bounces.fanaticscollectpro.com>
+Received: from mta203a-ord.mtasv.net (mta203a-ord.mtasv.net. [104.245.209.203])
+        by mx.google.com with ESMTPS id af79cd13be357-925fd39241dsi83075685a.54.2026.06.22.12.42.01
+        for <contact@shoelessjoescards.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Jun 2026 12:42:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pm_bounces@pm-bounces.fanaticscollectpro.com designates 104.245.209.203 as permitted sender) client-ip=104.245.209.203;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@pm.mtasv.net header.s=pm20250806 header.b=tDhr+rK+;
+       dkim=pass header.i=@fanaticscollectpro.com header.s=20240321202134pm header.b=XE9N59Gn;
+       spf=pass (google.com: domain of pm_bounces@pm-bounces.fanaticscollectpro.com designates 104.245.209.203 as permitted sender) smtp.mailfrom=pm_bounces@pm-bounces.fanaticscollectpro.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fanaticscollectpro.com
+X-KumoRef: eyJfQF8iOiJcXF8vIiwicmVjaXBpZW50IjoiY29udGFjdEBzaG9lbGVzc2pvZXNjYXJkcy5jb20ifQ==
+DKIM-Signature: v=1; a=rsa-sha256; d=pm.mtasv.net; s=pm20250806; c=relaxed/relaxed;
+	bh=K1rx8wKrVvr6k/lainHAxb1JVc78r7EEzMkYt8jzgk0=;
+	h=from:to:subject:date:mime-version:content-type:sender:cc:date:message-id;
+	t=1782157321; x=1782762121;
+	b=tDhr+rK+FJs1gaVDwS9/e6ICNqinugVzYqWCBWvL5jXB1reyRmBf92Y/7ai3AhZtQWVQ/SC1R
+	odt477ZFZt8DqCtPNRSPvaMq8oH2qHOko6w/wOdAsBZPG9xXNClC5Wpn9Brww4WzDx8CCYp+ocz
+	0xccEWkXbRB5OXaSDLgw5rmNGiwfaaRNQzUUhqxcPz8H3sG2HKHaXRToog5xFpd7AIOEVPMjo6A
+	rg1XlKl9+uYSmyRO1WDUERYGktldX+1W/tH7PJ+vLa8mvzozkPCkzzQ7v+03HFkaXLF9jXOunDe
+	hT9TA9kigpGGkwdNzFna9OV3iHxxQ6Jf1nt+bi1LDwMw==;
+Received: from ip-172-26-13-27.us-east-2.compute.internal (172.26.13.27)
+  by production-pmta-useast2.internal.postmarkapp.com (KumoMTA 10.97.242.41) 
+  with ESMTP id 70131fc66e7211f196c80283aeb14819 for <contact@shoelessjoescards.com>;
+  Mon, 22 Jun 2026 19:42:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; d=fanaticscollectpro.com;
+	s=20240321202134pm; c=relaxed/relaxed;
+	i=notifications@fanaticscollectpro.com; t=1782157321; x=1782330121;
+	h=date:date:from:from:message-id:reply-to:reply-to:sender:subject:subject:to:
+	to:cc:feedback-id:mime-version:content-type;
+	bh=K1rx8wKrVvr6k/lainHAxb1JVc78r7EEzMkYt8jzgk0=;
+	b=XE9N59GnrsNDI4MD8TxjMmUqKZcbVmqxctVw9r4Mj4S1FdpY+GOy3HpxQtuLJuk1KO6VXKar43J
+	hbR3TbY4BvUuhjKL9GjIqX5EpDupA0C5YyPZ4H3SFiK8zrdVV3KOstLiys5jWT+EN3TN9AgGI6/mI
+	7PKqRHUit17RA6XpN9M=
+From: FC Pro <notifications@fanaticscollectpro.com>
+Date: Mon, 22 Jun 2026 19:42:00 +0000
+Subject: Shoeless Joes's latest offer from FC Pro - 2025 Topps Inception
+ Baseball
+Message-Id: <11611e3f-b0d9-47d7-9418-3eb844318d38@mtasv.net>
+Reply-To: notifications@fanaticscollectpro.com
+To: Shoeless Joes <contact@shoelessjoescards.com>
+Feedback-ID: s11253474-_:s11253474:a212273:postmark
+X-Complaints-To: abuse@postmarkapp.com
+X-Job: 212273_11253474
+X-PM-Message-Id: 11611e3f-b0d9-47d7-9418-3eb844318d38
+X-PM-RCPT: |bTB8MjEyMjczfDExMjUzNDc0fGNvbnRhY3RAc2hvZWxlc3Nqb2VzY2FyZHMuY29t|
+X-PM-Message-Options: v1;1.bQEMk81oH57GFsvVK4-fDQ.G4pK8hyH9eLpW2B_UZr0tCON1dKYWU-fDIylZ5jALJLGPTTIkZWg5cQc0TqIKDdcO59o5oWBvuD9ou5Rs93dUWs9aXMiffndDQZHZylTjxSb81LZaZy5mILMKdZIjkZHMy-osBiuTQ3fmmDL45TVOLvmgrsrH936qhNNnF8ngX_jamW3csY4Ip5VXQAX-qj1
+MIME-Version: 1.0
+X-virtual-MTA: ord-104-245-209-203
+X-PM-MTA-Pool: transactional-3
+Content-Type: multipart/alternative;
+	boundary=mk3-799192b1cd684eb3b03c258ebe1864a4; charset=UTF-8
+
+--mk3-799192b1cd684eb3b03c258ebe1864a4
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hey Shoeless Joes,
+Please note that offers may not match requests. Here=E2=80=99s an offering =
+of Fanatics Collect Pro's latest products, customized just for you!
+
+View my Offer:
+https://www.fanaticscollectpro.com/offers/65065a07-1051-4fd9-8964-4739e1f1b=
+b47
+
+View all my offers here:
+https://www.fanaticscollectpro.com/offers
+
+Product Offer 2025 Topps Inception Baseball - 4739e1f1bb47
+Offer expires on June 24, 2026
+
+
+June 19, 2026*
+2025 MLB - Inception Hobby -CSE
+SKU #FGC006483-CSE =E2=80=A2 Product Type (Baseball)
+
+
+*The street date is subject to change
+
+Disclaimer
+Information contained in this e-mail message is confidential. This e-mail m=
+essage is intended only for the personal use of the recipient(s) named abov=
+e. If you are not an intended recipient, do not read, distribute or reprodu=
+ce this transmission (including any attachments). If you have received this=
+ email in error, please immediately notify the sender by email reply and de=
+lete the original message.
+
+Fanatics Collectibles
+95 Morton Street, New York 10014
+
+--mk3-799192b1cd684eb3b03c258ebe1864a4
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml"><head>
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+    <meta name=3D"x-apple-disable-message-reformatting">
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <meta name=3D"color-scheme" content=3D"light dark">
+    <meta name=3D"supported-color-schemes" content=3D"light dark">
+    <title>Fanatics Collect Pro</title>
+    <!--
+    The style block is collapsed on page load to save you some scrolling.
+    Postmark automatically inlines all CSS properties for maximum email cli=
+ent
+    compatibility. You can just update styles here, and Postmark does the r=
+est.
+  -->
+    <style type=3D"text/css" rel=3D"stylesheet" media=3D"all">@import url("=
+https://fonts.googleapis.com/css2?family=3DInter:wght@400;500;600&display=3D=
+swap");
+@media only screen and (max-width: 600px) { body { padding: 12px } }
+a:hover { text-decoration: none !important }
+a:hover.link-black { color: #000000 !important }
+.button-primary:hover { background: #111827 !important; color: #FFFFFF !imp=
+ortant; border: 1px solid #111827 !important; text-decoration: none !import=
+ant }
+.button-secondary:hover { background: #F9FAFB !important; color: #202223 !i=
+mportant; border: 1px solid #F3F4F6 !important; text-decoration: none !impo=
+rtant }</style>
+    <!--[if mso]>
+    <style type=3D"text/css">
+      .f-fallback
+        font-family: Helvetica, Arial, sans-serif;
+      }
+    </style>
+  <![endif]-->
+  </head>
+  <body style=3D"background: #FFFFFF; padding: 32px 10px; -webkit-text-size=
+-adjust: none; font-family: Inter, Helvetica, Arial, sans-serif; font-size:=
+ 14px; font-weight: 400; color: #111827; line-height: 140% !important;">
+    <div class=3D"main-container" style=3D"max-width: 734px; background: #F=
+FFFFF; border: 1px solid #D1D5DB; padding: 32px; border-radius: 16px; margi=
+n-left: auto; margin-right: auto;">
+      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation">
+        <tbody>
+          <tr>
+            <td style=3D"font-family: Inter, Helvetica, Arial, sans-serif; =
+font-size: 14px; font-weight: 400; color: #111827; line-height: 140% !impor=
+tant;">
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion">
+  <tbody>
+    <tr>
+      <td style=3D"padding-bottom: 0; font-family: Inter, Helvetica, Arial,=
+ sans-serif; font-size: 14px; font-weight: 400; color: #111827; line-height=
+: 140% !important;">
+          <h1 class=3D"text-2xl text-black" style=3D"margin: 0 0 5px; font-=
+size: 32px; line-height: 140%; color: #000000;">Hey Shoeless Joes,</h1>
+          <p class=3D"text-base text-gray-600" style=3D"margin: 0 0 20px; l=
+ine-height: 140%; font-size: 14px; color: #6B7280;">Please note that offers=
+ may not match requests. Here=E2=80=99s an offering of FC Pro's latest prod=
+ucts, customized just for you!</p>
+          <a href=3D"https://www.fanaticscollectpro.com/offers/65065a07-105=
+1-4fd9-8964-4739e1f1bb47" class=3D"button-primary" style=3D"margin-bottom: =
+20px; color: #FFFFFF; text-decoration: none; display: inline-block; border-=
+radius: 6px; padding: 10px 20px; background: #111827; border: 1px solid #11=
+1827; text-align: center;">View My Offer</a>
+          <p class=3D"text-sm" style=3D"margin: 0 0 10px; line-height: 140%=
+; font-size: 12px;">View all my offers <a href=3D"https://www.fanaticscolle=
+ctpro.com/offers" style=3D"color: #006FBB; text-decoration: none;">here</a>=
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td style=3D"padding: 10px 0; font-family: Inter, Helvetica, Arial, s=
+ans-serif; font-size: 14px; font-weight: 400; color: #111827; line-height: =
+140% !important;">
+        <h2 class=3D"text-lg text-semibold" style=3D"font-size: 20px; line-=
+height: 130%; font-weight: 500;">Product Offer 2025 Topps Inception Basebal=
+l (Offer ID 4739e1f1bb47)</h2>
+        <p class=3D"text-base" style=3D"margin: 20px 0; line-height: 140%; =
+font-size: 14px;">Offer expires on June 24, 2026</p>
+        <ul class=3D"product-list" style=3D"list-style-type: none; padding:=
+ 0; margin: 0;">
+         =20
+            <li style=3D"margin: 0 0 32px 0;">
+              <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation">
+                <tbody>
+                  <tr>
+                    <td style=3D"width: 50px; font-family: Inter, Helvetica=
+, Arial, sans-serif; font-size: 14px; font-weight: 400; color: #111827; lin=
+e-height: 140% !important;">
+                      <div style=3D"box-shadow: 0px 5px 5px 0px rgba(0,0,0,=
+0.1); background: #F5F5F5; width: 50px; min-height: 50px;">
+                        <img src=3D"https://assets-images.fc-prod.net/produ=
+cts/v1/Topps/BDCXnQGyWc3YhQqo/EKucbg6kbJEvVDjo_thumbnail.jpg" width=3D"50" =
+height=3D"auto" style=3D"display: block;">
+                      </div>
+                    </td>
+                    <td style=3D"padding-left: 12px; font-family: Inter, He=
+lvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; color: #1118=
+27; line-height: 140% !important;" class=3D"product-info">
+                      <p class=3D"product-info__street-date" style=3D"line-=
+height: 140%; padding: 0; margin: 0; font-size: 12px;">Street Date: June 19=
+, 2026</p>
+                      <h3 class=3D"product-info__name" style=3D"padding: 0;=
+ margin: 0; line-height: 130%; font-size: 14px; font-weight: 500;">2025 MLB=
+ - Inception Hobby -CSE</h3>
+                      <p class=3D"product-info__sku" style=3D"line-height: =
+130%; padding: 0; margin: 0; font-size: 14px;">SKU #FGC006483-CSE =E2=80=A2=
+ Product Type (Baseball)</p>
+                     =20
+                        <div style=3D"display: inline-block; background-col=
+or: #d4edda; color: #155724; padding: 5px 10px; border-radius: 20px; font-s=
+ize: 12px; margin-top: 10px;">
+                          Purchase at least 0 to get 0% off
+                        </div>
+                     =20
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+         =20
+        </ul>
+        <p class=3D"text-sm text-italic text-gray" style=3D"line-height: 14=
+0%; font-size: 12px; font-style: italic;">*The street date is subject to ch=
+ange</p>
+      </td>
+    </tr>
+    <tr>
+      <td style=3D"padding: 15px 0 0; font-family: Inter, Helvetica, Arial,=
+ sans-serif; font-size: 14px; font-weight: 400; color: #111827; line-height=
+: 140% !important;">
+        <h4 class=3D"text-sm text-normal text-gray" style=3D"margin: 0 0 2p=
+x; font-size: 12px; line-height: 140%; font-weight: 400;">Disclaimer</h4>
+        <p class=3D"text-sm text-gray" style=3D"margin: 0; line-height: 140=
+%; font-size: 12px;">Information contained in this e-mail message is confid=
+ential. This e-mail message is intended only for the personal use of the re=
+cipient(s) named above. If you are not an intended recipient, do not read, =
+distribute or reproduce this transmission (including any attachments). If y=
+ou have received this email in error, please immediately notify the sender =
+by email reply and delete the original message.</p>
+      </td>
+    </tr>
+  </tbody>
+</table></td>
+          </tr>
+          <tr>
+            <td class=3D"text-center" style=3D"padding: 30px 0 0; font-fami=
+ly: Inter, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400;=
+ color: #111827; text-align: center; line-height: 140% !important;">
+              <h4 class=3D"text-md text-semibold text-center" style=3D"marg=
+in: 0 0 5px; font-size: 16px; line-height: 140%; font-weight: 500; text-ali=
+gn: center;">
+                <img src=3D"https://www.fanaticscollectpro.com/images/logo_=
+fanatics_red.png" style=3D"display: inline-block; vertical-align:middle; wi=
+dth: 22px; height: auto; margin-right: 5px;">
+                Fanatics Collectibles
+              </h4>
+              <p class=3D"text-sm text-gray-500 text-center" style=3D"margi=
+n-top: 0; line-height: 140%; font-size: 12px; text-align: center; color: #6=
+B7280;">95 Morton Street, New York 10014</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+ =20
+<img src=3D"https://ea.pstmrk.it/open?m=3Dv3_1.b2_fjeMKiFjBxPavYyjHew.AWCtS=
+FMPiJz52qtbV5yGYjchZbHy3KL9OuCU8jhGgNHuCZaWB5X2CGBlxh0EoexuBlTHnlSSj9mxDs20=
+scfg3GRqJoGBqawJ4IcIJi5gpU9QHGKCDIr7q59VI4KeNW2z4jQE9NKZPgSVieNLgN202b6Yblu=
+IqzE6QunRMtrBGYwvt3IEoZmpIu2oIg4ttcKquP9sRImvaVXwzzo5qyHZmOVqERF1AJ9JCEyT3c=
+v0WbuqRe50wEd2yiEVy0a7WJHSXLp6EAbXqTZX6aXWnqenzWl-kACQr6NAMorKPJu7vDwwpdMYu=
+okYqlhNrSCKOlFzbKqrmjr2pwzx2rXQpikxdeBE1l-PU4dFjii2We_cVANbpfx6lDOMd0JO-sdD=
+_CCK7ijpasfVW1oOvYbOLW1rUNSqz1Df5q2jSE7WNBvqtB4PCjFYiYcLfZH1Ec5x4oI7D9cRUEG=
+QIgmPKc2fVsmUhOW0Jc9PzRrajDMnU9qZvVZnF5fKOc8kgFJ-IEpvjghjjHzb4Qzn7xlmt3A7tS=
+Q3n73mfxXhAq35yQCuEKOzoFc2rLNOLcHr7p3sMrwWR10tqPU_SYK6LviZAgvqSGkTlQ" width=
+=3D"1" height=3D"1" border=3D"0" alt=3D"" /></body></html>
+
+--mk3-799192b1cd684eb3b03c258ebe1864a4--

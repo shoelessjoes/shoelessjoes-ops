@@ -1,0 +1,128 @@
+Delivered-To: contact@shoelessjoescards.com
+Received: by 2002:a05:701b:45ce:b0:139:774d:6492 with SMTP id yw14csp1279922dld;
+        Mon, 15 Jun 2026 13:18:28 -0700 (PDT)
+X-Received: by 2002:ac8:7f4e:0:b0:50d:a8f5:1bf8 with SMTP id d75a77b69052e-51991ae9401mr8493661cf.37.1781554707795;
+        Mon, 15 Jun 2026 13:18:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781554707; cv=none;
+        d=google.com; s=arc-20240605;
+        b=P/8SV3hjYBpduKVsgi4PZchwIaRoKQRmZP+7sagxs74FMiRkpryk6WFEhPdqP82Ro1
+         mheYl94EMgHpi4h5EkT6Y8rlkJtnpDqaFqZ/KIfZWwZDXC9afwYZnEM1QlewvtXFwBt5
+         JZTrBC3O+H/yK4IQRt3Zc0rfdgp2mxVH16d6n21wb2A9SJgps5iPiE5GN1RpC0fRcqET
+         6lEJVMgmv2jgBcjzpC/8cdcBuVleMafIYYhytY9S1Qbcr88vF6g8bJpFW145QSLFItXQ
+         8YPbGu1P66d/xaE/pkgkQhg5Rwl3yCQAHY9Ly/cbYNjKbuTyicx7PYJji8TH5vW4CoBI
+         YU1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:subject:date:to:from:mime-version
+         :message-id:feedback-id:cfbl-address:dkim-signature:dkim-signature;
+        bh=qox6AiMApfddgRg5OsnP6Pb57gXiM17rm+qcVgX8oE8=;
+        fh=GRMX5LZzNI0NJBw9cy2oJu6Y7CKs/uLECvVy23TVHKM=;
+        b=N9SjTD38/x1eDuGoruPihGkFP9OBKbyd/1ssCQqmakrcCIoHejP/40FfiZeJCcG+ss
+         9IXXjdxB5aV6eWtzNZgY/fciw6Z7b/43ULjv5/R3r2Z9gwddvWQMzw1QNW2KaxCVpuhD
+         YxA4SEuRLBY4hLI2IKCPX51Dn74qViNP4l+ZFrcE7xT8Pzngj/fGfbH3QW73I+nmD0id
+         fyHsZlVYgp/hAtHIz85PRmCcygR6bKOKDaUIpkwr+HNef1mKvN4/8/WEI6OqYMTVD+y/
+         w1o9NroKls/ZmZvVcAF1BfwccYsmA7kNLSDxlG+gqsE15scna9jk8i2V8HWfSJhSzgQM
+         ByVw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@smtp.mailtrap.live header.s=rwmt2 header.b=hbEvVSI1;
+       dkim=pass header.i=@redriverdistribution.com header.s=rwmt2 header.b=Z4MhxAgN;
+       spf=pass (google.com: domain of ndr-5e669cf0-68f7-11f1-0000-f11240f406df@q2jnqaxmt9ij43s1.redriverdistribution.com designates 45.158.83.27 as permitted sender) smtp.mailfrom=ndr-5e669cf0-68f7-11f1-0000-f11240f406df@q2jnqaxmt9ij43s1.redriverdistribution.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=redriverdistribution.com
+Return-Path: <ndr-5e669cf0-68f7-11f1-0000-f11240f406df@q2jnqaxmt9ij43s1.redriverdistribution.com>
+Received: from smtp-83-27.mailtrap.live (smtp-83-27.mailtrap.live. [45.158.83.27])
+        by mx.google.com with ESMTPS id d75a77b69052e-517fb82b28asi129822141cf.269.2026.06.15.13.18.27
+        for <contact@shoelessjoescards.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jun 2026 13:18:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndr-5e669cf0-68f7-11f1-0000-f11240f406df@q2jnqaxmt9ij43s1.redriverdistribution.com designates 45.158.83.27 as permitted sender) client-ip=45.158.83.27;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@smtp.mailtrap.live header.s=rwmt2 header.b=hbEvVSI1;
+       dkim=pass header.i=@redriverdistribution.com header.s=rwmt2 header.b=Z4MhxAgN;
+       spf=pass (google.com: domain of ndr-5e669cf0-68f7-11f1-0000-f11240f406df@q2jnqaxmt9ij43s1.redriverdistribution.com designates 45.158.83.27 as permitted sender) smtp.mailfrom=ndr-5e669cf0-68f7-11f1-0000-f11240f406df@q2jnqaxmt9ij43s1.redriverdistribution.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=redriverdistribution.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; x=1781900307;
+	d=smtp.mailtrap.live; s=rwmt2;
+	h=content-transfer-encoding:content-type:subject:date:to:from:mime-version:
+	 message-id:feedback-id:cfbl-address:from;
+	bh=qox6AiMApfddgRg5OsnP6Pb57gXiM17rm+qcVgX8oE8=;
+	b=hbEvVSI1icQR8DQu5W96ffiXYEpy1k/AOsuRfiCurQk+uu+ffnPoYWudLkzyaFTKrKQVcktNRaUEr
+	 VxKVYqe4ayfSMxrfAz0oU3dkvTVUIOj0gUtKvM23+di73x900If34b0T9A5CPuMfPilGd2ZvUxWiBg
+	 mqSspJgtRdleMe3dTlPLMg+RXFMoaHKicH0n/C4ODrkNYSStHSt2bQyqx2HQ4KlREYULaRGS1WbjRH
+	 kP5yjF6NNyT7rr6mUPU938um8UqM98jgdVbXB3XmeLrSZ3hNlNmck0N9wQRU2pA5UnxI1FfZw6Lrjr
+	 PQl912+NXqcYxxM48rmlt/Lb2SWAtEA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; x=1781900307;
+	d=redriverdistribution.com; s=rwmt2;
+	h=content-transfer-encoding:content-type:subject:date:to:from:mime-version:
+	 message-id:feedback-id:cfbl-address:from;
+	bh=qox6AiMApfddgRg5OsnP6Pb57gXiM17rm+qcVgX8oE8=;
+	b=Z4MhxAgNW+JF9cEhFvkJi6HoIzwT8DkEL6kiJpe1htIuXpCVeo94vxNwDqUsBxItp7G5dbU3Kz4V/
+	 mBo75flJaIm+9Y71UFs6dtlLDgdyjk5C1rFfZBEU802crwo234Gtosi8CNCuGpas7oswsoFEJ1w72o
+	 XzaxBBq35xVbHBxcc+74tcNV9njEevG6u56tnexgb1U1nxRqo2LNMeeVFLau1rhUJQL7OFBkZ0tJpX
+	 lU26ZfiSUy+X9TIb82+TjJkpTjYAhUHiBpY5Sp4vJetIekgy90WbR7wtathkom6j6zSpayQyLXX90F
+	 /MdstQE/9N9ochQ1VN4tPArGNKfqedw==
+X-Mailer: Mailtrap/1.0
+CFBL-Address: fbl@smtp.mailtrap.live; report=arf
+X-Report-Abuse-To: abuse@mailtrap.io
+Received: from redriverdistribution.com by smtp.mailtrap.live with ESMTPSA
+ 5e1e967b-68f7-11f1-8339-0afffbc11dc9; Mon, Jun 15 2026 20:18:27 GMT
+Feedback-ID: default:117446:transactional:mailtrap.io
+Message-ID: <5e669cf0-68f7-11f1-0000-f11240f406df@redriverdistribution.com>
+X-Mt-Data: iBJMz7uRnqQtfA3KJ.yJyNxqWd6xtHijn7HPT5k.1IpICYAV06t4sV2o3K3gaOylEiTvoxbFwmDqt223S4Pok3JpUSwogsqeSvrXxgb8L6Iazbd8oKRVxlqBzsgDmbdjUuhe_Nr0uPS.si4zZvLPIxNs_spCzgUjPGEy8g4vEsdupUG_tMLUmST6sufjn4pDBIVKORo3Lst6Kb6B3CxiQ8cehRNLsdVWfWiHhu8wokL7ugEwelm7ooWQyG0aCR5dtrXZiVu1hQ~~--wsoIy1.Q3EiZ.VTc--9O_6Wt60vhZXm8EWQt7Cdw~~
+MIME-Version: 1.0
+From: "[AUTOMATED] New Shipment" <office@redriverdistribution.com>
+To: CONTACT@SHOELESSJOESCARDS.COM
+Date: 15 Jun 2026 20:18:28 +0000
+Subject: New Shipment
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: base64
+
+DQo8IURPQ1RZUEUgaHRtbD4NCjxodG1sPg0KPGJvZHk+DQogICAgPHRhYmxlIHN0eWxlPSd3aWR0
+aDo3NTBweDsnPg0KICAgICAgICA8dGQ+DQogICAgICAgICAgICA8aDMgc3R5bGU9J3RleHQtYWxp
+Z246Y2VudGVyJz5OZXcgU2hpcHBpbmc8L2gzPg0KICAgICAgICAgICAgPGhyIHN0eWxlPSdib3Jk
+ZXItdG9wOiAxcHggZGFzaGVkIGJsYWNrOycvPg0KCQkJPGJyLz4NCiAgICAgICAgICAgIDx0YWJs
+ZSBzdHlsZT0nd2lkdGg6MTAwJSc+DQogICAgICAgICAgICAgICAgPHRib2R5Pg0KICAgICAgICAg
+ICAgICAgICAgICA8dHI+DQogICAgICAgICAgICAgICAgICAgICAgICA8dGQgc3R5bGU9J3dpZHRo
+OjIwJTtwYWRkaW5nOjVweDsnPlRyYWNraW5nIE51bWJlcjo8L3RkPg0KICAgICAgICAgICAgICAg
+ICAgICAgICAgPHRkIHN0eWxlPSd3aWR0aDo0MCU7cGFkZGluZzo1cHg7Jz4xWktINjcyODEyMTM5
+MzI0Njk8L3RkPg0KICAgICAgICAgICAgICAgICAgICAgICAgPHRkIHN0eWxlPSd3aWR0aDoyMCU7
+cGFkZGluZzo1cHg7Jz5DdXN0b21lciBQTzo8L3RkPg0KICAgICAgICAgICAgICAgICAgICAgICAg
+PHRkIHN0eWxlPSd3aWR0aDo0MCU7cGFkZGluZzo1cHg7Jz4yMS0wMTA5NzI8L3RkPg0KICAgICAg
+ICAgICAgICAgICAgICA8L3RyPg0KICAgICAgICAgICAgICAgICAgICA8dHI+DQogICAgICAgICAg
+ICAgICAgICAgICAgICA8dGQgc3R5bGU9J3dpZHRoOjIwJTtwYWRkaW5nOjVweDsnPlBob25lIE51
+bWJlcjo8L3RkPg0KICAgICAgICAgICAgICAgICAgICAgICAgPHRkIHN0eWxlPSd3aWR0aDo0MCU7
+cGFkZGluZzo1cHg7Jz48L3RkPg0KICAgICAgICAgICAgICAgICAgICAgICAgPHRkIHN0eWxlPSd3
+aWR0aDoyMCU7cGFkZGluZzo1cHg7Jz5TYWxlcyBSZXA6PC90ZD4NCiAgICAgICAgICAgICAgICAg
+ICAgICAgIDx0ZCBzdHlsZT0nd2lkdGg6NDAlO3BhZGRpbmc6NXB4Oyc+RU1JTFk8L3RkPg0KICAg
+ICAgICAgICAgICAgICAgICA8L3RyPg0KICAgICAgICAgICAgICAgIDwvdGJvZHk+DQogICAgICAg
+ICAgICA8L3RhYmxlPg0KCQkJCQ0KCQkJPGhyIHN0eWxlPSdib3JkZXItdG9wOiAxcHggZGFzaGVk
+IGJsYWNrOycgLz4NCgkJCTxici8+CQkgIA0KCQkgIA0KICAgICAgICAgICAgPHRhYmxlPg0KICAg
+ICAgICAgICAgICAgIDx0aGVhZD4NCiAgICAgICAgICAgICAgICAgICAgPHRyPg0KICAgICAgICAg
+ICAgICAgICAgICAgICAgPHRoIHN0eWxlPSd3aWR0aDoxNTBweDtib3JkZXItYm90dG9tOiAxcHgg
+YmxhY2sgZGFzaGVkOyBwYWRkaW5nLWJvdHRvbTogMTBweDsnPk9yZGVyIE5vLjwvdGg+DQogICAg
+ICAgICAgICAgICAgICAgICAgICA8dGggc3R5bGU9J3dpZHRoOjE1MHB4O2JvcmRlci1ib3R0b206
+IDFweCBibGFjayBkYXNoZWQ7IHBhZGRpbmctYm90dG9tOiAxMHB4Oyc+SXRlbSBOby48L3RoPg0K
+ICAgICAgICAgICAgICAgICAgICAgICAgPHRoIHN0eWxlPSd3aWR0aDo5NXB4O2JvcmRlci1ib3R0
+b206IDFweCBibGFjayBkYXNoZWQ7IHBhZGRpbmctYm90dG9tOiAxMHB4Oyc+VG90YWwgUXR5PC90
+aD4NCiAgICAgICAgICAgICAgICAgICAgPC90cj4NCiAgICAgICAgICAgICAgICA8L3RoZWFkPg0K
+ICAgICAgICAgICAgICAgIDx0Ym9keT4NCiAgICAgICAgICAgICAgICAgICAgPHRyPgo8dGQgc3R5
+bGU9J3BhZGRpbmctYm90dG9tOiAxMHB4O3BhZGRpbmctdG9wOiAxMHB4O3BhZGRpbmctcmlnaHQ6
+IDI1cHg7ICc+CjIxU08xMzE1NDgxLTAwMTwvdGQ+Cjx0ZCBzdHlsZT0ncGFkZGluZy1ib3R0b206
+IDEwcHg7cGFkZGluZy10b3A6IDEwcHg7cGFkZGluZy1yaWdodDogMjVweDsgJz4KMjAyNTA8L3Rk
+Pgo8dGQgc3R5bGU9J3BhZGRpbmctYm90dG9tOiAxMHB4O3BhZGRpbmctdG9wOiAxMHB4O3BhZGRp
+bmctcmlnaHQ6IDI1cHg7dGV4dC1hbGlnbjpjZW50ZXI7ICc+CjM8L3RkPgo8L3RyPgoNCiAgICAg
+ICAgICAgICAgICA8L3Rib2R5Pg0KICAgICAgICAgICAgPC90YWJsZT4NCgkJCQkNCiAgICAgICAg
+ICAgIDxociBzdHlsZT0nYm9yZGVyLXRvcDogMXB4IGRhc2hlZCBibGFjazsnIC8+DQogICAgICAg
+ICAgICA8YnIvPgkNCgkJCQkNCiAgICAgICAgICAgIDxwPlNoaXBwaW5nIFZpYTogVVBTPC9wPg0K
+CQkgICAgPHA+PC9wPg0KICAgICAgICAgICAgPGg0IHN0eWxlPSdib3JkZXItYm90dG9tOiAxcHgg
+ZGFzaGVkIGJsYWNrO3dpZHRoOiA1MCU7cGFkZGluZy1ib3R0b206IDVweDsnPlNISVBQSU5HIEFE
+RFJFU1M8L2g0Pg0KICAgICAgICAgICAgPHA+U2hvZWxlc3MgSm9lJ3M8L3A+DQogICAgICAgICAg
+ICA8cD5TaG9lbGVzcyBKb2UnczwvcD4NCiAgICAgICAgICAgIDxwPjYxMjMgQnJpZGdldG93biBS
+b2FkPC9wPg0KICAgICAgICAgICAgPHA+Q2luY2lubmF0aSwgT0gsIDQ1MjQ4PC9wPg0KCQkJCQ0K
+ICAgICAgICAgICAgPGEgaHJlZj0naHR0cHM6Ly93d3cudXBzLmNvbS90cmFjaz9sb2M9ZW5fVVMm
+dHJhY2tudW09MVpLSDY3MjgxMjEzOTMyNDY5Jz5UcmFjayBTaGlwbWVudDwvYT4JCQ0KICAgICAg
+ICA8L3RkPg0KICAgIDwvdGFibGU+DQo8aW1nIHNyYz0iaHR0cHM6Ly91MjQ5NTgzNzQudC5tYWls
+dHJhcC5uZXQvb3AvRXhBVmZEU3U5b09kSUlTMEZrTmhxVzMwQ1NKWnFLTHJnU2FKbXJ5LkNaRzNV
+bkh1M2JOSUZwZWNvSmd2bVEwOGFuWE5heGo5dFV1a3ZoTVA4SWVqb0xVSVpvUHRhb0FoWEltTElU
+NDlxQXhFWDJHVnRHMlN1MXVId0NPNG9YemlYbi5nZU1MdjdBb29zSGM1bjI1Y3ZrWGZsZUxLSVgw
+fi0tajg3ai5UWnYyM1JxQU5mQS0tTmVub1J2VDRyWVRhTk5ISV9xb2VVd35+LmdpZiIgd2lkdGg9
+IjEiIGhlaWdodD0iMSIgYWx0PSIiIC8+PC9ib2R5Pg0KPC9odG1sPg==

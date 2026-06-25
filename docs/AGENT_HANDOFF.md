@@ -10,7 +10,8 @@
 > `DEALERNET_OFFER_PAGE.md`; vending in `VENDING_ZHONGDA.md`; DB setup in `DATABASE_SETUP.md`.
 > **Session wrap-up (market search, sync lessons, inbound pipeline):** `INBOUND_OPS_HANDOFF.md`.  
 > **DA Card World draft-product feed (UPC presells / new releases):** `DACARDWORLD_CATALOG.md`.  
-> **Vendor email (Topps / Panini / GTS) + unified dashboard:** `VENDOR_CHANNELS_AND_DASHBOARD.md`.
+> **Vendor email (Topps / Panini / GTS) + unified dashboard:** `VENDOR_CHANNELS_AND_DASHBOARD.md`.  
+> **Vendor sample PDFs/emails:** `VENDOR_PDF_SAMPLES_PANINI.md` · `VENDOR_EMAIL_SAMPLES.md`.
 
 ---
 

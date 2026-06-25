@@ -1,0 +1,357 @@
+Delivered-To: contact@shoelessjoescards.com
+Received: by 2002:a05:7022:1404:b0:139:983c:35e6 with SMTP id pd4csp2998421dlb;
+        Mon, 22 Jun 2026 13:14:39 -0700 (PDT)
+X-Received: by 2002:a05:620a:6492:b0:913:dcd2:f132 with SMTP id af79cd13be357-92090db22b3mr2588066585a.40.1782159279155;
+        Mon, 22 Jun 2026 13:14:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782159279; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RYA6eST840keRl1PuFgQQtwnBox9V5NYzI03QaVKkt7mwmpBoop2saCV3Tbun/L59S
+         wxcSo6vjixoSB7KM80zvaOUyGiqoTfWTNE2GJnE18ch1vCeOCmL/PT63KYL0xoWcpJuQ
+         +VSNep7jjip4uvXKlG9EtAfDMFx66vagVGgLup5OQ69qUAflJNtemS+dbyupbog6o86d
+         +8ZRLZLm6IadPBXd+RHmx5lm5ndRRbDKWqe48vDbeQJCnjP1vKV4EXfNGBhDGsNX3ZDp
+         uQeEy8BPxJBeIIDcoTXi7pc6O7fLqBDy5+GVcgHP5/cyRvc3tranpPiNuHTbB3kDcMOg
+         7o3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=mime-version:feedback-id:to:reply-to:message-id:subject:date:from
+         :dkim-signature:dkim-signature;
+        bh=Bu+TU5v4ATwnBs0Fqrz3OMEFiBBCUjg0SksSyRxoq9I=;
+        fh=t4MWivyPSzuth6fbAhjfp9CCaxudWKDqenAm1swPRes=;
+        b=K5cD3Sq5IPoKK0aXUtpsdfg+E1OflEK65mtJJIffjmhQd8sqvyAht0P01osLUSMo7m
+         w1tEeDRg66ot9X/J0TdgLfqMrq7RRQNmsrV8qQz+G7ZEop9cLLsWQVmpeLklFrz3g15J
+         X3CtNYX96QAIHHKyBFpZ+0lKB9ePQ6ZDG47p/6tLkPioENXqsQwTIcM8JVfT4wBMl3vt
+         JpuRCApva+b3500cTzmZXXu+RPqTcK13Fzug8i0PIPSWDssRWvcQWZVoUBVFh28d7YOi
+         xf0EUw1PRr5s6EyUBBCF2AWc7Ikgv3b1SI4SSzb8vrRrodImktjtGoSec1Exeyi2vtoq
+         furQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@pm.mtasv.net header.s=pm20250806 header.b=HFKXQuui;
+       dkim=pass header.i=@fanaticscollectpro.com header.s=20240321202134pm header.b=ee1Dv21p;
+       spf=pass (google.com: domain of pm_bounces@pm-bounces.fanaticscollectpro.com designates 50.31.205.203 as permitted sender) smtp.mailfrom=pm_bounces@pm-bounces.fanaticscollectpro.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fanaticscollectpro.com
+Return-Path: <pm_bounces@pm-bounces.fanaticscollectpro.com>
+Received: from mta203-ab1.mtasv.net (mta203-ab1.mtasv.net. [50.31.205.203])
+        by mx.google.com with ESMTPS id af79cd13be357-926024fd43fsi80676885a.371.2026.06.22.13.14.38
+        for <contact@shoelessjoescards.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Jun 2026 13:14:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pm_bounces@pm-bounces.fanaticscollectpro.com designates 50.31.205.203 as permitted sender) client-ip=50.31.205.203;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@pm.mtasv.net header.s=pm20250806 header.b=HFKXQuui;
+       dkim=pass header.i=@fanaticscollectpro.com header.s=20240321202134pm header.b=ee1Dv21p;
+       spf=pass (google.com: domain of pm_bounces@pm-bounces.fanaticscollectpro.com designates 50.31.205.203 as permitted sender) smtp.mailfrom=pm_bounces@pm-bounces.fanaticscollectpro.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fanaticscollectpro.com
+X-KumoRef: eyJfQF8iOiJcXF8vIiwicmVjaXBpZW50IjoiY29udGFjdEBzaG9lbGVzc2pvZXNjYXJkcy5jb20ifQ==
+DKIM-Signature: v=1; a=rsa-sha256; d=pm.mtasv.net; s=pm20250806; c=relaxed/relaxed;
+	bh=Bu+TU5v4ATwnBs0Fqrz3OMEFiBBCUjg0SksSyRxoq9I=;
+	h=from:to:subject:date:mime-version:content-type:sender:cc:date:message-id;
+	t=1782159278; x=1782764078;
+	b=HFKXQuui4MQbC/PFaIMniZKsaT34fRYnZjc1WZ6Ye8+UuS3Z0eTHyg8eVhsgZNXVCmUSY4wjP
+	lk3p5ydeI9DMVI98z67s2Wd7l1AIdVIqHYSlvhICuaksi119Ig/NYtUce0CdUCOt32c4n3UllQW
+	fJPu9wQ1zzUg74vya8/S4jiSmaZRf4umnuoIrcc8p5iOXpffRUE8oG96fGaqOMNvi25xr6TgJUc
+	8tYGyxsidR52K0Lg9uQh/9q9Q1VbwT8p9T6ofzz3Wd8ACLkh2qOTtUsY2zpS6k09tlmqvprwYQj
+	y2ylUDa+5DRDATCxeffTGYOPB7q8Ih1ZqK9PThEJUTgA==;
+Received: from ip-172-26-33-37.us-east-2.compute.internal (172.26.33.37)
+  by production-pmta-useast2.internal.postmarkapp.com (KumoMTA 10.97.240.123) 
+  with ESMTP id fed07d626e7611f1b00f02b886b6f32b for <contact@shoelessjoescards.com>;
+  Mon, 22 Jun 2026 20:14:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; d=fanaticscollectpro.com;
+	s=20240321202134pm; c=relaxed/relaxed;
+	i=notifications@fanaticscollectpro.com; t=1782159278; x=1782332078;
+	h=date:date:from:from:message-id:reply-to:reply-to:sender:subject:subject:to:
+	to:cc:feedback-id:mime-version:content-type;
+	bh=Bu+TU5v4ATwnBs0Fqrz3OMEFiBBCUjg0SksSyRxoq9I=;
+	b=ee1Dv21pW5rFdzJoVc7AmRbnO/c8mvrTRcYspUVUiDIsnBSXxfVIEES/qxkrWDVT9MpQmwDpoGY
+	VQXQCTBgMxX6lON0Iamos59lYNdcHv6INFuSfpLu5Z47I0dOgZgZgcszXYsp+GfqVabNCZdsoUJk0
+	+zJFwYhxooSDHDPKmRE=
+From: FC Pro <notifications@fanaticscollectpro.com>
+Date: Mon, 22 Jun 2026 20:14:38 +0000
+Subject: FC Pro Order Submitted
+Message-Id: <03088c99-a426-4b28-bd9d-f2e06e4899c9@mtasv.net>
+Reply-To: notifications@fanaticscollectpro.com
+To: Shoeless Joes <contact@shoelessjoescards.com>
+Feedback-ID: s11253474-_:s11253474:a212273:postmark
+X-Complaints-To: abuse@postmarkapp.com
+X-Job: 212273_11253474
+X-PM-Message-Id: 03088c99-a426-4b28-bd9d-f2e06e4899c9
+X-PM-RCPT: |bTB8MjEyMjczfDExMjUzNDc0fGNvbnRhY3RAc2hvZWxlc3Nqb2VzY2FyZHMuY29t|
+X-PM-Message-Options: v1;1.-goZ-MAO188makbNAuzgpQ.EPdoZROttzPCI62LAr4-oYWiFElOa9d7ao_w2ljF8pw_wxXmgSNIfP5CNtVQxZ9NTqe2_TI16MtSkYjmBmkWesCcUWyUJTi4l9WB6CI-hdS1hgGRHwm2CuPlKhg_gZqnpsxymFcmKpi_k9Ixu4G9kQJ7-gOemmZYnmuJsl5CMCQuK7oAo-wK17oTKRFS-TLG
+MIME-Version: 1.0
+X-virtual-MTA: mta203-ab1
+X-PM-MTA-Pool: transactional-3
+Content-Type: multipart/alternative;
+	boundary=mk3-753e0c53b80640b4b526535140f3a542; charset=UTF-8
+
+--mk3-753e0c53b80640b4b526535140f3a542
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Congratulations!
+Your order has been submitted.
+You will be sent an invoice on the day of shipping. You will have 15 days t=
+o pay, according to terms.
+Street date and delivery date may vary by product
+
+View Order: https://www.fanaticscollectpro.com/orders/22231a78-7f6c-4e57-ae=
+52-e4a227075b6e
+
+
+Street Date: June 19, 2026
+2025 MLB - Inception Hobby -CSE
+SKU #FGC006483-CSE =E2=80=A2 Product Type (Baseball)
+2 case(s) at $1,800.00/case | Subtotal $3,600.00
+
+
+Subtotal: $3,600.00
+ACH Discount: -$87.80=20
+Total: $3,512.20
+
+Payment Method: ACH
+Shipping Address:
+Shoeless Joes
+
+Cincinnati, OH 45248
+US
+513-574-4997
+
+Fanatics Collectibles
+95 Morton Street, New York 10014
+
+--mk3-753e0c53b80640b4b526535140f3a542
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml"><head>
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+    <meta name=3D"x-apple-disable-message-reformatting">
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <meta name=3D"color-scheme" content=3D"light dark">
+    <meta name=3D"supported-color-schemes" content=3D"light dark">
+    <title>Fanatics Collect Pro</title>
+    <!--
+    The style block is collapsed on page load to save you some scrolling.
+    Postmark automatically inlines all CSS properties for maximum email cli=
+ent
+    compatibility. You can just update styles here, and Postmark does the r=
+est.
+  -->
+    <style type=3D"text/css" rel=3D"stylesheet" media=3D"all">@import url("=
+https://fonts.googleapis.com/css2?family=3DInter:wght@400;500;600&display=3D=
+swap");
+@media only screen and (max-width: 600px) { body { padding: 12px } }
+a:hover { text-decoration: none !important }
+a:hover.link-black { color: #000000 !important }
+.button-primary:hover { background: #111827 !important; color: #FFFFFF !imp=
+ortant; border: 1px solid #111827 !important; text-decoration: none !import=
+ant }
+.button-secondary:hover { background: #F9FAFB !important; color: #202223 !i=
+mportant; border: 1px solid #F3F4F6 !important; text-decoration: none !impo=
+rtant }</style>
+    <!--[if mso]>
+    <style type=3D"text/css">
+      .f-fallback
+        font-family: Helvetica, Arial, sans-serif;
+      }
+    </style>
+  <![endif]-->
+  </head>
+  <body style=3D"background: #FFFFFF; padding: 32px 10px; -webkit-text-size=
+-adjust: none; font-family: Inter, Helvetica, Arial, sans-serif; font-size:=
+ 14px; font-weight: 400; color: #111827; line-height: 140% !important;">
+    <div class=3D"main-container" style=3D"max-width: 734px; background: #F=
+FFFFF; border: 1px solid #D1D5DB; padding: 32px; border-radius: 16px; margi=
+n-left: auto; margin-right: auto;">
+      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation">
+        <tbody>
+          <tr>
+            <td style=3D"font-family: Inter, Helvetica, Arial, sans-serif; =
+font-size: 14px; font-weight: 400; color: #111827; line-height: 140% !impor=
+tant;">  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation">
+      <tbody>
+        <tr>
+          <td style=3D"font-family: Inter, Helvetica, Arial, sans-serif; fo=
+nt-size: 14px; font-weight: 400; color: #111827; line-height: 140% !importa=
+nt;">
+              <p class=3D"text-base" style=3D"margin: 0; line-height: 140%;=
+ font-size: 14px;">Congratulations!</p>
+              <h1 class=3D"text-2xl text-black" style=3D"margin: 0 0 5px; f=
+ont-size: 32px; line-height: 140%; color: #000000;">Your order has been sub=
+mitted.</h1>
+              <p class=3D"text-base text-gray-500" style=3D"margin: 0 0 30p=
+x; line-height: 140%; font-size: 14px; color: #6B7280;">Street date and del=
+ivery date may vary by product</p>
+              <a href=3D"https://www.fanaticscollectpro.com/orders/22231a78=
+-7f6c-4e57-ae52-e4a227075b6e" class=3D"button-primary" style=3D"margin-bott=
+om: 20px; color: #FFFFFF; text-decoration: none; display: inline-block; bor=
+der-radius: 6px; padding: 10px 20px; background: #111827; border: 1px solid=
+ #111827; text-align: center;">View Order</a>
+          </td>
+        </tr>
+        <tr>
+          <td style=3D"padding: 10px 0; font-family: Inter, Helvetica, Aria=
+l, sans-serif; font-size: 14px; font-weight: 400; color: #111827; line-heig=
+ht: 140% !important;">
+            <ul class=3D"product-list" style=3D"list-style-type: none; padd=
+ing: 0; margin: 0;">
+             =20
+                <li style=3D"margin: 0 0 32px 0;">
+                  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation">
+                    <tbody>
+                      <tr>
+                        <td style=3D"width: 50px; font-family: Inter, Helve=
+tica, Arial, sans-serif; font-size: 14px; font-weight: 400; color: #111827;=
+ line-height: 140% !important;">
+                          <div style=3D"box-shadow: 0px 5px 5px 0px rgba(0,=
+0,0,0.1); background: #F5F5F5; width: 50px; min-height: 50px;">
+                            <img src=3D"https://assets-images.fc-prod.net/p=
+roducts/v1/Topps/BDCXnQGyWc3YhQqo/EKucbg6kbJEvVDjo_thumbnail.jpg" width=3D"=
+50" height=3D"auto" style=3D"display: block;">
+                          </div>
+                        </td>
+                        <td style=3D"padding-left: 12px; font-family: Inter=
+, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; color: #=
+111827; line-height: 140% !important;">
+                          <p class=3D"text-sm" style=3D"line-height: 160%; =
+font-size: 12px; padding: 0; margin: 0;">Street Date: June 19, 2026</p>
+                          <h3 class=3D"text-base font-semibold" style=3D"fo=
+nt-size: 14px; line-height: 160%; padding: 0; margin: 0;">2025 MLB - Incept=
+ion Hobby -CSE</h3>
+                          <p class=3D"text-base" style=3D"line-height: 160%=
+; font-size: 14px; padding: 0; margin: 0;">SKU #FGC006483-CSE =E2=80=A2 Pro=
+duct Type (Baseball)</p>
+                          <p class=3D"text-base" style=3D"line-height: 160%=
+; font-size: 14px; padding: 0; margin: 0;">2 cases at $1,800.00/case | <str=
+ong class=3D"font-semibold">Subtotal $3,600.00</strong></p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+             =20
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td style=3D"font-family: Inter, Helvetica, Arial, sans-serif; fo=
+nt-size: 14px; font-weight: 400; color: #111827; line-height: 140% !importa=
+nt;">
+            <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation">
+              <tbody>
+                <tr>
+                  <td class=3D"text-left border-top" style=3D"padding: 15px=
+ 0; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 14px; font=
+-weight: 400; color: #111827; text-align: left; border-top: 1px solid #AAB1=
+B7; line-height: 140% !important;">Subtotal</td>
+                  <td class=3D"text-right border-top" style=3D"padding: 15p=
+x 0; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 14px; fon=
+t-weight: 400; color: #111827; text-align: right; border-top: 1px solid #AA=
+B1B7; line-height: 140% !important;">
+                    $3,600.00
+                  </td>
+                </tr>
+               =20
+                <tr>
+                  <td class=3D"text-left border-top" style=3D"padding: 15px=
+ 0; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 14px; font=
+-weight: 400; color: #111827; text-align: left; border-top: 1px solid #AAB1=
+B7; line-height: 140% !important;">ACH Discount</td>
+                  <td class=3D"text-right border-top" style=3D"padding: 15p=
+x 0; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 14px; fon=
+t-weight: 400; color: #111827; text-align: right; border-top: 1px solid #AA=
+B1B7; line-height: 140% !important;">-$87.80</td>
+                </tr>
+               =20
+               =20
+               =20
+                <tr>
+                  <td class=3D"text-left border-top text-bold text-md" styl=
+e=3D"padding: 15px 0; font-family: Inter, Helvetica, Arial, sans-serif; fon=
+t-size: 16px; font-weight: 600; color: #111827; line-height: 140% !importan=
+t; text-align: left; border-top: 1px solid #AAB1B7;">Total</td>
+                  <td class=3D"text-right border-top text-bold text-md" sty=
+le=3D"padding: 15px 0; font-family: Inter, Helvetica, Arial, sans-serif; fo=
+nt-size: 16px; font-weight: 600; color: #111827; line-height: 140% !importa=
+nt; text-align: right; border-top: 1px solid #AAB1B7;">$3,512.20</td>
+                </tr>
+                <tr>
+                  <td colspan=3D"2" class=3D"border-top" style=3D"padding: =
+15px 0; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 14px; =
+font-weight: 400; color: #111827; border-top: 1px solid #AAB1B7; line-heigh=
+t: 140% !important;">
+                    <h4 class=3D"text-bold text-base" style=3D"margin: 0 0 =
+4px; font-size: 14px; line-height: 140%; font-weight: 600;">Payment Method<=
+/h4>
+                    <p style=3D"margin: 0 0 15px; line-height: 140%;">=F0=9F=
+=8F=A6 ****2133</p>
+                    <h4 class=3D"text-bold text-base" style=3D"margin: 0 0 =
+4px; font-size: 14px; line-height: 140%; font-weight: 600;">Shipping Addres=
+s</h4>
+                    <p style=3D"margin: 0 0 2px; line-height: 140%;">Shoele=
+ss Joes</p>
+                    <p style=3D"margin: 0 0 2px; line-height: 140%;">6123 B=
+ridgetown Rd</p>
+                    <p style=3D"margin: 0 0 2px; line-height: 140%;"></p>
+                    <p style=3D"margin: 0 0 2px; line-height: 140%;">Cincin=
+nati, OH 45248</p>
+                    <p style=3D"margin: 0 0 2px; line-height: 140%;">US</p>
+                    <p style=3D"margin: 0; line-height: 140%;">513-574-4997=
+</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class=3D"border-top" style=3D"padding: 15px 0 0; font-family:=
+ Inter, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; co=
+lor: #111827; border-top: 1px solid #AAB1B7; line-height: 140% !important;"=
+>
+            <p style=3D"margin: 0; line-height: 140%;">Need help? <a href=3D=
+"https://www.fanaticscollectpro.com/contact-us/" class=3D"text-bold link-bl=
+ack" style=3D"color: #000000; text-decoration: none; font-weight: 600;">Con=
+tact us</a> for assistance with your order.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table></td>
+          </tr>
+          <tr>
+            <td class=3D"text-center" style=3D"padding: 30px 0 0; font-fami=
+ly: Inter, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400;=
+ color: #111827; text-align: center; line-height: 140% !important;">
+              <h4 class=3D"text-md text-semibold text-center" style=3D"marg=
+in: 0 0 5px; font-size: 16px; line-height: 140%; font-weight: 500; text-ali=
+gn: center;">
+                <img src=3D"https://www.fanaticscollectpro.com/images/logo_=
+fanatics_red.png" style=3D"display: inline-block; vertical-align:middle; wi=
+dth: 22px; height: auto; margin-right: 5px;">
+                Fanatics Collectibles
+              </h4>
+              <p class=3D"text-sm text-gray-500 text-center" style=3D"margi=
+n-top: 0; line-height: 140%; font-size: 12px; text-align: center; color: #6=
+B7280;">95 Morton Street, New York 10014</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+ =20
+<img src=3D"https://ea.pstmrk.it/open?m=3Dv3_1.UH8Jeh65kEv91gw7lxJyNg.OujeK=
+OSVtLfKER-LO6YWp6BN_6ki9VFx3wH9BbhUXEB846cJe6fsQUQp5f4eVGWNs33IsVtDWF6GE1pT=
+v8moEQiaxRfB207_ZpYwi3ZgC2JdoUJ59g6xNatETweKhDyHPrrJyFJmlVMyPrMCq8amtM9ezZ2=
+dPeyeU1CIjhPqPnoBP1UxJZmvWovTJRKcDYhY9fywUhCQD4r90eYIAtX_zBJvv2N1Sbps58Vwv3=
+fIGPrgWKafLKMFmWr8tMxIFeik6xVjicBk9GvwefB1cSNseOvfctgFyrs6OWZY33MMQ2gtEejeP=
+mdzftCae5vBFxk9z9xJeOlswQwjzMas-sfB_lRZfKYZxeE94CNW7iOlmD8UUvCpMO8paNNIXWYN=
+0cVnK1wT9Iamsy2l8iAsWmHs89R8Ws9pHKdWZtDI5Q1NswcAiS6Awe4-7UBkfOi--9NjvCGJZ67=
+qkKrfXErB0_bVyOHM__2POgDyZ13wgmiYq-QfS1TaCePAm1ArLy6DVzcQ8m2JutFz5iLNpOafti=
+d__A" width=3D"1" height=3D"1" border=3D"0" alt=3D"" /></body></html>
+
+--mk3-753e0c53b80640b4b526535140f3a542--

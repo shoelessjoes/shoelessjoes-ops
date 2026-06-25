@@ -3,7 +3,15 @@
 **Last updated:** 2026-06-17  
 **Owner goal:** One dashboard for everything on order, in transit, or due — Dealernet, Topps, Panini, GTS, email invoices, shipping — tied to Shopify draft products (UPC) and receive scan.
 
-Related docs:
+**Mailbox:** `contact@shoelessjoescards.com` (all vendor + Topps/FC Pro/GTS mail)
+
+**Owner priority (purchase ingest):**
+1. **Dealernet** — highest volume
+2. **Topps.com**, **Topps Direct (FC Pro)**, **Panini** — equal
+3. **GTS** — last
+
+Sample analysis: `VENDOR_PDF_SAMPLES_PANINI.md` · `VENDOR_EMAIL_SAMPLES.md`  
+Samples on disk: `data/vendor-samples/`
 - `INBOUND_OPS_HANDOFF.md` — inbound row model, sync lessons, receive scan
 - `DACARDWORLD_CATALOG.md` — draft product placeholders (UPC ahead of orders)
 - `WORK_QUEUE.md` — queue exit rules
@@ -200,10 +208,11 @@ Build **one parser module per vendor** — do not force one PDF layout. Suggeste
 
 | Order | Vendor | Why first |
 |-------|--------|-----------|
-| 1 | **GTS** | Wholesale PDFs often tabular (SKU, UPC, qty, price) |
-| 2 | **Panini** | High volume; similar PDF patterns |
-| 3 | **Topps.com** | Order + ship emails |
-| 4 | **Topps Direct / FC Pro** | May share Topps templates; separate `source` tag |
+| 0 | **Dealernet** | ✅ Highest volume — finish `InboundLine` |
+| 1 | **Topps.com** | Shopify email — easy order + ship parse |
+| 2 | **Topps FC Pro** | Plain-text order from `fanaticscollectpro.com` |
+| 3 | **Panini** | PDF + Red River ship HTML — see `VENDOR_PDF_SAMPLES_PANINI.md` |
+| 4 | **GTS** | PDF invoice — see `VENDOR_EMAIL_SAMPLES.md` |
 
 #### Parser output (same for all)
 
