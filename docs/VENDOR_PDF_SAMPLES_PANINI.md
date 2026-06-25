@@ -186,8 +186,7 @@ Extract for **catalog / dashboard**, not inbound receipt:
 
 **Suggested Gmail labels:**
 
-- `Invoices/Panini` → filter `from:paniniamerica.net OR from:panini.it`
-- `Invoices/Panini/Offers` → subject contains `Ready to Order`
+- Use **existing** owner labels — see `VENDOR_EMAIL_SAMPLES.md` (not a new `Invoices/…` tree).
 
 ---
 

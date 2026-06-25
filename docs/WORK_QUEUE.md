@@ -2,7 +2,7 @@
 
 **Goal:** One operational view of things that need attention. Done items drop off; history stays in Dealernet/Shopify/email.
 
-See also: `docs/PRIORITIES.md`, `docs/PURCHASE_FLOW.md`, `docs/DEALERNET_OFFER_PAGE.md`, `docs/AGENT_HANDOFF.md`.
+See also: `docs/INBOUND_OPS_HANDOFF.md`, `docs/VENDOR_CHANNELS_AND_DASHBOARD.md`, `docs/DEALERNET_OFFER_PAGE.md`, `docs/AGENT_HANDOFF.md`.
 
 ---
 
@@ -73,6 +73,7 @@ Target: merge Dealernet tracking + UPS notifications into one inbound shipment r
 | Piece | Status |
 |-------|--------|
 | `ingest-offers` (unrated purchases/sales) | Built |
+| `InboundLine` + sync after ingest | Built — `/app/queue` |
 | `poll-messages` + classify (incl. Offer Accepted/Declined) | Built |
 | `sync-offers` purchase/sale | Built (execute is manual gate) |
 | `probe-offer` + offer page matrix | Built |

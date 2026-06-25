@@ -2,6 +2,7 @@ import { collectDealernetOffers } from "@dealernet-ops/core";
 import { prisma } from "@dealernet-ops/db";
 import { loadDealernetLogin } from "../dealernet-login.js";
 import { getOrCreateShopFromEnv } from "../shop.js";
+import { syncDealernetInboundLines } from "../inbound/sync-dealernet.js";
 
 async function main() {
   const shop = await getOrCreateShopFromEnv();
@@ -84,6 +85,11 @@ async function main() {
 
     console.log(`Ingested ${rows.length} raw lines across ${byOffer.size} offers (${filter})`);
   }
+
+  const inbound = await syncDealernetInboundLines(shop.id);
+  console.log(
+    `Synced inbound queue from Dealernet: ${inbound.upserted} line(s), ${inbound.cancelled} cancelled`,
+  );
 }
 
 main().catch((e) => {

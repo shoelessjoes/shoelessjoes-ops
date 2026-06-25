@@ -14,18 +14,31 @@ Samples: `data/vendor-samples/{topps-fcpro,topps-com,gts,panini}/`
 
 ---
 
-## Gmail labels (contact@shoelessjoescards.com)
+## Gmail labels (existing — do not replace)
 
-| Label | Filter hints |
-|-------|----------------|
-| `Invoices/Dealernet` | Dealernet inbox (or rely on `poll-messages`) |
-| `Invoices/ToppsFCPro` | `from:fanaticscollectpro.com` |
-| `Invoices/Topps` | `from:t.shopifyemail.com` OR `from:topps.com` |
-| `Invoices/Panini` | `from:paniniamerica.net OR from:panini.it` |
-| `Invoices/Panini/ShipNotify` | `from:redriverdistribution.com` (Panini 3PL ship emails) |
-| `Invoices/GTS` | `from:gtsdistribution.com` |
+Owner already organizes **`contact@shoelessjoescards.com`** in Gmail. Ingest should **read these labels**, not create new ones.
 
-Apps Script: save **attachments** + parse **text/plain** or **HTML** body — not “Print to PDF” thread exports.
+| Parent | Sub-label | Vendor `source` | Parse as |
+|--------|-----------|-----------------|----------|
+| **\*Panini** | Offers | `panini` | presell / allocation (`stage: offered`) |
+| | Orders | `panini` | `Ordine_Web_*.pdf`, order confirm emails |
+| | Invoices | `panini` | `10275_VV*_*.pdf` |
+| | Shipments | `panini` | Red River `office@redriverdistribution.com`, tracking |
+| **\*Topps** | FC Pro Orders | `topps_fcpro` | `fanaticscollectpro.com` order submitted + offers |
+| | Topps.com Orders | `topps_com` | `t.shopifyemail.com` order confirmed |
+| | Shipments | `topps_com` | Topps.com “on the way” + FC Pro ship when present |
+| | Offers | `topps_fcpro` | FC Pro allocation emails (optional catalog) |
+| | News / buyback / EQL | — | **Skip ingest** (not purchase pipeline) |
+| **Leaf, GTS** | GTS | `gts` | `billing@gtsdistribution.com` + `INV*.pdf` |
+| | Invoices | `gts` | same |
+| | Releases | — | optional catalog only |
+| | BoBa / Diamond | — | TBD when samples exist |
+| **\*PSA** | Orders / Shipments / … | `psa` | separate grading workflow (not sealed inbound) |
+| **eBay** / **Finance** | — | out of scope for vendor purchase ingest |
+
+**Apps Script / worker:** one job per `(parent, sub-label)` or poll all purchase labels into one queue with `gmail_label` on each raw row.
+
+**Do not** parse “Save as PDF” thread exports — use **attachments** + **text/plain** / HTML body from live messages in these labels.
 
 ---
 

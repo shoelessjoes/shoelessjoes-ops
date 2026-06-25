@@ -1,4 +1,11 @@
 export { normalizeUpc, normalizeUpcCandidates, normalizeDealernetTitle } from "./normalize.js";
+export {
+  dealernetOfferFilterDirection,
+  dealernetLineCanonicalKey,
+  inboundStageFromTracking,
+  mergeInboundStage,
+  type InboundDirection,
+} from "./inbound/dealernet.js";
 export { matchOfferLineToVariant, type VariantIndexEntry } from "./mapping.js";
 export type { DealernetLoginConfig } from "./dealernet/types.js";
 export { recommendPriceAction, type PriceInputs, type PriceAction } from "./pricing.js";

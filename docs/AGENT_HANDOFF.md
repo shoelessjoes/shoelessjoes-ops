@@ -77,9 +77,10 @@ items, tags, gaps.
 
 | Job | Purpose |
 |-----|---------|
-| `job:ingest-offers` | Scrape `PURCHASESUNRATED` + `SALESUNRATED` → Postgres (captures `caseQtyBoxes`, `unitOfMeasure`, tracking-on-row) |
+| `job:ingest-offers` | Scrape `PURCHASESUNRATED` + `SALESUNRATED` → Postgres; syncs **`InboundLine`** queue |
 | `job:poll-messages` | Inbox → classify; **tracking → offer lines** when parsed |
 | `job:report-purchases` | Read-only UPC match report (ACCEPTED purchases) |
+| `/app/queue` | Read-only inbound/outbound queue (Dealernet today; vendor email later) |
 | `job:sync-offers purchase` | ACCEPTED buys → Shopify **draft orders** (dry-run default) |
 | `job:sync-offers sale` | ACCEPTED sales → Shopify **paid orders** + inventory decrement |
 | `job:update-purchase-tracking` | Push tracking onto existing draft orders |
@@ -95,7 +96,7 @@ items, tags, gaps.
 | P0 | **Verify first live run** — Admin draft orders, partial offers (e.g. missing Pokémon UPCs), case-qty skips |
 | P0 | Plug in **shared sealed catalog export** when delivered (replace per-run `fetchVariantIndex`) |
 | P1 | **Mapping overrides UI** — `apps/web` `app.mapping` for UPC/title mismatches |
-| P1 | **Receiving workflow** — link draft order / inbound line → scan UPC → receive inventory in Shopify (not built) |
+| P1 | **Receiving workflow** — scan UPC → update `InboundLine.qtyReceived` → Shopify inventory adjust |
 | P2 | **Scheduled jobs** on shop PC (Task Scheduler) or new Railway cron |
 | P2 | **Sale sync policy** — purchases-only automation first; sales manual or separate approval |
 | P3 | **Idempotency review** — `alreadySyncedOffers`; ensure re-ingest doesn't duplicate drafts |

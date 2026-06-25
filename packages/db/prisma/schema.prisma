@@ -24,6 +24,7 @@ model Shop {
   priceRecommendations PriceRecommendation[]
   vendingMirrors     VendingProductMirror[]
   zhongdaGoods       ZhongdaGoods[]
+  inboundLines       InboundLine[]
 }
 
 model DealernetOffer {
@@ -239,6 +240,47 @@ model ProductCatalog {
 
   @@index([barcode])
   @@index([productType])
+}
+
+/// Unified on-order / in-transit queue (Dealernet, vendor email, feeds — same row shape).
+model InboundLine {
+  id               String    @id @default(cuid())
+  shopId           String
+  shop             Shop      @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  canonicalKey     String    @unique
+  source           String
+  direction        String
+  externalId       String?
+  documentType     String?
+  stage            String    @default("ordered")
+  title            String
+  upc              String?
+  vendorSku        String?
+  qtyOrdered       Int       @default(0)
+  qtyReceived      Int       @default(0)
+  unitCost         Decimal?  @db.Decimal(12, 2)
+  unitOfMeasure    String?
+  caseQtyBoxes     Int?
+  tracking         String?
+  carrier          String?
+  dealer           String?
+  offerFilter      String?
+  dealernetOfferId String?
+  gmailMessageId   String?
+  gmailLabel       String?
+  shopifyVariantId String?
+  listingUrl       String?
+  rawUrl           String?
+  parseConfidence  Float?
+  receivedAt       DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@index([shopId, stage])
+  @@index([shopId, source])
+  @@index([shopId, direction])
+  @@index([upc])
+  @@index([externalId])
 }
 
 /// Dealernet market reference — UPC/title lookup with high buy / low sell (global, not per-shop).

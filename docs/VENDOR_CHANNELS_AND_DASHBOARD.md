@@ -151,19 +151,11 @@ All four wholesalers primarily arrive via **email** (order confirm → invoice P
 
 **Goal:** Nothing lost; every invoice/shipping email logged with PDF in Drive and row in DB/Sheet.
 
-#### Step 1 — Gmail filters + labels
+#### Step 1 — Use existing Gmail labels (no new label scheme)
 
-Create filters in the mailbox that receives vendor mail (often `orders@` or main shop Gmail):
+Owner label tree (examples): `*Panini/Orders|Invoices|Shipments|Offers`, `*Topps/FC Pro Orders|Topps.com Orders|Shipments`, `Leaf, GTS/GTS|Invoices`. See `VENDOR_EMAIL_SAMPLES.md` for mapping.
 
-| Label | Suggested filter hints |
-|-------|------------------------|
-| `Invoices/Topps` | `from:(topps.com OR notifications.topps.com)` |
-| `Invoices/ToppsDirect` | `from:(toppsdirect.com OR fcpro OR "Topps Direct")` — adjust to actual sender |
-| `Invoices/Panini` | `from:(paniniamerica.net OR panini.com)` |
-| `Invoices/GTS` | `from:(gtsdistribution.com OR "GTS Distribution")` |
-| `Invoices/Dealernet` | optional duplicate of inbox if not using poll-only |
-
-Also label **Shipping/** variants if ship notices use different subjects (`Shipped`, `Tracking`, `On the way`).
+Apps Script or Gmail API polls **those labels** on `contact@shoelessjoescards.com`.
 
 #### Step 2 — Clone Apps Script (one script, four vendors)
 
@@ -403,14 +395,11 @@ cd C:\Users\burke\Git2\shoelessjoes-supplier-py
 
 ## Gmail / Google setup checklist
 
-- [ ] Identify mailbox that receives Topps, Panini, GTS mail
-- [ ] Create 4 invoice labels + optional shipping labels
-- [ ] Create Apps Script project bound to `Shoeless_Automations` Sheet
-- [ ] Paste 4 vendor variants of `log_vendor_invoices.gs` (or parameterize one script)
-- [ ] Time-driven trigger every 15 min
-- [ ] Share Sheet with ops service account OR build webhook to ops
-- [ ] Collect 5 sample PDFs per vendor in Drive for parser development
-- [ ] Document actual `from:` addresses (FC Pro may differ from topps.com)
+- [x] Mailbox: `contact@shoelessjoescards.com`
+- [x] Label tree in use (`*Panini`, `*Topps`, `Leaf, GTS`, …) — wire ingest to existing labels
+- [ ] Apps Script or ops worker: poll labeled mail → Postgres (not a parallel label system)
+- [ ] Sample PDFs in `data/vendor-samples/` for parser dev
+- [ ] FC Pro invoice-on-ship email when available
 
 ---
 
