@@ -1,6 +1,6 @@
 # Agent handoff — Shoeless Joe's back office (ops)
 
-**Last updated:** 2026-06-16
+**Last updated:** 2026-06-17
 **Audience:** Any agent (Claude Code, Cursor, etc.) picking up back-office work.
 **Shop:** `qebynk-b0.myshopify.com` (public: shoelessjoescards.com)
 
@@ -8,6 +8,7 @@
 > This file is the single master handoff for the **ops** repo — it absorbs the former `HANDOFF_CLAUDE.md`
 > and `PRIORITIES.md`. Job sequences/runbooks are in `RUNBOOK.md`; the offer-page UI matrix in
 > `DEALERNET_OFFER_PAGE.md`; vending in `VENDING_ZHONGDA.md`; DB setup in `DATABASE_SETUP.md`.
+> **Session wrap-up (market search, sync lessons, inbound pipeline):** `INBOUND_OPS_HANDOFF.md`.
 
 ---
 
@@ -220,14 +221,11 @@ Detailed sequences and the first-live cutover are in `RUNBOOK.md`.
 ## Session bootstrap (paste this)
 
 ```
-Read SHOELESS_JOES_MASTER.md then shoelessjoes-ops/docs/AGENT_HANDOFF.md.
+Read shoelessjoes-ops/docs/INBOUND_OPS_HANDOFF.md then AGENT_HANDOFF.md and WORK_QUEUE.md.
 
-Context: Dealernet ops runs locally (Docker Postgres). Owner completed first live purchase sync after
-clearing old offers — VERIFY Shopify draft orders. A shared sealed-product Shopify export is the linchpin
-priority.
-
-Next: verify live run, catalog integration, mapping overrides, receiving workflow, schedules.
-New stream: vendor email invoices (Topps/Panini/GTS) — Phase 1 Gmail→DB, Phase 2 parse PDFs.
+Context: Market search + DealernetMarketProduct built; first live purchase sync created 10 Shopify
+draft orders (wrong doc type for inbound — see handoff). Next: InboundLine queue, fix sync semantics
+(sales→drafts, purchases→inbound), draft product import, receive scan, vendor email/PDF on same rail.
 
 Do not use old Railway DATABASE_URL. Shop domain: qebynk-b0.myshopify.com
 ```
