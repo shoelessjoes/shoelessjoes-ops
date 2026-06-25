@@ -203,7 +203,7 @@ flowchart TB
 | Email / PDF | Gmail / Apps Script / worker (planned) | Email body, carrier APIs later |
 | Placeholder catalog | Matrixify or draft import UI | N/A |
 
-**Existing starters:** `shoelessjoes-supplier-py/integrations/google_apps_script/log_vendor_invoices.gs`, `docs/google-workspace-automation-starter.md`, `docs/dealernet-intake-starter.md` (supplier-py).
+**Existing starters:** `shoelessjoes-supplier-py/integrations/google_apps_script/log_vendor_invoices.gs`, `docs/google-workspace-automation-starter.md`, `docs/dealernet-intake-starter.md` (supplier-py). **DA Card World catalog scrape:** `docs/DACARDWORLD_CATALOG.md`.
 
 **Graded-card import pattern:** `shoelessjoes-storefront` PSA form + `GRADED_CARDS.md` — reuse review → create draft products UX for **sealed wax** (UPC, sport, year, box type).
 

@@ -8,7 +8,9 @@
 > This file is the single master handoff for the **ops** repo — it absorbs the former `HANDOFF_CLAUDE.md`
 > and `PRIORITIES.md`. Job sequences/runbooks are in `RUNBOOK.md`; the offer-page UI matrix in
 > `DEALERNET_OFFER_PAGE.md`; vending in `VENDING_ZHONGDA.md`; DB setup in `DATABASE_SETUP.md`.
-> **Session wrap-up (market search, sync lessons, inbound pipeline):** `INBOUND_OPS_HANDOFF.md`.
+> **Session wrap-up (market search, sync lessons, inbound pipeline):** `INBOUND_OPS_HANDOFF.md`.  
+> **DA Card World draft-product feed (UPC presells / new releases):** `DACARDWORLD_CATALOG.md`.  
+> **Vendor email (Topps / Panini / GTS) + unified dashboard:** `VENDOR_CHANNELS_AND_DASHBOARD.md`.
 
 ---
 
