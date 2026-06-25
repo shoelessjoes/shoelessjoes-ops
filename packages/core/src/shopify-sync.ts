@@ -227,45 +227,22 @@ export async function syncAcceptedOffersToShopify(opts: {
     }
 
     try {
-      if (mode === "purchase") {
-        const body = {
-          draft_order: {
-            line_items: orderLines,
-            note,
-            tags: `dealernet,purchase,offer-${offerId}`,
-          },
-        };
-        const resp = await shopifyPost<{ draft_order?: { id: number } }>(session, "/draft_orders.json", body);
-        const id = resp.draft_order?.id;
-        events.push({
-          offerId,
-          mode,
-          idempotencyKey,
-          status: "created",
-          shopifyDraftOrderId: id ? String(id) : undefined,
-        });
-      } else {
-        const body = {
-          order: {
-            line_items: orderLines,
-            note,
-            tags: `dealernet,sale,offer-${offerId}`,
-            financial_status: "paid",
-            inventory_behaviour: "decrement_ignoring_policy",
-            send_receipt: false,
-            send_fulfillment_receipt: false,
-          },
-        };
-        const resp = await shopifyPost<{ order?: { id: number } }>(session, "/orders.json", body);
-        const id = resp.order?.id;
-        events.push({
-          offerId,
-          mode,
-          idempotencyKey,
-          status: "created",
-          shopifyOrderId: id ? String(id) : undefined,
-        });
-      }
+      const body = {
+        draft_order: {
+          line_items: orderLines,
+          note,
+          tags: `dealernet,sale,offer-${offerId}`,
+        },
+      };
+      const resp = await shopifyPost<{ draft_order?: { id: number } }>(session, "/draft_orders.json", body);
+      const id = resp.draft_order?.id;
+      events.push({
+        offerId,
+        mode,
+        idempotencyKey,
+        status: "created",
+        shopifyDraftOrderId: id ? String(id) : undefined,
+      });
       offersCreated += 1;
     } catch (e) {
       events.push({

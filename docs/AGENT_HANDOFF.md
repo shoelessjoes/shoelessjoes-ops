@@ -81,8 +81,8 @@ items, tags, gaps.
 | `job:poll-messages` | Inbox → classify; **tracking → offer lines** when parsed |
 | `job:report-purchases` | Read-only UPC match report (ACCEPTED purchases) |
 | `/app/queue` | Read-only inbound/outbound queue (Dealernet today; vendor email later) |
-| `job:sync-offers purchase` | ACCEPTED buys → Shopify **draft orders** (dry-run default) |
-| `job:sync-offers sale` | ACCEPTED sales → Shopify **paid orders** + inventory decrement |
+| `job:sync-offers purchase` | ACCEPTED buys → variant **unit cost** + `InboundLine.shopifyVariantId` (no draft orders) |
+| `job:sync-offers sale` | ACCEPTED sales → Shopify **draft orders** (dry-run default) |
 | `job:update-purchase-tracking` | Push tracking onto existing draft orders |
 | `job:probe-offer` | DOM snapshot of offer pages (see `DEALERNET_OFFER_PAGE.md`) |
 

@@ -73,8 +73,7 @@ export default function InboundQueuePage() {
             <th align="left">Offer #</th>
             <th align="left">Title</th>
             <th align="left">UPC</th>
-            <th align="right">Qty</th>
-            <th align="right">Rcvd</th>
+            <th align="right">Rcvd/Ord</th>
             <th align="right">Cost</th>
             <th align="left">Tracking</th>
             <th align="left">Dealer</th>
@@ -83,7 +82,7 @@ export default function InboundQueuePage() {
         <tbody>
           {lines.length === 0 ? (
             <tr>
-              <td colSpan={10} style={{ padding: "1rem", color: "#666" }}>
+              <td colSpan={9} style={{ padding: "1rem", color: "#666" }}>
                 No lines — run <code>npm run job:ingest-offers</code> with accepted Dealernet offers.
               </td>
             </tr>
@@ -97,8 +96,9 @@ export default function InboundQueuePage() {
                 <td>{line.externalId ?? "—"}</td>
                 <td>{line.title}</td>
                 <td>{line.upc ?? "—"}</td>
-                <td align="right">{line.qtyOrdered}</td>
-                <td align="right">{line.qtyReceived}</td>
+                <td align="right">
+                  {line.qtyReceived}/{line.qtyOrdered}
+                </td>
                 <td align="right">{line.unitCost?.toString() ?? "—"}</td>
                 <td>{line.tracking ?? "—"}</td>
                 <td>{line.dealer ?? "—"}</td>

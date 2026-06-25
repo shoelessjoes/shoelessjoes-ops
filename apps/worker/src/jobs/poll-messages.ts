@@ -11,6 +11,7 @@ import { prisma } from "@dealernet-ops/db";
 import { optionalEnv, requireEnv } from "../env.js";
 import { loadDealernetLogin } from "../dealernet-login.js";
 import { getOrCreateShopFromEnv } from "../shop.js";
+import { syncDealernetInboundLines } from "../inbound/sync-dealernet.js";
 
 function loadSmtp(): AlertSmtpConfig {
   return {
@@ -197,6 +198,11 @@ async function main() {
       (backfillCount ? ` (${backfillCount} backfilled from DB)` : "") +
       (isBootstrap ? " (bootstrap mode: notifications suppressed)" : "") +
       (unreadOnly ? " (unread-only scrape)" : ""),
+  );
+
+  const inbound = await syncDealernetInboundLines(shop.id);
+  console.log(
+    `Inbound queue refreshed: ${inbound.upserted} line(s), ${inbound.cancelled} cancelled`,
   );
 }
 

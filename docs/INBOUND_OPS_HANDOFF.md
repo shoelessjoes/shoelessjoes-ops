@@ -239,14 +239,14 @@ POS native scan won’t show Dealernet context without a POS UI extension; sidec
 
 | P | Task |
 |---|------|
-| 1 | **Fix sync semantics** — sales → draft orders; purchases → `InboundLine` (stop purchase → draft orders) |
+| 1 | ~~**Fix sync semantics**~~ — **done** purchases → InboundLine + cost; sales → draft orders |
 | 2 | ~~**`InboundLine` table**~~ — **done** (`20260617140000_inbound_line`); sync runs after `ingest-offers`; `InboundShipment` deferred |
 | 3 | ~~**On purchase accept → inbound line**~~ — **done** for Dealernet ACCEPTED unrated; UPC match + cost on variant still manual |
 | 4 | **Draft sealed-product import UI** — PSA/graded-card-style review; CSV → approve → draft products |
 | 5 | **Retailer placeholder feed** (optional) — pre-build draft products with UPC (`DACARDWORLD_CATALOG.md`) |
 | 6 | **Vendor email/PDF** — parse → same `InboundLine` (Topps, Panini, GTS, …) |
 | 7 | ~~**Dashboard**~~ — **read-only** `/app/queue`; receive scan + filters still to build |
-| 8 | **Receive scan** — UPC → adjust inventory + mark received |
+| 8 | ~~**Receive scan**~~ — **v1** `/app/receive` (UPC → inventory adjust + mark received) |
 | 9 | Review `no_results` from market search (~188 queries) — typos, alternate search strings |
 | 10 | UPS tracking merge (planned in `WORK_QUEUE.md`) |
 

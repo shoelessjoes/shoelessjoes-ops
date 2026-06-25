@@ -18,6 +18,18 @@ export {
   type SyncOfferLineInput,
   type SyncResult,
 } from "./shopify-sync.js";
+export {
+  syncAcceptedPurchasesToShopify,
+  type PurchaseSyncLineInput,
+  type PurchaseSyncLineResult,
+  type PurchaseSyncResult,
+} from "./shopify-purchase-sync.js";
+export {
+  adjustInventoryAtLocation,
+  fetchVariantInventoryItemId,
+  receiveVariantInventory,
+  updateInventoryItemCost,
+} from "./shopify-inventory.js";
 export { sendSmtpAlert, type AlertSmtpConfig } from "./notifications.js";
 export { collectDealernetOffers, type DealernetOfferLineRow } from "./dealernet/offers.js";
 export { collectDealernetMessages, type DealernetMessageRow } from "./dealernet/messages.js";

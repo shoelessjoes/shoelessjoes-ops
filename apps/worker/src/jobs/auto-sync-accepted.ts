@@ -25,7 +25,6 @@ async function runMode(mode: "purchase" | "sale"): Promise<void> {
 }
 
 async function main() {
-  await runMode("purchase");
   await runMode("sale");
 }
 

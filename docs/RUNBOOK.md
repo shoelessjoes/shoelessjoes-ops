@@ -10,20 +10,23 @@ Routine job sequences and the one-time first-live cutover. Strategy/priorities l
 ingest-offers          poll-messages              sync-offers purchase
      │                      │                            │
      ▼                      ▼                            ▼
- Postgres offers     tracking → offer lines      UPC match → draft order
+ Postgres offers     tracking → offer lines      UPC match → variant cost + InboundLine
+     │                      │                   sync-offers sale → draft orders
+     └──────────────────────┴── InboundLine queue (/app/queue, /app/receive)
 ```
 
 ## Jobs
 
 | Command | Purpose |
 |---------|---------|
-| `npm run job:ingest-offers` | Refresh purchase/sale offers from DealerNet → Postgres |
-| `npm run job:poll-messages` | Inbox scrape; **writes tracking to offer lines** when found in message body |
+| `npm run job:ingest-offers` | Refresh purchase/sale offers from DealerNet → Postgres + **InboundLine** |
+| `npm run job:poll-messages` | Inbox scrape; **writes tracking to offer lines**; refreshes InboundLine |
 | `npm run job:report-purchases` | Read-only report: ACCEPTED purchases, UPC match vs live Shopify |
-| `npm run job:sync-offers:purchase` | Dry-run draft order creation for ACCEPTED purchases |
-| `npm run job:sync-offers -- purchase --execute` | Create Shopify draft orders |
-| `npm run job:sync-offers:sale` / `:sale:execute` | Sales dry-run / live (paid orders + inventory decrement) |
-| `npm run job:update-purchase-tracking` | Push tracking from DB onto **existing** draft orders (dry-run default; `--execute` to write) |
+| `npm run job:sync-offers:purchase` | Dry-run: link variants + unit cost on ACCEPTED purchases (**no draft orders**) |
+| `npm run job:sync-offers -- purchase --execute` | Write variant unit cost + `InboundLine.shopifyVariantId` |
+| `npm run job:sync-offers:sale` / `:sale:execute` | Sales dry-run / live → **Shopify draft orders** (not paid orders) |
+| `npm run job:update-purchase-tracking` | Refresh InboundLine stages/tracking from Dealernet DB (`--execute`) |
+| `npm run job:sync-inbound-dealernet` | Re-sync InboundLine only (no Dealernet scrape) |
 
 ## Recommended routine order
 
@@ -31,17 +34,17 @@ ingest-offers          poll-messages              sync-offers purchase
 npm run job:ingest-offers
 npm run job:poll-messages                 # first time: DEALERNET_POLL_BOOTSTRAP=1 in worker .env
 npm run job:report-purchases              # see UPC match gaps before sync
-npm run job:sync-offers:purchase          # dry-run
+npm run job:sync-offers:purchase          # dry-run variant link + cost
 npm run job:sync-offers -- purchase --execute --no-create-missing
-npm run job:update-purchase-tracking -- --execute   # after tracking arrives in inbox
+npm run job:update-purchase-tracking -- --execute   # refresh InboundLine tracking stages
 ```
 
 ## Tracking
 
 - Offer detail page may include tracking at ingest time.
 - **Inbox messages** (`Offer Shipping Updated`, body text) are the usual source when tracking arrives later.
-- `poll-messages` parses tracking → `DealernetOfferLine.trackingNumber`.
-- `update-purchase-tracking` updates draft order note/tags (`dealernet-in-transit`, etc.) without re-creating the draft.
+- `poll-messages` parses tracking → `DealernetOfferLine.trackingNumber` → **InboundLine** on next poll/ingest.
+- `update-purchase-tracking` re-syncs InboundLine from Postgres (no Shopify draft orders).
 
 ---
 

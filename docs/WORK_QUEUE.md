@@ -75,11 +75,11 @@ Target: merge Dealernet tracking + UPS notifications into one inbound shipment r
 | `ingest-offers` (unrated purchases/sales) | Built |
 | `InboundLine` + sync after ingest | Built — `/app/queue` |
 | `poll-messages` + classify (incl. Offer Accepted/Declined) | Built |
-| `sync-offers` purchase/sale | Built (execute is manual gate) |
+| `sync-offers` purchase/sale | Built | purchase → cost + InboundLine; sale → draft orders |
 | `probe-offer` + offer page matrix | Built |
 | Pending In/Out ingest for dashboard | To add |
 | Sale "shipped + paid" auto-done | To add |
-| Receive scan UI | To build (`apps/web`) |
+| Receive scan UI | ✅ v1 | `/app/receive` |
 | Gmail invoice ingest | Claude building |
 | eBay pending ship | Future |
 
