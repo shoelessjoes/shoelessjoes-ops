@@ -1,7 +1,14 @@
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
-import { normalizeUpc, receiveVariantInventory } from "@dealernet-ops/core";
+import {
+  computeWeightedAverageUnitCost,
+  fetchInventoryAvailableAtLocation,
+  fetchInventoryItemCost,
+  fetchVariantInventoryItemId,
+  normalizeUpc,
+  receiveVariantInventory,
+} from "@dealernet-ops/core";
 import { authenticate } from "../shopify.server";
 import { prisma } from "../db.server";
 
@@ -68,6 +75,44 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   }
 
   const receiveQty = Math.min(qty, remaining);
+  const lineCost = line.unitCost ? Number(line.unitCost) : null;
+
+  let costPreview: {
+    onHandBefore: number | null;
+    previousCost: number | null;
+    receiveCost: number | null;
+    blendedCost: number | null;
+  } | null = null;
+
+  if (line.shopifyVariantId && locationIdFromEnv() && lineCost != null) {
+    const locationId = locationIdFromEnv()!;
+    const accessToken = session.accessToken;
+    if (accessToken) {
+      try {
+        const apiVersion = process.env.SHOPIFY_API_VERSION ?? "2024-10";
+        const sessionOpts = { shopDomain: session.shop, accessToken, apiVersion };
+        const inventoryItemId = await fetchVariantInventoryItemId(sessionOpts, line.shopifyVariantId);
+        if (inventoryItemId) {
+          const onHandBefore = await fetchInventoryAvailableAtLocation(
+            sessionOpts,
+            inventoryItemId,
+            locationId,
+          );
+          const previousCost = await fetchInventoryItemCost(sessionOpts, inventoryItemId);
+          const blendedCost = computeWeightedAverageUnitCost({
+            onHand: onHandBefore,
+            currentCost: previousCost,
+            receiveQty,
+            receiveCost: lineCost,
+          });
+          costPreview = { onHandBefore, previousCost, receiveCost: lineCost, blendedCost };
+        }
+      } catch {
+        // Preview is best-effort; execute path will surface errors.
+      }
+    }
+  }
+
   const preview = {
     lineId: line.id,
     title: line.title,
@@ -76,6 +121,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     remainingAfter: remaining - receiveQty,
     shopifyVariantId: line.shopifyVariantId,
     unitCost: line.unitCost?.toString() ?? null,
+    costPreview,
   };
 
   if (!execute) {
@@ -103,8 +149,9 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   }
 
   const apiVersion = process.env.SHOPIFY_API_VERSION ?? "2024-10";
+  let inventoryResult;
   try {
-    await receiveVariantInventory(
+    inventoryResult = await receiveVariantInventory(
       {
         shopDomain: session.shop,
         accessToken,
@@ -114,7 +161,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         variantId: line.shopifyVariantId,
         locationId,
         qty: receiveQty,
-        unitCost: line.unitCost ? Number(line.unitCost) : null,
+        unitCost: lineCost,
       },
     );
   } catch (e) {
@@ -138,6 +185,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   return json({
     ok: true,
     preview,
+    inventory: inventoryResult,
     received: newReceived,
     stage: fullyReceived ? "received" : line.stage,
   });
@@ -150,9 +198,9 @@ export default function ReceiveScanPage() {
     <div>
       <h1>Receive scan</h1>
       <p style={{ color: "#666", maxWidth: "40rem" }}>
-        Scan or type a UPC to receive against the oldest open inbound line. Dry-run previews the match;
-        check Execute to adjust Shopify inventory. Requires <code>SHOPIFY_LOCATION_ID</code> and a linked
-        variant (<code>sync-offers purchase --execute</code>).
+        Scan or type a UPC to receive against the oldest open inbound line. Shopify unit cost is
+        blended (weighted average) when you already have stock at a different cost. Dry-run previews
+        the match and blended cost; check Execute to adjust inventory.
       </p>
       <Form method="post" style={{ marginTop: "1rem" }}>
         <label style={{ display: "block", marginBottom: "0.5rem" }}>

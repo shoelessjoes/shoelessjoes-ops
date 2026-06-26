@@ -1,3 +1,4 @@
+export { computeWeightedAverageUnitCost } from "./inventory-cost.js";
 export { normalizeUpc, normalizeUpcCandidates, normalizeDealernetTitle } from "./normalize.js";
 export {
   dealernetOfferFilterDirection,
@@ -9,6 +10,12 @@ export {
 export { matchOfferLineToVariant, type VariantIndexEntry } from "./mapping.js";
 export type { DealernetLoginConfig } from "./dealernet/types.js";
 export { recommendPriceAction, type PriceInputs, type PriceAction } from "./pricing.js";
+export {
+  buildShopifyBarcodeSet,
+  createRetailerDraftProduct,
+  type RetailerDraftInput,
+  type RetailerDraftResult,
+} from "./shopify/retailer-drafts.js";
 export { exportSealedCatalog } from "./shopify/catalog-export.js";
 export type { CatalogRow } from "./shopify/catalog-export.js";
 export {
@@ -26,9 +33,12 @@ export {
 } from "./shopify-purchase-sync.js";
 export {
   adjustInventoryAtLocation,
+  fetchInventoryAvailableAtLocation,
+  fetchInventoryItemCost,
   fetchVariantInventoryItemId,
   receiveVariantInventory,
   updateInventoryItemCost,
+  type ReceiveVariantInventoryResult,
 } from "./shopify-inventory.js";
 export { sendSmtpAlert, type AlertSmtpConfig } from "./notifications.js";
 export { collectDealernetOffers, type DealernetOfferLineRow } from "./dealernet/offers.js";

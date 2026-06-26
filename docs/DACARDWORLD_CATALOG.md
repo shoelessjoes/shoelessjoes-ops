@@ -4,7 +4,7 @@
 **Retailer:** [Dave & Adams Card World](https://www.dacardworld.com) (`dacardworld.com`)  
 **Purpose:** Pre-build **draft** Shopify products with UPC + release metadata so Dealernet purchases, vendor invoices, and receive-scan can match by barcode on day one.
 
-Related: `INBOUND_OPS_HANDOFF.md` (inbound queue model) · `WORK_QUEUE.md`
+> **Also see:** `RETAILER_CATALOG_FEEDS.md` — compares Midwest Cards (recommended calendar) vs DA for presell/release draft products.
 
 ---
 

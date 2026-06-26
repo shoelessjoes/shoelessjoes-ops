@@ -3,6 +3,7 @@ import { normalizeUpc } from "./normalize.js";
 import type { VariantIndexEntry } from "./mapping.js";
 import { fetchVariantIndex } from "./shopify-sync.js";
 import {
+  fetchInventoryAvailableAtLocation,
   fetchVariantInventoryItemId,
   updateInventoryItemCost,
 } from "./shopify-inventory.js";
@@ -184,9 +185,15 @@ export async function syncAcceptedPurchasesToShopify(opts: {
       if (cost != null && cost > 0) {
         const inventoryItemId = await fetchVariantInventoryItemId(session, variantId);
         if (inventoryItemId) {
-          await updateInventoryItemCost(session, inventoryItemId, cost);
-          costUpdated = true;
-          costsUpdated += 1;
+          const locationId = process.env.SHOPIFY_LOCATION_ID?.trim();
+          const onHand = locationId
+            ? await fetchInventoryAvailableAtLocation(session, inventoryItemId, locationId)
+            : 0;
+          if (onHand <= 0) {
+            await updateInventoryItemCost(session, inventoryItemId, cost);
+            costUpdated = true;
+            costsUpdated += 1;
+          }
         }
       }
       lineResults.push({
