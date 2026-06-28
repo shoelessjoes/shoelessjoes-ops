@@ -39,25 +39,34 @@ export async function buildShopifyBarcodeSet(
   }
 
   let url: string | null =
-    `https://${session.shopDomain}/admin/api/${session.apiVersion}/products.json?limit=250&status=any&fields=id,title,variants`;
-  while (url) {
-    const res = await fetch(url, {
-      headers: { "X-Shopify-Access-Token": session.accessToken },
-    });
-    if (!res.ok) {
-      const text = await res.text();
-      throw new Error(`Shopify products fetch failed ${res.status}: ${text.slice(0, 400)}`);
-    }
-    const data = (await res.json()) as {
-      products?: Array<{ variants?: Array<{ barcode?: string | null }> }>;
-    };
-    for (const p of data.products ?? []) {
-      for (const v of p.variants ?? []) {
-        const upc = normalizeUpc(v.barcode);
-        if (upc) set.add(upc);
+    `https://${session.shopDomain}/admin/api/${session.apiVersion}/products.json?limit=250&fields=id,title,variants`;
+  const seenProductIds = new Set<number>();
+  for (const status of ["active", "draft", "archived"] as const) {
+    url =
+      `https://${session.shopDomain}/admin/api/${session.apiVersion}/products.json?limit=250&status=${status}&fields=id,title,variants`;
+    while (url) {
+      const res = await fetch(url, {
+        headers: { "X-Shopify-Access-Token": session.accessToken },
+      });
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`Shopify products fetch failed ${res.status}: ${text.slice(0, 400)}`);
       }
+      const data = (await res.json()) as {
+        products?: Array<{ id?: number; variants?: Array<{ barcode?: string | null }> }>;
+      };
+      for (const p of data.products ?? []) {
+        if (p.id != null) {
+          if (seenProductIds.has(p.id)) continue;
+          seenProductIds.add(p.id);
+        }
+        for (const v of p.variants ?? []) {
+          const upc = normalizeUpc(v.barcode);
+          if (upc) set.add(upc);
+        }
+      }
+      url = parseLinkNext(res.headers.get("Link"));
     }
-    url = parseLinkNext(res.headers.get("Link"));
   }
   return set;
 }
